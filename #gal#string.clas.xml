@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/STRING</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>String Utilities</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>000</KEY>
+     <ENTRY>Today</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Yesterday</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T00</KEY>
+     <ENTRY>[WWWW+], [MMMM] [D], [YYYY]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T01</KEY>
+     <ENTRY>[h12]:[mm]:[ss] [AMPM]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T02</KEY>
+     <ENTRY>[Date] - [Time]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T03</KEY>
+     <ENTRY>[YYYY]/[MM]/[DD]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T04</KEY>
+     <ENTRY>[h12]:[mm]:[ss] [AMPM]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ADJUST_CASE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Adjust casing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ADJUST_CASE_MODE_DEFAULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Adjust case mode: Default</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ADJUST_CASE_MODE_LOWER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Adjust case mode: Lower</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ADJUST_CASE_MODE_UPPER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Adjust case mode: Upper</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ANY_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert any field to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>DATE_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert date to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>DOMVALUE_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert value to text using domain fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>ENDS_WITH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check if string ends with a specific string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>FORMAT_DEFAULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Format: Default</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>FORMAT_DOMAIN_VALUE_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Format: Text for domain value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>FORMAT_SHORT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Format: Short (Date and Time)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>GET_LENGTH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get length of a string without counting trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>GET_SPECIAL_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get special character</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>LIMIT_LENGTH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Limit length of a string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>LINE_BREAK_UNIX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Line break (Unix)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>LINE_BREAK_WINDOWS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Line break (Windows)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>LONG_TIMESTAMP_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert long timestamp to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>MAX_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Maximum Possible Value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>MIN_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Minimum Possible Value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>NON_BREAKING_SPACE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Non breaking space</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>OBJECT_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get string representation of an object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>REPLACE_VARIABLES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace variables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STARTS_WITH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check if string starts with a specific string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STRING_TO_DOMVALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert text to value using domain fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STRING_TO_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create a message from a given string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STRING_TO_MESSAGE_VARS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Split string into message variables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STRING_TO_STRINGTABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert string into a stringtable</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>STRING_TO_XSTRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert String to XString</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>TIMESTAMP_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert timestamp to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>TIME_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert time to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>TRIM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove leading and trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>TRIM_LEFT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove leading spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>TRIM_RIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>WHITESPACE_CHARS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Whitespace characters</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING</CLSNAME>
+     <CMPNAME>XSTRING_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert XString to String</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

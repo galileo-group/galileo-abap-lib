@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Font Information</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+     <CMPNAME>GET_FONT_NAME_FOR_CSS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get font name for CSS</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+     <CMPNAME>GET_FONT_SIZE_FOR_CSS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get font size for CSS</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+     <CMPNAME>NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Font name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/FONT_INFO</CLSNAME>
+     <CMPNAME>SIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Font size</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/TRACE</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Trace</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>000</KEY>
+     <ENTRY>[No message information available]</ENTRY>
+     <LENGTH>60</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>ADD_LISTENER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add listener</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Klassenkonstruktor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>CLEANUP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cleanup (remove obsolete data)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>CONTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Trace context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>FLUSH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flush buffer (this may commit the current transaction!)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>GET_CALLER_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write a new line of text into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>GET_FIELD_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Metainformationen für ein Feld ermitteln</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>INDENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Indent</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>INDENT_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Indent level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>LISTENERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Trace listeners</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>MESSAGE_STACK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Message stack</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>REMOVE_LISTENER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove listener</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>REPLACE_VARIABLES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write a new line into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>SEND_TO_LISTENERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Send new Trace lin to listeners</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>SET_INDENT_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set indent level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>UNINDENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Unindent</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_ANY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write a new line into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_CALLSTACK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write the current callstack to the trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_ERROR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write the current error message into the trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write the exception message into the trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_OBJECT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write an object into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write a structure into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write an internal table into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TRACE</CLSNAME>
+     <CMPNAME>WRITE_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write a new line of text into the Trace</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

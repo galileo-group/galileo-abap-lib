@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>String Utilities (for compatibility only, use /GAL/STRING)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>000</KEY>
+     <ENTRY>Today</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Yesterday</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T00</KEY>
+     <ENTRY>[WWWW+], [MMMM] [D], [YYYY]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T01</KEY>
+     <ENTRY>[h12]:[mm]:[ss] [AMPM]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T02</KEY>
+     <ENTRY>[Date] - [Time]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T03</KEY>
+     <ENTRY>[YYYY]/[MM]/[DD]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T04</KEY>
+     <ENTRY>[h12]:[mm]:[ss] [AMPM]</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>ADJUST_CASE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Adjust casing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>ANY_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert any field to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>DATE_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert date to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>DOMVALUE_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert value to string using domain fixed values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>GET_LENGTH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get length of a string without counting trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>LIMIT_LENGTH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Limit length of a string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>LINE_BREAK_UNIX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Line break (Unix)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>LINE_BREAK_WINDOWS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Line break (Windows)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>LONG_TIMESTAMP_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert long timestamp to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>MAX_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Maximum Possible Value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>MIN_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Minimum Possible Value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>NON_BREAKING_SPACE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Non breaking space</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>OBJECT_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get string representation of an object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>REPLACE_VARIABLES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace variables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>STRING_TO_MESSAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create a message from a given string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>STRING_TO_MESSAGE_VARS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Split string into message variables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>STRING_TO_STRINGTABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert string into a stringtable</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>TIMESTAMP_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert timestamp to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>TIME_TO_STRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert time to string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>TRIM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove leading and trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>TRIM_LEFT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove leading spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>TRIM_RIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove trailing spaces</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STRING_UTILITIES</CLSNAME>
+     <CMPNAME>WHITESPACE_CHARS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Whitespace characters</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

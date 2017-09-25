@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/CONFIG_KEY_TYPE</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/GAL/CONFIG_KEY_TYPE</DOMNAME>
+    <HEADLEN>10</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Configuration store: Key type</DDTEXT>
+    <REPTEXT>Key type</REPTEXT>
+    <SCRTEXT_S>Type</SCRTEXT_S>
+    <SCRTEXT_M>Key type</SCRTEXT_M>
+    <SCRTEXT_L>Key type</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Konfigurationsspeicher: Schlüsseltyp</DDTEXT>
+     <REPTEXT>Schl. Typ</REPTEXT>
+     <SCRTEXT_S>Typ</SCRTEXT_S>
+     <SCRTEXT_M>Schl. Typ</SCRTEXT_M>
+     <SCRTEXT_L>Schl. Typ</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

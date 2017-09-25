@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Helper class for initializing dropdown fields (Listboxes)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_DATA_ELEMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by data element</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_DOMAIN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by domain</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_FIELD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by reference field</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_VALUE_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by value table</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

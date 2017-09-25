@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>/GAL/JS</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Messages for Job Scheduler</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Invalid database line element &amp; for table &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Can neither insert into nor modify table &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No DD03L data found for table &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>No data found in table &amp; for id &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Program &amp; was not found on system &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Running post processing for Job &amp; - &amp; (Scheduler ID &amp;)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Cannot instanciate job &apos;&amp;&apos; (&amp;)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Error within job handling for job &apos;&amp;&apos; (&amp;)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Error running job scheduler (&amp;)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Unknown status &amp; for job &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>The job has been restarted after having an error</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Unhandled Exception: &amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Status could not be determined for job &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>SAP job &apos;&amp; - &amp;&apos; has been cancelled</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Job scheduler already running. Exiting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Starting job scheduler</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Ending job scheduler</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Updating preconditions</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Checking for waiting jobs with fulfilled preconditions</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>No more pending jobs found. Exiting</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>Number of waiting jobs found: &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Executing first waiting job: &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>The job has been resumed after having been stopped</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>The has job timed out during background scheduling</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>No background job has been scheduled yet. No cancellation possible</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>The job has been cancelled by user &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>The job &amp; - &amp; could not be cancelled. Operation timed out</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>No values found in DB table &amp; for &apos;&amp; = &apos;&amp;&apos;&apos;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Insert failed in DB table &amp; for &apos;&amp; = &apos;&amp;&apos;&apos;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>SAP job &apos;&amp; - &amp;&apos; does not exist anymore</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Cannot run job&apos;s async parts without job ID</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>No every job&apos;s status could be refreshed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>034</MSGNR>
+     <TEXT>Writing to non-Jobdata table &amp; not permitted</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

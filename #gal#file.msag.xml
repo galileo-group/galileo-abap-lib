@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>/GAL/FILE</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Access to file system</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>IO error &amp;1: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Not authorized to access file &apos;&amp;1&apos;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Cannot open file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Cannot read file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Cannot create file &apos;&amp;1&apos;: File already exists</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Cannot create file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Cannot write file &apos;&amp;1&apos;: File does not exist</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Cannot write file &apos;&amp;1&apos;: No options specified</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Cannot write file &apos;&amp;1&apos;: Invalid combination of options specified</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Cannot truncate file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Cannot append to file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Cannot write file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Cannot delete file &apos;&amp;1&apos;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Cannot delete file &apos;&amp;1&apos;: &amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/FILE</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Directory &apos;&amp;1&apos; is not accessible.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

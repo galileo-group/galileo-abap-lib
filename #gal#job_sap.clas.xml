@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>SAP Job (report)</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+     <CMPNAME>CREATE_JOB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create Job from Parameters</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+     <CMPNAME>INIT_ATTRS_CREATE_SAP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init attributes from Parameters (subclass)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+     <CMPNAME>PROGRAM_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ABAP Program: Current Main Program</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+     <CMPNAME>READ_JOB_FROM_DB_SAP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create Job from Database</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB_SAP</CLSNAME>
+     <CMPNAME>SELECTION_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>rsparams Table</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

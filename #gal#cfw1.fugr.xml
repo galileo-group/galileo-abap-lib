@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>RFC Communication Framework</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/LCFW1TOP</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/SAPLCFW1</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/GAL/RFC_PROXY_FUNCTION</FUNCNAME>
+     <INCLUDE>/GAL/LCFW1U01</INCLUDE>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Communication Framework: Proxy function for RFCs with dyn. param. binding</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FUNCTION_NAME</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PARAMETERS_IN</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_CALLER_SYSYSID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SYSYSID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_CALLER_SYMANDT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SYMANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_CALLER_SYUNAME</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSCHA>
+     </CHANGING>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PARAMETERS_OUT</PARAMETER>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EXCEPTION_INFO</PARAMETER>
+       <TYP>/GAL/EXCEPTION_INFO</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NO_AUTHORIZATION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>AUTHORITY_INTEGRITY_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FUNCTION_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name of Function Module to be called</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PARAMETERS_IN</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Importing/Changing/Tables parameters (serialized)</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_CALLER_SYSYSID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial Caller - Name of SAP System</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_CALLER_SYMANDT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial Caller - Client ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_CALLER_SYUNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial Caller - User Name</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PARAMETERS_OUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Exporting/Changing/Tables parameters (serialized)</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXCEPTION_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Exception (in case of errors only)</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_AUTHORIZATION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Authority check failed</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTHORITY_INTEGRITY_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Authority check integrity check failed</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/RFC_ROUTE_PING</FUNCNAME>
+     <INCLUDE>/GAL/LCFW1U02</INCLUDE>
+     <SHORT_TEXT>Communication Framework: Ping via RFC route</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>RFC_ROUTE_STEP_INFOS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_STEP_INFOS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EXCEPTION_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/EXCEPTION_INFO</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_STEP_INFOS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Information about RFC Route Steps</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXCEPTION_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Exception information</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

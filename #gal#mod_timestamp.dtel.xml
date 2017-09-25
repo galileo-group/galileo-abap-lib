@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/MOD_TIMESTAMP</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>24</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>24</SCRLEN3>
+    <DDTEXT>Modification timestamp</DDTEXT>
+    <REPTEXT>Modification timestamp</REPTEXT>
+    <SCRTEXT_S>Time</SCRTEXT_S>
+    <SCRTEXT_M>Timestamp</SCRTEXT_M>
+    <SCRTEXT_L>Modification timestamp</SCRTEXT_L>
+    <DTELMASTER>D</DTELMASTER>
+    <DATATYPE>NUMC</DATATYPE>
+    <LENG>000014</LENG>
+    <OUTPUTLEN>000014</OUTPUTLEN>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Zeitstempel der Änderung</DDTEXT>
+     <REPTEXT>Zeitstempel der Änderung</REPTEXT>
+     <SCRTEXT_S>Zeit</SCRTEXT_S>
+     <SCRTEXT_M>Zeitstempel</SCRTEXT_M>
+     <SCRTEXT_L>Zeitstempel der Änderung</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

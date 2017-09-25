@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Config for CFW Auth Framework</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CFW_SEC_CONFIG_FOLDER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Configuration Node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CUSTOM_ALLOWED_CALLERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Custom allowed callers for CFW Framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>IGNORED_FUNCTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Functions not to be checked</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init status of CFW Auth Handler</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INT_IS_ENABLED_CACHE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Extended Flag for CFW</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>LOCAL_ONLY_FUNCTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Functions to be ignored in auth check</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

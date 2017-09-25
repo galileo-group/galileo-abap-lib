@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/JOB</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Common job (to be redefined)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSABSTRCT>X</CLSABSTRCT>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+    <MSG_ID>/GAL/JS</MSG_ID>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>000</KEY>
+     <ENTRY>Jobname and jobcount need to be maintained in order to cancel a job</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Job cannot be cancelled anymore</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>002</KEY>
+     <ENTRY>Job is not &apos;O&apos;bsolete or &apos;F&apos;inished</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ADD_NEEDED_RESOURCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add a resource string specifying a needed resource</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ADD_PREDECESSOR_JOB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add a predecessor job as precondition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ADD_START_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add a timestamp to be reached as precondition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ADD_USER_EVENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add a user event as precondition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>AUTO_CONTINUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Automatically continue job after stop</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>AUTO_EVENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Automatically raise user events</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CANCEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cancel the job&apos;s background processing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CHANGE_STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change the job status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Klassenkonstruktor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CLASS_GET_INIT_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CLASS_INIT_EXCEPTION holen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CLASS_INIT_EXCEPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Exception bei Initialisierung im Klassenkonstruktor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CONFIG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Configuration provider for job scheduler</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>DELETE_FROM_DB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete Job from database</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>DEQUEUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Dequeue the job object (DB lock)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>DESTINATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>RFC Route from central system to execution target</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>DETERMINE_STORE_DESTINATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine RFC Destination to storage location</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ENQUEUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enqueue the job object (DB lock)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ENQUEUE_COUNTER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>The enqueue counter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ERROR_LOG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table with messages and timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>EXECUTE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Execute the job</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>EXECUTE_ASYNC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>INTERNAL USE ONLY: Execute the asynchronous part</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>EXEC_USER_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>User ID in Format sy-sysid.sy-mandt.sy-uname</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>GET_PREDECESSOR_JOBS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get the predecessor jobs</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>GET_PROGRAM_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get name of program to be executed as a job</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job ID</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>INIT_ATTRS_CREATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init Attributes from parameters</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>INIT_ATTRS_FROM_DB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init Attributes from database</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>IS_AUTO_CONTINUED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the job was auto continued</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>IS_WAITING_FOR_EVENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether job is waiting for event[s]</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>JOB_COUNT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job ID</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>JOB_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Background job name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>MOD_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>POST_PROCESS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Post processing after job has been run</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>RAISE_USER_EVENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Raise an user event</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>READ_FROM_HIST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Read only mode (read from history)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>READ_JOB_FROM_DB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Read a job (any kind) from DB</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>RELEASE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Release the job to status &apos;Waiting&apos;</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>RESTART</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Resume stopped Job</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>RESUME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Resume stopped Job</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>RUN_JOB_SCHEDULER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Run the job scheduler on central system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>SET_JOBDATA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>INTERNAL USE ONLY: Set JOBNAME and JOBCOUNT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>SET_STATUS_TO_ERROR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Post processing after job has been run</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>SET_STATUS_TO_OBSOLETE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cancel the job</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>DO NOT CHANGE DIRECTLY! -&gt; Method CHANGE_STATUS (Job status)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>STORE_RFC_ROUTE_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>RFC Route information</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>STORE_TO_DB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Store Job to database</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>TRACE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Perform tracing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>TRANSITION_LOG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job transition log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job Type (Category)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>UPDATE_PRECONDITIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update the precondition status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>WAIT_FOR_RES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job is waiting to be resumed</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

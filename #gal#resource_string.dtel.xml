@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/RESOURCE_STRING</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>28</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>28</SCRLEN3>
+    <DDTEXT>String specifying a resource</DDTEXT>
+    <REPTEXT>String specifying a resource</REPTEXT>
+    <SCRTEXT_S>Resource</SCRTEXT_S>
+    <SCRTEXT_M>Resource</SCRTEXT_M>
+    <SCRTEXT_L>String specifying a resource</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000020</LENG>
+    <OUTPUTLEN>000020</OUTPUTLEN>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Zeichenfolge zur Spezifikation einer Ressource</DDTEXT>
+     <REPTEXT>Spezifikat. einer Ressource</REPTEXT>
+     <SCRTEXT_S>Ressource</SCRTEXT_S>
+     <SCRTEXT_M>Ressource</SCRTEXT_M>
+     <SCRTEXT_L>Spezifikat. einer Ressource</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_PINF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PINF>
+    <ATTRIBUTES>
+     <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+     <DESCRIPT>Tracing</DESCRIPT>
+    </ATTRIBUTES>
+    <ELEMENTS>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_CONTEXT</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_LISTENER</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_LISTENER_DB</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>DTEL</ELEM_TYPE>
+      <ELEM_KEY>/GAL/SYSTEM_ID</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>TABL</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_CNT</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>TABL</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_CTX</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_TRC</INTF_NAME>
+      <ELEM_TYPE>TTYP</ELEM_TYPE>
+      <ELEM_KEY>/GAL/TRACE_LISTENERS</ELEM_KEY>
+     </SCOMELDTLN>
+    </ELEMENTS>
+   </PINF>
+  </asx:values>
+ </asx:abap>
+</abapGit>

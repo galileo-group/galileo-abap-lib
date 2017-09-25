@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Base functionality for Timestamps</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSABSTRCT>X</CLSABSTRCT>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>PARSE_TIME_ZONE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Parse time zone</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_CACHE_DEFAULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default Time Zone</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_CACHE_OS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Time Zone of Operating System</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_CACHE_SYSTEM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Time Zone of SAP System</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_CACHE_USER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Time Zone of current user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_DEFAULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Use default time zone</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_OS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Use time zone of Operating System</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_SYSTEM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Use time zone of SAP System</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_USER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Use time zone of current user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
+     <CMPNAME>TIME_ZONE_UTC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Time zone UTC</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

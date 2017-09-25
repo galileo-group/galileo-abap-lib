@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Stopwatch</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>CALCULATE_TIME_SPAN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculate time span between two timestamps</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>ELAPSED_HOURS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Elapsed time: Total Hours (updated when stopped)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>ELAPSED_MILLISECONDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Elapsed time: Total Milliseconds (updated when stopped)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>ELAPSED_MINUTES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Elapsed time: Total Minutes (updated when stopped)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>ELAPSED_SECONDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Elapsed time: Total Seconds (updated when stopped)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>GET_ELAPSED_TIME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get elapsed time (even while stopwatch is running)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Stopwatch is running</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>RESET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Reset</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>RESTART</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Reset and restart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>START</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Start</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>START_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Start timestamp of current interval</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>STOP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Stop</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STOPWATCH</CLSNAME>
+     <CMPNAME>STOP_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Stop timestamp of current interval</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

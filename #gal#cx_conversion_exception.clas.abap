@@ -1,0 +1,47 @@
+class /GAL/CX_CONVERSION_EXCEPTION definition
+  public
+  inheriting from CX_STATIC_CHECK
+  final
+  create public .
+
+public section.
+
+  constants /GAL/CX_CONVERSION_EXCEPTION type SOTR_CONC value '00155D0122031EE499B7DE7DA405687F'. "#EC NOTEXT
+  constants CONVERSION_NOT_SUPPORTED type SOTR_CONC value '00155D0122031EE499B808534295887F'. "#EC NOTEXT
+  constants RESOLUTION_REQUIRED type SOTR_CONC value '00155D0122031EE499B85465F885687F'. "#EC NOTEXT
+  constants TOTAL_LENGTH_REQUIRED type SOTR_CONC value '00155D0122031EE499B85465F885887F'. "#EC NOTEXT
+  constants UNIT_NOT_SUPPORTED_BY_CSS type SOTR_CONC value '00155D0122031EE499B85465F885A87F'. "#EC NOTEXT
+  data VAR1 type STRING .
+  data VAR2 type STRING .
+  data VAR3 type STRING .
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional
+      !VAR1 type STRING optional
+      !VAR2 type STRING optional
+      !VAR3 type STRING optional .
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS /GAL/CX_CONVERSION_EXCEPTION IMPLEMENTATION.
+
+
+method CONSTRUCTOR.
+CALL METHOD SUPER->CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me->textid = /GAL/CX_CONVERSION_EXCEPTION .
+ ENDIF.
+me->VAR1 = VAR1 .
+me->VAR2 = VAR2 .
+me->VAR3 = VAR3 .
+endmethod.
+ENDCLASS.

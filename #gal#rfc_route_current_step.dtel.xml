@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/RFC_ROUTE_CURRENT_STEP</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>40</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>30</SCRLEN3>
+    <DDTEXT>Index of current RFC Route Step</DDTEXT>
+    <REPTEXT>Index of current RFC Route Step</REPTEXT>
+    <SCRTEXT_S>Step</SCRTEXT_S>
+    <SCRTEXT_M>Current Step</SCRTEXT_M>
+    <SCRTEXT_L>Current RFC Route Step</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>INT1</DATATYPE>
+    <LENG>000003</LENG>
+    <OUTPUTLEN>000003</OUTPUTLEN>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Index des aktuellen RFC-Routenschrittes</DDTEXT>
+     <REPTEXT>Index des aktuellen RFC-Routenschrittes</REPTEXT>
+     <SCRTEXT_S>Schritt</SCRTEXT_S>
+     <SCRTEXT_M>Akt. Schritt</SCRTEXT_M>
+     <SCRTEXT_L>Aktuellen RFC-Routenschritt</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/MESSAGE_VARIABLE</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <HEADLEN>20</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>16</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Message Variable</DDTEXT>
+    <REPTEXT>Message Variable</REPTEXT>
+    <SCRTEXT_S>Variable</SCRTEXT_S>
+    <SCRTEXT_M>Message Variable</SCRTEXT_M>
+    <SCRTEXT_L>Message Variable</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <DATATYPE>STRG</DATATYPE>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Meldungsvariable</DDTEXT>
+     <REPTEXT>Meldungsvariable</REPTEXT>
+     <SCRTEXT_S>Variable</SCRTEXT_S>
+     <SCRTEXT_M>Meldungsvariable</SCRTEXT_M>
+     <SCRTEXT_L>Meldungsvariable</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

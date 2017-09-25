@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_ENQU" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD25V>
+    <VIEWNAME>/GAL/E_JS_LOCK</VIEWNAME>
+    <AS4LOCAL>A</AS4LOCAL>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <AGGTYPE>E</AGGTYPE>
+    <ROOTTAB>/GAL/JS_LOCK</ROOTTAB>
+    <DDTEXT>Lock object for job scheduler (table /GAL/JS_LOCK)</DDTEXT>
+   </DD25V>
+   <DD26E_TABLE>
+    <DD26E>
+     <VIEWNAME>/GAL/E_JS_LOCK</VIEWNAME>
+     <TABNAME>/GAL/JS_LOCK</TABNAME>
+     <TABPOS>0001</TABPOS>
+     <FORTABNAME>/GAL/JS_LOCK</FORTABNAME>
+     <ENQMODE>X</ENQMODE>
+    </DD26E>
+   </DD26E_TABLE>
+   <DD27P_TABLE>
+    <DD27P>
+     <VIEWNAME>/GAL/E_JS_LOCK</VIEWNAME>
+     <OBJPOS>0001</OBJPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <VIEWFIELD>LOCK_KEY</VIEWFIELD>
+     <TABNAME>/GAL/JS_LOCK</TABNAME>
+     <FIELDNAME>LOCK_KEY</FIELDNAME>
+     <KEYFLAG>X</KEYFLAG>
+     <ENQMODE>X</ENQMODE>
+     <DATATYPE>CHAR</DATATYPE>
+     <FLENGTH>000010</FLENGTH>
+     <INTTYPE>C</INTTYPE>
+     <INTLEN>000020</INTLEN>
+     <DDTEXT>Lock key</DDTEXT>
+    </DD27P>
+   </DD27P_TABLE>
+  </asx:values>
+ </asx:abap>
+</abapGit>

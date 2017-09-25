@@ -1,0 +1,490 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Remote access to configuration store</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/LCONFIG_STORETOP</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/SAPLCONFIG_STORE</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/GAL/CS_AUTHORITY_CHECK</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU05</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Authority check</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PATH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ACTION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>UNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>AUTHORITY_CHECK_FAILED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PATH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration Node Path</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ACTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Action (from class /GAL/CONFIG_NODE_ACTIONS)</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Scope: Client</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Scope: User Name</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTHORITY_CHECK_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Authority check failed</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_SELECT_CHILD_NODES</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU02</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Select child nodes</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>DATA</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEYS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Selected child nodes</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_SELECT_NODE</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU01</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Select node</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>PARENT_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_PARENT_KEY_ID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_NAME</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>NODE_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_TYPE</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>FIXED_VALUE_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_VALUE_TYPE</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>AUTH_CLASS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_AUTH_CLASS_NAME</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>HAS_CHILD_NODES</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PARENT_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Parent ID</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Type</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FIXED_VALUE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Fixed data type for values</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTH_CLASS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Authenticator Class name</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HAS_CHILD_NODES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag: Node has children</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_SELECT_NODE_DESCR</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU03</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Select node description</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>LANGU</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>DESCRIPTION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_TEXT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language Key</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DESCRIPTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Description</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_SELECT_NODE_VALUE</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU04</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Select node description</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>NODE_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_TYPE</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DEFAULT_VALUE</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <DEFAULT>&apos;ALL&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>UNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>VALUE_TYPE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_TEXT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>VALUE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_VALUE</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Node ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Node type</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DEFAULT_VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag: Return default value</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALUE_TYPE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Value type</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Value</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

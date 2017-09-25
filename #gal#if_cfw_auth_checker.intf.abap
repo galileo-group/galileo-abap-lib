@@ -1,0 +1,25 @@
+interface /GAL/IF_CFW_AUTH_CHECKER
+  public .
+
+  type-pools ABAP .
+
+  interfaces IF_BADI_INTERFACE .
+
+  class-methods CHECK_AUTH
+    importing
+      !DIRECT_CALL type ABAP_BOOL
+      !FINAL_STEP type ABAP_BOOL
+      !FIRST_STEP type ABAP_BOOL
+      !FUNCTION_NAME type STRING
+      !INITIAL_CALLER_SYMANDT type SYMANDT
+      !INITIAL_CALLER_SYSYSID type SYSYSID
+      !INITIAL_CALLER_SYUNAME type SYUNAME
+      !LAST_CALLER_SYMANDT type SYMANDT
+      !LAST_CALLER_SYSYSID type SYSYSID
+      !LAST_CALLER_SYUNAME type SYUNAME
+      !LOCAL_EXECUTION type ABAP_BOOL
+      !PARAM_BINDINGS type ABAP_FUNC_PARMBIND_TAB
+      !RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO
+    raising
+      /GAL/CX_CFW_AUTH_EXCEPTION .
+endinterface.

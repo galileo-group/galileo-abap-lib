@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Color (RGB)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>B</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Blue</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>FROM_RGB24_HEX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 hex value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>FROM_RGB24_INT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 integer value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>G</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Green</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>GET_COLOR_FOR_CSS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get color for CSS</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>MIX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Mix two RGB Colors</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>R</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Red</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>TO_RGB24_HEX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 hex value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_RGB</CLSNAME>
+     <CMPNAME>TO_RGB24_INT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 integer value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

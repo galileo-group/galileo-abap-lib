@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Message stack</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>CLEAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Clear message stack</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>LT_MESSAGE_STACK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Message stack</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>LT_MESSAGE_STACK_ENTRY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Message stack entry</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>MESSAGE_STACK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Message stack</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>POP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Pop message</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/MESSAGE_STACK</CLSNAME>
+     <CMPNAME>PUSH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Push message</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

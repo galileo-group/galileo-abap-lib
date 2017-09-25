@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Lock for Delta Synchronization</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>ACCESS_GRANTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Access has been granted</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>ACQUIRE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Acquire lock</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>CLIENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>GET_SYNC_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get synchronization timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>ID</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Information text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>MUTEX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>mutex</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>RELEASE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Release lock</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>RFC_ROUTE_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>RFC Route information</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SYNC_LOCK</CLSNAME>
+     <CMPNAME>SET_SYNC_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set synchronization timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Color (HSV)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>FROM_COLOR_RGB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB color to HSV</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>FROM_RGB24_HEX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 hex value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>FROM_RGB24_INT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 integer value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>GET_COLOR_FOR_CSS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get color for CSS</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>H</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Hue</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>S</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Saturation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>TO_COLOR_RGB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert HSV color to RGB</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>TO_RGB24_HEX</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 hex value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>TO_RGB24_INT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert RGB24 integer value to RGB color</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/COLOR_HSV</CLSNAME>
+     <CMPNAME>V</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

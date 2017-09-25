@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/UUID</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>SAP release independent UUID creator</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>CREATE_BASE64</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create new UUID (22 chars base64 format)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>CREATE_CHAR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create new UUID (32 chars text format)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>CREATE_RAW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create new UUID (16 bytes RAW format)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>MODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>UUID creation mode</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>MODE_ABAP_OO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: ABAP OO mode (use class CL_SYSTEM_UUID)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/UUID</CLSNAME>
+     <CMPNAME>MODE_LEGACY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constant: Legacy mode (use function &apos;GUID_CREATE&apos;)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

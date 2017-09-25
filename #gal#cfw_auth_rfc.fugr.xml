@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Necessary RFC functions for auth checks</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/LCFW_AUTH_RFCTOP</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/SAPLCFW_AUTH_RFC</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/GAL/RFC_GET_SY_DATA</FUNCNAME>
+     <INCLUDE>/GAL/LCFW_AUTH_RFCU01</INCLUDE>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>Fetch sy-sysid, sy-mandt and sy-uname</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>READ_CALLSTACK</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <TYP>FLAG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <TYP>FLAG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SYSYSID</PARAMETER>
+       <TYP>SYSYSID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SYMANDT</PARAMETER>
+       <TYP>SYMANDT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SYUNAME</PARAMETER>
+       <TYP>SYUNAME</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>CALLSTACK</PARAMETER>
+       <TYP>ABAP_CALLSTACK</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>AUTH_ACTIVE</PARAMETER>
+       <TYP>FLAG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>FRAMEWORK_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>READ_CALLSTACK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Read and return the callstack</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Read and return auth active state</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYSYSID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name of SAP System</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYMANDT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYUNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CALLSTACK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP Call Stack</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTH_ACTIVE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Auth is active</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FRAMEWORK_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/RFC_GET_SY_DATA_ROUTE</FUNCNAME>
+     <INCLUDE>/GAL/LCFW_AUTH_RFCU02</INCLUDE>
+     <SHORT_TEXT>Fetch sy-sysid, sy-mandt and sy-uname</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>READ_CALLSTACK</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <TYP>FLAG</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
+       <DEFAULT>SPACE</DEFAULT>
+       <TYP>FLAG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SYSYSID</PARAMETER>
+       <TYP>SYSYSID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SYMANDT</PARAMETER>
+       <TYP>SYMANDT</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>SYUNAME</PARAMETER>
+       <TYP>SYUNAME</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>CALLSTACK</PARAMETER>
+       <TYP>ABAP_CALLSTACK</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>AUTH_ACTIVE</PARAMETER>
+       <TYP>FLAG</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>FRAMEWORK_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>READ_CALLSTACK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Read and return the callstack</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Read and return auth active state</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYSYSID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name of SAP System</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYMANDT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client ID</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYUNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CALLSTACK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ABAP Call Stack</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTH_ACTIVE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Auth is active</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FRAMEWORK_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

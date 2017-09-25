@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Short Timestamp</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>ADD_INTERVAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add interval to timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>FROM_DATE_TIME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create instance from date, time and time zone</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>MAX_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Timestamp with maximum value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>MIN_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Timestamp with minimum value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>NOW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get timestamp for current time</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>SUBTRACT_INTERVAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Subtract interval from timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>TO_DATE_TIME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert to date and time</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>TO_LONG_TIMESTAMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert to long timestamp</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/TIMESTAMP_SHORT</CLSNAME>
+     <CMPNAME>VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

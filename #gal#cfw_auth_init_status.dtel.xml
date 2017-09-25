@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/CFW_AUTH_INIT_STATUS</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/GAL/CFW_AUTH_INIT_STATUS</DOMNAME>
+    <HEADLEN>31</HEADLEN>
+    <SCRLEN1>06</SCRLEN1>
+    <SCRLEN2>11</SCRLEN2>
+    <SCRLEN3>31</SCRLEN3>
+    <DDTEXT>Init status of CFW Auth Handler</DDTEXT>
+    <REPTEXT>Init status of CFW Auth Handler</REPTEXT>
+    <SCRTEXT_S>Status</SCRTEXT_S>
+    <SCRTEXT_M>Init status</SCRTEXT_M>
+    <SCRTEXT_L>Init status of CFW Auth Handler</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Init Status des CFW Auth Handlers</DDTEXT>
+     <REPTEXT>Init Status des CFW Auth Handl.</REPTEXT>
+     <SCRTEXT_S>Status</SCRTEXT_S>
+     <SCRTEXT_M>Init Status</SCRTEXT_M>
+     <SCRTEXT_L>Init Status des CFW Auth Handl.</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

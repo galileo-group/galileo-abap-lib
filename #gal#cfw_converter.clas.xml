@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Value converter (Communication Framework)</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>E00</KEY>
+     <ENTRY>Tables with line type {1} are currently not supported</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>COMPRESS_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Compress structure into string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>COMPRESS_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Compress table into string table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>COMPRESS_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Compress value into string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>DECOMPRESS_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Decompress structure from string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>DECOMPRESS_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Decompress table from string table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>DECOMPRESS_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Decompress value from string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>DELIMITER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delimiter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>ESCAPED_DELIMITER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Escaped delimiter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>SEPARATOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Separator</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>TEXT_DECODER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text decoder</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>TEXT_ENCODER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text encoder</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>TEXT_TO_XSTRING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert text to XSTRING</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_CONVERTER</CLSNAME>
+     <CMPNAME>XSTRING_TO_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert XSTRING to text</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

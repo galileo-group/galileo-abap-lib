@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Configuration Store</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSABSTRCT>X</CLSABSTRCT>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>X00</KEY>
+     <ENTRY>Configuration store is corrupt</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>AUTHORITY_CHECK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Authority check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>DELETE_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>DELETE_NODE_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete configuration node description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>DELETE_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete configuration node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>GET_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>GET_NODE_ID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get node ID form path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>GET_NODE_PATH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get node path form ID</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>GET_NODE_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get all values for a node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>INSERT_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Insert configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>INSERT_SUBTREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Insert a whole subtree</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>ROOT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Configuration Node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>SELECT_CHILD_NODES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select child nodes of a configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>SELECT_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>SELECT_NODE_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select configuration node description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>SELECT_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Select configuration node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>UPDATE_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>UPDATE_NODE_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update configuration node description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>UPDATE_NODE_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update conifguration node name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>UPDATE_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update configuration node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
+     <CMPNAME>UPDATE_SUBTREE_NODE_NAMES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update configuration node names for a subtree</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Lock Management</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/LLOCKTOP</SOBJ_NAME>
+    <SOBJ_NAME>/GAL/SAPLLOCK</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>/GAL/LOCK_ACQUIRE</FUNCNAME>
+     <INCLUDE>/GAL/LLOCKU01</INCLUDE>
+     <SHORT_TEXT>Acquire a lock</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/LOCK_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SESSION_ID</PARAMETER>
+       <DEFAULT>/GAL/SESSION=&gt;ID</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/SESSION_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_TIMEOUT</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>WAIT_TIMEOUT</PARAMETER>
+       <DEFAULT>5</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CANNOT_ACQUIRE_LOCK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SESSION_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Session ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_TIMEOUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock timeout (in seconds)</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WAIT_TIMEOUT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Wait timeout (in seconds)</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Additional Information</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_ACQUIRE_LOCK</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Cannot acquire lock</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC exception</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/LOCK_GET_SYNC_TIMESTAMP</FUNCNAME>
+     <INCLUDE>/GAL/LLOCKU04</INCLUDE>
+     <SHORT_TEXT>Get synchronization timestamp</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/LOCK_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TIMESTAMPL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Synchronization timestamp</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC exception</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/LOCK_RELEASE</FUNCNAME>
+     <INCLUDE>/GAL/LLOCKU02</INCLUDE>
+     <SHORT_TEXT>Release a lock</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/LOCK_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SESSION_ID</PARAMETER>
+       <DEFAULT>/GAL/SESSION=&gt;ID</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/SESSION_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FORCE</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SESSION_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Session ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FORCE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Force release (even if foreign lock!)</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC exception</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/LOCK_SET_SYNC_TIMESTAMP</FUNCNAME>
+     <INCLUDE>/GAL/LLOCKU03</INCLUDE>
+     <SHORT_TEXT>Set synchronization timestamp</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/LOCK_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TIMESTAMPL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Synchronization timestamp</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC exception</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

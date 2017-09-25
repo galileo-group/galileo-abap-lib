@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/TASK_CONTEXT_ID</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/GAL/TASK_CONTEXT_ID</DOMNAME>
+    <HEADLEN>15</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>20</SCRLEN3>
+    <DDTEXT>Task Context ID (for asynchronous RFC)</DDTEXT>
+    <REPTEXT>Task Context ID</REPTEXT>
+    <SCRTEXT_S>Context ID</SCRTEXT_S>
+    <SCRTEXT_M>Context ID</SCRTEXT_M>
+    <SCRTEXT_L>Task Context ID</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Task Context ID (für asynchrone RFCs)</DDTEXT>
+     <REPTEXT>Task Context ID</REPTEXT>
+     <SCRTEXT_S>Context ID</SCRTEXT_S>
+     <SCRTEXT_M>Context ID</SCRTEXT_M>
+     <SCRTEXT_L>Task Context ID</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

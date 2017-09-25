@@ -1,0 +1,912 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+    <VERSION>1</VERSION>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Application: Configuration editor</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <CLSFINAL>X</CLSFINAL>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <RSTAT>K</RSTAT>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>B01</KEY>
+     <ENTRY>Change</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>B02</KEY>
+     <ENTRY>Display</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>C01</KEY>
+     <ENTRY>{Not defined}</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>I01</KEY>
+     <ENTRY>Values of this type can be specified without using XML</ENTRY>
+     <LENGTH>100</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>I02</KEY>
+     <ENTRY>Not authorized to use authenticator class {1}: {2}</ENTRY>
+     <LENGTH>100</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>I03</KEY>
+     <ENTRY>Invalid authenticator class: {1}</ENTRY>
+     <LENGTH>100</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M01</KEY>
+     <ENTRY>Add folder</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M02</KEY>
+     <ENTRY>Add value (client dependent)</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M03</KEY>
+     <ENTRY>Add value (client independent)</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M04</KEY>
+     <ENTRY>Transport subtree</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M05</KEY>
+     <ENTRY>Delete subtree</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M06</KEY>
+     <ENTRY>Transport value</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M07</KEY>
+     <ENTRY>Delete value</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M08</KEY>
+     <ENTRY>Add value (user specific)</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M09</KEY>
+     <ENTRY>Change folder name</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M10</KEY>
+     <ENTRY>Change value name</ENTRY>
+     <LENGTH>22</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M11</KEY>
+     <ENTRY>Copy folder</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>M12</KEY>
+     <ENTRY>Copy value</ENTRY>
+     <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O01</KEY>
+     <ENTRY>Structure (-&gt; Workbench)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O02</KEY>
+     <ENTRY>Documentation (-&gt; Workbench)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O03</KEY>
+     <ENTRY>Default values (-&gt; Workbench)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O04</KEY>
+     <ENTRY>System-specific values (-&gt; Workbench)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O05</KEY>
+     <ENTRY>Client-specific values (-&gt; Customizing)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>O06</KEY>
+     <ENTRY>User-specific values (-&gt; Customizing)</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>P01</KEY>
+     <ENTRY>Folder name</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>P02</KEY>
+     <ENTRY>Value name</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>P03</KEY>
+     <ENTRY>Select the data types you want to transport.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q01</KEY>
+     <ENTRY>Do you really want to delete the selected node an all its children? This operation cannot be undone.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q02</KEY>
+     <ENTRY>Do you really want to delete the selected value? This operation cannot be undone.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q03</KEY>
+     <ENTRY>Do you really want to delete the documentation for language &apos;{1}&apos;? This operation cannot be undone.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q04</KEY>
+     <ENTRY>Do you really want to delete the current value? This operation cannot be undone.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q05</KEY>
+     <ENTRY>Do you wish to save the documentation for language &apos;{1}&apos;?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q06</KEY>
+     <ENTRY>Do you wish to save changes to current value before proceeding?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q07</KEY>
+     <ENTRY>Creating an XML template will overwrite existing value. Do you want to proceed?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q08</KEY>
+     <ENTRY>A value cannot be converted to a folder. Delete value and create a new folder instead.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q09</KEY>
+     <ENTRY>Changing the node type will delete all values except the default value. Do you want to continue anyway?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q10</KEY>
+     <ENTRY>Changing the fixed value type will not affect existing values using a different value type.</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q11</KEY>
+     <ENTRY>Do you want to record the deletion in a transport request?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q12</KEY>
+     <ENTRY>Do you wish to save the changes to node definition before proceeding?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>Q13</KEY>
+     <ENTRY>During the name change the node and his childreen will be deleted and newly created with a different id. Do you want to proceed?</ENTRY>
+     <LENGTH>132</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>S01</KEY>
+     <ENTRY>Client specific value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>S02</KEY>
+     <ENTRY>Default value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>S03</KEY>
+     <ENTRY>System specific value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>S04</KEY>
+     <ENTRY>User specific value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T01</KEY>
+     <ENTRY>Add folder</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T02</KEY>
+     <ENTRY>Add value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T03</KEY>
+     <ENTRY>Delete subtree</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T04</KEY>
+     <ENTRY>Delete value node</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T05</KEY>
+     <ENTRY>Delete documentation</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T06</KEY>
+     <ENTRY>Delete value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T07</KEY>
+     <ENTRY>Save documentation changes</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T08</KEY>
+     <ENTRY>Save value changes</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T09</KEY>
+     <ENTRY>Transport values</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T10</KEY>
+     <ENTRY>Create XML template</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T11</KEY>
+     <ENTRY>Change node definition</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T12</KEY>
+     <ENTRY>Transport of deletion</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T13</KEY>
+     <ENTRY>Save node definition changes</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T14</KEY>
+     <ENTRY>Rename folder</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T15</KEY>
+     <ENTRY>Rename value</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T16</KEY>
+     <ENTRY>Change node name</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T17</KEY>
+     <ENTRY>Node value successfully saved</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T18</KEY>
+     <ENTRY>Node definition successfully saved</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T19</KEY>
+     <ENTRY>Node documentation successfully saved</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>T20</KEY>
+     <ENTRY>Select copy destination for node &quot;&amp;&quot;</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>ADD_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add new configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>AUTHORITY_CHECK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Authority check</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CALL_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Call screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CHECK_NODE_DEFINITION_CHANGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check for unsaved node definition changes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CHECK_NODE_DOCU_CHANGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check for unsaved documentation changes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CHECK_NODE_VALUE_CHANGES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check for unsaved value changes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CHECK_VALUE_EDITOR_USAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check if the value editor should be used</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CLEANUP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Cleanup when exiting</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>COLLECT_CHILDREN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Collect children of a configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CONFIG_STORE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Configuration Store</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>COPY_SUBTREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Copy subtree</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CREATE_XML_TEMPLATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create XML template</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_DOCU_LANGUAGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current documentation language</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_MODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current mode (Display or Change)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_TAB_PROGRAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current tab content: Program</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_TAB_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current tab content: Screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_CLIENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_EXISTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Indicator if value exists on DB</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_PROGRAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value content: Program</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_SCOPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value scope</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value content: Screen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>CURRENT_VALUE_USER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current value user</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>DELETE_NODE_DOCUMENTATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete node documentation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>DELETE_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>DELETE_SUBTREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delete configuration node including children</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>DOCU_CONTAINER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Documentation Container</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>DOCU_EDITOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Documentation editor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get configuration node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_NODE_DEFINITION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get configuration node definition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_NODE_DOCUMENTATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get configuration node documentation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get configuration node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_UI_FIELD_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get UI field value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>GET_USER_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get user name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>HANDLE_CONTEXT_MENU_REQ</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle event: Context menu requested</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>HANDLE_CONTEXT_MENU_SEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle event: Context menu item selected</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>HANDLE_DOUBLE_CLICK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle event: Double click</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>HANDLE_EXPAND_NO_CHILDREN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle event: Expand node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>HANDLE_USER_COMMAND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle event: User command received</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>INITIALIZE_DYNPRO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>MODE_CHANGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Change Mode</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>MODE_DISPLAY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Display Mode</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PAI_0100_EXIT_COMMAND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Leave dynpro</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PAI_0100_USER_COMMAND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set user command</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0100_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0100</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0110_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0110</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0120_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0120</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0130_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0130</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0140_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0140 (Value Editor)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>PBO_0150_INITIALIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dynpro 0150 (Value Dropdown Box)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>POPULATE_TREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Populate tree</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_CLIENT_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record client-specific values in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_DEFAULT_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record default values in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_DOCUMENTATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record documentation in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_STRUCTURE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record structure in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_SYSTEM_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record system-specific values in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_TABLE_ENTRIES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record table entries in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RECORD_USER_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Record user-specific values in transport request</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>REFRESH_DROPDOWN_0130</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Dropdown boxes in Dynpro 0130 initialized</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>REFRESH_DROPDOWN_0150</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Dropdown boxes in Dynpro 0150 initialized</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>REFRESH_VALUE_EDITOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Value Editor needs to be refreshed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>ROOT_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Root node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>RUN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Run application (main logic)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SELECTED_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Selected node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_ACTIVE_MODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set active mode</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_ACTIVE_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set active tab</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_ACTIVE_VALUE_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set active value subscreen</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_NODE_DEFINITION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set configuration node definition</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_NODE_DOCUMENTATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set configuration node documentation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_NODE_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set new name for selected node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_NODE_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set configuration node value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_ROOT_NODE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set root node</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>SET_UI_FIELD_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set UI field value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>TRANSPORT_SUBTREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Transport configuration node including children</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>TREE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Tree control</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>TREE_CONTAINER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Tree container</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>UI_PROGRAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>UI Program</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>VALUE_CONTAINER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value Container</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>VALUE_CONVERSION_INPUT_OUTPUT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value conversion, external &lt;-&gt; internal</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>VALUE_EDITOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value editor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/APP_CONFIG_EDITOR</CLSNAME>
+     <CMPNAME>VALUE_EDITOR_USED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Flag: Is the value editor used</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

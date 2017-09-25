@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>/GAL/CFW</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>RFC Communication Framework</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Exception: &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Exception: &amp;1 (&amp;2&amp;3&amp;4)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Back RFC error: &amp;1&amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Inconsistent step table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Forbidden context data</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Missing context data</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Forbidden step 0</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>(&amp;1): &amp;2&amp;3&amp;4 (Auth Err)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Integrity check for authority framework failed: RFC with initial step</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Back RFC2 error: &amp;1&amp;2</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Internal call error</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Integrity check for authority framework failed: RFC back size error</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Integrity check for authority framework failed: RFC in RFC error</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Integrity check for authority framework failed: RFC in RFC intcall err</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Integrity check for authority framework failed: Auth chain broken on &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Integrity check for authority framework failed: No init call data</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>(&amp;1): &amp;2&amp;3&amp;4 (RFC Auth Err)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>No RFC Auth &amp;1 (&amp;2.&amp;3): &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>(&amp;1): &amp;2&amp;3&amp;4 (RFC Auth FW Err)</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>INTERNAL CFW AUTH FRAMEWORK EXCEPTION - DO NOT CHANGE - &amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>&amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>INTERNAL CFW AUTH EXCEPTION - DO NOT CHANGE - &amp;1&amp;2&amp;3&amp;4</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
