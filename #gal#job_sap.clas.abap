@@ -11,11 +11,13 @@ public section.
 
   data PROGRAM_NAME type SYREPID read-only .
   data SELECTION_TABLE type RSPARAMS_TT read-only .
+  data EXECUTION_SYSTEM type /GAL/SYSTEM_ID .
 
   class-methods CREATE_JOB
     importing
       !JOB_NAME type BTCJOB default 'BACKGROUND_JOB'
       !DESTINATION type STRING optional
+      !EXECUTION_SYSTEM type /GAL/SYSTEM_ID optional
       !PROGRAM_NAME type SYREPID
       !SELECTION_TABLE type RSPARAMS_TT optional
     returning
@@ -45,6 +47,7 @@ protected section.
 
   methods INIT_ATTRS_CREATE_SAP
     importing
+      !EXECUTION_SYSTEM type /GAL/SYSTEM_ID optional
       !PROGRAM_NAME type SYREPID
       !SELECTION_TABLE type RSPARAMS_TT optional .
 
@@ -61,7 +64,14 @@ CLASS /GAL/JOB_SAP IMPLEMENTATION.
 
 
 METHOD create_job.
+
   DATA l_ex TYPE REF TO /gal/cx_js_exception.
+
+  IF NOT destination IS INITIAL AND execution_system IS INITIAL.
+    RAISE EXCEPTION TYPE /gal/cx_js_exception
+      EXPORTING
+        textid = /gal/cx_js_exception=>sap_job_dest_wo_exec_sys.
+  ENDIF.
 
 * Create job
   CREATE OBJECT job.
@@ -71,8 +81,9 @@ METHOD create_job.
                           destination = destination ).
 
 * Initialize SAP job
-  job->init_attrs_create_sap( program_name    = program_name
-                              selection_table = selection_table ).
+  job->init_attrs_create_sap( execution_system = execution_system
+                              program_name     = program_name
+                              selection_table  = selection_table ).
 
 * Store job in database
   job->enqueue( refresh = abap_false ).
@@ -215,8 +226,10 @@ ENDMETHOD.
 
 METHOD init_attrs_create_sap.
 
-  me->program_name = program_name.
-  me->selection_table = selection_table.
+  me->execution_system = execution_system.
+  me->program_name     = program_name.
+  me->selection_table  = selection_table.
+
   type = 'S'.
 
 ENDMETHOD.
@@ -322,6 +335,11 @@ METHOD init_attrs_from_db.
     program_name = l_table_line_elem-value.
   ENDIF.
 
+  READ TABLE l_table_line WITH KEY attribute = 'EXECUTION_SYSTEM' INTO l_table_line_elem.
+  IF sy-subrc = 0.
+    execution_system = l_table_line_elem-value.
+  ENDIF.
+
   TRY.
       CLEAR l_table_line_elem.
 
@@ -369,6 +387,10 @@ METHOD store_to_db.
 
   l_table_line_elem-attribute = 'ID'.
   l_table_line_elem-value     = id.
+  INSERT l_table_line_elem INTO TABLE lt_table_line.
+
+  l_table_line_elem-attribute = 'EXECUTION_SYSTEM'.
+  l_table_line_elem-value     = execution_system.
   INSERT l_table_line_elem INTO TABLE lt_table_line.
 
   l_table_line_elem-attribute = 'PROGRAM_NAME'.

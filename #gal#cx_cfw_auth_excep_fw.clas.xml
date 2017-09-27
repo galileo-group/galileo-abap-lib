@@ -10,7 +10,6 @@
     <CATEGORY>40</CATEGORY>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
-    <CLSFINAL>X</CLSFINAL>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
@@ -242,57 +241,85 @@
     </item>
     <item>
      <HEADER>
-      <CONCEPT>00155DF935091ED7A7EC996F3B6476AE</CONCEPT>
+      <CONCEPT>00155DF935091ED7A8D5917035D656AE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EC996F3B6476AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8D5917035D656AE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>An error occured instanciating the check repository: &amp;VAR1&amp;</TEXT>
+       <TEXT>Fehler bei der Authentifizierungsprüfung via RFC: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EC996F3B6476AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8D5917035D656AE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Es trat ein Fehler beim Instanziieren des Prüfrepositories auf: &amp;VAR1&amp;</TEXT>
+       <TEXT>Error checking Authentification via RFC: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
     <item>
      <HEADER>
-      <CONCEPT>00155DF935091ED7A7EC9292B56FF6AE</CONCEPT>
+      <CONCEPT>00155DF935091ED7A8C0233B5EB436AE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EC9292B56FF6AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB436AE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>An error occured fetching system information: &amp;VAR1&amp;</TEXT>
+       <TEXT>Fehler beim Instanziieren des Prüfrepositories: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EC9292B56FF6AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB436AE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Es trat ein Fehler beim Holen der Systeminformationen auf: &amp;VAR1&amp;</TEXT>
+       <TEXT>An error occurred instanciating check repository: &amp;VAR1&amp;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED7A8C0233B5EB416AE</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB416AE</CONCEPT>
+       <LANGU>D</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Ein Fehler trat bei Ermitteln der Systeminformationen auf: &amp;VAR1&amp;</TEXT>
+      </SOTR_TEXT>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB416AE</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>An error occurred getting system information: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
@@ -326,29 +353,57 @@
     </item>
     <item>
      <HEADER>
-      <CONCEPT>00155DF935091ED7A7EEDAFFDC61B6AE</CONCEPT>
+      <CONCEPT>00155DF935091ED7A8CF6231292556AE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EEDAFFDC61B6AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8CF6231292556AE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>&amp;VA1&amp; - Error reading a job in the job framework (&amp;VAR2&amp;)</TEXT>
+       <TEXT>Fehler beim Holen der Jobdadten in Funktion &amp;VAR1&amp;: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>00155DF935091ED7A7EEDAFFDC61B6AE</CONCEPT>
+       <CONCEPT>00155DF935091ED7A8CF6231292556AE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
+       <TEXT>Error getting Jobdata in function &amp;VAR1&amp;: &amp;VAR2&amp;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED7A8C0233B5EB456AE</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB456AE</CONCEPT>
+       <LANGU>D</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
        <TEXT>&amp;VAR1&amp; - Fehler beim Lesen eines Jobs im Jobframework (&amp;VAR2&amp;)</TEXT>
+      </SOTR_TEXT>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8C0233B5EB456AE</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>&amp;VAR1&amp; - Error reading a job in the job framework (&amp;VAR2&amp;)</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>

@@ -10,6 +10,71 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
+     <FUNCNAME>/GAL/RFC_CFW_CHECK_AUTH</FUNCNAME>
+     <INCLUDE>/GAL/LCFW_AUTH_RFCU03</INCLUDE>
+     <SHORT_TEXT>Check Authorization via RFC</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>AUTH_CONFIG</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CFW_AUTH_DEFS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>USER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SYUNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>FORBIDDEN</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTH_CONFIG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Object/ID combinations for authority check</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>USER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>User Name</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FORBIDDEN</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>/GAL/RFC_GET_SY_DATA</FUNCNAME>
      <INCLUDE>/GAL/LCFW_AUTH_RFCU01</INCLUDE>
      <REMOTE_CALL>R</REMOTE_CALL>

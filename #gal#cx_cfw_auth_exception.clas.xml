@@ -73,6 +73,62 @@
     </item>
     <item>
      <HEADER>
+      <CONCEPT>00155DF935091ED7A8D6052D511B16AE</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8D6052D511B16AE</CONCEPT>
+       <LANGU>D</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Die Ausführung von Programm &amp;VAR1&amp; via Conigma Job ist auf System &amp;VAR2&amp; verboten</TEXT>
+      </SOTR_TEXT>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8D6052D511B16AE</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Execution of program &amp;VAR1&amp; via Conigma job is forbidden on system &amp;VAR2&amp;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED7A8D6052D511B36AE</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8D6052D511B36AE</CONCEPT>
+       <LANGU>D</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Die Ausführung von Programm &amp;VAR1&amp; via Conigma Job ist für User &amp;VAR2&amp; auf System &amp;VAR3&amp; verboten</TEXT>
+      </SOTR_TEXT>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED7A8D6052D511B36AE</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Execution of program &amp;VAR1&amp; via Conigma job is forbidden for user &amp;VAR2&amp; on system &amp;VAR3&amp;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
       <CONCEPT>00155DF935091ED7A6FA8ACD1D9DB6AD</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>

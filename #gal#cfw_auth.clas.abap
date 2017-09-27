@@ -110,6 +110,7 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
     CLEAR auth_exception.
 
+    "Check if according to hardcoded function check behavior, a check is required
     IF   custom_auth_behave = /gal/cfw_auth=>const_cab_no_check
        OR
          custom_auth_behave = /gal/cfw_auth=>const_cab_final_step AND ctx_final_step = abap_false
@@ -119,17 +120,21 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
       RETURN.
     ENDIF.
 
+    "If a check is required according to coding, it also is checked if the auth framework is activated in config
     l_is_active = /gal/cfw_auth_config=>is_active( ).
     IF l_is_active = abap_false.
       RETURN.
     ENDIF.
 
+    "when this method is called and checks are active and required, the config has to be initialized.
+    "if this is not the case, an internal software error exists
     IF config IS INITIAL.
       RAISE EXCEPTION TYPE /gal/cx_cfw_auth_excep_fw
         EXPORTING
           textid = /gal/cx_cfw_auth_excep_fw=>check_without_init.
     ENDIF.
 
+    "functions can be set to be ignored by customizing them in config store
     l_function_name = ctx_function_name.
     READ TABLE /gal/cfw_auth_config=>ignored_functions WITH KEY table_line = l_function_name TRANSPORTING NO FIELDS.
     IF sy-subrc = 0.
@@ -137,6 +142,7 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
     ENDIF.
 
     IF ctx_direct_call = abap_false AND int_rfc_context_checked = abap_false.
+      " if we are in RFC context and this context has not been checked yet, the rfc context callback abap stack is checked
       check_rfc_context( ).
       IF NOT auth_exception IS INITIAL.
         RETURN.
@@ -151,12 +157,15 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
     ENDIF.
 
     IF ctx_function_name CP '/GAL/*'.
+      "use all check BAdIs, also the ones that are used only for Galileo funtions
       l_badi_filter_func = '/GAL/*'.
     ELSE.
       l_badi_filter_func = '*'.
+      "use only the BAdIs declared for common checks
     ENDIF.
 
     TRY.
+        "now call all activated auth check BAdIs
         GET BADI l_badi_handle FILTERS /gal/cfw_ac_function = l_badi_filter_func.
         CALL BADI l_badi_handle->check_auth
           EXPORTING

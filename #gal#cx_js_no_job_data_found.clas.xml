@@ -5,8 +5,8 @@
    <VSEOCLASS>
     <CLSNAME>/GAL/CX_JS_NO_JOB_DATA_FOUND</CLSNAME>
     <VERSION>1</VERSION>
-    <LANGU>E</LANGU>
-    <DESCRIPT>No jobdata found in database</DESCRIPT>
+    <LANGU>D</LANGU>
+    <DESCRIPT>Keine Jobdaten auf Datenbank gefunden</DESCRIPT>
     <CATEGORY>40</CATEGORY>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>

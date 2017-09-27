@@ -73,7 +73,7 @@
     <item>
      <FUNCNAME>/GAL/JS_ADD_RESOURCE</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U11</INCLUDE>
-     <SHORT_TEXT>Add a resource job for a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -139,7 +139,7 @@
     <item>
      <FUNCNAME>/GAL/JS_ADD_START_TS</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U09</INCLUDE>
-     <SHORT_TEXT>Add a start timestamp job for a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -192,7 +192,7 @@
     <item>
      <FUNCNAME>/GAL/JS_ADD_USER_EVENT</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U10</INCLUDE>
-     <SHORT_TEXT>Add a needed uder event job for a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1190,7 +1190,7 @@
     <item>
      <FUNCNAME>/GAL/JS_DEQUEUE_JOB</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U15</INCLUDE>
-     <SHORT_TEXT>Dequeue a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1286,7 +1286,7 @@
     <item>
      <FUNCNAME>/GAL/JS_ENQUEUE_JOB</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U14</INCLUDE>
-     <SHORT_TEXT>Enqueue a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -2028,7 +2028,7 @@
     <item>
      <FUNCNAME>/GAL/JS_LOCK_RESOURCES</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U13</INCLUDE>
-     <SHORT_TEXT>Lock resources for a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -2318,7 +2318,7 @@
     <item>
      <FUNCNAME>/GAL/JS_UPDATE_RESOURCES</FUNCNAME>
      <INCLUDE>/GAL/LJOBSCHED1U12</INCLUDE>
-     <SHORT_TEXT>Update resources for a job</SHORT_TEXT>
+     <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
