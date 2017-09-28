@@ -13,7 +13,7 @@
      <FUNCNAME>/GAL/RFC_PROXY_FUNCTION</FUNCNAME>
      <INCLUDE>/GAL/LCFW1U01</INCLUDE>
      <REMOTE_CALL>R</REMOTE_CALL>
-     <SHORT_TEXT>Communication Framework: Proxyfunktion für RFCs mit dyn. Parameterbindung</SHORT_TEXT>
+     <SHORT_TEXT>Communication Framework: Proxy function for RFCs with dyn. param. binding</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>FUNCTION_NAME</PARAMETER>
@@ -68,13 +68,13 @@
       <RSFDO>
        <PARAMETER>FUNCTION_NAME</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Name des aufzurufenden Funktionsbausteins</STEXT>
+       <STEXT>Name of Function Module to be called</STEXT>
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>PARAMETERS_IN</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Importing/Changing/Tables Parameter (serialisiert)</STEXT>
+       <STEXT>Importing/Changing/Tables parameters (serialized)</STEXT>
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
@@ -98,19 +98,19 @@
       <RSFDO>
        <PARAMETER>PARAMETERS_OUT</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Exporting/Changing/Tables Parameter (serialisiert)</STEXT>
+       <STEXT>Exporting/Changing/Tables parameters (serialized)</STEXT>
        <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCEPTION_INFO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Exception (nur im Fehlerfall)</STEXT>
+       <STEXT>Exception (in case of errors only)</STEXT>
        <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Informationen zur RFC Route</STEXT>
+       <STEXT>RFC Route information</STEXT>
        <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
@@ -130,7 +130,7 @@
     <item>
      <FUNCNAME>/GAL/RFC_ROUTE_PING</FUNCNAME>
      <INCLUDE>/GAL/LCFW1U02</INCLUDE>
-     <SHORT_TEXT>Communication Framework: Ping über RFC Route</SHORT_TEXT>
+     <SHORT_TEXT>Communication Framework: Ping via RFC route</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -154,19 +154,19 @@
       <RSFDO>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Informationen zur RFC Route</STEXT>
+       <STEXT>RFC Route information</STEXT>
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_ROUTE_STEP_INFOS</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Informationen zu den Schritten der RFC Route</STEXT>
+       <STEXT>Information about RFC Route Steps</STEXT>
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCEPTION_INFO</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Informationen zur Exception</STEXT>
+       <STEXT>Exception information</STEXT>
        <INDEX> 003</INDEX>
       </RSFDO>
      </DOCUMENTATION>

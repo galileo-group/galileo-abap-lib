@@ -3,19 +3,19 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <TOOL>BADI_DEF</TOOL>
-   <SHORTTEXT>Authorisierungsprüfungen für Kommunikationsframework</SHORTTEXT>
+   <SHORTTEXT>Authority checks for Communication Framework</SHORTTEXT>
    <BADI_DATA>
     <ENH_BADI_DATA>
      <BADI_NAME>/GAL/CFW_AUTH_CHECKER</BADI_NAME>
      <INTERFACE_NAME>/GAL/IF_CFW_AUTH_CHECKER</INTERFACE_NAME>
      <CONTEXT_MODE>N</CONTEXT_MODE>
-     <BADI_SHORTTEXT>Implementierung um Authorisierung im CFW zu prüfen</BADI_SHORTTEXT>
+     <BADI_SHORTTEXT>Implementation for Checking Authorization in CFW</BADI_SHORTTEXT>
      <BADI_SHORTTEXT_ID>00155DF935091ED7A6A97B9FE82016AD</BADI_SHORTTEXT_ID>
      <FILTERS>
       <ENH_BADI_FILTER>
        <FILTER_NAME>/GAL/CFW_AC_FUNCTION</FILTER_NAME>
        <FILTER_TYPE>S</FILTER_TYPE>
-       <FILTERTEXT>Funktionsname für den angewendet wird</FILTERTEXT>
+       <FILTERTEXT>Funktion name to be applied for</FILTERTEXT>
        <FILTERTEXT_ID>00155DF935091ED7A6DF84D28F6556AD</FILTERTEXT_ID>
       </ENH_BADI_FILTER>
      </FILTERS>
