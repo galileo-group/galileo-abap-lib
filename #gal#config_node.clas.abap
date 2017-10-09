@@ -305,6 +305,7 @@ ENDMETHOD.
     DATA l_original_path  TYPE string.
     DATA l_replace_path   TYPE string.
     DATA l_exception      TYPE REF TO cx_root.
+    DATA l_string_len     TYPE i.
     DATA l_message        TYPE string.
 
 * Existence check
@@ -327,7 +328,12 @@ ENDMETHOD.
     ENDIF.
 
     l_original_path = path.
-    CONCATENATE l_target_node->path name INTO l_replace_path SEPARATED BY '/'.
+    l_string_len = strlen( l_target_node->path ) - 1.
+    IF l_string_len >= 0 AND l_target_node->path+l_string_len(1) = '/'.
+      CONCATENATE l_target_node->path name INTO l_replace_path.
+    ELSE.
+      CONCATENATE l_target_node->path name INTO l_replace_path SEPARATED BY '/'.
+    ENDIF.
 
 * Get all node values including child node values
     l_value_list = store->get_node_values(
@@ -559,15 +565,18 @@ ENDMETHOD.
 
 
 METHOD get_child_nodes.
-  DATA l_nodes TYPE STANDARD TABLE OF /gal/config_key.
-  DATA l_node  TYPE REF TO /gal/config_node.
+  DATA l_nodes     TYPE STANDARD TABLE OF /gal/config_key.
+  DATA l_node      TYPE REF TO /gal/config_node.
+  DATA l_exception TYPE REF TO cx_root.
+  DATA l_message   TYPE string.
 
   FIELD-SYMBOLS <l_nodes> LIKE LINE OF l_nodes.
 
   IF is_folder = abap_false.
     RAISE EXCEPTION TYPE /gal/cx_config_exception
-          EXPORTING textid = /gal/cx_config_exception=>no_child_nodes
-                    var1   = path.
+      EXPORTING
+        textid = /gal/cx_config_exception=>no_child_nodes
+        var1   = path.
   ENDIF.
 
   l_nodes = store->select_child_nodes( id = id ).
@@ -575,9 +584,18 @@ METHOD get_child_nodes.
   LOOP AT l_nodes ASSIGNING <l_nodes>.
     CHECK type IS NOT SUPPLIED OR <l_nodes>-type = type.
 
-    l_node = get_child_node( name = <l_nodes>-name ).
+    TRY.
+        l_node = get_child_node( name = <l_nodes>-name ).
 
-    INSERT l_node INTO TABLE nodes.
+        INSERT l_node INTO TABLE nodes.
+      CATCH /gal/cx_config_exception INTO l_exception.
+
+* In case of errors for a single child node just show the error
+* whithout skipping valid child nodes
+        l_message = l_exception->get_text( ).
+        MESSAGE l_message TYPE 'S'.
+
+    ENDTRY.
   ENDLOOP.
 
   SORT nodes BY table_line->type table_line->name.

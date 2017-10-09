@@ -3279,6 +3279,7 @@ METHOD set_node_value.
 
   DATA l_exception TYPE REF TO cx_root.
   DATA l_message   TYPE string.
+  DATA l_error     TYPE abap_bool.
 
 * Check if there is an editor, otherwise no value can be displayed
   IF ( value_editor IS INITIAL ) AND ( value_editor_used = abap_true ).
@@ -3300,6 +3301,8 @@ METHOD set_node_value.
 
 * Update configuration node
   TRY.
+      CLEAR l_error.
+
       IF current_value_scope = 'D'.
         current_node->set_value_raw( default   = abap_true
                                      type      = current_value_type
@@ -3315,17 +3318,20 @@ METHOD set_node_value.
 
     CATCH /gal/cx_config_exception INTO l_exception.
       l_message = l_exception->get_text( ).
+      l_error = abap_true.
 
       MESSAGE l_message TYPE 'I'.
 
   ENDTRY.
 
+  IF l_error IS INITIAL.
 * Update editor (reflect formatting changes)
-  get_node_value( ).
+    get_node_value( ).
 
 * Set flags to refresh dynpro components
-  refresh_dropdown_0150 = abap_true.
-  refresh_value_editor = abap_true.
+    refresh_dropdown_0150 = abap_true.
+    refresh_value_editor = abap_true.
+  ENDIF.
 
 ENDMETHOD.
 

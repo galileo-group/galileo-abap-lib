@@ -681,6 +681,7 @@ ENDMETHOD.
 
 METHOD update_node_description.
   DATA l_wa_config_txt TYPE /gal/config_txt.
+  DATA l_message       TYPE string.
 
 * Select node (existence check)
   select_node( id ).
@@ -690,7 +691,16 @@ METHOD update_node_description.
   l_wa_config_txt-langu = language.
   l_wa_config_txt-text  = description.
 
-  MODIFY /gal/config_txt FROM l_wa_config_txt.            "#EC CI_SUBRC
+  MODIFY /gal/config_txt FROM l_wa_config_txt.
+  IF sy-subrc IS NOT INITIAL.
+    l_message = TEXT-x01.
+    l_message = /gal/string_utilities=>replace_variables( input = l_message
+                                                          var01 = '/GAL/CONFIG_TXT' ).
+    RAISE EXCEPTION TYPE /gal/cx_config_exception
+      EXPORTING
+        textid = /gal/cx_config_exception=>custom_exception
+        var1   = l_message.
+  ENDIF.
 
   IF no_commit <> abap_true.
     CALL FUNCTION 'DB_COMMIT'.
@@ -808,10 +818,12 @@ ENDMETHOD.
 
 
 METHOD update_node_value.
+
   DATA l_wa_config_val  TYPE /gal/config_val.
   DATA l_wa_config_cval TYPE /gal/config_cval.
   DATA l_wa_config_sval TYPE /gal/config_sval.
   DATA l_wa_config_uval TYPE /gal/config_uval.
+  DATA l_message        TYPE string.
 
 * Select node (existence check)
   select_node( id ).
@@ -821,7 +833,16 @@ METHOD update_node_value.
     l_wa_config_val-id    = id.
     l_wa_config_val-type  = value_type.
     l_wa_config_val-value = value.
-    MODIFY /gal/config_val FROM l_wa_config_val.          "#EC CI_SUBRC
+    MODIFY /gal/config_val FROM l_wa_config_val.
+    IF sy-subrc IS NOT INITIAL.
+      l_message = TEXT-x01.
+      l_message = /gal/string_utilities=>replace_variables( input = l_message
+                                                            var01 = '/GAL/CONFIG_VAL' ).
+      RAISE EXCEPTION TYPE /gal/cx_config_exception
+        EXPORTING
+          textid = /gal/cx_config_exception=>custom_exception
+          var1   = l_message.
+    ENDIF.
   ELSE.
     CASE type.
 
@@ -830,14 +851,32 @@ METHOD update_node_value.
         l_wa_config_cval-id     = id.
         l_wa_config_cval-type   = value_type.
         l_wa_config_cval-value  = value.
-        MODIFY /gal/config_cval CLIENT SPECIFIED         "#EC CI_CLIENT
-          FROM l_wa_config_cval.                          "#EC CI_SUBRC
+        MODIFY /gal/config_cval CLIENT SPECIFIED
+          FROM l_wa_config_cval.                         "#EC CI_CLIENT
+        IF sy-subrc IS NOT INITIAL.
+          l_message = TEXT-x01.
+          l_message = /gal/string_utilities=>replace_variables( input = l_message
+                                                                var01 = '/GAL/CONFIG_CVAL' ).
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>custom_exception
+              var1   = l_message.
+        ENDIF.
 
       WHEN /gal/config_node=>const_node_type_value_system.
         l_wa_config_sval-id    = id.
         l_wa_config_sval-type  = value_type.
         l_wa_config_sval-value = value.
-        MODIFY /gal/config_sval FROM l_wa_config_sval.    "#EC CI_SUBRC
+        MODIFY /gal/config_sval FROM l_wa_config_sval.
+        IF sy-subrc IS NOT INITIAL.
+          l_message = TEXT-x01.
+          l_message = /gal/string_utilities=>replace_variables( input = l_message
+                                                                var01 = '/GAL/CONFIG_SVAL' ).
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>custom_exception
+              var1   = l_message.
+        ENDIF.
 
       WHEN /gal/config_node=>const_node_type_value_user.
         l_wa_config_uval-client    = client.
@@ -845,9 +884,17 @@ METHOD update_node_value.
         l_wa_config_uval-id        = id.
         l_wa_config_uval-type      = value_type.
         l_wa_config_uval-value     = value.
-        MODIFY /gal/config_uval CLIENT SPECIFIED         "#EC CI_CLIENT
-          FROM l_wa_config_uval.                          "#EC CI_SUBRC
-
+        MODIFY /gal/config_uval CLIENT SPECIFIED
+          FROM l_wa_config_uval.                         "#EC CI_CLIENT
+        IF sy-subrc IS NOT INITIAL.
+          l_message = TEXT-x01.
+          l_message = /gal/string_utilities=>replace_variables( input = l_message
+                                                                var01 = '/GAL/CONFIG_SVAL' ).
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>custom_exception
+              var1   = l_message.
+        ENDIF.
     ENDCASE.
   ENDIF.
 

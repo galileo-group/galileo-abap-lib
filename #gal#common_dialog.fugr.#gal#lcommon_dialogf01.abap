@@ -417,8 +417,18 @@ CLASS lcl_folder_tree_dialog IMPLEMENTATION.
 
   METHOD handle_user_command.
 
+    DATA l_message TYPE string.
+
     CASE user_command.
       WHEN /gal/common_dialog=>dlg_result_cancel OR /gal/common_dialog=>dlg_result_ok.
+
+        IF user_command = /gal/common_dialog=>dlg_result_ok
+          AND selected_node->path = '/'.
+
+          l_message = TEXT-e02.
+          MESSAGE l_message TYPE 'S' DISPLAY LIKE 'E'.
+          RETURN.
+        ENDIF.
 
         set_ui_field_value( field_name  = 'G_DYNP_3000-EXIT_UCOMM'
                             field_value = user_command ).

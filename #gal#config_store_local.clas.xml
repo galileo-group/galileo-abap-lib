@@ -21,6 +21,12 @@
      <ENTRY>Configuration store is corrupt</ENTRY>
      <LENGTH>132</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>X01</KEY>
+     <ENTRY>Error while updating table &apos;{1}&apos;</ENTRY>
+     <LENGTH>120</LENGTH>
+    </item>
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
