@@ -19,7 +19,13 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>CFW_SEC_CONFIG_FOLDER</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Configuration Node</DESCRIPT>
+     <DESCRIPT>Configuration Node of the config folder</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create a dummy instance. This fills all static parameters.</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
@@ -35,6 +41,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_CONFIG_FOLDER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init the folder object containing all the config</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_CONFIG_PARAMS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Init all parameters configured for auth check framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INIT_STATUS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Init status of CFW Auth Handler</DESCRIPT>
@@ -43,13 +61,31 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INT_IS_ENABLED_CACHE</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Extended Flag for CFW</DESCRIPT>
+     <DESCRIPT>Performance cache for enabled/disabled status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INT_PARAM_INIT_DONE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>All parameters have been initialized</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check if auth framework is configured as active</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>LOCAL_ONLY_FUNCTIONS</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Functions to be ignored in auth check</DESCRIPT>
+     <DESCRIPT>Functions that may not be executed remote</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>TRACE_VIOLATION_DETAILS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Activation flag for detailed violation trace</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>

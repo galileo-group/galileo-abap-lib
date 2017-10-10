@@ -64,6 +64,7 @@ protected section.
 private section.
 
   class-data AUTH_EXCEPTION type ref to /GAL/CX_CFW_AUTH_EXCEPTION .
+  class-data CONFIG type ref to /GAL/CFW_AUTH_CONFIG .
   class-data CTX_DIRECT_CALL type ABAP_BOOL .
   class-data CTX_FINAL_STEP type ABAP_BOOL .
   class-data CTX_FIRST_STEP type ABAP_BOOL .
@@ -77,7 +78,6 @@ private section.
   class-data CTX_LOCAL_EXECUTION type ABAP_BOOL .
   class-data CTX_PARAM_BINDINGS type ABAP_FUNC_PARMBIND_TAB .
   class-data CTX_RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO .
-  class-data CONFIG type ref to /GAL/CFW_AUTH_CONFIG .
   class-data INT_RFC_CONTEXT_CHECKED type ABAP_BOOL .
 
   class-methods CHECK_RFC_CONTEXT
@@ -193,6 +193,7 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD check_local_func_limits.
+* Check if the current function is forbidden for remote execution and raise an exception if this is the case.
 
     DATA l_function_name           TYPE char30.
     DATA l_conf_ex                 TYPE REF TO /gal/cx_config_exception.
@@ -236,6 +237,13 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD check_rfc_context.
+
+    " This method checks if the RFC context is legal.
+    " NOTE: If this implementation throws an exception although a valid use case is given,
+    "       the caller can be permitted using config parameter
+    "       '/Galileo Group AG/Open Source Components/Communication Framework/Security/Custom Allowed Callers' or
+    "       '/Galileo Group AG/Open Source Components/Communication Framework/Security/Ignored Functions'
+    "       until the coding is fixed in order to reflect the missing case.
 
     DATA l_rfc_error(100)             TYPE c.
     DATA l_callstack_index            TYPE i.
@@ -560,6 +568,8 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD check_rfc_context_external.
+    "Wrapper for checking the RFC context for forbidden callstacks from outside this class
+
     check_rfc_context(
        function_name_external  = function_name
        back_callstack_external = back_callstack_external
@@ -570,6 +580,8 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD fill_cfw_auth_err_ex_info.
+
+    "Fill the exception info for RFC processing from an existing exception object
 
     DATA l_symsgv1               TYPE symsgv.
     DATA l_symsgv2               TYPE symsgv.
@@ -609,6 +621,7 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
   METHOD init.
 
     IF config IS INITIAL.
+      "Initialize config object
       CREATE OBJECT config.
     ENDIF.
 
@@ -618,6 +631,7 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
   METHOD raise_auth_exception_if_exists.
     DATA l_auth_exception TYPE REF TO /gal/cx_cfw_auth_exception.
 
+    "Raise a previously found auth exception if existing
     IF NOT auth_exception IS INITIAL.
       l_auth_exception = auth_exception.
       CLEAR auth_exception.
@@ -627,6 +641,11 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD regular_auth_exception_found.
+
+    " This method stores a regular auth exception that occured for further processing.
+    " Either the exception obejct or text data can be specified.
+    " If activated the caller callstack is written to trace.
+
     DATA l_var1 TYPE string.
     DATA l_var2 TYPE string.
     DATA l_var3 TYPE string.
@@ -659,6 +678,9 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
 
   METHOD reset_context_data.
+
+    " All context data is cleared.
+    " If no force is specified, the clear is denied in case an exception has been found but not handled yet.
 
     DATA l_unhandled_text TYPE string.
 
@@ -694,11 +716,15 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
 
   METHOD set_context_data.
 
+    " Set all needed context data.
+
     DATA l_var1 TYPE string.
     DATA l_var2 TYPE string.
 
 
     IF NOT /gal/cfw_auth=>ctx_function_name IS INITIAL AND /gal/cfw_auth=>ctx_function_name <> function_name.
+      " Overwriting already set context data is not allowed.
+      " Existing data has to be processed and cleared before.
       /gal/trace=>write_text(
         text     = 'INTERNAL ERROR: Overwriting context in CFW auth framwork. This should not happen. Old: {1} New: {2}'
         var01    = /gal/cfw_auth=>ctx_function_name

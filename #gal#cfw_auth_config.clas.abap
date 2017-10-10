@@ -20,10 +20,10 @@ protected section.
 private section.
 
   class-data CFW_SEC_CONFIG_FOLDER type ref to /GAL/CONFIG_NODE .
-  class-data INIT_STATUS type /GAL/CFW_AUTH_INIT_STATUS .
-  class-data INT_IS_ENABLED_CACHE type /GAL/CFW_EXTENDED_FLAG .
   class-data CUSTOM_ALLOWED_CALLERS type /GAL/CFW_CUSTOM_ALLOW_CALLERS .
   class-data IGNORED_FUNCTIONS type /GAL/CFW_IGNORED_FUNCTIONS .
+  class-data INIT_STATUS type /GAL/CFW_AUTH_INIT_STATUS .
+  class-data INT_IS_ENABLED_CACHE type /GAL/CFW_EXTENDED_FLAG .
   class-data INT_PARAM_INIT_DONE type ABAP_BOOL .
   class-data LOCAL_ONLY_FUNCTIONS type /GAL/CFW_LOCAL_FUNCTIONS .
   class-data TRACE_VIOLATION_DETAILS type ABAP_BOOL .
@@ -42,6 +42,10 @@ CLASS /GAL/CFW_AUTH_CONFIG IMPLEMENTATION.
 
 
   METHOD constructor.
+
+    " The constructor fills all static attributes containign the config params.
+    " The instance is only to be stored since it's existence shows that all config parameters
+    " have been read and filled correctly. No instance data will be accessed though.
 
     DATA l_config_node             TYPE REF TO /gal/config_node.
     DATA l_disabled                TYPE abap_bool.
@@ -83,6 +87,9 @@ CLASS /GAL/CFW_AUTH_CONFIG IMPLEMENTATION.
 
 
   METHOD init_config_folder.
+
+    " Read and store the config folder object in order to avoid multiple instanciations.
+
     DATA l_config_store            TYPE REF TO /gal/config_store_local.
 
     IF cfw_sec_config_folder IS INITIAL.
@@ -93,6 +100,8 @@ CLASS /GAL/CFW_AUTH_CONFIG IMPLEMENTATION.
 
 
   METHOD init_config_params.
+
+    " This method initializes all config params and stores them in static attributes.
 
     DATA l_config_node             TYPE REF TO /gal/config_node.
     DATA l_ex_conf                 TYPE REF TO /gal/cx_config_exception.
@@ -136,6 +145,10 @@ CLASS /GAL/CFW_AUTH_CONFIG IMPLEMENTATION.
 
 
   METHOD is_active.
+
+    " This method return if the cfw auth framwork is configured as active.
+    " Since the activation status is accessed quite often in performance critical coding,
+    " the activation status is cached on first determination in order to avoid expensice config node reading.
 
     DATA l_config_node             TYPE REF TO /gal/config_node.
     DATA l_disabled                TYPE abap_bool.

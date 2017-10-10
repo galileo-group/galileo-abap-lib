@@ -6,7 +6,7 @@
     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
-    <DESCRIPT>Authentifizierungsframework für CFW</DESCRIPT>
+    <DESCRIPT>Authentification frameowrk for CFW - Implementaions</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSFINAL>X</CLSFINAL>
@@ -19,7 +19,7 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>AUTH_EXCEPTION</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Authority Check Exception in CFW</DESCRIPT>
+     <DESCRIPT>The auth exception that has been found during checking</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
@@ -31,79 +31,139 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_LOCAL_FUNC_LIMITS</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Check authentification</DESCRIPT>
+     <DESCRIPT>Check if forbidden remote execution</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_RFC_CONTEXT</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Check if the RFC ontext is valid</DESCRIPT>
+     <DESCRIPT>Check if the RFC context is valid</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CHECK_RFC_CONTEXT_EXTERNAL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check RFC context (called from external)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONFIG</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Config for CFW Auth Framework</DESCRIPT>
+     <DESCRIPT>The current configuration auth cfw auth framework</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONST_CAB_FINAL_RFC_STEP</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Custom auth check behavior</DESCRIPT>
+     <DESCRIPT>Auth checks only at final step in RFC context</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONST_CAB_FINAL_STEP</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Custom auth check behavior</DESCRIPT>
+     <DESCRIPT>Auth checks at final step (local and RFC context)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONST_CAB_NO_CHECK</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Custom auth check behavior</DESCRIPT>
+     <DESCRIPT>No auth checks at all</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_DIRECT_CALL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Call has been direct (no RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FINAL_STEP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Currently at final step (local or RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FIRST_STEP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Currently at first step</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FUNCTION_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Function that has been called and is being checked</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYMANDT</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Client ID</DESCRIPT>
+     <DESCRIPT>Context: Client of initial call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYSYSID</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Name of SAP System</DESCRIPT>
+     <DESCRIPT>Context: System of initial call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYUNAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>User Name</DESCRIPT>
+     <DESCRIPT>Context: User of initial call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LAST_CALLER_SYMANDT</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Client ID</DESCRIPT>
+     <DESCRIPT>Context: Client of last RFC call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LAST_CALLER_SYSYSID</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Name of SAP System</DESCRIPT>
+     <DESCRIPT>Context: System of last RFC call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LAST_CALLER_SYUNAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>User Name</DESCRIPT>
+     <DESCRIPT>Context: User of last RFC call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_LOCAL_EXECUTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Execution is on caller system (direct or via RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_PARAM_BINDINGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: Parameter Binding of function call</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_RFC_ROUTE_INFO</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>RFC Route information</DESCRIPT>
+     <DESCRIPT>Context: Complete RFC Route information</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>FILL_CFW_AUTH_ERR_EX_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Fill the exception info structure for passing via RFC</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>INIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Initialize the check framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>INT_RFC_CONTEXT_CHECKED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Context: RFC context has been checked in this RFC step</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
@@ -113,9 +173,15 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>REGULAR_AUTH_EXCEPTION_FOUND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Handle a regular auth exception (no framework error)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>RESET_CONTEXT_DATA</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Set extended context data for checking</DESCRIPT>
+     <DESCRIPT>Reset extended context data for checking</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
