@@ -10,344 +10,6 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
-     <FUNCNAME>/GAL/FILE_DELETE</FUNCNAME>
-     <INCLUDE>/GAL/LFILEU03</INCLUDE>
-     <SHORT_TEXT>Delete file (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>CANNOT_DELETE_FILE</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_DELETE_FILE</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Cannot delete file</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC Fehler</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/FILE_GET_DIR_CONTENT</FUNCNAME>
-     <INCLUDE>/GAL/LFILEU06</INCLUDE>
-     <SHORT_TEXT>Get content of a directory</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>PATH</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>GENERIC_NAME</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>FILENAME_AL11</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FILTER</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>MAX_ENTRIES</PARAMETER>
-       <DEFAULT>0</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>CONTENT</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/DIRECTORY_CONTENT</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>IO_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>PATH</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Directory path</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>GENERIC_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>File Name</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FILTER</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>filter for returning file-list</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>MAX_ENTRIES</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Maximum number of entries to be returned</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CONTENT</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Directory content</STEXT>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC communication failed</STEXT>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IO_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>IO error</STEXT>
-       <INDEX> 008</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/FILE_GET_DIR_SEPARATOR</FUNCNAME>
-     <INCLUDE>/GAL/LFILEU07</INCLUDE>
-     <SHORT_TEXT>Get directory separator</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>SEPARATOR</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>CASE_SENSISTIVE_PATH</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>SEPARATOR</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Directory separator</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CASE_SENSISTIVE_PATH</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Flag: Path is case sensitive</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/FILE_GET_LENGTH</FUNCNAME>
-     <INCLUDE>/GAL/LFILEU04</INCLUDE>
-     <SHORT_TEXT>Get file length in bytes (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>LENGTH</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>CANNOT_GET_LENGTH</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>LENGTH</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Maximum amount of data to read (Binary mode: Bytes, Text mode: Lines)</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_GET_LENGTH</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Cannot get file length</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC Fehler</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/FILE_GET_LINE_BREAK</FUNCNAME>
-     <INCLUDE>/GAL/LFILEU05</INCLUDE>
-     <SHORT_TEXT>Get line break style of text file (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>LINE_BREAK</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/FILE_LINE_BREAK</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>CANNOT_GET_LINE_BREAK_STYLE</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FULL_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>LINE_BREAK</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Line break style (text mode only)</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_GET_LINE_BREAK_STYLE</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Cannot get line break style</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC Fehler</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
      <FUNCNAME>/GAL/FILE_READ</FUNCNAME>
      <INCLUDE>/GAL/LFILEU01</INCLUDE>
      <SHORT_TEXT>Read file (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
@@ -579,6 +241,344 @@
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
        <INDEX> 009</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/FILE_DELETE</FUNCNAME>
+     <INCLUDE>/GAL/LFILEU03</INCLUDE>
+     <SHORT_TEXT>Delete file (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CANNOT_DELETE_FILE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Routeninformationen</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Full file name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_DELETE_FILE</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Cannot delete file</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC Fehler</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/FILE_GET_LENGTH</FUNCNAME>
+     <INCLUDE>/GAL/LFILEU04</INCLUDE>
+     <SHORT_TEXT>Get file length in bytes (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>LENGTH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CANNOT_GET_LENGTH</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Routeninformationen</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Full file name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LENGTH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Maximum amount of data to read (Binary mode: Bytes, Text mode: Lines)</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_GET_LENGTH</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Cannot get file length</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC Fehler</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/FILE_GET_LINE_BREAK</FUNCNAME>
+     <INCLUDE>/GAL/LFILEU05</INCLUDE>
+     <SHORT_TEXT>Get line break style of text file (used by class /GAL/BACKEND_FILE)</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>LINE_BREAK</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/FILE_LINE_BREAK</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CANNOT_GET_LINE_BREAK_STYLE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Routeninformationen</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FULL_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Full file name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LINE_BREAK</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Line break style (text mode only)</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_GET_LINE_BREAK_STYLE</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Cannot get line break style</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC Fehler</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/FILE_GET_DIR_CONTENT</FUNCNAME>
+     <INCLUDE>/GAL/LFILEU06</INCLUDE>
+     <SHORT_TEXT>Get content of a directory</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PATH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>GENERIC_NAME</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>FILENAME_AL11</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FILTER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MAX_ENTRIES</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>CONTENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/DIRECTORY_CONTENT</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>IO_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PATH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Directory path</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>GENERIC_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>File Name</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FILTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>filter for returning file-list</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MAX_ENTRIES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Maximum number of entries to be returned</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONTENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Directory content</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC communication failed</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IO_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>IO error</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/FILE_GET_DIR_SEPARATOR</FUNCNAME>
+     <INCLUDE>/GAL/LFILEU07</INCLUDE>
+     <SHORT_TEXT>Get directory separator</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SEPARATOR</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>CASE_SENSISTIVE_PATH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SEPARATOR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Directory separator</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CASE_SENSISTIVE_PATH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag: Path is case sensitive</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

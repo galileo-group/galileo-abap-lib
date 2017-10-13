@@ -10,163 +10,6 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
-     <FUNCNAME>/GAL/CS_AUTHORITY_CHECK</FUNCNAME>
-     <INCLUDE>/GAL/LCONFIG_STOREU05</INCLUDE>
-     <SHORT_TEXT>Configuration Store: Authority check</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>PATH</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ACTION</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>I</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>CLIENT</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>MANDT</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>USER_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>UNAME</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>AUTHORITY_CHECK_FAILED</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>PATH</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Configuration Node Path</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ACTION</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Action (from class /GAL/CONFIG_NODE_ACTIONS)</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CLIENT</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Scope: Client</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>USER_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Scope: User Name</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Node does not exist</STEXT>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>AUTHORITY_CHECK_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Authority check failed</STEXT>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC failed</STEXT>
-       <INDEX> 008</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/CS_SELECT_CHILD_NODES</FUNCNAME>
-     <INCLUDE>/GAL/LCONFIG_STOREU02</INCLUDE>
-     <SHORT_TEXT>Configuration Store: Select child nodes</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/CONFIG_KEY_ID</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>DATA</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/CONFIG_KEYS</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>DATA</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Selected child nodes</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Node does not exist</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC failed</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
      <FUNCNAME>/GAL/CS_SELECT_NODE</FUNCNAME>
      <INCLUDE>/GAL/LCONFIG_STOREU01</INCLUDE>
      <SHORT_TEXT>Configuration Store: Select node</SHORT_TEXT>
@@ -282,6 +125,70 @@
        <KIND>X</KIND>
        <STEXT>RFC failed</STEXT>
        <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_SELECT_CHILD_NODES</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU02</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Select child nodes</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>DATA</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEYS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DATA</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Selected child nodes</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -481,6 +388,99 @@
        <KIND>X</KIND>
        <STEXT>RFC failed</STEXT>
        <INDEX> 010</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CS_AUTHORITY_CHECK</FUNCNAME>
+     <INCLUDE>/GAL/LCONFIG_STOREU05</INCLUDE>
+     <SHORT_TEXT>Configuration Store: Authority check</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PATH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ACTION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>UNAME</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>AUTHORITY_CHECK_FAILED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PATH</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration Node Path</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ACTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Action (from class /GAL/CONFIG_NODE_ACTIONS)</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Scope: Client</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>USER_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Scope: User Name</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NODE_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Node does not exist</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>AUTHORITY_CHECK_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Authority check failed</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC failed</STEXT>
+       <INDEX> 008</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
