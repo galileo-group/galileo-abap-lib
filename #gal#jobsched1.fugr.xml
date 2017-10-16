@@ -10,287 +10,7 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
-     <FUNCNAME>/GAL/JS_DB_WRITE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U01</INCLUDE>
-     <SHORT_TEXT>Write Attributes to DB</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_LINE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/DB_DATAS</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>MODIFY_ONLY</PARAMETER>
-       <DEFAULT>ABAP_FALSE</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>WRONG_CONTENT_DATA</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CANNOT_WRITE_TO_DB</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_LINE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table line data</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>MODIFY_ONLY</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Only update, no insert</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>WRONG_CONTENT_DATA</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_WRITE_TO_DB</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_DB_DELETE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U02</INCLUDE>
-     <SHORT_TEXT>Delete dataset from DB</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>GUID_32</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>GUID in &apos;CHAR&apos; Format in Uppercase</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_DB_SELECT_SINGLE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U03</INCLUDE>
-     <SHORT_TEXT>Select single dataset from DB</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>GUID_32</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>TABLE_LINE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/DB_DATAS</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>NO_DATA_FOUND</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>UNKNOWN_TABLE</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>GUID in &apos;CHAR&apos; Format in Uppercase</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_LINE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Data line for database table</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>NO_DATA_FOUND</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>UNKNOWN_TABLE</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_FREE_RESOURCES</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U04</INCLUDE>
-     <SHORT_TEXT>Free ressource[s] for a job</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RESOURCE_STRING</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RESOURCE_STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RESOURCE_STRING</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>String specifying a resource</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
      <FUNCNAME>/GAL/JS_ADD_PREDECESSOR_JOB</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U05</INCLUDE>
      <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -350,324 +70,7 @@
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_UPDATE_PRECONDITIONS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U06</INCLUDE>
-     <SHORT_TEXT>Update the Job preconditions</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_CHECK_PRECONDITIONS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U07</INCLUDE>
-     <SHORT_TEXT>Check a job&apos;s preconditions</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>FULFILLED</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>FLAG</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FULFILLED</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Preconditions for job are fulfilled</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_RUN_SCHEDULER</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U08</INCLUDE>
-     <SHORT_TEXT>Run job scheduler</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>START_TIMESTAMP</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TIMESTAMP</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>IN_BACKGROUND</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>FLAG</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RETRY_TIMES</PARAMETER>
-       <DEFAULT>3</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>INT4</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RETRY_WAIT_INTERVAL</PARAMETER>
-       <DEFAULT>5</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>INT4</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>MESSAGES</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/TT_MESSAGE_STRUCT</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CANNOT_RUN_SCHEDULER</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>START_TIMESTAMP</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>IN_BACKGROUND</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Run job scheduler in background</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RETRY_TIMES</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Number of times to retry job scheduler lock</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RETRY_WAIT_INTERVAL</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Wait time between retries in seconds</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>MESSAGES</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table with messages</STEXT>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_RUN_SCHEDULER</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 008</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_ADD_START_TS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U09</INCLUDE>
-     <SHORT_TEXT>Add a start timestamp job for a job</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TIMESTAMP</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TIMESTAMP</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TIMESTAMP</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_ADD_USER_EVENT</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U10</INCLUDE>
-     <SHORT_TEXT>Add a needed uder event job for a job</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>EVENT_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/PRECONDITION_ID</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EVENT_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job precondition: ID</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
      <FUNCNAME>/GAL/JS_ADD_RESOURCE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U11</INCLUDE>
      <SHORT_TEXT>Add a resource job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -732,60 +135,8 @@
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_UPDATE_RESOURCES</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U12</INCLUDE>
-     <SHORT_TEXT>Update resources for a job</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RESOURCE_STRING</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RESOURCE_STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RESOURCE_STRING</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>String specifying a resource</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_LOCK_RESOURCES</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U13</INCLUDE>
-     <SHORT_TEXT>Lock resources for a job</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_ADD_START_TS</FUNCNAME>
+     <SHORT_TEXT>Add a start timestamp job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -798,13 +149,15 @@
        <REFERENCE>X</REFERENCE>
        <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
+      <RSIMP>
+       <PARAMETER>TIMESTAMP</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TIMESTAMP</TYP>
+      </RSIMP>
      </IMPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -821,21 +174,21 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
+       <PARAMETER>TIMESTAMP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
        <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_ENQUEUE_JOB</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U14</INCLUDE>
-     <SHORT_TEXT>Enqueue a job</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_ADD_USER_EVENT</FUNCNAME>
+     <SHORT_TEXT>Add a needed uder event job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -848,22 +201,17 @@
        <REFERENCE>X</REFERENCE>
        <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
-      <RSIMP>
-       <PARAMETER>TRACE</PARAMETER>
-       <DEFAULT>ABAP_FALSE</DEFAULT>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
      </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>EVENT_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/PRECONDITION_ID</TYP>
+      </RSEXP>
+     </EXPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>FOREIGN_LOCK</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -880,9 +228,9 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>TRACE</PARAMETER>
+       <PARAMETER>EVENT_ID</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Perform tracing</STEXT>
+       <STEXT>Job precondition: ID</STEXT>
        <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
@@ -890,22 +238,187 @@
        <KIND>X</KIND>
        <INDEX> 004</INDEX>
       </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_BP_JOB_CHECKSTATE</FUNCNAME>
+     <SHORT_TEXT>Check if running Conigma job is still active in SM37</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DIALOG</PARAMETER>
+       <TYP>BTCH0000-CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOBCOUNT</PARAMETER>
+       <TYP>TBTCJOB-JOBCOUNT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOBNAME</PARAMETER>
+       <TYP>TBTCJOB-JOBNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>START_ASAP</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BTCH0000-CHAR1</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TIME_LIMIT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>I</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>READ_ONLY_STATUS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>BTCH0000-CHAR1</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS_ACCORDING_TO_DB</PARAMETER>
+       <TYP>TBTCJOB-STATUS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ACTUAL_STATUS</PARAMETER>
+       <TYP>TBTCJOB-STATUS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CHECKING_OF_JOB_HAS_FAILED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CORRECTING_JOB_STATUS_FAILED</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>INVALID_DIALOG_TYPE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>JOB_DOES_NOT_EXIST</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>NO_CHECK_PRIVILEGE_GIVEN</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>READY_SWITCH_TOO_DANGEROUS</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
       <RSFDO>
-       <PARAMETER>FOREIGN_LOCK</PARAMETER>
-       <KIND>X</KIND>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DIALOG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Dialog ja / nein</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOBCOUNT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOBNAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Name eines Jobs</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>START_ASAP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>&apos;X&apos; = kaputten Job (im Status &apos;bereit&apos;) sofort starten</STEXT>
        <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
+       <PARAMETER>TIME_LIMIT</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>READ_ONLY_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Referenztyp CHAR1 für die Hintergrundverarbeitung</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS_ACCORDING_TO_DB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>State of Background Job</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ACTUAL_STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>State of Background Job</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CHECKING_OF_JOB_HAS_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Überprüfen des Jobs ist misslungen</STEXT>
+       <INDEX> 011</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CORRECTING_JOB_STATUS_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Korrigieren des Jobstatus ist misslungen</STEXT>
+       <INDEX> 012</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INVALID_DIALOG_TYPE</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 013</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_DOES_NOT_EXIST</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Job exisitiert nicht</STEXT>
+       <INDEX> 014</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_CHECK_PRIVILEGE_GIVEN</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>keine Berechtigung zum Prüfen des Jobs</STEXT>
+       <INDEX> 015</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>READY_SWITCH_TOO_DANGEROUS</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Bereit -&gt; geplant zu gefährlich ( Nichtdialog )</STEXT>
+       <INDEX> 016</INDEX>
+      </RSFDO>
+      <RSFDO>
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 006</INDEX>
+       <STEXT>Ausführung fehlgeschlagen</STEXT>
+       <INDEX> 017</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_DEQUEUE_JOB</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U15</INCLUDE>
-     <SHORT_TEXT>Dequeue a job</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_CANCEL_JOB</FUNCNAME>
+     <SHORT_TEXT>Cancel a running background job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -914,67 +427,40 @@
        <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>JOB_ID</PARAMETER>
+       <PARAMETER>RFC_ROUTE_INFO_STEP2</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_ID</TYP>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>TRACE</PARAMETER>
+       <PARAMETER>JOB_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BTCJOB</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_COUNT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>BTCJOBCNT</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>WAIT</PARAMETER>
        <DEFAULT>ABAP_FALSE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IGNORE_NOT_RUNNING_JOB</PARAMETER>
+       <DEFAULT>ABAP_TRUE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
        <TYP>ABAP_BOOL</TYP>
       </RSIMP>
      </IMPORT>
      <EXCEPTION>
       <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+       <EXCEPTION>CANNOT_BE_CANCELLED</EXCEPTION>
       </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TRACE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Perform tracing</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_HANDLE_ORPHANED_JOBS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U16</INCLUDE>
-     <SHORT_TEXT>Handle Jobs that are orphaned (Not running anymore)</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RUN_SCHEDULER</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>FLAG</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
       </RSEXC>
@@ -990,26 +476,54 @@
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>RUN_SCHEDULER</PARAMETER>
+       <PARAMETER>RFC_ROUTE_INFO_STEP2</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Run the job scheduler if needed</STEXT>
+       <STEXT>RFC Route information</STEXT>
        <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Background job name</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_COUNT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WAIT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Wait for cancellation</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IGNORE_NOT_RUNNING_JOB</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Ignore if job is not running</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_BE_CANCELLED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 003</INDEX>
+       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 004</INDEX>
+       <INDEX> 009</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>/GAL/JS_CHECK_BTCJOB_STATUS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U17</INCLUDE>
      <SHORT_TEXT>Add a predecessor job for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -1090,9 +604,8 @@
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_GET_JOBS_STATES</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U18</INCLUDE>
-     <SHORT_TEXT>Determine consolidated job state</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_CHECK_PRECONDITIONS</FUNCNAME>
+     <SHORT_TEXT>Check a job&apos;s preconditions</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1101,30 +614,21 @@
        <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>JOB_IDS</PARAMETER>
+       <PARAMETER>JOB_ID</PARAMETER>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/TT_JOB_IDS</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TOLERANT_MODE</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>FLAG</TYP>
+       <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
      </IMPORT>
      <EXPORT>
       <RSEXP>
-       <PARAMETER>STATUS</PARAMETER>
+       <PARAMETER>FULFILLED</PARAMETER>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/TT_JOB_STATUS</TYP>
+       <TYP>FLAG</TYP>
       </RSEXP>
      </EXPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -1135,39 +639,541 @@
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>JOB_IDS</PARAMETER>
+       <PARAMETER>JOB_ID</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Table with job IDs</STEXT>
+       <STEXT>Job ID</STEXT>
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>TOLERANT_MODE</PARAMETER>
+       <PARAMETER>FULFILLED</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Act tolerant on errors</STEXT>
+       <STEXT>Preconditions for job are fulfilled</STEXT>
        <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>STATUS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table with job status entries</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 006</INDEX>
+       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_IS_WAITING_FOR_EVENT</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U19</INCLUDE>
-     <SHORT_TEXT>Check if a job is waiting for an event</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_CHECK_RESOURCE</FUNCNAME>
+     <SHORT_TEXT>Check a job&apos;s needed resources</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_ID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>LOCKED_RESOURCE_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RESOURCE_STRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCKED_RESOURCE_ID</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_CHECK_RUNNING_JOBS</FUNCNAME>
+     <SHORT_TEXT>Check if running Conigma jobs are still active in SM37</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>DO_NOT_RUN_SCHEDULER</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CHECK_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DO_NOT_RUN_SCHEDULER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Do not run job scheduler before execution</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CHECK_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_CLEAN_PRECONDITIONS</FUNCNAME>
+     <SHORT_TEXT>Delete the preconditions of old finished jobs</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>MIN_AGE_IN_DAYS</PARAMETER>
+       <DEFAULT>14</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+       <TYP>INT4</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>MIN_AGE_IN_DAYS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Days to substract</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DB_COPY_ENTRY_TO_HIST</FUNCNAME>
+     <SHORT_TEXT>Copy a Jobtable entry to history tables</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KEY_FIELD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TFIELDNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KEY_VALUE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CANNOT_CREATE_HIST_ENTRY</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>History Table Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Name</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KEY_FIELD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Key Fieldname</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KEY_VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Key Value</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_CREATE_HIST_ENTRY</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DB_DELETE</FUNCNAME>
+     <SHORT_TEXT>Delete dataset from DB</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GUID_32</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>GUID in &apos;CHAR&apos; Format in Uppercase</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DB_MOVE_HIST_E_TO_DB</FUNCNAME>
+     <SHORT_TEXT>Move a job history entry back to active db</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KEY_FIELD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TFIELDNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>KEY_VALUE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CANNOT_CREATE_ENTRY</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>History Table Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Name</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KEY_FIELD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Key Fieldname</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>KEY_VALUE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Key Value</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_CREATE_ENTRY</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DB_SELECT_SINGLE</FUNCNAME>
+     <SHORT_TEXT>Select single dataset from DB</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>GUID_32</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>TABLE_LINE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/DB_DATAS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>NO_DATA_FOUND</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>UNKNOWN_TABLE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>GUID in &apos;CHAR&apos; Format in Uppercase</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_LINE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Data line for database table</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>NO_DATA_FOUND</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNKNOWN_TABLE</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DB_WRITE</FUNCNAME>
+     <SHORT_TEXT>Write Attributes to DB</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TABNAME</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TABLE_LINE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/DB_DATAS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>MODIFY_ONLY</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>WRONG_CONTENT_DATA</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CANNOT_WRITE_TO_DB</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table Name</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TABLE_LINE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table line data</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>MODIFY_ONLY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Only update, no insert</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WRONG_CONTENT_DATA</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CANNOT_WRITE_TO_DB</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DEQUEUE_JOB</FUNCNAME>
+     <SHORT_TEXT>Dequeue a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1181,19 +1187,244 @@
        <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>IGNORE_WHEN_MISSING_PREDECS</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
+       <PARAMETER>TRACE</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
        <REFERENCE>X</REFERENCE>
-       <TYP>FLAG</TYP>
+       <TYP>ABAP_BOOL</TYP>
       </RSIMP>
      </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>EVENT_IDS</PARAMETER>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TRACE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Perform tracing</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_DEQUEUE_JS_LOCK</FUNCNAME>
+     <SHORT_TEXT>Release global semaphore for the job scheduler</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/PRECONDITION_IDS</TYP>
-      </RSEXP>
-     </EXPORT>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_KEY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR10</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_KEY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character Field Length = 10</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_ENQUEUE_JOB</FUNCNAME>
+     <SHORT_TEXT>Enqueue a job</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TRACE</PARAMETER>
+       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>FOREIGN_LOCK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TRACE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Perform tracing</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FOREIGN_LOCK</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_ENQUEUE_JS_LOCK</FUNCNAME>
+     <SHORT_TEXT>Create a global semaphore for the job scheduler</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_KEY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>CHAR10</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>WAIT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>DDENQWAIT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>FOREIGN_LOCK</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_KEY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Character Field Length = 10</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>WAIT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Flag indicating whether lock attempt is to be repeated</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FOREIGN_LOCK</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_FREE_RESOURCES</FUNCNAME>
+     <SHORT_TEXT>Free ressource[s] for a job</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RESOURCE_STRING</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RESOURCE_STRING</TYP>
+      </RSIMP>
+     </IMPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
@@ -1216,130 +1447,25 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>IGNORE_WHEN_MISSING_PREDECS</PARAMETER>
+       <PARAMETER>RESOURCE_STRING</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Ignore jobs that have missing predecessors</STEXT>
+       <STEXT>String specifying a resource</STEXT>
        <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EVENT_IDS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job precondition: Table with IDs</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 005</INDEX>
+       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_GET_JOB_RESOURCE_DATAS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U20</INCLUDE>
-     <SHORT_TEXT>Get job-resource datas</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>FROM</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TIMESTAMP</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RESOURCE_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RESOURCE_STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ASSIGNED</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>REQUESTED</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FREE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>JOB_RESOURCE_DATAS</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/JOB_RESOURCE_DATAS</TYP>
-      </RSEXP>
-     </EXPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>FROM</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RESOURCE_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job precondition: ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ASSIGNED</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Recource is assigned</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>REQUESTED</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Recource is requested</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FREE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Recource is free</STEXT>
        <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_RESOURCE_DATAS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table of structure JOB_RESOURCE_DATA</STEXT>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 008</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
      <FUNCNAME>/GAL/JS_GET_JOBS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U21</INCLUDE>
      <SHORT_TEXT>Get Entries from /GAL/JOBDATA01</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -1524,8 +1650,178 @@
      </DOCUMENTATION>
     </item>
     <item>
+     <FUNCNAME>/GAL/JS_GET_JOBS_STATES</FUNCNAME>
+     <SHORT_TEXT>Determine consolidated job state</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_IDS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/TT_JOB_IDS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TOLERANT_MODE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>FLAG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>STATUS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/TT_JOB_STATUS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_IDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table with job IDs</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TOLERANT_MODE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Act tolerant on errors</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>STATUS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table with job status entries</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_GET_JOB_RESOURCE_DATAS</FUNCNAME>
+     <SHORT_TEXT>Get job-resource datas</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>FROM</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TIMESTAMP</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RESOURCE_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RESOURCE_STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ASSIGNED</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>REQUESTED</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FREE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>JOB_RESOURCE_DATAS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_RESOURCE_DATAS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>FROM</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RESOURCE_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job precondition: ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ASSIGNED</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Recource is assigned</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>REQUESTED</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Recource is requested</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FREE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Recource is free</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_RESOURCE_DATAS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table of structure JOB_RESOURCE_DATA</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>/GAL/JS_GET_PREDEC_JOBS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U22</INCLUDE>
      <SHORT_TEXT>Get predecessor jobs for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -1579,9 +1875,8 @@
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_ENQUEUE_JS_LOCK</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U23</INCLUDE>
-     <SHORT_TEXT>Create a global semaphore for the job scheduler</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_HANDLE_ORPHANED_JOBS</FUNCNAME>
+     <SHORT_TEXT>Handle Jobs that are orphaned (Not running anymore)</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1590,23 +1885,15 @@
        <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>LOCK_KEY</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>CHAR10</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>WAIT</PARAMETER>
+       <PARAMETER>RUN_SCHEDULER</PARAMETER>
        <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>DDENQWAIT</TYP>
+       <TYP>FLAG</TYP>
       </RSIMP>
      </IMPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>FOREIGN_LOCK</EXCEPTION>
       </RSEXC>
       <RSEXC>
        <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
@@ -1620,80 +1907,26 @@
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>LOCK_KEY</PARAMETER>
+       <PARAMETER>RUN_SCHEDULER</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Character Field Length = 10</STEXT>
+       <STEXT>Run the job scheduler if needed</STEXT>
        <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>WAIT</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Flag indicating whether lock attempt is to be repeated</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FOREIGN_LOCK</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 005</INDEX>
+       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 006</INDEX>
+       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_DEQUEUE_JS_LOCK</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U24</INCLUDE>
-     <SHORT_TEXT>Release global semaphore for the job scheduler</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>LOCK_KEY</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>CHAR10</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>LOCK_KEY</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Character Field Length = 10</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_CHECK_RESOURCE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U25</INCLUDE>
-     <SHORT_TEXT>Check a job&apos;s needed resources</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_IS_WAITING_FOR_EVENT</FUNCNAME>
+     <SHORT_TEXT>Check if a job is waiting for an event</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1706,17 +1939,26 @@
        <REFERENCE>X</REFERENCE>
        <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
+      <RSIMP>
+       <PARAMETER>IGNORE_WHEN_MISSING_PREDECS</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>FLAG</TYP>
+      </RSIMP>
      </IMPORT>
      <EXPORT>
       <RSEXP>
-       <PARAMETER>LOCKED_RESOURCE_ID</PARAMETER>
+       <PARAMETER>EVENT_IDS</PARAMETER>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RESOURCE_STRING</TYP>
+       <TYP>/GAL/PRECONDITION_IDS</TYP>
       </RSEXP>
      </EXPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -1733,41 +1975,80 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>LOCKED_RESOURCE_ID</PARAMETER>
+       <PARAMETER>IGNORE_WHEN_MISSING_PREDECS</PARAMETER>
        <KIND>P</KIND>
+       <STEXT>Ignore jobs that have missing predecessors</STEXT>
        <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
+       <PARAMETER>EVENT_IDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job precondition: Table with IDs</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_LOCK_RESOURCES</FUNCNAME>
+     <SHORT_TEXT>Lock resources for a job</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JOB_ID</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>JOB_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_CLEAN_PRECONDITIONS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U26</INCLUDE>
-     <SHORT_TEXT>Delete the preconditions of old finished jobs</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>MIN_AGE_IN_DAYS</PARAMETER>
-       <DEFAULT>14</DEFAULT>
-       <REFERENCE>X</REFERENCE>
-       <TYP>INT4</TYP>
-      </RSIMP>
-     </IMPORT>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>MIN_AGE_IN_DAYS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Days to substract</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
      <FUNCNAME>/GAL/JS_RUN_JOBS_ASYNC_PART</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U27</INCLUDE>
      <SHORT_TEXT>Run asynchronous parts of a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -1853,9 +2134,8 @@
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_CANCEL_JOB</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U28</INCLUDE>
-     <SHORT_TEXT>Cancel a running background job</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_RUN_SCHEDULER</FUNCNAME>
+     <SHORT_TEXT>Run job scheduler</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -1864,45 +2144,45 @@
        <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO_STEP2</PARAMETER>
+       <PARAMETER>START_TIMESTAMP</PARAMETER>
        <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+       <TYP>TIMESTAMP</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>JOB_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>BTCJOB</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOB_COUNT</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>BTCJOBCNT</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>WAIT</PARAMETER>
-       <DEFAULT>ABAP_FALSE</DEFAULT>
+       <PARAMETER>IN_BACKGROUND</PARAMETER>
        <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
+       <TYP>FLAG</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>IGNORE_NOT_RUNNING_JOB</PARAMETER>
-       <DEFAULT>ABAP_TRUE</DEFAULT>
+       <PARAMETER>RETRY_TIMES</PARAMETER>
+       <DEFAULT>3</DEFAULT>
        <OPTIONAL>X</OPTIONAL>
        <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
+       <TYP>INT4</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>RETRY_WAIT_INTERVAL</PARAMETER>
+       <DEFAULT>5</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>INT4</TYP>
       </RSIMP>
      </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>MESSAGES</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/TT_MESSAGE_STRUCT</TYP>
+      </RSEXP>
+     </EXPORT>
      <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>CANNOT_BE_CANCELLED</EXCEPTION>
-      </RSEXC>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
       </RSEXC>
       <RSEXC>
-       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
+       <EXCEPTION>CANNOT_RUN_SCHEDULER</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -1913,222 +2193,50 @@
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO_STEP2</PARAMETER>
+       <PARAMETER>START_TIMESTAMP</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
+       <STEXT>UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</STEXT>
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>JOB_NAME</PARAMETER>
+       <PARAMETER>IN_BACKGROUND</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Background job name</STEXT>
+       <STEXT>Run job scheduler in background</STEXT>
        <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>JOB_COUNT</PARAMETER>
+       <PARAMETER>RETRY_TIMES</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
+       <STEXT>Number of times to retry job scheduler lock</STEXT>
        <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>WAIT</PARAMETER>
+       <PARAMETER>RETRY_WAIT_INTERVAL</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Wait for cancellation</STEXT>
+       <STEXT>Wait time between retries in seconds</STEXT>
        <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>IGNORE_NOT_RUNNING_JOB</PARAMETER>
+       <PARAMETER>MESSAGES</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Ignore if job is not running</STEXT>
+       <STEXT>Table with messages</STEXT>
        <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>CANNOT_BE_CANCELLED</PARAMETER>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <PARAMETER>CANNOT_RUN_SCHEDULER</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 008</INDEX>
       </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXECUTION_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 009</INDEX>
-      </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_DB_COPY_ENTRY_TO_HIST</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U29</INCLUDE>
-     <SHORT_TEXT>Copy a Jobtable entry to history tables</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>KEY_FIELD</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TFIELDNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>KEY_VALUE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CANNOT_CREATE_HIST_ENTRY</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>History Table Name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Name</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>KEY_FIELD</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Key Fieldname</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>KEY_VALUE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Key Value</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_CREATE_HIST_ENTRY</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_DB_MOVE_HIST_E_TO_DB</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U30</INCLUDE>
-     <SHORT_TEXT>Move a job history entry back to active db</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TABNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>KEY_FIELD</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TFIELDNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>KEY_VALUE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CANNOT_CREATE_ENTRY</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>HIST_TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>History Table Name</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TABLE_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Name</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>KEY_FIELD</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Key Fieldname</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>KEY_VALUE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Table Key Value</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CANNOT_CREATE_ENTRY</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/JS_CHECK_RUNNING_JOBS</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U31</INCLUDE>
-     <SHORT_TEXT>Check if running Conigma jobs are still active in SM37</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_UPDATE_PRECONDITIONS</FUNCNAME>
+     <SHORT_TEXT>Update the Job preconditions</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -2142,20 +2250,13 @@
        <REFERENCE>X</REFERENCE>
        <TYP>/GAL/JOB_ID</TYP>
       </RSIMP>
-      <RSIMP>
-       <PARAMETER>DO_NOT_RUN_SCHEDULER</PARAMETER>
-       <DEFAULT>ABAP_FALSE</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSIMP>
      </IMPORT>
      <EXCEPTION>
       <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+       <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
       </RSEXC>
       <RSEXC>
-       <EXCEPTION>CHECK_FAILED</EXCEPTION>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
      <DOCUMENTATION>
@@ -2172,9 +2273,8 @@
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>DO_NOT_RUN_SCHEDULER</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Do not run job scheduler before execution</STEXT>
+       <PARAMETER>EXECUTION_FAILED</PARAMETER>
+       <KIND>X</KIND>
        <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
@@ -2182,17 +2282,11 @@
        <KIND>X</KIND>
        <INDEX> 004</INDEX>
       </RSFDO>
-      <RSFDO>
-       <PARAMETER>CHECK_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 005</INDEX>
-      </RSFDO>
      </DOCUMENTATION>
     </item>
     <item>
-     <FUNCNAME>/GAL/JS_BP_JOB_CHECKSTATE</FUNCNAME>
-     <INCLUDE>/GAL/LJOBSCHED1U33</INCLUDE>
-     <SHORT_TEXT>Check if running Conigma job is still active in SM37</SHORT_TEXT>
+     <FUNCNAME>/GAL/JS_UPDATE_RESOURCES</FUNCNAME>
+     <SHORT_TEXT>Update resources for a job</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
@@ -2201,64 +2295,15 @@
        <TYP>/GAL/RFC_ROUTE_INFO</TYP>
       </RSIMP>
       <RSIMP>
-       <PARAMETER>DIALOG</PARAMETER>
-       <TYP>BTCH0000-CHAR1</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOBCOUNT</PARAMETER>
-       <TYP>TBTCJOB-JOBCOUNT</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>JOBNAME</PARAMETER>
-       <TYP>TBTCJOB-JOBNAME</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>START_ASAP</PARAMETER>
+       <PARAMETER>RESOURCE_STRING</PARAMETER>
        <OPTIONAL>X</OPTIONAL>
-       <TYP>BTCH0000-CHAR1</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TIME_LIMIT</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <TYP>I</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>READ_ONLY_STATUS</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <TYP>BTCH0000-CHAR1</TYP>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RESOURCE_STRING</TYP>
       </RSIMP>
      </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>STATUS_ACCORDING_TO_DB</PARAMETER>
-       <TYP>TBTCJOB-STATUS</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>ACTUAL_STATUS</PARAMETER>
-       <TYP>TBTCJOB-STATUS</TYP>
-      </RSEXP>
-     </EXPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CHECKING_OF_JOB_HAS_FAILED</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>CORRECTING_JOB_STATUS_FAILED</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>INVALID_DIALOG_TYPE</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>JOB_DOES_NOT_EXIST</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>NO_CHECK_PRIVILEGE_GIVEN</EXCEPTION>
-      </RSEXC>
-      <RSEXC>
-       <EXCEPTION>READY_SWITCH_TOO_DANGEROUS</EXCEPTION>
       </RSEXC>
       <RSEXC>
        <EXCEPTION>EXECUTION_FAILED</EXCEPTION>
@@ -2272,97 +2317,20 @@
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
-       <PARAMETER>DIALOG</PARAMETER>
+       <PARAMETER>RESOURCE_STRING</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Dialog ja / nein</STEXT>
+       <STEXT>String specifying a resource</STEXT>
        <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOBCOUNT</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Job ID</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOBNAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Name eines Jobs</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>START_ASAP</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>&apos;X&apos; = kaputten Job (im Status &apos;bereit&apos;) sofort starten</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TIME_LIMIT</PARAMETER>
-       <KIND>P</KIND>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>READ_ONLY_STATUS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Referenztyp CHAR1 für die Hintergrundverarbeitung</STEXT>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>STATUS_ACCORDING_TO_DB</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>State of Background Job</STEXT>
-       <INDEX> 008</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ACTUAL_STATUS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>State of Background Job</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 010</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CHECKING_OF_JOB_HAS_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Überprüfen des Jobs ist misslungen</STEXT>
-       <INDEX> 011</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CORRECTING_JOB_STATUS_FAILED</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Korrigieren des Jobstatus ist misslungen</STEXT>
-       <INDEX> 012</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>INVALID_DIALOG_TYPE</PARAMETER>
-       <KIND>X</KIND>
-       <INDEX> 013</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>JOB_DOES_NOT_EXIST</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Job exisitiert nicht</STEXT>
-       <INDEX> 014</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>NO_CHECK_PRIVILEGE_GIVEN</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>keine Berechtigung zum Prüfen des Jobs</STEXT>
-       <INDEX> 015</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>READY_SWITCH_TOO_DANGEROUS</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>Bereit -&gt; geplant zu gefährlich ( Nichtdialog )</STEXT>
-       <INDEX> 016</INDEX>
+       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Ausführung fehlgeschlagen</STEXT>
-       <INDEX> 017</INDEX>
+       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

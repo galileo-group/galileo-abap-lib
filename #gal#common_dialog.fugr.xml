@@ -14,8 +14,221 @@
    </INCLUDES>
    <FUNCTIONS>
     <item>
+     <FUNCNAME>/GAL/CD_CSTORE_CHOOSE_FOLDER</FUNCNAME>
+     <SHORT_TEXT>Choose Folder Dialog for Config Store</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TITLE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CONFIG_STORE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO /GAL/CONFIG_STORE</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>RESULT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>TARGET_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_ID</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>TARGET_NAME</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/CONFIG_KEY_NAME</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>TARGET_PATH</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TITLE</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CONFIG_STORE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration Store</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RESULT</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TARGET_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration store: Key ID</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TARGET_NAME</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Configuration store: Key name</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TARGET_PATH</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/CD_SELECT_BACKEND_FILES</FUNCNAME>
+     <SHORT_TEXT>Popup for browsing back-end files</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>ACCESS</PARAMETER>
+       <DEFAULT>&apos;01&apos;</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>X</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>BASE_DIRECTORY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_DIRECTORY</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_FILE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>INITIAL_FILTER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FILTER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>TITLE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SELECTED_FILE</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>STRING</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>ABORTED</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>EXCEPTION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>REF TO CX_ROOT</TYP>
+       <REF_CLASS>X</REF_CLASS>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ACCESS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Access</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>BASE_DIRECTORY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Base directory</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_DIRECTORY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial directory</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_FILE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial file</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INITIAL_FILTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Initial filter</STEXT>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FILTER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Filter definition (for file types)</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TITLE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Dialog title</STEXT>
+       <INDEX> 008</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SELECTED_FILE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Directory Name</STEXT>
+       <INDEX> 009</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ABORTED</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Aborted by user</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>EXCEPTION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Exception</STEXT>
+       <INDEX> 011</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>/GAL/CD_SHOW_DIALOG</FUNCNAME>
-     <INCLUDE>/GAL/LCOMMON_DIALOGU01</INCLUDE>
      <SHORT_TEXT>Show dialog</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -251,222 +464,6 @@
        <KIND>P</KIND>
        <STEXT>Options</STEXT>
        <INDEX> 019</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/CD_SELECT_BACKEND_FILES</FUNCNAME>
-     <INCLUDE>/GAL/LCOMMON_DIALOGU02</INCLUDE>
-     <SHORT_TEXT>Popup for browsing back-end files</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>ACCESS</PARAMETER>
-       <DEFAULT>&apos;01&apos;</DEFAULT>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>X</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>BASE_DIRECTORY</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>INITIAL_DIRECTORY</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>INITIAL_FILE</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>INITIAL_FILTER</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>FILTER</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>TITLE</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>SELECTED_FILE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>ABORTED</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>ABAP_BOOL</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>EXCEPTION</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>REF TO CX_ROOT</TYP>
-       <REF_CLASS>X</REF_CLASS>
-      </RSEXP>
-     </EXPORT>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ACCESS</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Access</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>BASE_DIRECTORY</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Base directory</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>INITIAL_DIRECTORY</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Initial directory</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>INITIAL_FILE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Initial file</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>INITIAL_FILTER</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Initial filter</STEXT>
-       <INDEX> 006</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>FILTER</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Filter definition (for file types)</STEXT>
-       <INDEX> 007</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TITLE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Dialog title</STEXT>
-       <INDEX> 008</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>SELECTED_FILE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Directory Name</STEXT>
-       <INDEX> 009</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>ABORTED</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Aborted by user</STEXT>
-       <INDEX> 010</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>EXCEPTION</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Exception</STEXT>
-       <INDEX> 011</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/CD_CSTORE_CHOOSE_FOLDER</FUNCNAME>
-     <INCLUDE>/GAL/LCOMMON_DIALOGU03</INCLUDE>
-     <SHORT_TEXT>Choose Folder Dialog for Config Store</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>TITLE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>CONFIG_STORE</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>REF TO /GAL/CONFIG_STORE</TYP>
-       <REF_CLASS>X</REF_CLASS>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>RESULT</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>TARGET_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/CONFIG_KEY_ID</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>TARGET_NAME</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/CONFIG_KEY_NAME</TYP>
-      </RSEXP>
-      <RSEXP>
-       <PARAMETER>TARGET_PATH</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>STRING</TYP>
-      </RSEXP>
-     </EXPORT>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>TITLE</PARAMETER>
-       <KIND>P</KIND>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CONFIG_STORE</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Configuration Store</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RESULT</PARAMETER>
-       <KIND>P</KIND>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TARGET_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Configuration store: Key ID</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TARGET_NAME</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Configuration store: Key name</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>TARGET_PATH</PARAMETER>
-       <KIND>P</KIND>
-       <INDEX> 006</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

@@ -11,7 +11,6 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>/GAL/RFC_PROXY_FUNCTION</FUNCNAME>
-     <INCLUDE>/GAL/LCFW1U01</INCLUDE>
      <REMOTE_CALL>R</REMOTE_CALL>
      <SHORT_TEXT>Communication Framework: Proxy function for RFCs with dyn. param. binding</SHORT_TEXT>
      <IMPORT>
@@ -129,7 +128,6 @@
     </item>
     <item>
      <FUNCNAME>/GAL/RFC_ROUTE_PING</FUNCNAME>
-     <INCLUDE>/GAL/LCFW1U02</INCLUDE>
      <SHORT_TEXT>Communication Framework: Ping via RFC route</SHORT_TEXT>
      <IMPORT>
       <RSIMP>

@@ -11,7 +11,6 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>/GAL/LOCK_ACQUIRE</FUNCNAME>
-     <INCLUDE>/GAL/LLOCKU01</INCLUDE>
      <SHORT_TEXT>Acquire a lock</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -125,8 +124,74 @@
      </DOCUMENTATION>
     </item>
     <item>
+     <FUNCNAME>/GAL/LOCK_GET_SYNC_TIMESTAMP</FUNCNAME>
+     <SHORT_TEXT>Get synchronization timestamp</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/LOCK_ID</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>CLIENT</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>MANDT</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TIMESTAMPL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>LOCK_ID</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Lock ID</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CLIENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Client</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Synchronization timestamp</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>RFC exception</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>/GAL/LOCK_RELEASE</FUNCNAME>
-     <INCLUDE>/GAL/LLOCKU02</INCLUDE>
      <SHORT_TEXT>Release a lock</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -207,7 +272,6 @@
     </item>
     <item>
      <FUNCNAME>/GAL/LOCK_SET_SYNC_TIMESTAMP</FUNCNAME>
-     <INCLUDE>/GAL/LLOCKU03</INCLUDE>
      <SHORT_TEXT>Set synchronization timestamp</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -234,74 +298,6 @@
        <TYP>TIMESTAMPL</TYP>
       </RSIMP>
      </IMPORT>
-     <EXCEPTION>
-      <RSEXC>
-       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
-      </RSEXC>
-     </EXCEPTION>
-     <DOCUMENTATION>
-      <RSFDO>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>LOCK_ID</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Lock ID</STEXT>
-       <INDEX> 002</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>CLIENT</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Client</STEXT>
-       <INDEX> 003</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
-       <KIND>P</KIND>
-       <STEXT>Synchronization timestamp</STEXT>
-       <INDEX> 004</INDEX>
-      </RSFDO>
-      <RSFDO>
-       <PARAMETER>RFC_EXCEPTION</PARAMETER>
-       <KIND>X</KIND>
-       <STEXT>RFC exception</STEXT>
-       <INDEX> 005</INDEX>
-      </RSFDO>
-     </DOCUMENTATION>
-    </item>
-    <item>
-     <FUNCNAME>/GAL/LOCK_GET_SYNC_TIMESTAMP</FUNCNAME>
-     <INCLUDE>/GAL/LLOCKU04</INCLUDE>
-     <SHORT_TEXT>Get synchronization timestamp</SHORT_TEXT>
-     <IMPORT>
-      <RSIMP>
-       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>LOCK_ID</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>/GAL/LOCK_ID</TYP>
-      </RSIMP>
-      <RSIMP>
-       <PARAMETER>CLIENT</PARAMETER>
-       <OPTIONAL>X</OPTIONAL>
-       <REFERENCE>X</REFERENCE>
-       <TYP>MANDT</TYP>
-      </RSIMP>
-     </IMPORT>
-     <EXPORT>
-      <RSEXP>
-       <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
-       <REFERENCE>X</REFERENCE>
-       <TYP>TIMESTAMPL</TYP>
-      </RSEXP>
-     </EXPORT>
      <EXCEPTION>
       <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>

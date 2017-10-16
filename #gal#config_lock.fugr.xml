@@ -11,7 +11,6 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>/GAL/CONFIG_LOCK_ACQUIRE</FUNCNAME>
-     <INCLUDE>/GAL/LCONFIG_LOCKU01</INCLUDE>
      <SHORT_TEXT>Acquire a configuration lock</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -63,7 +62,6 @@
     </item>
     <item>
      <FUNCNAME>/GAL/CONFIG_LOCK_RELEASE</FUNCNAME>
-     <INCLUDE>/GAL/LCONFIG_LOCKU02</INCLUDE>
      <SHORT_TEXT>Release a config lock</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
