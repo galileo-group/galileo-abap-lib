@@ -45,6 +45,10 @@ FORM main.
   IF p_job_id IS INITIAL.
     MESSAGE i032(/gal/js) INTO l_message.
     WRITE l_message COLOR COL_NEGATIVE.
+    /gal/trace=>write_text(
+      EXPORTING
+        text = l_message
+    ).
     MESSAGE e032(/gal/js). "Quit Job with error
   ENDIF.
 
@@ -62,6 +66,10 @@ FORM main.
         msgv4 = l_msgv4
     ).
     WRITE l_message COLOR COL_NEGATIVE.
+    /gal/trace=>write_text(
+      EXPORTING
+        text = l_message
+    ).
     MESSAGE e031(/gal/js) WITH l_msgv1 l_msgv2 l_msgv3 l_msgv4. "Quit Job with error
   ENDIF.
 
@@ -80,6 +88,10 @@ FORM main.
           msgv4 = l_msgv4
       ).
       WRITE l_message COLOR COL_NEGATIVE.
+      /gal/trace=>write_text(
+        EXPORTING
+          text = l_message
+      ).
       MESSAGE e031(/gal/js) WITH l_msgv1 l_msgv2 l_msgv3 l_msgv4. "Quit Job with error
   ENDTRY.
 
@@ -98,6 +110,10 @@ FORM main.
 
       l_message = l_ex->get_text( ).
       WRITE l_message COLOR COL_TOTAL.
+      /gal/trace=>write_text(
+        EXPORTING
+          text = l_message
+      ).
       RETURN.
 
   ENDTRY.

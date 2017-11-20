@@ -1238,6 +1238,9 @@ ENDMETHOD.
 
 METHOD handle_context_menu_req.
 
+  DATA l_allow_modify TYPE abap_bool.
+
+
 * Store selected node
   selected_node = get_node( node_key ).
 
@@ -1245,49 +1248,57 @@ METHOD handle_context_menu_req.
   TRY.
       config_store->authority_check( node   = selected_node
                                      action = /gal/config_node_actions=>modify_node ).
+      l_allow_modify = abap_true.
+    CATCH /gal/cx_auth_check_exception.
+      l_allow_modify = abap_false.
+  ENDTRY.
 
-      IF selected_node->is_folder = abap_true.
-        menu->add_function( fcode = 'ADD_FOLDER'
-                            text  = text-m01 ).
+  IF selected_node->is_folder = abap_true.
+    IF l_allow_modify = abap_true.
 
-        menu->add_function( fcode = 'ADD_VALUE_CLIENT'
-                            text  = text-m02 ).
+      menu->add_function( fcode = 'ADD_FOLDER'
+                          text  = TEXT-m01 ).
 
-        menu->add_function( fcode = 'ADD_VALUE_SYSTEM'
-                            text  = text-m03 ).
+      menu->add_function( fcode = 'ADD_VALUE_CLIENT'
+                          text  = TEXT-m02 ).
 
-        menu->add_function( fcode = 'ADD_VALUE_USER'
-                            text  = text-m08 ).
+      menu->add_function( fcode = 'ADD_VALUE_SYSTEM'
+                          text  = TEXT-m03 ).
 
-        menu->add_separator( ).
-
-        menu->add_function( fcode = 'CHANGE_NAME'
-                            text  = text-m09 ).
-
-        menu->add_function( fcode = 'COPY_NODE'
-                            text = text-m11 ).
-
-        menu->add_separator( ).
-
-        menu->add_function( fcode = 'TRANS_SUBTREE'
-                            text  = text-m04 ).
-      ELSE.
-        menu->add_function( fcode = 'CHANGE_NAME'
-                            text  = text-m10 ).
-
-        menu->add_function( fcode = 'COPY_NODE'
-                            text = text-m12 ).
-
-        menu->add_separator( ).
-
-        menu->add_function( fcode = 'TRANS_SUBTREE'
-                            text  = text-m06 ).
-      ENDIF.
+      menu->add_function( fcode = 'ADD_VALUE_USER'
+                          text  = TEXT-m08 ).
 
       menu->add_separator( ).
 
-    CATCH /gal/cx_auth_check_exception.                 "#EC NO_HANDLER
-  ENDTRY.
+      menu->add_function( fcode = 'CHANGE_NAME'
+                          text  = TEXT-m09 ).
+
+      menu->add_function( fcode = 'COPY_NODE'
+                          text = TEXT-m11 ).
+
+      menu->add_separator( ).
+    ENDIF.
+
+    menu->add_function( fcode = 'TRANS_SUBTREE'
+                        text  = TEXT-m04 ).
+  ELSE.
+    IF l_allow_modify = abap_true.
+
+      menu->add_function( fcode = 'CHANGE_NAME'
+                          text  = TEXT-m10 ).
+
+      menu->add_function( fcode = 'COPY_NODE'
+                          text = TEXT-m12 ).
+
+      menu->add_separator( ).
+    ENDIF.
+
+    menu->add_function( fcode = 'TRANS_SUBTREE'
+                        text  = TEXT-m06 ).
+  ENDIF.
+
+  menu->add_separator( ).
+
 
   IF selected_node->parent IS NOT INITIAL.
     TRY.
@@ -1296,10 +1307,10 @@ METHOD handle_context_menu_req.
 
         IF selected_node->is_folder = abap_true.
           menu->add_function( fcode = 'DEL_SUBTREE'
-                              text  = text-m05 ).
+                              text  = TEXT-m05 ).
         ELSE.
           menu->add_function( fcode = 'DEL_SUBTREE'
-                              text  = text-m07 ).
+                              text  = TEXT-m07 ).
         ENDIF.
 
       CATCH /gal/cx_auth_check_exception.               "#EC NO_HANDLER
@@ -1528,6 +1539,8 @@ METHOD handle_user_command.
           selected_node->enqueue_node( EXPORTING enqueue_child_nodes = abap_true ).
 
           transport_subtree( node = selected_node ).
+
+          selected_node->dequeue_node( ).
 
 * Node definition
         WHEN 'DEF_SAVE'. " Save documentation
@@ -2174,6 +2187,7 @@ METHOD pbo_0130_initialize.
   DATA l_scope           LIKE current_value_scope.
   DATA l_client          LIKE current_value_client.
   DATA l_user            LIKE current_value_user.
+  DATA lt_user           LIKE STANDARD TABLE OF current_value_user.
 
   DATA l_exception       TYPE REF TO cx_root.
   DATA l_message         TYPE string.
@@ -2185,6 +2199,8 @@ METHOD pbo_0130_initialize.
 
   DATA l_wa_screen       TYPE screen.
   DATA l_no_authority    TYPE abap_bool.
+
+  FIELD-SYMBOLS <l_user> LIKE current_value_user.
 
 
 * Initialize client dropdown and set default client
@@ -2285,21 +2301,23 @@ METHOD pbo_0130_initialize.
 
     SELECT bname
       FROM usr02 CLIENT SPECIFIED
-      INTO l_user                                        "#EC CI_CLIENT
+      INTO TABLE lt_user                                 "#EC CI_CLIENT
      WHERE mandt = l_client.                            "#EC CI_GENBUFF
+                                                          "#EC CI_SUBRC
+    LOOP AT lt_user ASSIGNING <l_user>.
       TRY.
           config_store->authority_check( node      = current_node
                                          action    = /gal/config_node_actions=>modify_value
                                          client    = l_client
-                                         user_name = l_user ).
+                                         user_name = <l_user> ).
 
         CATCH /gal/cx_auth_check_exception.
           CONTINUE.
 
       ENDTRY.
 
-      l_wa_dropdown_values-key  = l_user.
-      l_wa_dropdown_values-text = get_user_name( l_user ).
+      l_wa_dropdown_values-key  = <l_user>.
+      l_wa_dropdown_values-text = get_user_name( <l_user> ).
 
       IF l_wa_dropdown_values-text <> l_wa_dropdown_values-key.
         CONCATENATE l_wa_dropdown_values-key ` (` l_wa_dropdown_values-text `)`
@@ -2307,7 +2325,7 @@ METHOD pbo_0130_initialize.
       ENDIF.
 
       INSERT l_wa_dropdown_values INTO TABLE l_dropdown_values.
-    ENDSELECT.                                            "#EC CI_SUBRC
+    ENDLOOP.
 
     TRY.
         /gal/dropdown_helper=>init_by_value_table( field_name        = `G_DYNP_0130-USER`
@@ -3365,6 +3383,7 @@ METHOD transport_subtree.
   DATA l_all            TYPE /gal/config_nodes.
   DATA l_parent         TYPE /gal/config_nodes.
   DATA l_children       TYPE /gal/config_nodes.
+  DATA l_allow_modify   TYPE abap_bool.
 
   DATA l_full_structure TYPE abap_bool.
 
@@ -3375,6 +3394,17 @@ METHOD transport_subtree.
 
 * Clear message
   CLEAR message.
+
+
+
+* Build context menu
+  TRY.
+      config_store->authority_check( node   = selected_node
+                                     action = /gal/config_node_actions=>modify_node ).
+      l_allow_modify = abap_true.
+    CATCH /gal/cx_auth_check_exception.
+      l_allow_modify = abap_false.
+  ENDTRY.
 
 * Collect nodes
   TRY.
@@ -3396,26 +3426,30 @@ METHOD transport_subtree.
 * Prompt for scope of transport
       SORT l_children BY table_line->type.
 
-      l_wa_options-id          = `01`.
-      l_wa_options-is_selected = abap_true.
-      l_wa_options-text        = TEXT-o01.
-      INSERT l_wa_options INTO TABLE l_options.
+      IF l_allow_modify = abap_true.
 
-      l_wa_options-id          = `02`.
-      l_wa_options-is_selected = abap_true.
-      l_wa_options-text        = TEXT-o02.
-      INSERT l_wa_options INTO TABLE l_options.
-
-      LOOP AT l_children TRANSPORTING NO FIELDS
-           WHERE table_line->type <> /gal/config_node=>const_node_type_folder. "#EC CI_STDSEQ
-        EXIT.
-      ENDLOOP.
-
-      IF sy-subrc = 0.
-        l_wa_options-id          = `03`.
+        l_wa_options-id          = `01`.
         l_wa_options-is_selected = abap_true.
-        l_wa_options-text        = TEXT-o03.
+        l_wa_options-text        = TEXT-o01.
         INSERT l_wa_options INTO TABLE l_options.
+
+        l_wa_options-id          = `02`.
+        l_wa_options-is_selected = abap_true.
+        l_wa_options-text        = TEXT-o02.
+        INSERT l_wa_options INTO TABLE l_options.
+
+        LOOP AT l_children TRANSPORTING NO FIELDS
+             WHERE table_line->type <> /gal/config_node=>const_node_type_folder. "#EC CI_STDSEQ
+          EXIT.
+        ENDLOOP.
+
+        IF sy-subrc = 0.
+          l_wa_options-id          = `03`.
+          l_wa_options-is_selected = abap_true.
+          l_wa_options-text        = TEXT-o03.
+          INSERT l_wa_options INTO TABLE l_options.
+        ENDIF.
+
       ENDIF.
 
       READ TABLE l_children
@@ -3448,16 +3482,21 @@ METHOD transport_subtree.
         INSERT l_wa_options INTO TABLE l_options.
       ENDIF.
 
-      /gal/common_dialog=>show_options_dialog( EXPORTING title            = TEXT-t09
-                                                         message          = TEXT-p03
-                                                         can_be_cancelled = abap_true
-                                               CHANGING  options          = l_options ).
+      IF NOT l_options IS INITIAL.
+        /gal/common_dialog=>show_options_dialog( EXPORTING title            = TEXT-t09
+                                                           message          = TEXT-p03
+                                                           can_be_cancelled = abap_true
+                                                 CHANGING  options          = l_options ).
 
-      READ TABLE l_options WITH KEY id = `01` ASSIGNING <l_options> BINARY SEARCH.
-      IF sy-subrc = 0 AND <l_options>-is_selected = abap_true.
-        l_full_structure = abap_true.
+        READ TABLE l_options WITH KEY id = `01` ASSIGNING <l_options> BINARY SEARCH. "Was entered in order, so binary search possible.
+        IF sy-subrc = 0 AND <l_options>-is_selected = abap_true.
+          l_full_structure = abap_true.
 
-        record_structure( l_all ).
+          record_structure( l_all ).
+        ENDIF.
+      ELSE.
+        MESSAGE i002(/gal/config_store).
+        RETURN.
       ENDIF.
 
       READ TABLE l_options WITH KEY id = `02` ASSIGNING <l_options> BINARY SEARCH.
@@ -3500,7 +3539,6 @@ METHOD transport_subtree.
 
   ENDTRY.
 
-  node->dequeue_node( ).
 
 ENDMETHOD.
 
