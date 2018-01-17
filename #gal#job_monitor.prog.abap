@@ -282,7 +282,7 @@ CLASS lcl_jm_event_receiver IMPLEMENTATION.
         g_dynp_0102-cb_type_s = abap_true.
         g_dynp_0102-tv_job_id = g_dynp_0101-job_resource_data-job_id.
 
-        g_dynp_0100-subscr_dynpro = 0102.
+        g_dynp_0100-subscr_dynpro = '0102'.
         tab-activetab = 'TAB_J'.
         CALL FUNCTION 'SAPGUI_SET_FUNCTIONCODE'.
 

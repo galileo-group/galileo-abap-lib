@@ -67,6 +67,8 @@ DEFINE cfw_follow_rfc_route.
   __l_local_check_req = abap_false.
   __l_ctx_data_set = abap_false.
 
+* A custom authority check behavior can be defined by using the macro cfw_Custom_auth in the function module declaration.
+* The behavior is stored in field symbol <__l_custom_auth_behave> if existing otherwise default is set.
   ASSIGN ('__L_CUSTOM_AUTH_BEHAVE') TO <__l_custom_auth_behave>.
   IF sy-subrc <> 0.
   DATA __l_custom_auth_behave_default TYPE /gal/cfw_custom_auth_behave VALUE /gal/cfw_auth=>const_cab_final_rfc_step.
@@ -79,11 +81,17 @@ DEFINE cfw_follow_rfc_route.
   &1-step_infos IS INITIAL AND
   <__l_custom_auth_behave> NE /gal/cfw_auth=>const_cab_no_check AND
   <__l_custom_auth_behave> NE /gal/cfw_auth=>const_cab_final_rfc_step.
+* If we are at the initial step and no RFC steps are to be done, checks are only done if required by auth behavior definition.
   __l_local_check_req = abap_true.
   ENDIF.
 
   IF &1-current_step = 0 AND  &1-step_infos IS NOT INITIAL OR __l_local_check_req = abap_true.
+* Initialization is needed if:
+* - we are at the initial step and RFC step follows
+* or
+* - a local check is needed (only possible ast initial step)
 
+* Get the function name of current scope (which is to be checked)
   /gal/cfw_helper=>get_function_name_ext(
   IMPORTING
   function_name = __l_function_name
@@ -145,8 +153,10 @@ DEFINE cfw_follow_rfc_route.
 
   ENDIF.
 
+* Check if the authentification framework is active
   __l_auth_active = /gal/cfw_auth_config=>is_active( ).
   IF __l_auth_active = abap_true AND __l_local_check_req = abap_true.
+* If authentification framework is active and we need to perform a local check, the required data is initialized now.
   /gal/cfw_auth=>init( ).
   /gal/cfw_auth=>set_context_data(
   EXPORTING
@@ -168,10 +178,15 @@ DEFINE cfw_follow_rfc_route.
   ENDIF.
 
   IF ( NOT &1-step_infos IS INITIAL AND &1-current_step > 0 ) OR __l_local_check_req = abap_true.
+* Check authentification if required (valid for local and remote scopes).
+* Note: in RFC scope context hast been initialized in function module /GAL/RFC_PROXY_FUNCTION.
   /gal/cfw_auth=>check_auth( <__l_custom_auth_behave> ).
   IF __l_local_check_req = abap_true.
+* Handle authentification excdeptions if we are in a local call.
+* In RFC context this handling is done in function module /GAL/RFC_PROXY_FUNCTION.
   /gal/cfw_auth=>raise_auth_exception_if_exists( ).
   IF __l_auth_active = abap_true.
+* Reset context after handling is done.
   /gal/cfw_auth=>reset_context_data( ).
   ENDIF.
   RETURN.
@@ -248,6 +263,7 @@ DEFINE cfw_follow_rfc_route.
   ENDIF.
 
 
+* Now authentification exceptions are handled
   CATCH /gal/cx_cfw_auth_exception INTO __l_auth_excep.
   IF __l_ctx_data_set = abap_true.
   TRY.
@@ -257,6 +273,8 @@ DEFINE cfw_follow_rfc_route.
   ENDIF.
 
   __l_exception_info = /gal/cfw_auth=>fill_cfw_auth_err_ex_info( __l_auth_excep ).
+
+* Finally all other exceptions are handled
   CATCH cx_static_check INTO __l_exception.
   IF __l_ctx_data_set = abap_true.
   TRY.

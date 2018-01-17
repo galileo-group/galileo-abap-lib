@@ -13,11 +13,11 @@ TABLES t002.
 TABLES tdevc.
 
 DATA BEGIN OF g_cts_object.                                 "#EC NEEDED
-        INCLUDE TYPE cts_object.
+INCLUDE TYPE cts_object.
 DATA position TYPE eu_name.
 DATA END OF g_cts_object.
 
-SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE text-b00.
+SELECTION-SCREEN BEGIN OF BLOCK b00 WITH FRAME TITLE TEXT-b00.
 SELECT-OPTIONS p_devc  FOR tdevc-devclass.
 SELECT-OPTIONS p_langu FOR t002-spras DEFAULT sy-langu.
 
@@ -29,7 +29,7 @@ PARAMETERS p_source AS CHECKBOX DEFAULT abap_true.
 PARAMETERS p_tpool  AS CHECKBOX DEFAULT abap_true.
 SELECTION-SCREEN END OF BLOCK b00.
 
-SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE text-b01.
+SELECTION-SCREEN BEGIN OF BLOCK b01 WITH FRAME TITLE TEXT-b01.
 PARAMETERS p_wildc RADIOBUTTON GROUP ptyp.
 PARAMETERS p_regex RADIOBUTTON GROUP ptyp.                  "#EC NEEDED
 
@@ -91,10 +91,10 @@ FORM main USING p_package_range  TYPE /gal/abap_repository=>t_package_range
 * Write list header
   ULINE /(223).
 
-  WRITE: / sy-vline, (10)  text-h01,
-           sy-vline, (60)  text-h02,
-           sy-vline, (40)  text-h03,
-           sy-vline, (100) text-h04,
+  WRITE: / sy-vline, (10)  TEXT-h01,                     "#EC NUMBER_OK
+           sy-vline, (60)  TEXT-h02,                     "#EC NUMBER_OK
+           sy-vline, (40)  TEXT-h03,                     "#EC NUMBER_OK
+           sy-vline, (100) TEXT-h04,                     "#EC NUMBER_OK
            sy-vline.
 
   ULINE /(223).
@@ -459,9 +459,9 @@ FORM process_line USING p_type           TYPE csequence
   ENDDO.
 
 * Write object details
-  WRITE: / sy-vline, (10) p_type,
-           sy-vline, (60) p_name,
-           sy-vline, (40) p_key,
+  WRITE: / sy-vline, (10) p_type,                        "#EC NUMBER_OK
+           sy-vline, (60) p_name,                        "#EC NUMBER_OK
+           sy-vline, (40) p_key,                         "#EC NUMBER_OK
            sy-vline NO-GAP.
 
 * Write leading gap (in order to avoid early change fo color)

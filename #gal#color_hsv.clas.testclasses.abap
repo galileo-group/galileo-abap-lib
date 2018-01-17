@@ -27,7 +27,7 @@ CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Long
   PRIVATE SECTION.
 * ================
     DATA:
-      f_cut TYPE REF TO /gal/color_hsv.  "class under test
+      f_cut TYPE REF TO /gal/color_hsv.                     "#EC NEEDED
 
     METHODS: from_color_rgb FOR TESTING.
     METHODS: to_color_rgb FOR TESTING.
@@ -95,8 +95,5 @@ CLASS abap_unit_testclass IMPLEMENTATION.
       ).
     ENDDO.
   ENDMETHOD.       "to_Color_Rgb
-
-
-
 
 ENDCLASS.       "abap_Unit_Testclass

@@ -11,7 +11,7 @@ FORM initialize_0200.
   DATA l_lines_used TYPE i.
 
   PERFORM format_text USING g_dynp_0200-message `G_DYNP_0200-MESSAGE` 95
-                   CHANGING l_lines_used.
+                   CHANGING l_lines_used.                "#EC NUMBER_OK
 ENDFORM.                    " INITIALIZE_0200
 
 *&---------------------------------------------------------------------*
@@ -167,9 +167,11 @@ FORM initialize_2000.
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     ENDIF.
 
+    l_filter_value-key = g_dynp_2000-file_type.
+
     READ TABLE l_filter_values
-          WITH KEY key = g_dynp_2000-file_type
-               INTO l_filter_value.                      "#EC CI_STDSEQ
+          WITH KEY key = l_filter_value-key
+               INTO l_filter_value TRANSPORTING text.    "#EC CI_STDSEQ
     IF sy-subrc <> 0.
       READ TABLE l_filter_values INDEX 1 INTO l_filter_value.
     ENDIF.
@@ -203,7 +205,9 @@ FORM initialize_2000.
             file_click_fcode      = 'SELECT'
             directory_click_fcode = 'SELECT_DIR'.
 
-      CATCH cx_root INTO l_exception.
+      CATCH /gal/cx_control_exception
+            /gal/cx_io_exception INTO l_exception.
+
         g_dynp_2000-exception = l_exception.
         LEAVE TO SCREEN 0.
 
@@ -212,7 +216,9 @@ FORM initialize_2000.
     TRY.
         g_dynp_2000-selected_file = g_dynp_2000-backend_file_browser->get_selected_file( ).
 
-      CATCH cx_root.
+      CATCH /gal/cx_io_exception.                       "#EC NO_HANDLER
+        "Nothing needs to be done here, g_dynp_2000-selected_file is just initial
+
     ENDTRY.
   ENDIF.
 ENDFORM.                    "initialize_2000
@@ -223,7 +229,6 @@ ENDFORM.                    "initialize_2000
 *       Initialize choose folder dialog
 *----------------------------------------------------------------------*
 FORM initialize_3000.
-
   SET TITLEBAR 'DEFAULT' WITH g_dynp_3000-title.
   SET PF-STATUS '3000_DIALOG'.
 
@@ -233,5 +238,4 @@ FORM initialize_3000.
         container_name = 'TREE_CONTROL'
         store          = g_dynp_3000-store.
   ENDIF.
-
 ENDFORM.                    "initialize_3000

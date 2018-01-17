@@ -273,7 +273,8 @@ METHOD deserialize_function_params.
   CLEAR parameter_bindings.
   IF xml IS NOT INITIAL.
     CALL TRANSFORMATION id
-         OPTIONS    value_handling = 'default'
+         OPTIONS    clear          = 'all'
+                    value_handling = 'default'
          SOURCE XML xml
          RESULT     parameter_bindings = parameter_bindings. "#EC NOTEXT
   ENDIF.

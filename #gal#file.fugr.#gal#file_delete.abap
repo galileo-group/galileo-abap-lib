@@ -9,7 +9,7 @@ FUNCTION /gal/file_delete.
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
-  DATA l_auth_fname LIKE authb-filename.
+  DATA l_auth_fname TYPE fileextern.
   DATA l_message    TYPE string.
   DATA l_exception  TYPE REF TO cx_root.
 
@@ -41,7 +41,7 @@ FUNCTION /gal/file_delete.
         MESSAGE e012 WITH full_name RAISING cannot_delete_file.
       ENDIF.
 
-    CATCH cx_root INTO l_exception.
+    CATCH cx_sy_file_access_error INTO l_exception.
       l_message = l_exception->get_text( ).
 
       MESSAGE e013 WITH full_name l_message RAISING cannot_delete_file.

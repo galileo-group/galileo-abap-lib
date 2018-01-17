@@ -24,12 +24,6 @@
     </item>
     <item>
      <ID>I</ID>
-     <KEY>E00</KEY>
-     <ENTRY>Dynpro initialization failed</ENTRY>
-     <LENGTH>132</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
      <KEY>E01</KEY>
      <ENTRY>Input exceeds maximum permitted length</ENTRY>
      <LENGTH>132</LENGTH>

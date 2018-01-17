@@ -1,90 +1,92 @@
 "! <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-CLASS /gal/timestamp_short DEFINITION
-  INHERITING FROM /gal/timestamp_base
-  PUBLIC
-  CREATE PUBLIC .
+class /GAL/TIMESTAMP_SHORT definition
+  public
+  inheriting from /GAL/TIMESTAMP_BASE
+  create public .
 
-  PUBLIC SECTION.
-    TYPE-POOLS abap .
+public section.
+  type-pools ABAP .
 
     "! <p class="shorttext synchronized" lang="en">Timestamp with maximum value</p>
-    CLASS-DATA max_value TYPE REF TO /gal/timestamp_short READ-ONLY .
+  class-data MAX_VALUE type ref to /GAL/TIMESTAMP_SHORT read-only .
     "! <p class="shorttext synchronized" lang="en">Timestamp with minimum value</p>
-    CLASS-DATA min_value TYPE REF TO /gal/timestamp_short READ-ONLY .
+  class-data MIN_VALUE type ref to /GAL/TIMESTAMP_SHORT read-only .
     "! <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
-    DATA value TYPE timestamp READ-ONLY .
+  data VALUE type TIMESTAMP read-only .
 
     "! <p class="shorttext synchronized" lang="en">Class Constructor</p>
-    CLASS-METHODS class_constructor .
+  class-methods CLASS_CONSTRUCTOR .
     "! <p class="shorttext synchronized" lang="en">Create instance from date, time and time zone</p>
     "!
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter instance  | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-    CLASS-METHODS from_date_time
-      IMPORTING
-        !date           TYPE d
-        !time           TYPE t
-        !time_zone      TYPE ttzz-tzone
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_short .
+  class-methods FROM_DATE_TIME
+    importing
+      !DATE type D
+      !TIME type T
+      !TIME_ZONE type TTZZ-TZONE
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
     "! <p class="shorttext synchronized" lang="en">Get timestamp for current time</p>
     "!
     "! @parameter instance | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-    CLASS-METHODS now
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_short .
+  class-methods NOW
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
     "! <p class="shorttext synchronized" lang="en">Add interval to timestamp</p>
     "!
     "! @parameter seconds | <p class="shorttext synchronized" lang="en">Seconds</p>
     "! @parameter minutes | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours   | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days    | <p class="shorttext synchronized" lang="en">Days</p>
-    METHODS add_interval
-      IMPORTING
-        !seconds TYPE i DEFAULT 0
-        !minutes TYPE i DEFAULT 0
-        !hours   TYPE i DEFAULT 0
-        !days    TYPE i DEFAULT 0 .
+  methods ADD_INTERVAL
+    importing
+      !SECONDS type I default 0
+      !MINUTES type I default 0
+      !HOURS type I default 0
+      !DAYS type I default 0 .
+  methods CLONE
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
     "! <p class="shorttext synchronized" lang="en">Constructor</p>
     "!
     "! @parameter value | <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
-    METHODS constructor
-      IMPORTING
-        !value TYPE timestamp OPTIONAL .
+  methods CONSTRUCTOR
+    importing
+      !VALUE type TIMESTAMP optional .
     "! <p class="shorttext synchronized" lang="en">Subtract interval from timestamp</p>
     "!
     "! @parameter seconds | <p class="shorttext synchronized" lang="en">Seconds</p>
     "! @parameter minutes | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours   | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days    | <p class="shorttext synchronized" lang="en">Days</p>
-    METHODS subtract_interval
-      IMPORTING
-        !seconds TYPE i DEFAULT 0
-        !minutes TYPE i DEFAULT 0
-        !hours   TYPE i DEFAULT 0
-        !days    TYPE i DEFAULT 0 .
+  methods SUBTRACT_INTERVAL
+    importing
+      !SECONDS type I default 0
+      !MINUTES type I default 0
+      !HOURS type I default 0
+      !DAYS type I default 0 .
     "! <p class="shorttext synchronized" lang="en">Convert to date and time</p>
     "!
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter dst       | <p class="shorttext synchronized" lang="en">Flag: Daylight savings time</p>
-    METHODS to_date_time
-      IMPORTING
-        !time_zone TYPE ttzz-tzone
-      EXPORTING
-        !date      TYPE d
-        !time      TYPE t
-        !dst       TYPE abap_bool .
+  methods TO_DATE_TIME
+    importing
+      !TIME_ZONE type TTZZ-TZONE
+    exporting
+      !DATE type D
+      !TIME type T
+      !DST type ABAP_BOOL .
     "! <p class="shorttext synchronized" lang="en">Convert to long timestamp</p>
     "!
-    "! @parameter instance | <p class="shorttext synchronized" lang="en">Long Timestamp</p>
-    METHODS to_long_timestamp
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_long .
-
+    "! @parameter instance | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
+  methods TO_LONG_TIMESTAMP
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_LONG .
   PROTECTED SECTION.
 
   PRIVATE SECTION.
@@ -93,7 +95,7 @@ ENDCLASS.
 
 
 
-CLASS /gal/timestamp_short IMPLEMENTATION.
+CLASS /GAL/TIMESTAMP_SHORT IMPLEMENTATION.
 
 
   METHOD add_interval.
@@ -106,14 +108,14 @@ CLASS /gal/timestamp_short IMPLEMENTATION.
     DATA l_time_new      TYPE t.
 
     l_total_days    = days.
-    l_total_seconds = seconds + 60 * minutes + 3600 * hours.
+    l_total_seconds = seconds + 60 * minutes + 3600 * hours. "#EC NUMBER_OK
 
     IF l_total_days = 0 AND l_total_seconds = 0.
       RETURN.
     ENDIF.
 
-    l_total_days    = l_total_days + sign( l_total_seconds ) * ( abs( l_total_seconds ) DIV 86400 ).
-    l_total_seconds = sign( l_total_seconds ) * ( abs( l_total_seconds ) MOD 86400 ).
+    l_total_days    = l_total_days + sign( l_total_seconds ) * ( abs( l_total_seconds ) DIV 86400 ). "#EC NUMBER_OK
+    l_total_seconds = sign( l_total_seconds ) * ( abs( l_total_seconds ) MOD 86400 ). "#EC NUMBER_OK
 
     IF l_total_days = 0 AND l_total_seconds = 0.
       RETURN.
@@ -159,6 +161,13 @@ CLASS /gal/timestamp_short IMPLEMENTATION.
     CREATE OBJECT max_value
       EXPORTING
         value = '99991231125959'.
+  ENDMETHOD.
+
+
+  METHOD clone.
+    CREATE OBJECT instance
+      EXPORTING
+        value = value.
   ENDMETHOD.
 
 

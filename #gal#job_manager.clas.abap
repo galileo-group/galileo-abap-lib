@@ -1,22 +1,22 @@
-class /GAL/JOB_MANAGER definition
-  public
-  create public .
+CLASS /gal/job_manager DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  methods CONSTRUCTOR
-    importing
-      !STORE_RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO .
-  methods CLEANUP_PRECONDITIONS
-    importing
-      !MIN_JOB_AGE_IN_DAYS type INT4 default 30
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods CLEANUP_OLD_JOBS
-    importing
-      !MIN_JOB_AGE_IN_DAYS type INT4 default 30
-    raising
-      /GAL/CX_JS_EXCEPTION .
+    METHODS constructor
+      IMPORTING
+        !store_rfc_route_info TYPE /gal/rfc_route_info .
+    METHODS cleanup_preconditions
+      IMPORTING
+        !min_job_age_in_days TYPE int4 DEFAULT 30        "#EC NUMBER_OK
+      RAISING
+        /gal/cx_js_exception .
+    METHODS cleanup_old_jobs
+      IMPORTING
+        !min_job_age_in_days TYPE int4 DEFAULT 30        "#EC NUMBER_OK
+      RAISING
+        /gal/cx_js_exception .
 protected section.
 
   data STORE_RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO .

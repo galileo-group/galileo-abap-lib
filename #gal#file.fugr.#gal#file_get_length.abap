@@ -11,13 +11,14 @@ FUNCTION /gal/file_get_length.
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
-  DATA l_auth_fname LIKE authb-filename.
+  DATA l_auth_fname TYPE fileextern.
   DATA l_message    TYPE string.
   DATA l_exception  TYPE REF TO cx_root.
 
-  DATA l_line       TYPE string.
-  DATA l_count      TYPE i.
+* Initialize result
+  CLEAR length.
 
+* Follow RFC route
   cfw_follow_rfc_route rfc_route_info.
 
   cfw_pass_exception cannot_get_length.
@@ -34,7 +35,7 @@ FUNCTION /gal/file_get_length.
       filename = l_auth_fname
     EXCEPTIONS
       OTHERS   = 1.
-  IF NOT sy-subrc = 0.
+  IF sy-subrc <> 0.
     MESSAGE e001 WITH full_name RAISING cannot_get_length.
   ENDIF.
 
@@ -51,7 +52,7 @@ FUNCTION /gal/file_get_length.
 
       CLOSE DATASET full_name.
 
-    CATCH cx_root INTO l_exception.
+    CATCH cx_sy_file_access_error INTO l_exception.
       l_message = l_exception->get_text( ).
 
       MESSAGE e003 WITH full_name l_message RAISING cannot_get_length.

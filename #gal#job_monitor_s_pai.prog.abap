@@ -12,10 +12,10 @@
 FORM pai_0100_user_command.
   CASE sy-ucomm.
     WHEN 'TAB_R'.
-      g_dynp_0100-subscr_dynpro = 0101.
+      g_dynp_0100-subscr_dynpro = '0101'.
       tab-activetab = sy-ucomm.
     WHEN 'TAB_J'.
-      g_dynp_0100-subscr_dynpro = 0102.
+      g_dynp_0100-subscr_dynpro = '0102'.
       tab-activetab = sy-ucomm.
     WHEN 'EXIT'.
       SET SCREEN 0.

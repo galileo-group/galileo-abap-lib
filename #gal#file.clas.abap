@@ -179,6 +179,6 @@ ENDMETHOD.
 
 
 METHOD unregister_stream.
-  DELETE TABLE open_streams WITH TABLE KEY table_line = stream. "#EC CI_STDSEQ
+  DELETE TABLE open_streams FROM stream.                 "#EC CI_STDSEQ
 ENDMETHOD.
 ENDCLASS.

@@ -1,46 +1,46 @@
-class /GAL/SYNC_LOCK definition
-  public
-  create public .
+CLASS /gal/sync_lock DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  type-pools ABAP .
-  data ACCESS_GRANTED type ABAP_BOOL read-only .
-  data CLIENT type MANDT read-only .
-  data ID type /GAL/LOCK_ID read-only .
-  data INFO type STRING read-only .
-  data NAME type STRING read-only .
-  data RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO read-only .
+    TYPE-POOLS abap .
+    DATA access_granted TYPE abap_bool READ-ONLY .
+    DATA client TYPE mandt READ-ONLY .
+    DATA id TYPE /gal/lock_id READ-ONLY .
+    DATA info TYPE string READ-ONLY .
+    DATA name TYPE string READ-ONLY .
+    DATA rfc_route_info TYPE /gal/rfc_route_info READ-ONLY .
 
-  methods ACQUIRE
-    importing
-      !LOCK_TIMEOUT type I default 600
-      !WAIT_TIMEOUT type I default 5
-    returning
-      value(SYNC_TIMESTAMP) type ref to /GAL/TIMESTAMP_LONG
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
-  methods CONSTRUCTOR
-    importing
-      !RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO optional
-      !CLIENT type MANDT optional
-      !NAME type STRING optional
-      !INFO type STRING optional .
-  methods GET_SYNC_TIMESTAMP
-    returning
-      value(SYNC_TIMESTAMP) type ref to /GAL/TIMESTAMP_LONG
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
-  methods RELEASE
-    importing
-      !SYNC_TIMESTAMP type ref to /GAL/TIMESTAMP_LONG optional
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
-  methods SET_SYNC_TIMESTAMP
-    importing
-      value(SYNC_TIMESTAMP) type ref to /GAL/TIMESTAMP_LONG
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
+    METHODS acquire
+      IMPORTING
+        !lock_timeout         TYPE i DEFAULT 600         "#EC NUMBER_OK
+        !wait_timeout         TYPE i DEFAULT 5           "#EC NUMBER_OK
+      RETURNING
+        VALUE(sync_timestamp) TYPE REF TO /gal/timestamp_long
+      RAISING
+        /gal/cx_lock_exception .
+    METHODS constructor
+      IMPORTING
+        !rfc_route_info TYPE /gal/rfc_route_info OPTIONAL
+        !client         TYPE mandt OPTIONAL
+        !name           TYPE string OPTIONAL
+        !info           TYPE string OPTIONAL .
+    METHODS get_sync_timestamp
+      RETURNING
+        VALUE(sync_timestamp) TYPE REF TO /gal/timestamp_long
+      RAISING
+        /gal/cx_lock_exception .
+    METHODS release
+      IMPORTING
+        !sync_timestamp TYPE REF TO /gal/timestamp_long OPTIONAL
+      RAISING
+        /gal/cx_lock_exception .
+    METHODS set_sync_timestamp
+      IMPORTING
+        VALUE(sync_timestamp) TYPE REF TO /gal/timestamp_long
+      RAISING
+        /gal/cx_lock_exception .
 protected section.
 private section.
 

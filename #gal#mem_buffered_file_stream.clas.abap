@@ -29,24 +29,24 @@ public section.
 protected section.
 *"* protected components of class /GAL/MEM_BUFFERED_FILE_STREAM
 *"* do not include other source files here!!!
-private section.
+PRIVATE SECTION.
 *"* private components of class /GAL/MEM_BUFFERED_FILE_STREAM
 *"* do not include other source files here!!!
 
-  data DATA_BIN type XSTRING .
-  data DATA_TXT type STRING .
-  data UNBUFFERED_LENGTH type I .
+  DATA data_bin TYPE xstring .
+  DATA data_txt TYPE string .
+  DATA unbuffered_length TYPE i .
 
-  methods CONSTRUCTOR
-    importing
-      !FILE type ref to /GAL/FILE
-      !ACCESS type /GAL/FILE_ACCESS default ACCESS_READ
-      !MODE type /GAL/FILE_MODE default MODE_TEXT
-      !OPTIONS type /GAL/FILE_OPTIONS default OPTIONS_CREATE
-      !LINE_BREAK type /GAL/FILE_LINE_BREAK default LINE_BREAK_AUTO
-      !POSITION type I default -1
-    raising
-      /GAL/CX_IO_EXCEPTION .
+  METHODS constructor
+    IMPORTING
+      !file       TYPE REF TO /gal/file
+      !access     TYPE /gal/file_access DEFAULT access_read
+      !mode       TYPE /gal/file_mode DEFAULT mode_text
+      !options    TYPE /gal/file_options DEFAULT options_create
+      !line_break TYPE /gal/file_line_break DEFAULT line_break_auto
+      !position   TYPE i DEFAULT -1
+    RAISING
+      /gal/cx_io_exception.                                "#EC NEEDED
 ENDCLASS.
 
 

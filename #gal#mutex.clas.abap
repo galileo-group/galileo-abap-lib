@@ -1,32 +1,32 @@
-class /GAL/MUTEX definition
-  public
-  create public .
+CLASS /gal/mutex DEFINITION
+  PUBLIC
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  type-pools ABAP .
-  data ACCESS_GRANTED type ABAP_BOOL read-only .
-  data CLIENT type MANDT read-only .
-  data ID type /GAL/LOCK_ID read-only .
-  data INFO type STRING read-only .
-  data NAME type STRING read-only .
-  data RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO read-only .
+    TYPE-POOLS abap .
+    DATA access_granted TYPE abap_bool READ-ONLY .
+    DATA client TYPE mandt READ-ONLY .
+    DATA id TYPE /gal/lock_id READ-ONLY .
+    DATA info TYPE string READ-ONLY .
+    DATA name TYPE string READ-ONLY .
+    DATA rfc_route_info TYPE /gal/rfc_route_info READ-ONLY .
 
-  methods ACQUIRE
-    importing
-      !LOCK_TIMEOUT type I default 600
-      !WAIT_TIMEOUT type I default 5
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
-  methods CONSTRUCTOR
-    importing
-      !RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO optional
-      !CLIENT type MANDT optional
-      !NAME type STRING optional
-      !INFO type STRING optional .
-  methods RELEASE
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
+    METHODS acquire
+      IMPORTING
+        !lock_timeout TYPE i DEFAULT 600                 "#EC NUMBER_OK
+        !wait_timeout TYPE i DEFAULT 5                   "#EC NUMBER_OK
+      RAISING
+        /gal/cx_lock_exception .
+    METHODS constructor
+      IMPORTING
+        !rfc_route_info TYPE /gal/rfc_route_info OPTIONAL
+        !client         TYPE mandt OPTIONAL
+        !name           TYPE string OPTIONAL
+        !info           TYPE string OPTIONAL .
+    METHODS release
+      RAISING
+        /gal/cx_lock_exception .
 protected section.
 private section.
 ENDCLASS.

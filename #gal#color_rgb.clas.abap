@@ -63,7 +63,7 @@ METHOD constructor.
   DESCRIBE FIELD r TYPE l_type.
 
   IF l_type CA 'BSI'.
-    me->r = r / 255.
+    me->r = r / 255.                                     "#EC NUMBER_OK
   ELSE.
     me->r = r.
   ENDIF.
@@ -77,7 +77,7 @@ METHOD constructor.
   DESCRIBE FIELD g TYPE l_type.
 
   IF l_type CA 'BSI'.
-    me->g = g / 255.
+    me->g = g / 255.                                     "#EC NUMBER_OK
   ELSE.
     me->g = g.
   ENDIF.
@@ -91,7 +91,7 @@ METHOD constructor.
   DESCRIBE FIELD b TYPE l_type.
 
   IF l_type CA 'BSI'.
-    me->b = b / 255.
+    me->b = b / 255.                                     "#EC NUMBER_OK
   ELSE.
     me->b = b.
   ENDIF.
@@ -108,9 +108,9 @@ METHOD from_rgb24_hex.
   DATA l_hex(3) TYPE x.
   DATA l_offset TYPE i.
 
-  DATA r TYPE i.
-  DATA g TYPE i.
-  DATA b TYPE i.
+  DATA l_r TYPE i.
+  DATA l_g TYPE i.
+  DATA l_b TYPE i.
 
   l_offset = xstrlen( rgb24_hex ) - 3.
 
@@ -121,20 +121,20 @@ METHOD from_rgb24_hex.
   ENDIF.
 
   IF little_endian = abap_true.
-    r = l_hex+2(1).
-    g = l_hex+1(1).
-    b = l_hex(1).
+    l_r = l_hex+2(1).
+    l_g = l_hex+1(1).
+    l_b = l_hex(1).
   ELSE.
-    r = l_hex(1).
-    g = l_hex+1(1).
-    b = l_hex+2(1).
+    l_r = l_hex(1).
+    l_g = l_hex+1(1).
+    l_b = l_hex+2(1).
   ENDIF.
 
   CREATE OBJECT color_rgb
     EXPORTING
-      r = r
-      g = g
-      b = b.
+      r = l_r
+      g = l_g
+      b = l_b.
 ENDMETHOD.
 
 
@@ -191,50 +191,53 @@ ENDMETHOD.
 
 
 METHOD to_rgb24_hex.
-  DATA rf TYPE f.
-  DATA gf TYPE f.
-  DATA bf TYPE f.
+  DATA l_rf TYPE f.
+  DATA l_gf TYPE f.
+  DATA l_bf TYPE f.
 
-  DATA rx TYPE x.
-  DATA gx TYPE x.
-  DATA bx TYPE x.
+  DATA l_rx TYPE x.
+  DATA l_gx TYPE x.
+  DATA l_bx TYPE x.
 
+* Convert RGB values to floats between 0 and 1
   IF r < 0.
-    rf = 0.
+    l_rf = 0.
   ELSEIF r > 1.
-    rf = 1.
+    l_rf = 1.
   ELSE.
-    rf = r.
+    l_rf = r.
   ENDIF.
 
   IF g < 0.
-    gf = 0.
+    l_gf = 0.
   ELSEIF g > 1.
-    gf = 1.
+    l_gf = 1.
   ELSE.
-    gf = g.
+    l_gf = g.
   ENDIF.
 
   IF b < 0.
-    bf = 0.
+    l_bf = 0.
   ELSEIF b > 1.
-    bf = 1.
+    l_bf = 1.
   ELSE.
-    bf = b.
+    l_bf = b.
   ENDIF.
 
-  rx = rf * 255.
-  gx = gf * 255.
-  bx = bf * 255.
+* Convert float values to hey byte
+  l_rx = l_rf * 255.                                     "#EC NUMBER_OK
+  l_gx = l_gf * 255.                                     "#EC NUMBER_OK
+  l_bx = l_bf * 255.                                     "#EC NUMBER_OK
 
+* Build hext RGB value
   IF little_endian = abap_true.
-    rgb24_hex+2(1) = rx.
-    rgb24_hex+1(1) = gx.
-    rgb24_hex(1)   = bx.
+    rgb24_hex+2(1) = l_rx.
+    rgb24_hex+1(1) = l_gx.
+    rgb24_hex(1)   = l_bx.
   ELSE.
-    rgb24_hex(1)   = rx.
-    rgb24_hex+1(1) = gx.
-    rgb24_hex+2(1) = bx.
+    rgb24_hex(1)   = l_rx.
+    rgb24_hex+1(1) = l_gx.
+    rgb24_hex+2(1) = l_bx.
   ENDIF.
 ENDMETHOD.
 

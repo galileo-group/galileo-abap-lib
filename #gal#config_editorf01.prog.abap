@@ -9,6 +9,6 @@
 *----------------------------------------------------------------------*
 *      -->P_SCREEN   Screen number
 *----------------------------------------------------------------------*
-FORM call_screen USING p_screen TYPE sy-dynnr.
+FORM call_screen USING p_screen TYPE sy-dynnr.              "#EC CALLED
   CALL SCREEN p_screen.
 ENDFORM.                    "call_screen

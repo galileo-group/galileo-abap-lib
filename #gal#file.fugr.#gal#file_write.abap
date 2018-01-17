@@ -14,7 +14,7 @@ FUNCTION /gal/file_write.
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
-  DATA l_auth_fname       LIKE authb-filename.
+  DATA l_auth_fname       TYPE fileextern.
 
   DATA l_options_create   TYPE /gal/file_options.
   DATA l_options_truncate TYPE /gal/file_options.
@@ -254,7 +254,7 @@ FUNCTION /gal/file_write.
 
       ENDCASE.
 
-    CATCH cx_root INTO l_exception.
+    CATCH cx_sy_file_access_error INTO l_exception.
       l_message = l_exception->get_text( ).
 
       MESSAGE e011 WITH full_name l_message RAISING cannot_write_file.

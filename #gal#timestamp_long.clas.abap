@@ -1,40 +1,40 @@
 "! <p class="shorttext synchronized" lang="en">Long Timestamp</p>
-CLASS /gal/timestamp_long DEFINITION
-  INHERITING FROM /gal/timestamp_base
-  PUBLIC
-  CREATE PUBLIC .
+class /GAL/TIMESTAMP_LONG definition
+  public
+  inheriting from /GAL/TIMESTAMP_BASE
+  create public .
 
-  PUBLIC SECTION.
-    TYPE-POOLS abap .
+public section.
+  type-pools ABAP .
 
     "! <p class="shorttext synchronized" lang="en">Timestamp with maximum value</p>
-    CLASS-DATA max_value TYPE REF TO /gal/timestamp_long READ-ONLY .
+  class-data MAX_VALUE type ref to /GAL/TIMESTAMP_LONG read-only .
     "! <p class="shorttext synchronized" lang="en">Timestamp with minimum value</p>
-    CLASS-DATA min_value TYPE REF TO /gal/timestamp_long READ-ONLY .
+  class-data MIN_VALUE type ref to /GAL/TIMESTAMP_LONG read-only .
     "! <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
-    DATA value TYPE timestampl READ-ONLY .
+  data VALUE type TIMESTAMPL read-only .
 
     "! <p class="shorttext synchronized" lang="en">Class Constructor</p>
-    CLASS-METHODS class_constructor .
+  class-methods CLASS_CONSTRUCTOR .
     "! <p class="shorttext synchronized" lang="en">Create instance from date, time and time zone</p>
     "!
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter instance  | <p class="shorttext synchronized" lang="en">Long Timestamp</p>
-    CLASS-METHODS from_date_time
-      IMPORTING
-        !date           TYPE d
-        !time           TYPE t
-        !time_zone      TYPE ttzz-tzone
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_long .
+  class-methods FROM_DATE_TIME
+    importing
+      !DATE type D
+      !TIME type T
+      !TIME_ZONE type TTZZ-TZONE
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_LONG .
     "! <p class="shorttext synchronized" lang="en">Get timestamp for current time</p>
     "!
     "! @parameter instance | <p class="shorttext synchronized" lang="en">Long Timestamp</p>
-    CLASS-METHODS now
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_long .
+  class-methods NOW
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_LONG .
     "! <p class="shorttext synchronized" lang="en">Add interval to timestamp</p>
     "!
     "! @parameter microseconds | <p class="shorttext synchronized" lang="en">Microseconds</p>
@@ -43,20 +43,23 @@ CLASS /gal/timestamp_long DEFINITION
     "! @parameter minutes      | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours        | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days         | <p class="shorttext synchronized" lang="en">Days</p>
-    METHODS add_interval
-      IMPORTING
-        !microseconds TYPE i DEFAULT 0
-        !milliseconds TYPE i DEFAULT 0
-        !seconds      TYPE i DEFAULT 0
-        !minutes      TYPE i DEFAULT 0
-        !hours        TYPE i DEFAULT 0
-        !days         TYPE i DEFAULT 0 .
+  methods ADD_INTERVAL
+    importing
+      !MICROSECONDS type I default 0
+      !MILLISECONDS type I default 0
+      !SECONDS type I default 0
+      !MINUTES type I default 0
+      !HOURS type I default 0
+      !DAYS type I default 0 .
+  methods CLONE
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_LONG .
     "! <p class="shorttext synchronized" lang="en">Constructor</p>
     "!
     "! @parameter value | <p class="shorttext synchronized" lang="en">UTC Time Stamp in Long Form (YYYYMMDDhhmmssmmmuuun)</p>
-    METHODS constructor
-      IMPORTING
-        !value TYPE timestampl OPTIONAL .
+  methods CONSTRUCTOR
+    importing
+      !VALUE type TIMESTAMPL optional .
     "! <p class="shorttext synchronized" lang="en">Subtract interval from timestamp</p>
     "!
     "! @parameter microseconds | <p class="shorttext synchronized" lang="en">Microseconds</p>
@@ -65,39 +68,38 @@ CLASS /gal/timestamp_long DEFINITION
     "! @parameter minutes      | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours        | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days         | <p class="shorttext synchronized" lang="en">Days</p>
-    METHODS subtract_interval
-      IMPORTING
-        !microseconds TYPE i DEFAULT 0
-        !milliseconds TYPE i DEFAULT 0
-        !seconds      TYPE i DEFAULT 0
-        !minutes      TYPE i DEFAULT 0
-        !hours        TYPE i DEFAULT 0
-        !days         TYPE i DEFAULT 0 .
+  methods SUBTRACT_INTERVAL
+    importing
+      !MICROSECONDS type I default 0
+      !MILLISECONDS type I default 0
+      !SECONDS type I default 0
+      !MINUTES type I default 0
+      !HOURS type I default 0
+      !DAYS type I default 0 .
     "! <p class="shorttext synchronized" lang="en">Convert to date and time</p>
     "!
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter dst       | <p class="shorttext synchronized" lang="en">Flag: Daylight savings time</p>
-    METHODS to_date_time
-      IMPORTING
-        !time_zone TYPE ttzz-tzone
-      EXPORTING
-        !date      TYPE d
-        !time      TYPE t
-        !dst       TYPE abap_bool .
+  methods TO_DATE_TIME
+    importing
+      !TIME_ZONE type TTZZ-TZONE
+    exporting
+      !DATE type D
+      !TIME type T
+      !DST type ABAP_BOOL .
     "! <p class="shorttext synchronized" lang="en">Convert to short timestamp</p>
     "!
     "! @parameter round_down | <p class="shorttext synchronized" lang="en">Flag: Round down</p>
     "! @parameter round_up   | <p class="shorttext synchronized" lang="en">Flag: Round up</p>
-    "! @parameter instance   | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-    METHODS to_short_timestamp
-      IMPORTING
-        !round_down     TYPE abap_bool DEFAULT abap_false
-        !round_up       TYPE abap_bool DEFAULT abap_false
-      RETURNING
-        VALUE(instance) TYPE REF TO /gal/timestamp_short .
-
+    "! @parameter instance   | <p class="shorttext synchronized" lang="en">Long Timestamp</p>
+  methods TO_SHORT_TIMESTAMP
+    importing
+      !ROUND_DOWN type ABAP_BOOL default ABAP_FALSE
+      !ROUND_UP type ABAP_BOOL default ABAP_FALSE
+    returning
+      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
   PROTECTED SECTION.
 
   PRIVATE SECTION.
@@ -106,7 +108,7 @@ ENDCLASS.
 
 
 
-CLASS /gal/timestamp_long IMPLEMENTATION.
+CLASS /GAL/TIMESTAMP_LONG IMPLEMENTATION.
 
 
   METHOD add_interval.
@@ -149,6 +151,13 @@ CLASS /gal/timestamp_long IMPLEMENTATION.
     CREATE OBJECT max_value
       EXPORTING
         value = '99991231125959.4999999'.
+  ENDMETHOD.
+
+
+  METHOD clone.
+    CREATE OBJECT instance
+      EXPORTING
+        value = value.
   ENDMETHOD.
 
 

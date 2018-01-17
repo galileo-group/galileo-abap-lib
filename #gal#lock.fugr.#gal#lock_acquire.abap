@@ -33,7 +33,7 @@ FUNCTION /gal/lock_acquire.
   l_wa_lock00_new-client     = client.
   l_wa_lock00_new-session_id = session_id.
   l_wa_lock00_new-info       = /gal/string=>limit_length( input  = info
-                                                          length = 200 ).
+                                                          length = 200 ). "#EC NUMBER_OK
 
   READ TABLE rfc_route_info-step_infos INDEX 1 INTO l_wa_step_info.
   IF sy-subrc <> 0.
@@ -122,7 +122,7 @@ FUNCTION /gal/lock_acquire.
   IF lock_timeout > 0.
     l_timeout->add_interval( seconds = lock_timeout ).
   ELSE.
-    l_timeout->add_interval( hours = 48 ).
+    l_timeout->add_interval( hours = 48 ).               "#EC NUMBER_OK
   ENDIF.
 
   l_wa_lock00_new-timeout = l_timeout->value.

@@ -152,7 +152,7 @@ METHOD constructor.
       no_html_header      = abap_true
       no_toolbar          = abap_true
     EXCEPTIONS
-      others              = 1.
+      OTHERS              = 1.
   IF sy-subrc <> 0.
     RAISE EXCEPTION TYPE /gal/cx_control_exception
       EXPORTING
@@ -160,9 +160,9 @@ METHOD constructor.
         var1   = `CL_GUI_ALV_TREE`.
   ENDIF.
 
-  l_hierarchy_header-heading   = text-008.
-  l_hierarchy_header-tooltip   = text-008.
-  l_hierarchy_header-width     = 63.
+  l_hierarchy_header-heading   = TEXT-008.
+  l_hierarchy_header-tooltip   = TEXT-008.
+  l_hierarchy_header-width     = 63.                     "#EC NUMBER_OK
 
 * Hide columns and mark complete column for icon display
   create_column_layout( IMPORTING it_column_layout = l_it_column_layout ).
@@ -253,30 +253,30 @@ METHOD create_column_layout.
 
   l_el_column_layout-fieldname = 'OWNER'.
   l_el_column_layout-inttype   = 'g'.
-  l_el_column_layout-outputlen = 20.
-  l_el_column_layout-coltext   = text-004.
-  l_el_column_layout-seltext   = text-004.
+  l_el_column_layout-outputlen = 20.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext   = TEXT-004.
+  l_el_column_layout-seltext   = TEXT-004.
   INSERT l_el_column_layout INTO TABLE it_column_layout.
 
   l_el_column_layout-fieldname = 'LENGTH'.
   l_el_column_layout-inttype   = 'P'.
-  l_el_column_layout-outputlen = 20.
-  l_el_column_layout-coltext   = text-003.
-  l_el_column_layout-seltext   = text-003.
+  l_el_column_layout-outputlen = 20.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext   = TEXT-003.
+  l_el_column_layout-seltext   = TEXT-003.
   INSERT l_el_column_layout INTO TABLE it_column_layout.
 
   l_el_column_layout-fieldname = 'MOD_DATE'.
   l_el_column_layout-inttype   = 'D'.
-  l_el_column_layout-outputlen = 15.
-  l_el_column_layout-coltext   = text-005.
-  l_el_column_layout-seltext   = text-005.
+  l_el_column_layout-outputlen = 15.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext   = TEXT-005.
+  l_el_column_layout-seltext   = TEXT-005.
   INSERT l_el_column_layout INTO TABLE it_column_layout.
 
   l_el_column_layout-fieldname = 'MOD_TIME'.
   l_el_column_layout-inttype   = 'T'.
-  l_el_column_layout-outputlen = 12.
-  l_el_column_layout-coltext   = text-006.
-  l_el_column_layout-seltext   = text-006.
+  l_el_column_layout-outputlen = 12.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext   = TEXT-006.
+  l_el_column_layout-seltext   = TEXT-006.
   INSERT l_el_column_layout INTO TABLE it_column_layout.
 ENDMETHOD.                    "CREATE_COLUMN_LAYOUT
 
@@ -485,7 +485,7 @@ METHOD handle_node_double_click.
   IF l_node_data-is_directory = abap_true.
     tree->get_expanded_nodes( CHANGING   ct_expanded_nodes = l_expanded_node_keys
                               EXCEPTIONS OTHERS            = 1 ).
-    IF l_node_data-is_directory = abap_true.
+    IF sy-subrc = 0 AND l_node_data-is_directory = abap_true.
       READ TABLE l_expanded_node_keys
             WITH TABLE KEY table_line = node_key
                  TRANSPORTING NO FIELDS.                 "#EC CI_STDSEQ

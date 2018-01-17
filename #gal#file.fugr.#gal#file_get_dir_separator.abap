@@ -1,4 +1,4 @@
-FUNCTION /gal/file_get_dir_separator .
+FUNCTION /gal/file_get_dir_separator.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
@@ -10,6 +10,11 @@ FUNCTION /gal/file_get_dir_separator .
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
+* Initialize result
+  CLEAR separator.
+  CLEAR case_sensistive_path.
+
+* Follow RFC route
   cfw_follow_rfc_route rfc_route_info.
   cfw_pass_exception rfc_exception.
   cfw_remote_coding.

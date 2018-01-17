@@ -7,6 +7,8 @@ class /GAL/TIMESTAMP_BASE definition
 public section.
   type-pools ABAP .
 
+  interfaces IF_SERIALIZABLE_OBJECT .
+
     "! <p class="shorttext synchronized" lang="en">Constant: Use default time zone</p>
   constants TIME_ZONE_DEFAULT type TTZZ-TZONE value '{*}'. "#EC NOTEXT
     "! <p class="shorttext synchronized" lang="en">Constant: Use time zone of Operating System</p>

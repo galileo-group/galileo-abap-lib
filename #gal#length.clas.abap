@@ -5,6 +5,9 @@ class /GAL/LENGTH definition
 public section.
   type-pools ABAP .
 
+  constants CONST_MM_PER_INCH type F value '25.4'. "#EC NOTEXT
+  constants CONST_PC_PER_MM type F value '4.2175176'. "#EC NOTEXT
+  constants CONST_PT_PER_MM type F value '0.3514598035'. "#EC NOTEXT
   constants UNIT_CM type STRING value `cm`. "#EC NOTEXT
   constants UNIT_EM type STRING value `em`. "#EC NOTEXT
   constants UNIT_IN type STRING value `in`. "#EC NOTEXT
@@ -58,7 +61,7 @@ METHOD convert.
 * No conversion necessary
   IF unit = me->unit.
     length = me.
-    EXIT.
+    RETURN.
   ENDIF.
 
 * Convert to millimeters
@@ -68,13 +71,13 @@ METHOD convert.
       l_length_mm = value * 10.
 
     WHEN unit_in.
-      l_length_mm = value * '25.4'.
+      l_length_mm = value * const_mm_per_inch.
 
     WHEN unit_mm.
       l_length_mm = value.
 
     WHEN unit_pc.
-      l_length_mm = value * '4.2175176'.
+      l_length_mm = value * const_pc_per_mm.
 
     WHEN unit_percent.
       IF total_length IS INITIAL.
@@ -91,7 +94,7 @@ METHOD convert.
       ENDIF.
 
     WHEN unit_pt.
-      l_length_mm = value * '0.3514598035'.
+      l_length_mm = value * const_pt_per_mm.
 
     WHEN unit_px.
       IF resolution IS INITIAL.
@@ -101,7 +104,7 @@ METHOD convert.
             var1   = me->unit
             var2   = unit.
       ELSE.
-        l_length_mm = value * '25.4' / resolution.
+        l_length_mm = value * const_mm_per_inch / resolution.
       ENDIF.
 
     WHEN OTHERS.
@@ -120,13 +123,13 @@ METHOD convert.
       l_length_conv = l_length_mm / 10.
 
     WHEN unit_in.
-      l_length_conv = l_length_mm / '25.4'.
+      l_length_conv = l_length_mm / const_mm_per_inch.
 
     WHEN unit_mm.
       l_length_conv = l_length_mm.
 
     WHEN unit_pc.
-      l_length_conv = l_length_mm * '4.2175176'.
+      l_length_conv = l_length_mm * const_pc_per_mm.
 
     WHEN unit_percent.
       IF total_length IS INITIAL.
@@ -143,7 +146,7 @@ METHOD convert.
       ENDIF.
 
     WHEN unit_pt.
-      l_length_conv = l_length_mm * '0.3514598035'.
+      l_length_conv = l_length_mm * const_pt_per_mm.
 
     WHEN unit_px.
       IF resolution IS INITIAL.
@@ -153,7 +156,7 @@ METHOD convert.
             var1   = me->unit
             var2   = unit.
       ELSE.
-        l_length_conv = l_length_mm / '25.4' * resolution.
+        l_length_conv = l_length_mm / const_mm_per_inch * resolution.
       ENDIF.
 
     WHEN OTHERS.

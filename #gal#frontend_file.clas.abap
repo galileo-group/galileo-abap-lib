@@ -246,7 +246,7 @@ METHOD read.
                                                      dp_timeout              = 10
                                                      not_supported_by_gui    = 11
                                                      error_no_gui            = 12
-                                                     OTHERS                  = 1 ).
+                                                     OTHERS                  = 1 ). "#EC NUMBER_OK
     IF sy-subrc = 0.
       IF line_break = line_break_unix.
         CONCATENATE LINES OF lt_data_txt
@@ -281,7 +281,7 @@ METHOD read.
                                                      dp_timeout              = 10
                                                      not_supported_by_gui    = 11
                                                      error_no_gui            = 12
-                                                     OTHERS                  = 1 ).
+                                                     OTHERS                  = 1 ). "#EC NUMBER_OK
     IF sy-subrc = 0.
       CONCATENATE LINES OF lt_data_bin INTO data_bin IN BYTE MODE.
       data_bin = data_bin(l_file_size).
@@ -345,19 +345,19 @@ METHOD read.
           textid = /gal/cx_io_exception=>cannot_access_local_file06
           var1   = full_name.
 
-    WHEN 10.
+    WHEN 10.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>cannot_access_local_file07
           var1   = full_name.
 
-    WHEN 11.
+    WHEN 11.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>cannot_access_local_file08
           var1   = full_name.
 
-    WHEN 12.
+    WHEN 12.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>cannot_access_local_file09
@@ -527,7 +527,7 @@ METHOD write.
                                                        control_flush_error      = 1
                                                        not_supported_by_gui     = 11
                                                        error_no_gui             = 12
-                                                       OTHERS                   = 1 ).
+                                                       OTHERS                   = 1 ). "#EC NUMBER_OK
     IF sy-subrc = 0.
       RETURN.
     ENDIF.
@@ -569,7 +569,7 @@ METHOD write.
                                                        control_flush_error     = 1
                                                        not_supported_by_gui    = 11
                                                        error_no_gui            = 12
-                                                       OTHERS                  = 1 ).
+                                                       OTHERS                  = 1 ). "#EC NUMBER_OK
     IF sy-subrc = 0.
       RETURN.
     ENDIF.
@@ -631,19 +631,19 @@ METHOD write.
           textid = /gal/cx_io_exception=>cannot_access_local_file07
           var1   = full_name.
 
-    WHEN 10.
+    WHEN 10.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>file_does_not_exist
           var1   = full_name.
 
-    WHEN 11.
+    WHEN 11.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>cannot_access_local_file08
           var1   = full_name.
 
-    WHEN 12.
+    WHEN 12.                                             "#EC NUMBER_OK
       RAISE EXCEPTION TYPE /gal/cx_io_exception
         EXPORTING
           textid = /gal/cx_io_exception=>cannot_access_local_file09

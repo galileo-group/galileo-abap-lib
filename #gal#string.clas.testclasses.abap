@@ -27,7 +27,7 @@ CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Short
   PRIVATE SECTION.
 * ================
     DATA:
-      f_cut TYPE REF TO /gal/string.  "class under test
+      f_cut TYPE REF TO /gal/string.                        "#EC NEEDED
 
     METHODS: date_to_string FOR TESTING.
     METHODS: limit_length FOR TESTING.
@@ -237,7 +237,8 @@ CLASS abap_unit_testclass IMPLEMENTATION.
 
   METHOD timestamp_to_string.
 * ===========================
-    DATA l_output TYPE string.
+    DATA l_output  TYPE string.
+    DATA l_expected TYPE string.
 
     l_output = /gal/string=>timestamp_to_string(
         timestamp = 20001231000000
@@ -245,9 +246,15 @@ CLASS abap_unit_testclass IMPLEMENTATION.
         language  = 'D'
     ).
 
+    l_expected = `Sonntag, 31. Dezember 2000 - 00:00:00`.
+
+    IF sy-zonlo <> 'UTC'.
+      CONCATENATE l_expected 'UTC' INTO l_expected SEPARATED BY space.
+    ENDIF.
+
     cl_aunit_assert=>assert_equals(
       act   = l_output
-      exp   = `Sonntag, 31. Dezember 2000 - 00:00:00`
+      exp   = l_expected
       msg   = `Timestamp conversion failed: TIMESTAMP=20001231000000, LANGUAGE=D`
     ).
 
@@ -257,9 +264,15 @@ CLASS abap_unit_testclass IMPLEMENTATION.
         language  = 'E'
     ).
 
+    l_expected = `Sunday, December 31, 2000 - 12:00:00 AM`.
+
+    IF sy-zonlo <> 'UTC'.
+      CONCATENATE l_expected 'UTC' INTO l_expected SEPARATED BY space.
+    ENDIF.
+
     cl_aunit_assert=>assert_equals(
       act   = l_output
-      exp   = `Sunday, December 31, 2000 - 12:00:00 AM`
+      exp   = l_expected
       msg   = `Timestamp conversion failed: TIMESTAMP=20001231000000, LANGUAGE=E`
     ).
   ENDMETHOD.       "timestamp_To_String

@@ -15,14 +15,6 @@
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL>
-    <item>
-     <ID>I</ID>
-     <KEY>000</KEY>
-     <ENTRY>No file selected.</ENTRY>
-     <LENGTH>30</LENGTH>
-    </item>
-   </TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

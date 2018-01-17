@@ -16,6 +16,7 @@ public section.
   class-data MAX_CHAR type C read-only .
   class-data MIN_CHAR type C read-only .
   class-data NON_BREAKING_SPACE type STRING read-only .
+  class-data TAB type STRING read-only .
   class-data WHITESPACE_CHARS type STRING read-only .
 
   class-methods ADJUST_CASE
@@ -405,8 +406,10 @@ ENDMETHOD.                    "any_to_string
 
 
 METHOD class_constructor.
-  DATA l_converter   TYPE REF TO cl_abap_conv_in_ce.
-  DATA l_hex_char(2) TYPE x.
+  CONSTANTS lc_non_breaking_space_uc(2) TYPE x VALUE '00A0'.
+  CONSTANTS lc_non_breaking_space       TYPE x VALUE 'A0'.
+
+  DATA l_converter TYPE REF TO cl_abap_conv_in_ce.
 
 * Get line break representations
   min_char = cl_abap_char_utilities=>minchar.
@@ -414,13 +417,13 @@ METHOD class_constructor.
 
   line_break_unix    = cl_abap_char_utilities=>newline.
   line_break_windows = cl_abap_char_utilities=>cr_lf.
+  tab                = cl_abap_char_utilities=>horizontal_tab.
 
 * Get non-breaking space
   IF cl_abap_char_utilities=>charsize > 1.
-    l_hex_char = '00A0'.
-    non_breaking_space = cl_abap_conv_in_ce=>uccp( l_hex_char ).
+    non_breaking_space = cl_abap_conv_in_ce=>uccp( lc_non_breaking_space_uc ).
   ELSE.
-    l_converter = cl_abap_conv_in_ce=>create( input = `A0` ).
+    l_converter = cl_abap_conv_in_ce=>create( input = lc_non_breaking_space ).
 
     l_converter->read( IMPORTING data = non_breaking_space ).
   ENDIF.
@@ -668,22 +671,21 @@ ENDMETHOD.                    "get_length
 
 
 METHOD get_special_char.
-  DATA l_hex_char(2) TYPE x.
+  CONSTANTS lc_hex_copyright(2) TYPE x VALUE '00A9'.
+  CONSTANTS lc_hex_trademark(2) TYPE x VALUE '2122'.
 
   CASE id.
 
     WHEN '(C)'.
       IF cl_abap_char_utilities=>charsize > 1.
-        l_hex_char = '00A9'.
-        result = cl_abap_conv_in_ce=>uccp( l_hex_char ).
+        result = cl_abap_conv_in_ce=>uccp( lc_hex_copyright ).
       ELSE.
         result = '©'.
       ENDIF.
 
     WHEN '(TM)'.
       IF cl_abap_char_utilities=>charsize > 1.
-        l_hex_char = '2122'.
-        result = cl_abap_conv_in_ce=>uccp( l_hex_char ).
+        result = cl_abap_conv_in_ce=>uccp( lc_hex_trademark ).
       ENDIF.
 
     WHEN '(MIN)'.
@@ -1251,7 +1253,17 @@ METHOD timestamp_to_string.
 
 * Build string
   IF format = format_default.
-    output = text-t02.
+    output = TEXT-t02.
+
+    IF timezone <> sy-zonlo.
+      CONCATENATE output `[tz]` INTO output SEPARATED BY space.
+    ENDIF.
+  ELSEIF format = format_short.
+    CONCATENATE TEXT-t03 TEXT-t04 INTO output SEPARATED BY space.
+
+    IF timezone <> sy-zonlo.
+      CONCATENATE output `[tz]` INTO output SEPARATED BY space.
+    ENDIF.
   ELSE.
     output = format.
   ENDIF.
@@ -1312,7 +1324,7 @@ METHOD time_to_string.
   l_hour_24_short = l_hour_temp.
   SHIFT l_hour_24_short LEFT DELETING LEADING '0'.
 
-  IF l_hour_temp < 12.
+  IF l_hour_temp < 12.                                   "#EC NUMBER_OK
     l_am_pm_upper = `AM`.
     l_am_pm_lower = `am`.
   ELSE.
@@ -1320,9 +1332,9 @@ METHOD time_to_string.
     l_am_pm_lower = `pm`.
   ENDIF.
 
-  l_hour_temp = l_hour_temp MOD 12.
+  l_hour_temp = l_hour_temp MOD 12.                      "#EC NUMBER_OK
   IF l_hour_temp = 0.
-    l_hour_temp = 12.
+    l_hour_temp = 12.                                    "#EC NUMBER_OK
   ENDIF.
 
   l_hour_12_long  = l_hour_temp.
@@ -1333,10 +1345,10 @@ METHOD time_to_string.
   CASE format.
 
     WHEN format_default.
-      output = text-t01.
+      output = TEXT-t01.
 
     WHEN format_short.
-      output = text-t04.
+      output = TEXT-t04.
 
     WHEN OTHERS.
       output = format.

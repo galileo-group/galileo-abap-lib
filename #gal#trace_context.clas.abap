@@ -25,7 +25,7 @@ PRIVATE SECTION.
 *"* private components of class /GAL/TRACE_CONTEXT
 *"* do not include other source files here!!!
 
-  METHODS constructor .
+  METHODS constructor.                                      "#EC NEEDED
 ENDCLASS.
 
 

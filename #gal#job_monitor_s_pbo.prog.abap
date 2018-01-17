@@ -7,7 +7,7 @@ FORM pbo_0100_status.
   SET TITLEBAR 'JOB_MONITOR_TITLE'.
 
   IF g_dynp_0100-subscr_dynpro IS INITIAL.
-    g_dynp_0100-subscr_dynpro = 0102.
+    g_dynp_0100-subscr_dynpro = '0102'.
   ENDIF.
 
   IF tab-activetab IS INITIAL.
@@ -23,9 +23,9 @@ ENDFORM.                    "pbo_0100_status
 *----------------------------------------------------------------------*
 FORM pbo_0100_init_rfc_route_info.
   DATA:
-     l_store_destination TYPE /gal/rfc_destination,
-     l_cx_js_exception TYPE REF TO /gal/cx_js_exception,
-     l_error_text TYPE string.
+    l_store_destination TYPE /gal/rfc_destination,
+    l_cx_js_exception   TYPE REF TO /gal/cx_js_exception,
+    l_error_text        TYPE string.
   TRY.
       CALL METHOD /gal/job=>determine_store_destination
         RECEIVING
@@ -88,11 +88,11 @@ ENDFORM.                    " PBO_0101_STATUS
 *----------------------------------------------------------------------*
 FORM pbo_0101_init_table .
   DATA:
-        l_layout TYPE disvariant,
-        l_table_layout TYPE lvc_s_layo,
-        l_it_column_layout TYPE lvc_t_fcat,
-        l_el_column_layout TYPE lvc_s_fcat,
-        l_it_fun TYPE ui_functions.
+    l_layout           TYPE disvariant,
+    l_table_layout     TYPE lvc_s_layo,
+    l_it_column_layout TYPE lvc_t_fcat,
+    l_el_column_layout TYPE lvc_s_fcat,
+    l_it_fun           TYPE ui_functions.
 
   "Load data INTO TABLE  the grid and display them
   l_table_layout-sel_mode = 'C'.
@@ -103,54 +103,54 @@ FORM pbo_0101_init_table .
 
   l_el_column_layout-fieldname = 'RESOURCE_ID'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 35.
-  l_el_column_layout-coltext = text-005.
-  l_el_column_layout-seltext = text-005.
+  l_el_column_layout-outputlen = 35.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-005.
+  l_el_column_layout-seltext = TEXT-005.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'RESOURCE_STATE'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 15.
-  l_el_column_layout-coltext = text-006.
-  l_el_column_layout-seltext = text-006.
+  l_el_column_layout-outputlen = 15.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-006.
+  l_el_column_layout-seltext = TEXT-006.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'JOB_ID'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 35.
-  l_el_column_layout-coltext = text-007.
-  l_el_column_layout-seltext = text-007.
+  l_el_column_layout-outputlen = 35.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-007.
+  l_el_column_layout-seltext = TEXT-007.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'JOB_STATE'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-008.
-  l_el_column_layout-seltext = text-008.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-008.
+  l_el_column_layout-seltext = TEXT-008.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'TIME'.
   l_el_column_layout-inttype = 'T'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-009.
-  l_el_column_layout-seltext = text-009.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-009.
+  l_el_column_layout-seltext = TEXT-009.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'DATE'.
   l_el_column_layout-inttype = 'D'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-010.
-  l_el_column_layout-seltext = text-010.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-010.
+  l_el_column_layout-seltext = TEXT-010.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
@@ -182,9 +182,9 @@ ENDFORM.                    " /gal/pbo_0101_init_table
 *----------------------------------------------------------------------*
 FORM  pbo_0101_load_data_into_grid .
   DATA:
-        l_job_resource_data TYPE /gal/job_resource_data,
-        l_from TYPE timestamp,
-        l_job_lay_res_data LIKE g_dynp_0101-job_lay_res_data.
+    l_job_resource_data TYPE /gal/job_resource_data,
+    l_from              TYPE timestamp,
+    l_job_lay_res_data  LIKE g_dynp_0101-job_lay_res_data.
 
 
   CONVERT DATE g_dynp_0101-tv_from_date TIME g_dynp_0101-tv_from_time
@@ -305,11 +305,11 @@ ENDFORM.                    "pbo_0102_init
 *----------------------------------------------------------------------*
 FORM pbo_0102_init_table .
   DATA:
-        l_layout TYPE disvariant,
-        l_table_layout TYPE lvc_s_layo,
-        l_it_column_layout TYPE lvc_t_fcat,
-        l_el_column_layout TYPE lvc_s_fcat,
-        l_it_fun TYPE ui_functions.
+    l_layout           TYPE disvariant,
+    l_table_layout     TYPE lvc_s_layo,
+    l_it_column_layout TYPE lvc_t_fcat,
+    l_el_column_layout TYPE lvc_s_fcat,
+    l_it_fun           TYPE ui_functions.
 
   "Load data INTO TABLE  the grid and display them
   l_table_layout-sel_mode = 'C'.
@@ -320,72 +320,72 @@ FORM pbo_0102_init_table .
 
   l_el_column_layout-fieldname = 'ID'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 35.
-  l_el_column_layout-coltext = text-011.
-  l_el_column_layout-seltext = text-011.
+  l_el_column_layout-outputlen = 35.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-011.
+  l_el_column_layout-seltext = TEXT-011.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'NAME'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 20.
-  l_el_column_layout-coltext = text-012.
-  l_el_column_layout-seltext = text-012.
+  l_el_column_layout-outputlen = 20.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-012.
+  l_el_column_layout-seltext = TEXT-012.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'COUNT'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 12.
-  l_el_column_layout-coltext = text-016.
-  l_el_column_layout-seltext = text-016.
+  l_el_column_layout-outputlen = 12.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-016.
+  l_el_column_layout-seltext = TEXT-016.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'TYPE'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-013.
-  l_el_column_layout-seltext = text-013.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-013.
+  l_el_column_layout-seltext = TEXT-013.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'DESTINATION'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 20.
-  l_el_column_layout-coltext = text-014.
-  l_el_column_layout-seltext = text-014.
+  l_el_column_layout-outputlen = 20.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-014.
+  l_el_column_layout-seltext = TEXT-014.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'STATUS'.
   l_el_column_layout-inttype = 'C'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-015.
-  l_el_column_layout-seltext = text-015.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-015.
+  l_el_column_layout-seltext = TEXT-015.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'TIME'.
   l_el_column_layout-inttype = 'T'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-009.
-  l_el_column_layout-seltext = text-009.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-009.
+  l_el_column_layout-seltext = TEXT-009.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
 
   l_el_column_layout-fieldname = 'DATE'.
   l_el_column_layout-inttype = 'D'.
-  l_el_column_layout-outputlen = 10.
-  l_el_column_layout-coltext = text-010.
-  l_el_column_layout-seltext = text-010.
+  l_el_column_layout-outputlen = 10.                     "#EC NUMBER_OK
+  l_el_column_layout-coltext = TEXT-010.
+  l_el_column_layout-seltext = TEXT-010.
 
   INSERT l_el_column_layout INTO TABLE l_it_column_layout.
   CLEAR l_el_column_layout.
@@ -436,10 +436,10 @@ ENDFORM.                    "pbo_010x_init_toolbar
 *----------------------------------------------------------------------*
 FORM  pbo_0102_load_data_into_grid .
   DATA:
-        l_job_data TYPE /gal/jobdata01,
-        l_from TYPE timestamp,
-        l_till TYPE timestamp,
-        l_job_lay_data LIKE g_dynp_0102-job_lay_data.
+    l_job_data     TYPE /gal/jobdata01,
+    l_from         TYPE timestamp,
+    l_till         TYPE timestamp,
+    l_job_lay_data LIKE g_dynp_0102-job_lay_data.
 
 
   CONVERT DATE g_dynp_0102-tv_from_date TIME g_dynp_0102-tv_from_time

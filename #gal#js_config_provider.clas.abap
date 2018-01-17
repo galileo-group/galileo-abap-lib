@@ -25,18 +25,20 @@ CLASS /GAL/JS_CONFIG_PROVIDER IMPLEMENTATION.
 
 
 METHOD get_store_destination.
+  DATA l_value TYPE /gal/js_config-value.
 
-  DATA l_config TYPE /gal/js_config.
+  SELECT SINGLE value
+           FROM /gal/js_config
+           INTO l_value
+          WHERE attribute = 'CENTRAL_RFC_DEST'.
 
-  SELECT SINGLE * FROM /gal/js_config INTO l_config WHERE attribute = 'CENTRAL_RFC_DEST'.
-  IF l_config-value IS INITIAL.
+  IF sy-subrc <> 0 OR l_value IS INITIAL.
     RAISE EXCEPTION TYPE /gal/cx_js_exception
       EXPORTING
         textid = /gal/cx_js_exception=>cannot_read_config_param
         var1   = 'CENTRAL_RFC_DEST'.
   ENDIF.
 
-  rfc_destination = l_config-value.
-
+  rfc_destination = l_value.
 ENDMETHOD.
 ENDCLASS.

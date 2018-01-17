@@ -55,9 +55,9 @@ METHOD calculate_time_span.
   CONVERT TIME STAMP end->value TIME ZONE /gal/timestamp_long=>time_zone_utc
      INTO DATE l_end_date TIME l_end_time.
 
-  time_span = ( l_end_time - l_start_time ) * 1000 +
-              ( l_end_date - l_start_date ) * 86400000 +
-              ( ( end->value - floor( end->value ) ) - ( start->value - floor( start->value ) ) ) * 1000.
+  time_span = ( l_end_time - l_start_time ) * 1000 +     "#EC NUMBER_OK
+              ( l_end_date - l_start_date ) * 86400000 + "#EC NUMBER_OK
+              ( ( end->value - floor( end->value ) ) - ( start->value - floor( start->value ) ) ) * 1000. "#EC NUMBER_OK
 ENDMETHOD.
 
 
@@ -92,9 +92,9 @@ METHOD get_elapsed_time.
     elapsed_milliseconds = elapsed_milliseconds + me->elapsed_milliseconds.
   ENDIF.
 
-  elapsed_seconds = elapsed_milliseconds DIV 1000.
-  elapsed_minutes = elapsed_seconds      DIV 60.
-  elapsed_hours   = elapsed_minutes      DIV 60.
+  elapsed_seconds = elapsed_milliseconds DIV 1000.       "#EC NUMBER_OK
+  elapsed_minutes = elapsed_seconds      DIV 60.         "#EC NUMBER_OK
+  elapsed_hours   = elapsed_minutes      DIV 60.         "#EC NUMBER_OK
 ENDMETHOD.
 
 
@@ -140,9 +140,9 @@ METHOD stop.
                                        end   = stop_timestamp ).
 
     elapsed_milliseconds = elapsed_milliseconds + l_time_span.
-    elapsed_seconds      = elapsed_milliseconds DIV 1000.
-    elapsed_minutes      = elapsed_seconds DIV 60.
-    elapsed_hours        = elapsed_minutes DIV 60.
+    elapsed_seconds      = elapsed_milliseconds DIV 1000. "#EC NUMBER_OK
+    elapsed_minutes      = elapsed_seconds DIV 60.       "#EC NUMBER_OK
+    elapsed_hours        = elapsed_minutes DIV 60.       "#EC NUMBER_OK
   ENDIF.
 ENDMETHOD.
 ENDCLASS.

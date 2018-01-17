@@ -16,13 +16,20 @@ FUNCTION /gal/file_read.
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
-  DATA l_auth_fname LIKE authb-filename.
+  CONSTANTS lc_line_break TYPE x VALUE '0A'.
+
+  DATA l_auth_fname TYPE fileextern.
   DATA l_message    TYPE string.
   DATA l_exception  TYPE REF TO cx_root.
 
   DATA l_line       TYPE string.
   DATA l_count      TYPE i.
 
+* Initialize result
+  CLEAR data_bin.
+  CLEAR data_txt.
+
+* Follow RFC route
   cfw_follow_rfc_route rfc_route_info.
 
   cfw_pass_exception cannot_read_file.
@@ -139,13 +146,13 @@ FUNCTION /gal/file_read.
           READ DATASET full_name INTO l_last_byte.
           CLOSE DATASET full_name.
 
-          IF l_last_byte = '0A'.
+          IF l_last_byte = lc_line_break.
             INSERT INITIAL LINE INTO TABLE data_txt.
           ENDIF.
 
       ENDCASE.
 
-    CATCH cx_root INTO l_exception.
+    CATCH cx_sy_file_access_error INTO l_exception.
       l_message = l_exception->get_text( ).
 
       MESSAGE e003 WITH full_name l_message RAISING cannot_read_file.

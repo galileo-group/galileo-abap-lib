@@ -127,7 +127,9 @@ FORM process_user_command_2000.
       TRY.
           l_selected_file = g_dynp_2000-backend_file_browser->get_selected_file( ).
 
-        CATCH cx_root.
+        CATCH /gal/cx_io_exception.                                  "#EC NO_HANDLER
+          "Nothing needs to be done here, l_selected file is just initial
+
       ENDTRY.
 
       TRY.
@@ -164,7 +166,9 @@ FORM process_user_command_2000.
             ENDIF.
           ENDIF.
 
-        CATCH cx_root INTO l_exception.
+        CATCH /gal/cx_control_exception
+              /gal/cx_io_exception INTO l_exception.
+
           l_message = l_exception->get_text( ).
           MESSAGE l_message TYPE 'E'.
 
@@ -181,7 +185,7 @@ FORM process_user_command_2000.
       TRY.
           g_dynp_2000-selected_file = g_dynp_2000-backend_file_browser->get_selected_file( ).
 
-        CATCH cx_root INTO l_exception.
+        CATCH /gal/cx_io_exception INTO l_exception.
           l_message = l_exception->get_text( ).
           MESSAGE l_message TYPE 'E'.
 

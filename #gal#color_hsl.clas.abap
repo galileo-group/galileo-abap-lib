@@ -62,16 +62,16 @@ METHOD constructor.
 
   super->constructor( ).
 
-  me->h = h - ( 360 * trunc( h / 360 ) ).
+  me->h = h - ( 360 * trunc( h / 360 ) ).                "#EC NUMBER_OK
 
   IF me->h < 0.
-    me->h = me->h + 360.
+    me->h = me->h + 360.                                 "#EC NUMBER_OK
   ENDIF.
 
   DESCRIBE FIELD s TYPE l_type.
 
   IF l_type CA 'BSI'.
-    me->s = s / 255.
+    me->s = s / 255.                                     "#EC NUMBER_OK
   ELSE.
     me->s = s.
   ENDIF.
@@ -85,7 +85,7 @@ METHOD constructor.
   DESCRIBE FIELD l TYPE l_type.
 
   IF l_type CA 'BSI'.
-    me->l = l / 255.
+    me->l = l / 255.                                     "#EC NUMBER_OK
   ELSE.
     me->l = l.
   ENDIF.
@@ -124,14 +124,14 @@ METHOD from_color_rgb.
   IF l_max = l_min.
     l_h = 0.
   ELSEIF l_max = color_rgb->r.
-    l_h = 60 * ( 0 + ( ( color_rgb->g - color_rgb->b ) / ( l_max - l_min ) ) ).
+    l_h = 60 * ( 0 + ( ( color_rgb->g - color_rgb->b ) / ( l_max - l_min ) ) ). "#EC NUMBER_OK
   ELSEIF l_max = color_rgb->g.
-    l_h = 60 * ( 2 + ( ( color_rgb->b - color_rgb->r ) / ( l_max - l_min ) ) ).
+    l_h = 60 * ( 2 + ( ( color_rgb->b - color_rgb->r ) / ( l_max - l_min ) ) ). "#EC NUMBER_OK
   ELSE.
-    l_h = 60 * ( 4 + ( ( color_rgb->r - color_rgb->g ) / ( l_max - l_min ) ) ).
+    l_h = 60 * ( 4 + ( ( color_rgb->r - color_rgb->g ) / ( l_max - l_min ) ) ). "#EC NUMBER_OK
   ENDIF.
 
-  IF l_min = 1 or l_max = 0.
+  IF l_min = 1 OR l_max = 0.
     l_s = 0.
   ELSE.
     l_s = ( l_max - l_min ) / ( 1 - abs( l_max + l_min - 1 ) ).
@@ -241,7 +241,7 @@ METHOD to_color_rgb.
   DATA l_g      TYPE f.
   DATA l_b      TYPE f.
 
-  l_hd = h / 60.
+  l_hd = h / 60.                                         "#EC NUMBER_OK
   l_hi = floor( l_hd ).
 
   WHILE l_hd >= 2.

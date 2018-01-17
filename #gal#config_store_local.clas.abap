@@ -76,7 +76,7 @@ METHOD authority_check.
     TRY.
         CREATE OBJECT l_authenticator TYPE (l_node->authenticator_class).
 
-      CATCH cx_root.                                        "#EC *
+      CATCH /gal/cx_auth_check_exception.               "#EC NO_HANDLER
         " Nothing needs to be done here
 
     ENDTRY.

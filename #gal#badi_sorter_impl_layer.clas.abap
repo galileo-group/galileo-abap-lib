@@ -24,15 +24,14 @@ ENDCLASS.
 CLASS /GAL/BADI_SORTER_IMPL_LAYER IMPLEMENTATION.
 
 
-METHOD IF_BADI_SORTER~GET_DATA_FROM_SCREEN.
-  DATA layer TYPE i.
+METHOD if_badi_sorter~get_data_from_screen.
+  DATA l_layer TYPE i.
 
   CALL FUNCTION 'BADI_SORTER_LAYER_GET'
     IMPORTING
-      layer = layer.
+      layer = l_layer.
 
-  EXPORT layer = layer TO DATA BUFFER data.
-
+  EXPORT layer = l_layer TO DATA BUFFER data.
 ENDMETHOD.
 
 
@@ -41,21 +40,19 @@ method IF_BADI_SORTER~IS_LAYER_CHANGEABLE.
 endmethod.
 
 
-METHOD IF_BADI_SORTER~PUT_DATA_TO_SCREEN.
-
-  DATA layer TYPE i.
+METHOD if_badi_sorter~put_data_to_screen.
+  DATA l_layer TYPE i.
 
   IF data IS NOT INITIAL.
     TRY.
-        IMPORT layer = layer FROM DATA BUFFER data.
-      CATCH cx_sy_import_format_error.  "#EC NO_HANDLER
+        IMPORT layer = l_layer FROM DATA BUFFER data.
+      CATCH cx_sy_import_format_error.                  "#EC NO_HANDLER
     ENDTRY.
   ENDIF.
 
   CALL FUNCTION 'BADI_SORTER_LAYER_PUT'
     EXPORTING
-      layer = layer.
-
+      layer = l_layer.
 ENDMETHOD.
 
 
@@ -67,34 +64,34 @@ method IF_BADI_SORTER~SET_LAYER_CHANGEABLE.
 endmethod.
 
 
-METHOD IF_BADI_SORTER~SORT_IMPLS.
-  TYPES: BEGIN OF int_struc,
-         include TYPE  badiimpl_sort_line,
-         layer TYPE i,
-        END OF int_struc.
-  DATA: int_tab TYPE TABLE OF int_struc,
-        wa_ext type badiimpl_sort_line,
-        wa_int type int_struc.
+METHOD if_badi_sorter~sort_impls.
+  TYPES: BEGIN OF lt_int_struc,
+           include TYPE badiimpl_sort_line,
+           layer   TYPE i,
+         END OF lt_int_struc.
 
-  loop at impls_to_sort into wa_ext.
-    move-corresponding wa_ext to wa_int-include.
-    IF wa_ext-sorter_data IS NOT INITIAL.
-    TRY.
-        IMPORT layer = wa_int-layer FROM DATA BUFFER wa_ext-sorter_data.
-      CATCH cx_sy_import_format_error.  "#EC NO_HANDLER
-    ENDTRY.
+  DATA: l_int_tab TYPE TABLE OF lt_int_struc,
+        l_wa_ext  TYPE badiimpl_sort_line,
+        l_wa_int  TYPE lt_int_struc.
+
+  LOOP AT impls_to_sort INTO l_wa_ext.
+    MOVE-CORRESPONDING l_wa_ext TO l_wa_int-include.
+    IF l_wa_ext-sorter_data IS NOT INITIAL.
+      TRY.
+          IMPORT layer = l_wa_int-layer FROM DATA BUFFER l_wa_ext-sorter_data.
+        CATCH cx_sy_import_format_error.                "#EC NO_HANDLER
+      ENDTRY.
     ENDIF.
-    append wa_int to int_tab.
-  endloop.
+    APPEND l_wa_int TO l_int_tab.
+  ENDLOOP.
 
-  sort int_tab by layer.
+  SORT l_int_tab BY layer.
 
-  refresh impls_to_sort.
+  REFRESH impls_to_sort.
 
-  loop at int_tab into wa_int.
-    move-corresponding wa_int-include to wa_ext.
-    append wa_ext to impls_to_sort.
-  endloop.
-
+  LOOP AT l_int_tab INTO l_wa_int.
+    MOVE-CORRESPONDING l_wa_int-include TO l_wa_ext.
+    INSERT l_wa_ext INTO TABLE impls_to_sort.
+  ENDLOOP.
 ENDMETHOD.
 ENDCLASS.

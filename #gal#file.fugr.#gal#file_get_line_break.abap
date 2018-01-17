@@ -17,7 +17,7 @@ FUNCTION /gal/file_get_line_break.
   CONSTANTS lc_ascii_lf TYPE x VALUE '0A'.
   CONSTANTS lc_ascii_cr TYPE x VALUE '0D'.
 
-  DATA l_auth_fname LIKE authb-filename.
+  DATA l_auth_fname TYPE fileextern.
   DATA l_message    TYPE string.
   DATA l_exception  TYPE REF TO cx_root.
 
@@ -25,6 +25,10 @@ FUNCTION /gal/file_get_line_break.
   DATA l_position   TYPE i.
   DATA l_offset     TYPE i.
 
+* Initialize result
+  CLEAR line_break.
+
+* Follow RFC route
   cfw_follow_rfc_route rfc_route_info.
 
   cfw_pass_exception cannot_get_line_break_style.
@@ -53,7 +57,7 @@ FUNCTION /gal/file_get_line_break.
            FOR INPUT IN BINARY MODE
            MESSAGE l_message.
       IF sy-subrc <> 0.
-        EXIT. " Assuming that file does not exist
+        RETURN. " Assuming that file does not exist
       ENDIF.
 
       l_position = 0.
@@ -85,7 +89,7 @@ FUNCTION /gal/file_get_line_break.
 
       CLOSE DATASET full_name.
 
-    CATCH cx_root INTO l_exception.
+    CATCH cx_sy_file_access_error INTO l_exception.
       l_message = l_exception->get_text( ).
 
       MESSAGE e003 WITH full_name l_message RAISING cannot_get_line_break_style.

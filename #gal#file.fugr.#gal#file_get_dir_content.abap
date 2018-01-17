@@ -28,6 +28,10 @@ FUNCTION /gal/file_get_dir_content.
   DATA l_type(255)        TYPE c.
   DATA l_owner(255)       TYPE c.
 
+* Initialize result
+  CLEAR content.
+
+* Follow RFC route
   cfw_follow_rfc_route rfc_route_info.
   cfw_pass_exception rfc_exception.
   cfw_remote_coding.
