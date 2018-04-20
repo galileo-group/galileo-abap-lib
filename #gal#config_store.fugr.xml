@@ -413,6 +413,9 @@
        <EXCEPTION>NODE_DOES_NOT_EXIST</EXCEPTION>
       </RSEXC>
       <RSEXC>
+       <EXCEPTION>CROSS_CLIENT_ACCESS</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
        <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
       </RSEXC>
      </EXCEPTION>
@@ -472,10 +475,16 @@
        <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
+       <PARAMETER>CROSS_CLIENT_ACCESS</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Client does not match current client</STEXT>
+       <INDEX> 010</INDEX>
+      </RSFDO>
+      <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC failed</STEXT>
-       <INDEX> 010</INDEX>
+       <INDEX> 011</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

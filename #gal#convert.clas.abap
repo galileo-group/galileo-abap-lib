@@ -6,6 +6,13 @@ class /GAL/CONVERT definition
 public section.
   type-pools ABAP .
 
+  class-methods LANGUAGE_KEY_SAP_TO_ISO
+    importing
+      !LANGUAGE_KEY_SAP type LANGU
+    returning
+      value(LANGUAGE_KEY_ISO) type LAISO
+    raising
+      /GAL/CX_CONVERSION_EXCEPTION .
   class-methods MOVE_CORRESPONDING
     importing
       !INPUT type ANY
@@ -18,6 +25,23 @@ ENDCLASS.
 
 
 CLASS /GAL/CONVERT IMPLEMENTATION.
+
+
+  METHOD language_key_sap_to_iso.
+    DATA l_sap_language_key TYPE string.
+
+    SELECT SINGLE laiso FROM t002
+                        INTO language_key_iso
+                       WHERE spras = language_key_sap.
+    IF sy-subrc <> 0.
+      l_sap_language_key = language_key_sap.
+
+      RAISE EXCEPTION TYPE /gal/cx_conversion_exception
+        EXPORTING
+          textid = /gal/cx_conversion_exception=>unknown_language_key
+          var1   = l_sap_language_key.
+    ENDIF.
+  ENDMETHOD.
 
 
 METHOD move_corresponding.

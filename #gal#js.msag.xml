@@ -218,6 +218,12 @@
      <MSGNR>034</MSGNR>
      <TEXT>Writing to non-Jobdata table &amp; not permitted</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/JS</ARBGB>
+     <MSGNR>035</MSGNR>
+     <TEXT>Non-allowed base verison &apos;&amp;&apos; for filling classname in jobdata</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

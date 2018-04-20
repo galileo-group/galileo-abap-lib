@@ -52,7 +52,7 @@ FUNCTION /gal/js_get_jobs.
     l_status = ``.
   ELSE.
     IF status_i EQ abap_true.
-      l_status = `1234status = 'I'`.                        "#EC NOTEXT
+      l_status = `____status = 'I'`.                        "#EC NOTEXT
     ENDIF.
     IF status_w EQ abap_true.
       CONCATENATE l_status ` OR status = 'W'` INTO l_status. "#EC NOTEXT
@@ -76,16 +76,16 @@ FUNCTION /gal/js_get_jobs.
     l_type = ``.
   ELSE.
     IF type_i EQ abap_true.
-      l_type =  `1234type = 'I'`.                           "#EC NOTEXT
+      l_type =  `____classname = '/GAL/CCM_JOB_IMPORT'`.                           "#EC NOTEXT
     ENDIF.
     IF type_s EQ abap_true.
-      CONCATENATE l_type ` OR type = 'S'` INTO l_type.      "#EC NOTEXT
+      CONCATENATE l_type ` OR classname = '/GAL/JOB_SAP'` INTO l_type.      "#EC NOTEXT
     ENDIF.
     SHIFT l_type BY 4 PLACES LEFT.
   ENDIF.
 
   IF from IS NOT INITIAL.
-    l_time = `12345mod_timestamp >= from`.                  "#EC NOTEXT
+    l_time = `_____mod_timestamp >= from`.                  "#EC NOTEXT
   ENDIF.
   IF till IS NOT INITIAL.
     CONCATENATE l_time ` AND mod_timestamp <= till` INTO l_time. "#EC NOTEXT
@@ -96,7 +96,7 @@ FUNCTION /gal/js_get_jobs.
   IF name NE ''.
     l_name = name.
     TRANSLATE l_name USING '*%'.
-    CONCATENATE l_condition `12345job_name LIKE '` l_name `'` INTO l_condition. "#EC NOTEXT
+    CONCATENATE l_condition `_____job_name LIKE '` l_name `'` INTO l_condition. "#EC NOTEXT
   ENDIF.
   IF job_id NE ''.
     l_job_id = job_id.

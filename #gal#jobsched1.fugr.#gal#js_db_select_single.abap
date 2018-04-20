@@ -15,16 +15,18 @@ FUNCTION /gal/js_db_select_single.
 
   DATA:
     l_data            TYPE REF TO data,
-    l_dd03l           TYPE dd03l,
-    lt_dd03l          TYPE TABLE OF dd03l,
+    lt_fieldname      TYPE TABLE OF fieldname,
     l_table_line_elem TYPE /gal/db_data.
 
   FIELD-SYMBOLS:
     <l_structure> TYPE any,
-    <l_field>     TYPE any.
+    <l_field>     TYPE any,
+    <l_fieldname> TYPE fieldname.
+
 
 * Initialize result
   CLEAR table_line.
+
 
   cfw_custom_auth /gal/cfw_auth=>const_cab_no_check.
   cfw_follow_rfc_route rfc_route_info.
@@ -33,7 +35,7 @@ FUNCTION /gal/js_db_select_single.
   cfw_pass_exception no_data_found.
   cfw_remote_coding.
 
-  SELECT * FROM dd03l INTO TABLE lt_dd03l WHERE tabname = table_name.
+  SELECT fieldname FROM dd03l INTO TABLE lt_fieldname WHERE tabname = table_name.
   IF sy-subrc <> 0.
     MESSAGE e002 WITH table_name RAISING unknown_table.
   ENDIF.
@@ -46,11 +48,11 @@ FUNCTION /gal/js_db_select_single.
     MESSAGE e003 WITH table_name id RAISING no_data_found.
   ENDIF.
 
-  LOOP AT lt_dd03l INTO l_dd03l.
-    ASSIGN COMPONENT l_dd03l-fieldname OF STRUCTURE <l_structure> TO <l_field>.
+  LOOP AT lt_fieldname ASSIGNING <l_fieldname>.
+    ASSIGN COMPONENT <l_fieldname> OF STRUCTURE <l_structure> TO <l_field>.
 *   This assign cannot go wrong since information is taken from data dictionary
-    l_table_line_elem-attribute = l_dd03l-fieldname.
-    l_table_line_elem-value = <l_field>.
+    l_table_line_elem-attribute = <l_fieldname>.
+    l_table_line_elem-value     = <l_field>.
     INSERT l_table_line_elem INTO TABLE table_line.
   ENDLOOP.
 

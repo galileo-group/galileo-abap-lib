@@ -16,6 +16,12 @@
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
+     <CMPNAME>GET_EXTENDED_DATA</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determin RFC destination to database on central system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
      <CMPNAME>GET_STORE_DESTINATION</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Determin RFC destination to database on central system</DESCRIPT>

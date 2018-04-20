@@ -1404,6 +1404,95 @@
      </DOCUMENTATION>
     </item>
     <item>
+     <FUNCNAME>/GAL/JS_FILL_JD_CLASSNAME</FUNCNAME>
+     <SHORT_TEXT>Fill CLASSNAME in JOBDATA01</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FILL_CURRENT</PARAMETER>
+       <DEFAULT>ABAP_TRUE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FILL_HIST</PARAMETER>
+       <DEFAULT>ABAP_TRUE</DEFAULT>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>INCONSISTENT_JOBS_HIST</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/TT_JOB_IDS</TYP>
+      </RSEXP>
+      <RSEXP>
+       <PARAMETER>INCONSISTENT_JOBS_CURRENT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/TT_JOB_IDS</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>UNSUPPORTED_JOBDAT_VERSION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FILL_CURRENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Aktuelle Daten korrigieren</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FILL_HIST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Historische Daten korrigieren</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INCONSISTENT_JOBS_HIST</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table with job IDs</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INCONSISTENT_JOBS_CURRENT</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Table with job IDs</STEXT>
+       <INDEX> 005</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 006</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>UNSUPPORTED_JOBDAT_VERSION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>No migration from this source version possible</STEXT>
+       <INDEX> 007</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>/GAL/JS_FREE_RESOURCES</FUNCNAME>
      <SHORT_TEXT>Free ressource[s] for a job</SHORT_TEXT>
      <IMPORT>
@@ -1461,6 +1550,48 @@
        <PARAMETER>EXECUTION_FAILED</PARAMETER>
        <KIND>X</KIND>
        <INDEX> 005</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>/GAL/JS_GET_EXT_CONF_DATA</FUNCNAME>
+     <SHORT_TEXT>Get extended config data</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/RFC_ROUTE_INFO</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>DB_LAYER_VERSION</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>/GAL/JS_DB_LAYER_VERSION</TYP>
+      </RSEXP>
+     </EXPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>RFC_EXCEPTION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>RFC Route information</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>DB_LAYER_VERSION</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Version of storage type</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>RFC_EXCEPTION</PARAMETER>
+       <KIND>X</KIND>
+       <INDEX> 003</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

@@ -1,6 +1,6 @@
 FUNCTION /gal/cs_select_node_value.
 *"----------------------------------------------------------------------
-*"*"Local Interface:
+*"*"Lokale Schnittstelle:
 *"  IMPORTING
 *"     REFERENCE(RFC_ROUTE_INFO) TYPE  /GAL/RFC_ROUTE_INFO
 *"     REFERENCE(ID) TYPE  /GAL/CONFIG_KEY_ID
@@ -13,6 +13,7 @@ FUNCTION /gal/cs_select_node_value.
 *"     REFERENCE(VALUE) TYPE  /GAL/CONFIG_VALUE
 *"  EXCEPTIONS
 *"      NODE_DOES_NOT_EXIST
+*"      CROSS_CLIENT_ACCESS
 *"      RFC_EXCEPTION
 *"----------------------------------------------------------------------
 
@@ -49,11 +50,14 @@ FUNCTION /gal/cs_select_node_value.
     CASE node_type.
 
       WHEN /gal/config_node=>const_node_type_value_client.
+        IF client <> sy-mandt.
+          MESSAGE e003 RAISING cross_client_access.
+        ENDIF.
+
         SELECT SINGLE type value
-                 FROM /gal/config_cval CLIENT SPECIFIED
+                 FROM /gal/config_cval
                  INTO (value_type, value)
-                WHERE client = client                    "#EC CI_CLIENT
-                  AND id     = id.                        "#EC CI_SUBRC
+                WHERE id = id.                            "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_system.
         SELECT SINGLE type value
@@ -62,11 +66,14 @@ FUNCTION /gal/cs_select_node_value.
                 WHERE id = id.                            "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_user.
+        IF client <> sy-mandt.
+          MESSAGE e003 RAISING cross_client_access.
+        ENDIF.
+
         SELECT SINGLE type value
-                 FROM /gal/config_uval CLIENT SPECIFIED
+                 FROM /gal/config_uval
                  INTO (value_type, value)
-                WHERE client    = client
-                  AND user_name = user_name              "#EC CI_CLIENT
+                WHERE user_name = user_name
                   AND id        = id.                     "#EC CI_SUBRC
 
     ENDCASE.

@@ -144,6 +144,11 @@ METHOD delete_node.
   ENDLOOP.
 
 * Delete node
+
+* Note: Only values for current client are deleted from tables ...CVAL und ...UVAL in
+*       order to keep compatibility with S/4-HANA. This may result in left-overs on
+*       additional clients.
+
   DELETE FROM /gal/config_key
         WHERE id = id.                                    "#EC CI_SUBRC
 
@@ -153,19 +158,15 @@ METHOD delete_node.
   DELETE FROM /gal/config_val
         WHERE id = id.                                    "#EC CI_SUBRC
 
-  DELETE FROM /gal/config_cval CLIENT SPECIFIED
-        WHERE id = id.                                    "#EC CI_SUBRC
-                                                         "#EC CI_CLIENT
-                                                        "#EC CI_NOFIRST
+  DELETE FROM /gal/config_cval                            "#EC CI_SUBRC
+        WHERE id = id.                                  "#EC CI_NOFIRST
 
   DELETE FROM /gal/config_sval
         WHERE id = id.                                    "#EC CI_SUBRC
 
-  DELETE FROM /gal/config_uval CLIENT SPECIFIED
+  DELETE FROM /gal/config_uval
         WHERE id = id.                                    "#EC CI_SUBRC
-                                                         "#EC CI_CLIENT
                                                         "#EC CI_NOFIRST
-
   IF no_commit <> abap_true.
     CALL FUNCTION 'DB_COMMIT'.
   ENDIF.
@@ -206,18 +207,28 @@ METHOD delete_node_value.
     CASE type.
 
       WHEN /gal/config_node=>const_node_type_value_client.
-        DELETE FROM /gal/config_cval CLIENT SPECIFIED
-              WHERE client = client                      "#EC CI_CLIENT
-                AND id     = id.                          "#EC CI_SUBRC
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
+        DELETE FROM /gal/config_cval
+              WHERE id = id.                              "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_system.
         DELETE FROM /gal/config_sval
-              WHERE id     = id.                          "#EC CI_SUBRC
+              WHERE id = id.                              "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_user.
-        DELETE FROM /gal/config_uval CLIENT SPECIFIED
-              WHERE client    = client
-                AND user_name = user_name                "#EC CI_CLIENT
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
+        DELETE FROM /gal/config_uval
+              WHERE user_name = user_name                "
                 AND id        = id.                       "#EC CI_SUBRC
 
     ENDCASE.
@@ -322,7 +333,6 @@ ENDMETHOD.
 
 
   METHOD get_node_values.
-
     DATA l_node_values TYPE /gal/config_key_values.
     DATA l_node        TYPE REF TO /gal/config_node.
     DATA l_child_nodes TYPE /gal/config_keys.
@@ -352,11 +362,9 @@ ENDMETHOD.
       WHERE id = l_node->id.                              "#EC CI_SUBRC
 
     SELECT  client id type value
-      FROM  /gal/config_cval CLIENT SPECIFIED
-      INTO  TABLE l_node_values-values_client_dependent
-      WHERE id = l_node->id.                             "#EC CI_CLIENT
-                                                          "#EC CI_SUBRC
-                                                     "#EC CI_BUFFCLIENT
+      FROM  /gal/config_cval
+      INTO  TABLE l_node_values-values_client_dependent   "#EC CI_SUBRC
+      WHERE id = l_node->id.                         "#EC CI_BUFFCLIENT
 
     SELECT  SINGLE id type value
       FROM  /gal/config_sval
@@ -364,18 +372,14 @@ ENDMETHOD.
       WHERE id = l_node->id.                              "#EC CI_SUBRC
 
     SELECT  client id user_name type value
-      FROM  /gal/config_uval CLIENT SPECIFIED
-      INTO  TABLE l_node_values-values_user_dependent
-      WHERE id = l_node->id.                              "#EC CI_SUBRC
-                                                     "#EC CI_BUFFCLIENT
-                                                         "#EC CI_CLIENT
-                                                        "#EC CI_GENBUFF
+      FROM  /gal/config_uval                            "#EC CI_GENBUFF
+      INTO  TABLE l_node_values-values_user_dependent     "#EC CI_SUBRC
+      WHERE id = l_node->id.                         "#EC CI_BUFFCLIENT
 
     SELECT  langu text
       FROM  /gal/config_txt
-      INTO  TABLE l_node_values-texts
+      INTO  TABLE l_node_values-texts                   "#EC CI_GENBUFF
       WHERE id = l_node->id.                              "#EC CI_SUBRC
-                                                        "#EC CI_GENBUFF
 
 * If values from child nodes are requested, collect them recursively
     IF with_child_nodes = abap_true.
@@ -384,14 +388,12 @@ ENDMETHOD.
         WHERE parent_id = l_node->id.                     "#EC CI_SUBRC
 
       LOOP AT l_child_nodes ASSIGNING <l_child_node>.
-
         CLEAR l_value_list.
         l_value_list = get_node_values(
             id               = <l_child_node>-id
             with_child_nodes = with_child_nodes ).      "#EC CI_CONV_OK
         APPEND LINES OF l_value_list TO value_list.     "#EC CI_CONV_OK
       ENDLOOP.
-
     ELSE.
 * Also if no values from child nodes are requested, check if any are present
       SELECT * FROM /gal/config_key
@@ -407,7 +409,6 @@ ENDMETHOD.
 
 * Insert node values to return list
     INSERT l_node_values INTO TABLE value_list.
-
   ENDMETHOD.
 
 
@@ -618,11 +619,16 @@ METHOD select_node_value.
     CASE type.
 
       WHEN /gal/config_node=>const_node_type_value_client.
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
         SELECT SINGLE type value
-                 FROM /gal/config_cval CLIENT SPECIFIED
+                 FROM /gal/config_cval
                  INTO (value_type, value)
-                WHERE client = client                    "#EC CI_CLIENT
-                  AND id     = id.                        "#EC CI_SUBRC
+                WHERE id = id.                            "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_system.
         SELECT SINGLE type value
@@ -631,11 +637,16 @@ METHOD select_node_value.
                 WHERE id = id.                            "#EC CI_SUBRC
 
       WHEN /gal/config_node=>const_node_type_value_user.
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
         SELECT SINGLE type value
-                 FROM /gal/config_uval CLIENT SPECIFIED
+                 FROM /gal/config_uval
                  INTO (value_type, value)
-                WHERE client    = client
-                  AND user_name = user_name              "#EC CI_CLIENT
+                WHERE user_name = user_name
                   AND id        = id.                     "#EC CI_SUBRC
 
     ENDCASE.
@@ -651,19 +662,20 @@ METHOD update_node.
                IMPORTING type = l_type ).
 
 * Delete existing values if type is changed
+
+* Note: Only values for current client are deleted from tables ...CVAL und ...UVAL in
+*       order to keep compatibility with S/4-HANA. This may result in left-overs on
+*       additional clients.
+
   IF type <> l_type.
-    DELETE FROM /gal/config_cval CLIENT SPECIFIED
-          WHERE id = id.                                  "#EC CI_SUBRC
-                                                        "#EC CI_NOFIRST
-                                                         "#EC CI_CLIENT
+    DELETE FROM /gal/config_cval                          "#EC CI_SUBRC
+          WHERE id = id.                                "#EC CI_NOFIRST
 
     DELETE FROM /gal/config_sval
           WHERE id = id.                                  "#EC CI_SUBRC
 
-    DELETE FROM /gal/config_uval CLIENT SPECIFIED
-          WHERE id = id.                                  "#EC CI_SUBRC
-                                                         "#EC CI_CLIENT
-                                                        "#EC CI_NOFIRST
+    DELETE FROM /gal/config_uval                          "#EC CI_SUBRC
+          WHERE id = id.                                "#EC CI_NOFIRST
   ENDIF.
 
 * Update node definition
@@ -847,12 +859,17 @@ METHOD update_node_value.
     CASE type.
 
       WHEN /gal/config_node=>const_node_type_value_client.
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
         l_wa_config_cval-client = client.
         l_wa_config_cval-id     = id.
         l_wa_config_cval-type   = value_type.
         l_wa_config_cval-value  = value.
-        MODIFY /gal/config_cval CLIENT SPECIFIED
-          FROM l_wa_config_cval.                         "#EC CI_CLIENT
+        MODIFY /gal/config_cval FROM l_wa_config_cval.   "#EC CI_CLIENT
         IF sy-subrc IS NOT INITIAL.
           l_message = TEXT-x01.
           l_message = /gal/string_utilities=>replace_variables( input = l_message
@@ -879,13 +896,18 @@ METHOD update_node_value.
         ENDIF.
 
       WHEN /gal/config_node=>const_node_type_value_user.
+        IF client <> sy-mandt.
+          RAISE EXCEPTION TYPE /gal/cx_config_exception
+            EXPORTING
+              textid = /gal/cx_config_exception=>foreign_client.
+        ENDIF.
+
         l_wa_config_uval-client    = client.
         l_wa_config_uval-user_name = user_name.
         l_wa_config_uval-id        = id.
         l_wa_config_uval-type      = value_type.
         l_wa_config_uval-value     = value.
-        MODIFY /gal/config_uval CLIENT SPECIFIED
-          FROM l_wa_config_uval.                         "#EC CI_CLIENT
+        MODIFY /gal/config_uval FROM l_wa_config_uval.   "#EC CI_CLIENT
         IF sy-subrc IS NOT INITIAL.
           l_message = TEXT-x01.
           l_message = /gal/string_utilities=>replace_variables( input = l_message
@@ -895,6 +917,7 @@ METHOD update_node_value.
               textid = /gal/cx_config_exception=>custom_exception
               var1   = l_message.
         ENDIF.
+
     ENDCASE.
   ENDIF.
 

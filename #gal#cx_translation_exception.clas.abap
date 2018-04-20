@@ -1,0 +1,45 @@
+class /GAL/CX_TRANSLATION_EXCEPTION definition
+  public
+  inheriting from CX_STATIC_CHECK
+  create public .
+
+public section.
+
+  constants /GAL/CX_TRANSLATION_EXCEPTION type SOTR_CONC value '00155DF935091ED88B9D706EE140B6B4'. "#EC NOTEXT
+  constants CUSTOM_EXCEPTION type SOTR_CONC value '00155DF935091ED88B9D713C77E9D6B4'. "#EC NOTEXT
+  constants TRANSLATION_MODE_NOT_SUPPORTED type SOTR_CONC value '00155DF935091ED88BA24B45C704D6B4'. "#EC NOTEXT
+  constants UNEXPECTED_RESPONSE type SOTR_CONC value '00155DF935091ED88BA525990AE3B6B4'. "#EC NOTEXT
+  data VAR1 type STRING .
+  data VAR2 type STRING .
+  data VAR3 type STRING .
+
+  methods CONSTRUCTOR
+    importing
+      !TEXTID like TEXTID optional
+      !PREVIOUS like PREVIOUS optional
+      !VAR1 type STRING optional
+      !VAR2 type STRING optional
+      !VAR3 type STRING optional .
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS /GAL/CX_TRANSLATION_EXCEPTION IMPLEMENTATION.
+
+
+  method CONSTRUCTOR.
+CALL METHOD SUPER->CONSTRUCTOR
+EXPORTING
+TEXTID = TEXTID
+PREVIOUS = PREVIOUS
+.
+ IF textid IS INITIAL.
+   me->textid = /GAL/CX_TRANSLATION_EXCEPTION .
+ ENDIF.
+me->VAR1 = VAR1 .
+me->VAR2 = VAR2 .
+me->VAR3 = VAR3 .
+  endmethod.
+ENDCLASS.

@@ -18,6 +18,12 @@
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CONVERT</CLSNAME>
+     <CMPNAME>LANGUAGE_KEY_SAP_TO_ISO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert SAP language key to ISO language key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONVERT</CLSNAME>
      <CMPNAME>MOVE_CORRESPONDING</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Move to corresponding fields (by field names)</DESCRIPT>

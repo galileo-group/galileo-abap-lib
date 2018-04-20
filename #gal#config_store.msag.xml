@@ -26,6 +26,12 @@
      <MSGNR>002</MSGNR>
      <TEXT>No transportable value redefinitions found</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CONFIG_STORE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Cross-client access is not supported</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

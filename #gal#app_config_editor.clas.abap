@@ -2202,16 +2202,15 @@ METHOD pbo_0130_initialize.
 
   FIELD-SYMBOLS <l_user> LIKE current_value_user.
 
-
 * Initialize client dropdown and set default client
   IF refresh_dropdown_0130 = abap_true.
-
     CLEAR l_dropdown_values.
 
     SELECT mandt
            mtext
       FROM t000
-      INTO (l_client, l_wa_dropdown_values-text).
+      INTO (l_client, l_wa_dropdown_values-text)
+     WHERE mandt = sy-mandt.
 
       TRY.
           config_store->authority_check( node   = current_node
@@ -2300,10 +2299,9 @@ METHOD pbo_0130_initialize.
     CLEAR l_dropdown_values.
 
     SELECT bname
-      FROM usr02 CLIENT SPECIFIED
-      INTO TABLE lt_user                                 "#EC CI_CLIENT
-     WHERE mandt = l_client.                            "#EC CI_GENBUFF
-                                                          "#EC CI_SUBRC
+      FROM usr02                                        "#EC CI_GENBUFF
+      INTO TABLE lt_user.                                 "#EC CI_SUBRC
+
     LOOP AT lt_user ASSIGNING <l_user>.
       TRY.
           config_store->authority_check( node      = current_node

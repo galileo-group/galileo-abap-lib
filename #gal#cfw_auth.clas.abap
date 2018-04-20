@@ -726,11 +726,19 @@ CLASS /GAL/CFW_AUTH IMPLEMENTATION.
       " Overwriting already set context data is not allowed.
       " Existing data has to be processed and cleared before.
       /gal/trace=>write_text(
-        text     = 'INTERNAL ERROR: Overwriting context in CFW auth framwork. This should not happen. Old: {1} New: {2}'
-        var01    = /gal/cfw_auth=>ctx_function_name
-        var02    = function_name
-        no_flush = 'X'
+        text     = 'INTERNAL ERROR: Overwriting context in CFW auth framwork. This should not happen. Following Old and New:'
+        no_flush = abap_true
       ).                                                    "#EC NOTEXT
+      "Texte werden hier einzeln und nicht als Variablen ausgegeben, da der REPLACE_VARIABLES ggf. Problem macht
+      "wegen potentiellem SQL Cursorverlust (ATC Fehler).
+      /gal/trace=>write_text(
+        text     = /gal/cfw_auth=>ctx_function_name
+        no_flush = abap_true
+      ).
+      /gal/trace=>write_text(
+        text     = function_name
+        no_flush = abap_true
+      ).
       /gal/trace=>write_callstack( ).
       l_var1 = /gal/cfw_auth=>ctx_function_name.
       l_var2 = function_name.

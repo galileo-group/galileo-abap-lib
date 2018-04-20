@@ -15,9 +15,11 @@ class /GAL/JOB definition
 public section.
   type-pools ABAP .
 
+  class-data DB_LAYER_VERSION type /GAL/JS_DB_LAYER_VERSION .
   class-data STORE_RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO read-only .
   data AUTO_CONTINUE type FLAG read-only .
   data AUTO_EVENT type FLAG .
+  data CLASSNAME type CLASSNAME read-only .
   data DESTINATION type STRING read-only .
   data ERROR_LOG type /GAL/TT_MESSAGE_STRUCT_TS read-only .
   data EXEC_USER_ID type /GAL/USER_ID read-only .
@@ -27,7 +29,6 @@ public section.
   data MOD_TIMESTAMP type TIMESTAMP read-only .
   data STATUS type /GAL/JOB_STATUS read-only .
   data TRANSITION_LOG type /GAL/TRANSITION_LOG read-only .
-  data TYPE type /GAL/JOB_TYPE read-only .
   data WAIT_FOR_RES type FLAG read-only .
 
   class-methods CLASS_CONSTRUCTOR .
@@ -39,6 +40,11 @@ public section.
       value(STORE_DESTINATION) type /GAL/RFC_DESTINATION
     raising
       /GAL/CX_JS_EXCEPTION .
+  class-methods GET_JOBTYPE_DESCRIPTION
+    importing
+      !CLASSNAME type CLASSNAME
+    exporting
+      !DESCRIPTION type STRING .
   class-methods RAISE_USER_EVENT
     importing
       !EVENT_ID type /GAL/PRECONDITION_ID
@@ -122,6 +128,15 @@ public section.
   methods GET_PROGRAM_NAME
     returning
       value(PROGRAM_NAME) type SYREPID .
+  methods IS_AUTO_CONTINUED
+    returning
+      value(AUTO_CONTINUED) type FLAG .
+  methods IS_RESTARTABLE
+    returning
+      value(RESTARTABLE) type ABAP_BOOL .
+  methods IS_RESUMEABLE
+    returning
+      value(RESUMABLE) type ABAP_BOOL .
   methods IS_WAITING_FOR_EVENT
     importing
       !IGNORE_WHEN_MISSING_PREDECS type FLAG optional
@@ -168,9 +183,6 @@ public section.
   methods STORE_TO_DB
     raising
       /GAL/CX_JS_EXCEPTION .
-  methods IS_AUTO_CONTINUED
-    returning
-      value(AUTO_CONTINUED) type FLAG .
 protected section.
 
   class-data CONFIG type ref to /GAL/JS_CONFIG_PROVIDER .
@@ -181,6 +193,7 @@ protected section.
   methods CHANGE_STATUS
     importing
       !NEW_STATUS type /GAL/JOB_STATUS
+      !STOP_OPTIONS type /GAL/JOB_STOP_OPTIONS optional
       !AUTO_TRANSITION type FLAG optional .
   methods INIT_ATTRS_CREATE
     importing
@@ -537,8 +550,25 @@ ENDMETHOD.
 METHOD change_status.
 
   DATA:
-    l_trans_log_entry   TYPE /gal/transition_log_entry.
+    l_trans_log_entry TYPE /gal/transition_log_entry,
+    l_stop_options    TYPE /gal/job_stop_options,
+    l_option          TYPE /gal/attrib_value.
 
+
+  IF new_status = 'S'.
+    IF stop_options IS NOT SUPPLIED.
+      l_stop_options-allow_continue = abap_true.
+      l_stop_options-allow_restart  = abap_false.
+    ELSE.
+      l_stop_options = stop_options.
+    ENDIF.
+    l_option-attribute = 'ALLOW_CONTINUE'.
+    l_option-value     = l_stop_options-allow_continue.
+    INSERT l_option INTO TABLE l_trans_log_entry-options.
+    l_option-attribute = 'ALLOW_RESTART'.
+    l_option-value     = l_stop_options-allow_restart.
+    INSERT l_option INTO TABLE l_trans_log_entry-options.
+  ENDIF.
 
   l_trans_log_entry-source_state = status.
   GET TIME STAMP FIELD l_trans_log_entry-timestamp.
@@ -549,7 +579,7 @@ METHOD change_status.
 
   l_trans_log_entry-auto_trans = auto_transition.
 
-  APPEND l_trans_log_entry TO transition_log.
+  INSERT l_trans_log_entry INTO TABLE transition_log.
 
 ENDMETHOD.
 
@@ -1185,6 +1215,23 @@ METHOD execute_async.
 ENDMETHOD.
 
 
+  METHOD get_jobtype_description.
+
+    CLEAR description.
+
+    TRY.
+        CALL METHOD (classname)=>get_jobtype_descr_jobspec
+          EXPORTING
+            classname   = classname
+          IMPORTING
+            description = description.
+      CATCH cx_sy_dyn_call_error.
+        description = classname.
+    ENDTRY.
+
+  ENDMETHOD.
+
+
   METHOD get_predecessor_jobs.
 
     DATA:
@@ -1458,6 +1505,65 @@ ENDMETHOD.                    "init_attrs_create
   ENDMETHOD.
 
 
+  METHOD is_restartable.
+
+    FIELD-SYMBOLS:
+      <l_translog> TYPE /gal/transition_log_entry.
+
+
+    IF status EQ 'E'.
+      restartable = abap_true.
+      RETURN.
+    ENDIF.
+
+    IF status NE 'S'.
+      restartable = abap_false.
+      RETURN.
+    ENDIF.
+
+    restartable = abap_false.
+    DESCRIBE TABLE transition_log LINES sy-tfill.
+    IF sy-tfill > 0.
+      READ TABLE transition_log INDEX sy-tfill ASSIGNING <l_translog>.
+      IF NOT <l_translog>-target_state = 'S'.
+        RETURN.
+      ENDIF.
+      READ TABLE <l_translog>-options WITH KEY attribute = 'ALLOW_RESTART' value = abap_true TRANSPORTING NO FIELDS.
+      IF sy-subrc = 0.
+        restartable = abap_true.
+      ENDIF.
+    ENDIF.
+
+  ENDMETHOD.
+
+
+  METHOD is_resumeable.
+
+    FIELD-SYMBOLS:
+      <l_translog> TYPE /gal/transition_log_entry.
+
+
+    IF NOT status = 'S'.
+      resumable = abap_false.
+      RETURN.
+    ENDIF.
+
+    resumable = abap_true.
+    DESCRIBE TABLE transition_log LINES sy-tfill.
+    IF sy-tfill > 0.
+      READ TABLE transition_log INDEX sy-tfill ASSIGNING <l_translog>.
+      IF NOT <l_translog>-target_state = 'S'.
+        RETURN.
+      ENDIF.
+      READ TABLE <l_translog>-options WITH KEY attribute = 'ALLOW_CONTINUE' value = abap_false TRANSPORTING NO FIELDS.
+      IF sy-subrc = 0.
+        resumable = abap_false.
+      ENDIF.
+    ENDIF.
+
+  ENDMETHOD.
+
+
   METHOD is_waiting_for_event.
 
     DATA:
@@ -1610,11 +1716,12 @@ ENDMETHOD.                    "init_attrs_create
   METHOD read_job_from_db.
 
     DATA:
-      l_table_line      TYPE /gal/db_datas,
-      l_table_line_elem TYPE /gal/db_data,
-      l_message         TYPE string,
-      l_var1            TYPE string,
-      l_type            TYPE /gal/job_type.
+      l_table_line       TYPE /gal/db_datas,
+      l_table_line_elem  TYPE /gal/db_data,
+      l_message          TYPE string,
+      l_var1             TYPE string,
+      l_classname        TYPE classname,
+      l_after_correction TYPE abap_bool.
 
 
     IF id IS INITIAL.
@@ -1624,25 +1731,66 @@ ENDMETHOD.                    "init_attrs_create
     ENDIF.
 
 
+    DO 2 TIMES.
+
 * At first we need to determine the type of the job to be created
-    IF undelete_before_init = abap_false.
-      CALL FUNCTION '/GAL/JS_DB_SELECT_SINGLE'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          table_name     = '/GAL/JOBDATA01'
-          id             = id
-        IMPORTING
-          table_line     = l_table_line
-        EXCEPTIONS
-          no_data_found  = 1
-          unknown_table  = 2
-          rfc_exception  = 3
-          OTHERS         = 4.
-      IF sy-subrc =  1.
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-              INTO l_message.
-        l_var1 = id.
+      IF undelete_before_init = abap_false.
+        CALL FUNCTION '/GAL/JS_DB_SELECT_SINGLE'
+          EXPORTING
+            rfc_route_info = store_rfc_route_info
+            table_name     = '/GAL/JOBDATA01'
+            id             = id
+          IMPORTING
+            table_line     = l_table_line
+          EXCEPTIONS
+            no_data_found  = 1
+            unknown_table  = 2
+            rfc_exception  = 3
+            OTHERS         = 4.
+        IF sy-subrc =  1.
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                INTO l_message.
+          l_var1 = id.
+          CALL FUNCTION '/GAL/JS_DB_SELECT_SINGLE'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              table_name     = '/GAL/JD01_HIST'
+              id             = id
+            IMPORTING
+              table_line     = l_table_line
+            EXCEPTIONS
+              no_data_found  = 1
+              unknown_table  = 2
+              rfc_exception  = 3
+              OTHERS         = 4.
+          IF sy-subrc = 1.
+            RAISE EXCEPTION TYPE /gal/cx_js_no_job_data_found
+              EXPORTING
+                textid = /gal/cx_js_no_job_data_found=>/gal/cx_js_no_job_data_found
+                var1   = l_var1
+                var2   = '/GAL/JOBDATA01'.
+          ELSEIF sy-subrc <> 0.
+            RAISE EXCEPTION TYPE /gal/cx_js_exception
+              EXPORTING
+                textid = /gal/cx_js_exception=>cannot_read_job_from_db
+                var1   = l_var1
+                var2   = '/GAL/JOBDATA01'
+                var3   = l_message.
+          ENDIF.
+        ELSEIF sy-subrc <> 0.
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                INTO l_message.
+          l_var1 = id.
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_read_job_from_db
+              var1   = l_var1
+              var2   = '/GAL/JOBDATA01'
+              var3   = l_message.
+        ENDIF.
+      ELSE.
         CALL FUNCTION '/GAL/JS_DB_SELECT_SINGLE'
           EXPORTING
             rfc_route_info = store_rfc_route_info
@@ -1660,90 +1808,76 @@ ENDMETHOD.                    "init_attrs_create
             EXPORTING
               textid = /gal/cx_js_no_job_data_found=>/gal/cx_js_no_job_data_found
               var1   = l_var1
-              var2   = '/GAL/JOBDATA01'.
+              var2   = '/GAL/JD01_HIST'.
         ELSEIF sy-subrc <> 0.
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                INTO l_message.
+          l_var1 = id.
           RAISE EXCEPTION TYPE /gal/cx_js_exception
             EXPORTING
               textid = /gal/cx_js_exception=>cannot_read_job_from_db
               var1   = l_var1
-              var2   = '/GAL/JOBDATA01'
+              var2   = '/GAL/JD01_HIST'
               var3   = l_message.
         ENDIF.
-      ELSEIF sy-subrc <> 0.
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-              INTO l_message.
-        l_var1 = id.
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_read_job_from_db
-            var1   = l_var1
-            var2   = '/GAL/JOBDATA01'
-            var3   = l_message.
       ENDIF.
-    ELSE.
-      CALL FUNCTION '/GAL/JS_DB_SELECT_SINGLE'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          table_name     = '/GAL/JD01_HIST'
-          id             = id
-        IMPORTING
-          table_line     = l_table_line
-        EXCEPTIONS
-          no_data_found  = 1
-          unknown_table  = 2
-          rfc_exception  = 3
-          OTHERS         = 4.
-      IF sy-subrc = 1.
+
+      IF l_table_line IS INITIAL.
+        l_var1 = id.
         RAISE EXCEPTION TYPE /gal/cx_js_no_job_data_found
           EXPORTING
             textid = /gal/cx_js_no_job_data_found=>/gal/cx_js_no_job_data_found
-            var1   = l_var1
-            var2   = '/GAL/JD01_HIST'.
-      ELSEIF sy-subrc <> 0.
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-              INTO l_message.
-        l_var1 = id.
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_read_job_from_db
-            var1   = l_var1
-            var2   = '/GAL/JD01_HIST'
-            var3   = l_message.
+            var1   = l_var1.
       ENDIF.
-    ENDIF.
 
-    IF l_table_line IS INITIAL.
-      l_var1 = id.
-      RAISE EXCEPTION TYPE /gal/cx_js_no_job_data_found
-        EXPORTING
-          textid = /gal/cx_js_no_job_data_found=>/gal/cx_js_no_job_data_found
-          var1   = l_var1.
-    ENDIF.
+      READ TABLE l_table_line WITH KEY attribute = 'CLASSNAME' INTO l_table_line_elem.
+      l_classname = l_table_line_elem-value.
+      IF l_classname IS INITIAL.
 
-    READ TABLE l_table_line WITH KEY attribute = 'TYPE' INTO l_table_line_elem.
-    l_type = l_table_line_elem-value.
+        IF l_after_correction = abap_false AND db_layer_version < '001'.
+          CALL FUNCTION '/GAL/JS_FILL_JD_CLASSNAME'
+            EXPORTING
+              rfc_route_info             = store_rfc_route_info
+              fill_current               = abap_true
+              fill_hist                  = abap_true
+            EXCEPTIONS
+              rfc_exception              = 1
+              unsupported_jobdat_version = 2
+              OTHERS                     = 3.
+          IF sy-subrc <> 0.
+            /gal/trace=>write_error( ).
+            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                       WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                       INTO l_message.
+            RAISE EXCEPTION TYPE /gal/cx_js_exception
+              EXPORTING
+                textid = /gal/cx_js_exception=>cannot_migrate_jobdata
+                var1   = l_message.
+          ENDIF.
+          l_after_correction = abap_true.
+          CONTINUE.
+        ENDIF.
 
-    CASE l_type.
-*   Job is a Sap job (report)
-      WHEN 'S'.
-        /gal/job_sap=>read_job_from_db_sap(
-          EXPORTING
-            undelete_before_init = undelete_before_init
-            id                   = id
-          RECEIVING
-            job                  = job
-        ).
-*   Job is a (CCM) import job
-      WHEN 'I'.
-        CALL METHOD ('/GAL/CCM_JOB_IMPORT')=>read_job_from_db_ic
-          EXPORTING
-            undelete_before_init = undelete_before_init
-            id                   = id
-          RECEIVING
-            job                  = job.
-    ENDCASE.
+        IF l_classname IS INITIAL.
+          l_var1 = id.
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_determine_legacy_name
+              var1   = l_var1.
+        ENDIF.
+      ENDIF.
+
+      EXIT.
+
+    ENDDO.
+
+    CALL METHOD (l_classname)=>read_job_from_db_jobspec
+      EXPORTING
+        undelete_before_init = undelete_before_init
+        id                   = id
+      RECEIVING
+        job                  = job.
 
     IF NOT enqueue IS INITIAL.
       job->enqueue( ).
@@ -2096,8 +2230,8 @@ ENDMETHOD.
     l_table_line_elem-value = id.
     INSERT l_table_line_elem INTO TABLE lt_table_line.
 
-    l_table_line_elem-attribute = 'TYPE'.
-    l_table_line_elem-value = type.
+    l_table_line_elem-attribute = 'CLASSNAME'.
+    l_table_line_elem-value = classname.
     INSERT l_table_line_elem INTO TABLE lt_table_line.
 
     l_table_line_elem-attribute = 'DESTINATION'.

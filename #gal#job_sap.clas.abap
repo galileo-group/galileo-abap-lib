@@ -24,7 +24,12 @@ public section.
       value(JOB) type ref to /GAL/JOB_SAP
     raising
       /GAL/CX_JS_EXCEPTION .
-  class-methods READ_JOB_FROM_DB_SAP
+  class-methods GET_JOBTYPE_DESCR_JOBSPEC
+    importing
+      !CLASSNAME type CLASSNAME
+    exporting
+      !DESCRIPTION type STRING .
+  class-methods READ_JOB_FROM_DB_JOBSPEC
     importing
       !ID type /GAL/JOB_ID
       !UNDELETE_BEFORE_INIT type ABAP_BOOL default ABAP_FALSE
@@ -56,6 +61,15 @@ protected section.
 private section.
 *"* private components of class /GAL/JOB_SAP
 *"* do not include other source files here!!!
+
+  class-methods READ_JOB_FROM_DB_SAP
+    importing
+      !ID type /GAL/JOB_ID
+      !UNDELETE_BEFORE_INIT type ABAP_BOOL default ABAP_FALSE
+    returning
+      value(JOB) type ref to /GAL/JOB_SAP
+    raising
+      /GAL/CX_JS_EXCEPTION .
 ENDCLASS.
 
 
@@ -219,6 +233,13 @@ METHOD execute_async.
 ENDMETHOD.
 
 
+  METHOD get_jobtype_descr_jobspec.
+
+    description = TEXT-000.
+
+  ENDMETHOD.
+
+
 METHOD get_program_name.
   program_name = me->program_name.
 ENDMETHOD.
@@ -230,7 +251,7 @@ METHOD init_attrs_create_sap.
   me->program_name     = program_name.
   me->selection_table  = selection_table.
 
-  type = 'S'.
+  classname = '/GAL/JOB_SAP'.
 
 ENDMETHOD.
 
@@ -250,7 +271,8 @@ METHOD init_attrs_from_db.
     id                   = id
   ).
 
-  type = 'S'.
+  classname = '/GAL/JOB_SAP'.
+
 
   IF undelete_before_init = abap_true.
     l_key_value = id.
@@ -362,6 +384,19 @@ METHOD init_attrs_from_db.
           var1   = l_var1.
 
   ENDTRY.
+
+ENDMETHOD.
+
+
+METHOD read_job_from_db_jobspec.
+
+  read_job_from_db_sap(
+    EXPORTING
+      id                   = id
+      undelete_before_init = undelete_before_init
+    RECEIVING
+      job                  = job
+  ).
 
 ENDMETHOD.
 

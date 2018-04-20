@@ -87,6 +87,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>CLASSNAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Job Class Name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
      <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Klassenkonstruktor</DESCRIPT>
@@ -108,6 +114,12 @@
      <CMPNAME>CONFIG</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Configuration provider for job scheduler</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>DB_LAYER_VERSION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Version of storage type</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JOB</CLSNAME>
@@ -204,6 +216,18 @@
      <CMPNAME>IS_AUTO_CONTINUED</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Check whether the job was auto continued</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>IS_RESTARTABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine if job can be resumed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JOB</CLSNAME>
+     <CMPNAME>IS_RESUMEABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine if job can be resumed</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JOB</CLSNAME>
@@ -324,12 +348,6 @@
      <CMPNAME>TRANSITION_LOG</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Job transition log</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CLSNAME>/GAL/JOB</CLSNAME>
-     <CMPNAME>TYPE</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Job Type (Category)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JOB</CLSNAME>

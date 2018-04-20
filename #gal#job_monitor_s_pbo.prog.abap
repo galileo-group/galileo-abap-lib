@@ -439,7 +439,10 @@ FORM  pbo_0102_load_data_into_grid .
     l_job_data     TYPE /gal/jobdata01,
     l_from         TYPE timestamp,
     l_till         TYPE timestamp,
-    l_job_lay_data LIKE g_dynp_0102-job_lay_data.
+    l_job_lay_data LIKE g_dynp_0102-job_lay_data,
+    l_description  TYPE string,
+    l_dd07v_tab    TYPE TABLE OF dd07v,
+    l_dd07v        LIKE LINE OF l_dd07v_tab.
 
 
   CONVERT DATE g_dynp_0102-tv_from_date TIME g_dynp_0102-tv_from_time
@@ -477,29 +480,14 @@ FORM  pbo_0102_load_data_into_grid .
 
   CLEAR g_dynp_0102-job_lay_datas.
   LOOP AT g_dynp_0102-job_datas INTO l_job_data.
-*    IF l_job_data-status EQ 'R'.
-*      l_job_lay_data-line_color = 'C311'."intensive yellow
-*    ELSE.
-*      l_job_lay_data-line_color = ''.
-*    ENDIF.
-    DATA l_dd07v_tab TYPE TABLE OF dd07v.
-    DATA l_dd07v LIKE LINE OF l_dd07v_tab.
-    CALL FUNCTION 'DDIF_DOMA_GET'
+
+    /gal/job=>get_jobtype_description(
       EXPORTING
-        name          = '/GAL/JOB_TYPE'
-        state         = 'A'
-        langu         = sy-langu
-      TABLES
-        dd07v_tab     = l_dd07v_tab
-      EXCEPTIONS
-        illegal_input = 1
-        OTHERS        = 2.
-    IF sy-subrc <> 0.
-      MESSAGE ID sy-msgid TYPE 'W' NUMBER sy-msgno
-              WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    ENDIF.
-    READ TABLE l_dd07v_tab WITH KEY domvalue_l = l_job_data-type INTO l_dd07v.
-    l_job_lay_data-type = l_dd07v-ddtext.
+        classname   = l_job_data-classname
+      IMPORTING
+        description = l_description
+    ).
+    l_job_lay_data-type = l_description.
 
     CALL FUNCTION 'DDIF_DOMA_GET'
       EXPORTING

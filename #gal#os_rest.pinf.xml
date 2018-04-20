@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_PINF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <PINF>
+    <ATTRIBUTES>
+     <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+     <DESCRIPT>REST Client</DESCRIPT>
+    </ATTRIBUTES>
+    <ELEMENTS>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/CX_REST_CLIENT_EXCEPTION</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/HTTP_CONSTANTS</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/REST_CLIENT</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/REST_REQUEST</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>CLAS</ELEM_TYPE>
+      <ELEM_KEY>/GAL/REST_RESPONSE</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>PINF</ELEM_TYPE>
+      <ELEM_KEY>/GAL/OS_JSON</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>STRU</ELEM_TYPE>
+      <ELEM_KEY>/GAL/URI_PARAMETER</ELEM_KEY>
+     </SCOMELDTLN>
+     <SCOMELDTLN>
+      <INTF_NAME>/GAL/OS_REST</INTF_NAME>
+      <ELEM_TYPE>TTYP</ELEM_TYPE>
+      <ELEM_KEY>/GAL/URI_PARAMETERS</ELEM_KEY>
+     </SCOMELDTLN>
+    </ELEMENTS>
+   </PINF>
+  </asx:values>
+ </asx:abap>
+</abapGit>
