@@ -1,22 +1,16 @@
 class /GAL/TRANSLATOR_DEEPL definition
   public
+  inheriting from /GAL/TRANSLATOR
   final
   create public .
 
 public section.
-
-  interfaces /GAL/IF_TRANSLATION_PROVIDER .
-
-  aliases TRANSLATION_MODE_HTML
-    for /GAL/IF_TRANSLATION_PROVIDER~TRANSLATION_MODE_HTML .
-  aliases TRANSLATION_MODE_TEXT
-    for /GAL/IF_TRANSLATION_PROVIDER~TRANSLATION_MODE_TEXT .
-  aliases TRANSLATION_MODE_XML
-    for /GAL/IF_TRANSLATION_PROVIDER~TRANSLATION_MODE_XML .
-  aliases TRANSLATE
-    for /GAL/IF_TRANSLATION_PROVIDER~TRANSLATE .
+  type-pools ABAP .
 
   methods CONSTRUCTOR .
+
+  methods /GAL/IF_TRANSLATION_PROVIDER~TRANSLATE
+    redefinition .
 protected section.
 private section.
 
@@ -46,6 +40,15 @@ CLASS /GAL/TRANSLATOR_DEEPL IMPLEMENTATION.
 
     DATA l_exception     TYPE REF TO cx_root.
     DATA l_message       TYPE string.
+
+* Try to get translation result from cache
+    output = get_translation_from_cache( mode               = mode
+                                         source_language_id = source_language_id
+                                         target_language_id = target_language_id
+                                         source_text        = input ).
+    IF output IS NOT INITIAL.
+      RETURN.
+    ENDIF.
 
 * Determine type of line breaks to be used
     IF input CS /gal/string=>line_break_windows.
@@ -181,13 +184,23 @@ CLASS /GAL/TRANSLATOR_DEEPL IMPLEMENTATION.
     IF l_line_break <> /gal/string=>line_break_unix.
       REPLACE ALL OCCURRENCES OF /gal/string=>line_break_unix IN output WITH l_line_break.
     ENDIF.
+
+* Add translation to cache
+    add_translation_to_cache( mode               = mode
+                              source_language_id = source_language_id
+                              target_language_id = target_language_id
+                              source_text        = input
+                              target_text        = output ).
   ENDMETHOD.
 
 
   METHOD constructor.
-    DATA l_config_store  TYPE REF TO /gal/config_store_local.
-    DATA l_config_folder TYPE REF TO /gal/config_node.
-    DATA l_config_node   TYPE REF TO /gal/config_node.
+    DATA: l_config_store  TYPE REF TO /gal/config_store_local,
+          l_config_folder TYPE REF TO /gal/config_node,
+          l_config_node   TYPE REF TO /gal/config_node.
+
+* Call contructor of super class
+    super->constructor( ).
 
 * Get settings from configuration store
     TRY.

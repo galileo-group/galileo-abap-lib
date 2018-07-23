@@ -1,10 +1,11 @@
 class /GAL/CX_REST_CLIENT_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   final
   create public .
 
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_REST_CLIENT_EXCEPTION type SOTR_CONC value '00155D0122031ED680C71EBF5260B6A8'. "#EC NOTEXT
   constants CANNOT_CREATE_HTTP_CLIENT type SOTR_CONC value '00155D0122031ED680C71FD33E8DF6A8'. "#EC NOTEXT
@@ -12,12 +13,8 @@ public section.
   constants ERROR_RECEIVING_HTTP_RESPONSE type SOTR_CONC value '00155D0122031ED680C756EBB7B376A8'. "#EC NOTEXT
   constants NO_STATUS_CODE_RECEIVED type SOTR_CONC value '00155D0122031ED680C83DC6DFE116A8'. "#EC NOTEXT
   constants HTTP_ERROR type SOTR_CONC value '00155D0122031ED680C87D13292996A8'. "#EC NOTEXT
-  constants CUSTOM_EXCEPTION type SOTR_CONC value '00155D0122031ED680C87E8DF048D6A8'. "#EC NOTEXT
   constants MISSING_PARAMETERS type SOTR_CONC value '00155D0122031ED680C89772155D16A8'. "#EC NOTEXT
   constants UNKNOWN_PROTOCOL type SOTR_CONC value '00155D0122031ED680E0A11D065F1160'. "#EC NOTEXT
-  data VAR1 type STRING read-only .
-  data VAR2 type STRING read-only .
-  data VAR3 type STRING read-only .
 
   methods CONSTRUCTOR
     importing
@@ -25,7 +22,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 private section.
 ENDCLASS.
@@ -35,17 +38,23 @@ ENDCLASS.
 CLASS /GAL/CX_REST_CLIENT_EXCEPTION IMPLEMENTATION.
 
 
-method CONSTRUCTOR.
+  method CONSTRUCTOR.
 CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_REST_CLIENT_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
-endmethod.
+  endmethod.
 ENDCLASS.

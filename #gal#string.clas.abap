@@ -106,6 +106,11 @@ public section.
       !PART type CSEQUENCE
     returning
       value(RESULT) type ABAP_BOOL .
+  class-methods STRINGTABLE_TO_TEXTTABLE
+    importing
+      !INPUT type /GAL/STRINGTABLE
+    exporting
+      !OUTPUT type ANY TABLE .
   class-methods STRING_TO_DOMVALUE
     importing
       !INPUT type CSEQUENCE
@@ -142,6 +147,11 @@ public section.
       !REPLACEMENT type ABAP_REPL default '#'
     returning
       value(OUTPUT) type XSTRING .
+  class-methods TEXTTABLE_TO_STRINGTABLE
+    importing
+      !INPUT type ANY TABLE
+    returning
+      value(OUTPUT) type /GAL/STRINGTABLE .
   class-methods TIMESTAMP_TO_STRING
     importing
       !TIMESTAMP type TIMESTAMP optional
@@ -459,6 +469,12 @@ METHOD date_to_string.
 
   DATA l_prefix          TYPE string.
 
+
+  IF input IS INITIAL.
+    CLEAR output.
+    RETURN.
+  ENDIF.
+
 * Backup current language and set desired language
   l_language_backup = sy-langu.
 
@@ -537,12 +553,12 @@ METHOD date_to_string.
 
 * Get prefix
   IF input = sy-datum.
-    l_prefix = text-000.
+    l_prefix = TEXT-000.
   ELSE.
     l_date = input + 1.
 
     IF l_date = sy-datum.
-      l_prefix = text-001.
+      l_prefix = TEXT-001.
     ENDIF.
   ENDIF.
 
@@ -570,10 +586,10 @@ METHOD date_to_string.
   CASE format.
 
     WHEN format_default.
-      output = text-t00.
+      output = TEXT-t00.
 
     WHEN format_short.
-      output = text-t03.
+      output = TEXT-t03.
 
     WHEN OTHERS.
       output = format.
@@ -1011,6 +1027,24 @@ METHOD starts_with.
 ENDMETHOD.
 
 
+  METHOD stringtable_to_texttable.
+    DATA l_line_text TYPE REF TO data.
+
+    FIELD-SYMBOLS <l_line_string> LIKE LINE OF input.
+    FIELD-SYMBOLS <l_line_text>   TYPE any.
+
+    CLEAR output.
+
+    CREATE DATA l_line_text LIKE LINE OF output.
+    ASSIGN l_line_text->* TO <l_line_text>.
+
+    LOOP AT input ASSIGNING <l_line_string>.
+      <l_line_text> = <l_line_string>.
+      INSERT <l_line_text> INTO TABLE output.
+    ENDLOOP.
+  ENDMETHOD.
+
+
 METHOD string_to_domvalue.
   DATA l_type_descr        TYPE REF TO cl_abap_typedescr.
   DATA l_elem_descr        TYPE REF TO cl_abap_elemdescr.
@@ -1229,6 +1263,18 @@ METHOD string_to_xstring.
     ENDIF.
   ENDIF.
 ENDMETHOD.
+
+
+  METHOD texttable_to_stringtable.
+    DATA l_line TYPE string.
+
+    FIELD-SYMBOLS <l_line> TYPE any.
+
+    LOOP AT input ASSIGNING <l_line>.
+      l_line = <l_line>.
+      INSERT l_line INTO TABLE output.
+    ENDLOOP.
+  ENDMETHOD.
 
 
 METHOD timestamp_to_string.

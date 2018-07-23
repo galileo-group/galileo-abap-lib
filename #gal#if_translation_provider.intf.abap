@@ -11,7 +11,7 @@ interface /GAL/IF_TRANSLATION_PROVIDER
       !MODE type STRING default TRANSLATION_MODE_TEXT
       !SOURCE_LANGUAGE_ID type LANGU
       !TARGET_LANGUAGE_ID type LANGU
-      !INPUT type STRING
+      !INPUT type CSEQUENCE
     returning
       value(OUTPUT) type STRING
     raising

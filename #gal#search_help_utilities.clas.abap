@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">Utilities for Search Helps/Search Help Exits</p>
 class /GAL/SEARCH_HELP_UTILITIES definition
   public
   final
@@ -6,20 +7,36 @@ class /GAL/SEARCH_HELP_UTILITIES definition
 public section.
   type-pools ABAP .
 
+  "! <p class="shorttext synchronized" lang="en">Get context information (for Search Help Exits only!)</p>
+  "!
+  "! @parameter is_selection_screen | <p class="shorttext synchronized" lang="en">Flag: Current screen is a selection screen</p>
   class-methods GET_CONTEXT_INFO
     exporting
       !IS_SELECTION_SCREEN type ABAP_BOOL .
+  "! <p class="shorttext synchronized" lang="en">Get value of a dynpro field</p>
+  "!
+  "! @parameter name  | <p class="shorttext synchronized" lang="en">Dynpro field name (Wildcard)</p>
+  "! @parameter value | <p class="shorttext synchronized" lang="en">Target field for dynpro field value</p>
   class-methods GET_DYNPRO_FIELD_VALUE
     importing
       !NAME type CSEQUENCE default `*`
-    changing
+    exporting
       !VALUE type ANY .
+  "! <p class="shorttext synchronized" lang="en">Get a copy of current help info structure</p>
+  "!
+  "! @parameter help_info | <p class="shorttext synchronized" lang="en">Interface between Help-Processor and C-Basis</p>
   class-methods GET_HELP_INFO
     returning
       value(HELP_INFO) type PHELP .
+  "! <p class="shorttext synchronized" lang="en">Set value of a dynpro field</p>
+  "!
+  "! @parameter name  | <p class="shorttext synchronized" lang="en">Dynpro field name (Wildcard)</p>
+  "! @parameter force | <p class="shorttext synchronized" lang="en">Force change for output-only fields</p>
+  "! @parameter value | <p class="shorttext synchronized" lang="en">Source field for dynpro field value</p>
   class-methods SET_DYNPRO_FIELD_VALUE
     importing
       !NAME type CSEQUENCE default `*`
+      !FORCE type ABAP_BOOL default ABAP_FALSE
       !VALUE type ANY .
 protected section.
 private section.
@@ -64,9 +81,6 @@ METHOD get_dynpro_field_value.
 
 * Get Help Processor information
   l_help_info = /gal/search_help_utilities=>get_help_info( ).
-  IF l_help_info IS INITIAL.
-    RETURN.
-  ENDIF.
 
 * Get fields and values of current dynpro
   CALL FUNCTION 'DYNP_VALUES_READ'
@@ -114,12 +128,28 @@ ENDMETHOD.
 
 
 METHOD get_help_info.
-  FIELD-SYMBOLS <l_help_info> TYPE phelp.
+  DATA l_callstack TYPE sys_callst.
 
+  FIELD-SYMBOLS <l_help_info> TYPE phelp.
+  FIELD-SYMBOLS <l_callstack> LIKE LINE OF l_callstack.
+
+* Try to get help info from system (works during search help exits)
   ASSIGN ('(SAPMSHLP)PHELP') TO <l_help_info>.
-  IF sy-subrc = 0.
+  IF sy-subrc = 0 AND <l_help_info> IS NOT INITIAL.
     help_info = <l_help_info>.
+    RETURN.
   ENDIF.
+
+* Build own help info
+  CALL FUNCTION 'SYSTEM_CALLSTACK'
+    IMPORTING
+      et_callstack = l_callstack.
+
+  LOOP AT l_callstack ASSIGNING <l_callstack> WHERE eventtype CP 'MODULE*'.
+    help_info-dynpprog = <l_callstack>-progname.
+    help_info-dynpro   = sy-dynnr.
+    EXIT.
+  ENDLOOP.
 ENDMETHOD.
 
 
@@ -141,9 +171,6 @@ METHOD set_dynpro_field_value.
 
 * Get Help Processor information
   l_help_info = /gal/search_help_utilities=>get_help_info( ).
-  IF l_help_info IS INITIAL.
-    RETURN.
-  ENDIF.
 
 * Get fields and values of current dynpro
   CALL FUNCTION 'DYNP_VALUES_READ'
@@ -160,7 +187,9 @@ METHOD set_dynpro_field_value.
   ENDIF.
 
 * Find matching dynpro field by name and data element. Abort if result is not unique
-  LOOP AT l_dynpro_fields ASSIGNING <l_dynpro_fields> WHERE fieldname CP name.
+  DELETE l_dynpro_fields WHERE fieldname NP name.
+
+  LOOP AT l_dynpro_fields ASSIGNING <l_dynpro_fields>.
     CONCATENATE '(' l_help_info-dynpprog ')' <l_dynpro_fields>-fieldname INTO l_field_name.
 
     ASSIGN (l_field_name) TO <l_field>.
@@ -169,12 +198,7 @@ METHOD set_dynpro_field_value.
 
       IF l_field_descr->absolute_name = l_type_descr->absolute_name.
         l_hit_counter = l_hit_counter + 1.
-
-        IF l_hit_counter = 1.
-          CONTINUE.
-        ELSE.
-          EXIT.
-        ENDIF.
+        CONTINUE.
       ENDIF.
     ENDIF.
 
@@ -184,7 +208,7 @@ METHOD set_dynpro_field_value.
 * Update dynpro field if a unique field was found
   IF l_hit_counter = 1.
     READ TABLE l_dynpro_fields INDEX 1 ASSIGNING <l_dynpro_fields>.
-    IF sy-subrc = 0 AND <l_dynpro_fields>-fieldinp = abap_true.
+    IF sy-subrc = 0 AND ( <l_dynpro_fields>-fieldinp = abap_true OR force = abap_true ).
       <l_dynpro_fields>-fieldvalue = value.
 
       CALL FUNCTION 'DYNP_UPDATE_FIELDS'

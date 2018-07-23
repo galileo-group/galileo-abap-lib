@@ -1359,12 +1359,151 @@
       <item>2</item>
      </SPACES>
     </item>
+    <item>
+     <HEADER>
+      <PROGRAM>/GAL/CONFIG_EDITOR</PROGRAM>
+      <SCREEN>0300</SCREEN>
+      <LANGUAGE>E</LANGUAGE>
+      <DESCRIPT>Find nodes</DESCRIPT>
+      <TYPE>M</TYPE>
+      <NEXTSCREEN>0300</NEXTSCREEN>
+      <LINES>002</LINES>
+      <COLUMNS>062</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>/GAL/CONFIG_KEY-ID</NAME>
+       <TEXT>Key_ID_________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>015</LENGTH>
+       <VISLENGTH>015</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>G_DYNP_0300-ID</NAME>
+       <TEXT>________________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>019</COLUMN>
+       <LENGTH>032</LENGTH>
+       <VISLENGTH>032</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <MATCHCODE>/GAL/CONFIG_KEY_SH_ID</MATCHCODE>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>/GAL/CONFIG_KEY-NAME</NAME>
+       <TEXT>Key_name_______</TEXT>
+       <LINE>002</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>015</LENGTH>
+       <VISLENGTH>015</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>2</MODIFIC>
+       <UP_LOWER>X</UP_LOWER>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <LABELLEFT>X</LABELLEFT>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>G_DYNP_0300-NAME</NAME>
+       <TEXT>____________________________________________________________________________________________________________________________________</TEXT>
+       <ROLLING>X</ROLLING>
+       <LINE>002</LINE>
+       <COLUMN>019</COLUMN>
+       <LENGTH>255</LENGTH>
+       <VISLENGTH>040</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>STRG</FORMAT>
+       <UP_LOWER>X</UP_LOWER>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <MATCHCODE>/GAL/CONFIG_KEY_SH_NAME</MATCHCODE>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <NAME>G_DYNP_0300-OKCODE</NAME>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+     <FLOW_LOGIC>
+      <RPY_DYFLOW>
+       <LINE>PROCESS BEFORE OUTPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>MODULE pbo_0300_initialize.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>PROCESS AFTER INPUT.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>MODULE pai_0300_exit_command AT EXIT-COMMAND.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>MODULE pai_0300_user_command.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>PROCESS ON VALUE-REQUEST.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD g_dynp_0300-name MODULE pai_0300_f4_name.</LINE>
+      </RPY_DYFLOW>
+     </FLOW_LOGIC>
+     <SPACES>
+      <item>0</item>
+      <item>2</item>
+      <item>0</item>
+      <item>0</item>
+      <item>2</item>
+      <item>0</item>
+      <item>2</item>
+      <item>0</item>
+      <item>0</item>
+      <item>2</item>
+     </SPACES>
+    </item>
    </DYNPROS>
    <CUA>
     <ADM>
      <ACTCODE>000001</ACTCODE>
      <MENCODE>000015</MENCODE>
-     <PFKCODE>000002</PFKCODE>
+     <PFKCODE>000003</PFKCODE>
     </ADM>
     <STA>
      <RSMPE_STAT>
@@ -1375,11 +1514,19 @@
       <BUTCODE>0001</BUTCODE>
       <INT_NOTE>Configuration Editor</INT_NOTE>
      </RSMPE_STAT>
+     <RSMPE_STAT>
+      <CODE>STATUS_0300</CODE>
+      <MODAL>P</MODAL>
+      <PFKCODE>000003</PFKCODE>
+      <BUTCODE>0001</BUTCODE>
+      <INT_NOTE>Selektionsbilder als Subscreen</INT_NOTE>
+     </RSMPE_STAT>
     </STA>
     <FUN>
      <RSMPE_FUNT>
       <CODE>CANCEL</CODE>
       <TEXTNO>001</TEXTNO>
+      <TYPE>E</TYPE>
       <TEXT_TYPE>S</TEXT_TYPE>
       <TEXT_NAME>ICON_CANCEL</TEXT_NAME>
       <ICON_ID>@0W@</ICON_ID>
@@ -1411,6 +1558,29 @@
       <FUN_TEXT>Cancel</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>FIND</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_SEARCH</TEXT_NAME>
+      <ICON_ID>@13@</ICON_ID>
+      <FUN_TEXT>Find</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>FIND_NEXT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_SEARCH_NEXT</TEXT_NAME>
+      <ICON_ID>@4E@</ICON_ID>
+      <FUN_TEXT>Find next</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>GET_RESULT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <ICON_ID>@13@</ICON_ID>
+      <FUN_TEXT>Find</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>OK</CODE>
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
@@ -1424,170 +1594,8 @@
       <CODE>000011</CODE>
       <NO>01</NO>
       <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;01&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>02</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;02&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>03</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;03&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>04</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;04&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>05</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;05&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>06</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>07</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;06&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>08</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>09</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;09&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>10</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>11</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;10&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000011</CODE>
-      <NO>12</NO>
-      <REF_TYPE>F</REF_TYPE>
       <REF_CODE>EXIT</REF_CODE>
       <REF_NO>002</REF_NO>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>01</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;12&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>02</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;13&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>03</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;24&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>04</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;14&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>05</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>06</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;16&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>07</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;17&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>08</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;18&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>09</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>10</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;26&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>11</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;27&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>12</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;20&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>13</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000012</CODE>
-      <NO>14</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;22&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000013</CODE>
-      <NO>01</NO>
-      <REF_TYPE>S</REF_TYPE>
-      <REF_CODE>&lt;S1&gt;</REF_CODE>
-     </RSMPE_MEN>
-     <RSMPE_MEN>
-      <CODE>000013</CODE>
-      <NO>02</NO>
-      <REF_TYPE>F</REF_TYPE>
-      <REF_CODE>&lt;23&gt;</REF_CODE>
      </RSMPE_MEN>
     </MEN>
     <MTX>
@@ -1633,27 +1641,21 @@
       <NO>01</NO>
       <MENUCODE>000011</MENUCODE>
      </RSMPE_ACT>
-     <RSMPE_ACT>
-      <CODE>000001</CODE>
-      <NO>02</NO>
-      <MENUCODE>000012</MENUCODE>
-     </RSMPE_ACT>
-     <RSMPE_ACT>
-      <CODE>000001</CODE>
-      <NO>03</NO>
-      <MENUCODE>000013</MENUCODE>
-     </RSMPE_ACT>
-     <RSMPE_ACT>
-      <CODE>000001</CODE>
-      <NO>04</NO>
-      <MENUCODE>000014</MENUCODE>
-     </RSMPE_ACT>
-     <RSMPE_ACT>
-      <CODE>000001</CODE>
-      <NO>05</NO>
-      <MENUCODE>000015</MENUCODE>
-     </RSMPE_ACT>
     </ACT>
+    <BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000003</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>01</NO>
+      <PFNO>08</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000003</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>02</NO>
+      <PFNO>12</PFNO>
+     </RSMPE_BUT>
+    </BUT>
     <PFK>
      <RSMPE_PFK>
       <CODE>000001</CODE>
@@ -1674,6 +1676,18 @@
       <FUNNO>002</FUNNO>
      </RSMPE_PFK>
      <RSMPE_PFK>
+      <CODE>000001</CODE>
+      <PFNO>71</PFNO>
+      <FUNCODE>FIND</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000001</CODE>
+      <PFNO>84</PFNO>
+      <FUNCODE>FIND_NEXT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
       <CODE>000002</CODE>
       <PFNO>00</PFNO>
       <FUNCODE>OK</FUNCODE>
@@ -1685,11 +1699,43 @@
       <FUNCODE>CANCEL</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>08</PFNO>
+      <FUNCODE>GET_RESULT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>12</PFNO>
+      <FUNCODE>CANCEL</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
     </PFK>
     <SET>
      <RSMPE_STAF>
       <STATUS>DEFAULT</STATUS>
       <FUNCTION>EXIT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>DEFAULT</STATUS>
+      <FUNCTION>FIND</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>DEFAULT</STATUS>
+      <FUNCTION>FIND_NEXT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_0300</STATUS>
+      <FUNCTION>CANCEL</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_0300</STATUS>
+      <FUNCTION>FIND</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_0300</STATUS>
+      <FUNCTION>GET_RESULT</FUNCTION>
      </RSMPE_STAF>
     </SET>
     <DOC>
@@ -1697,7 +1743,6 @@
       <OBJ_TYPE>A</OBJ_TYPE>
       <OBJ_CODE>000001</OBJ_CODE>
       <MODAL>D</MODAL>
-      <NORM>X</NORM>
       <INT_NOTE>Configuration Editor</INT_NOTE>
      </RSMPE_ATRT>
      <RSMPE_ATRT>
@@ -1725,6 +1770,19 @@
       <SUB_CODE>0001</SUB_CODE>
       <MODAL>P</MODAL>
       <INT_NOTE>Choose Folder Dialog</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>P</OBJ_TYPE>
+      <OBJ_CODE>000003</OBJ_CODE>
+      <MODAL>P</MODAL>
+      <INT_NOTE>Selektionsbilder als Subscreen</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>B</OBJ_TYPE>
+      <OBJ_CODE>000003</OBJ_CODE>
+      <SUB_CODE>0001</SUB_CODE>
+      <MODAL>P</MODAL>
+      <INT_NOTE>Selektionsbilder als Subscreen</INT_NOTE>
      </RSMPE_ATRT>
     </DOC>
     <TIT>

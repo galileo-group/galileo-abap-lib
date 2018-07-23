@@ -46,8 +46,9 @@ FUNCTION /gal/js_fill_jd_classname.
   ENDIF.
 
   IF fill_current = abap_true.
-    SELECT id FROM /gal/jobdata01 INTO l_job_id WHERE classname = space. "#EC CI_NOFIELD
-      CLEAR l_classname.
+    SELECT id classname FROM /gal/jobdata01 INTO (l_job_id, l_classname). "#EC CI_NOFIELD
+                                                        "#EC CI_NOWHERE
+      CHECK l_classname IS INITIAL.
       SELECT id FROM /gal/jobdata01s INTO l_job_id_dummy WHERE id = l_job_id.
         l_classname = '/GAL/JOB_SAP'.
         EXIT.                                       "#EC CI_EXIT_SELECT
@@ -67,8 +68,9 @@ FUNCTION /gal/js_fill_jd_classname.
   ENDIF.
 
   IF fill_hist = abap_true.
-    SELECT id FROM /gal/jd01_hist INTO l_job_id WHERE classname = space. "#EC CI_NOFIELD
-      CLEAR l_classname.
+    SELECT id classname FROM /gal/jd01_hist INTO (l_job_id, l_classname). "#EC CI_NOFIELD
+                                                        "#EC CI_NOWHERE
+      CHECK l_classname IS INITIAL.
       SELECT id FROM /gal/jd01s_hist INTO l_job_id_dummy WHERE id = l_job_id.
         l_classname = '/GAL/JOB_SAP'.
         EXIT.                                       "#EC CI_EXIT_SELECT

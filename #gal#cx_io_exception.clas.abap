@@ -1,11 +1,12 @@
 class /GAL/CX_IO_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   create public .
 
 *"* public components of class /GAL/CX_IO_EXCEPTION
 *"* do not include other source files here!!!
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_IO_EXCEPTION type SOTR_CONC value 'E35D9AFC002905F1A2D100155D012203'. "#EC NOTEXT
   constants ABORTED_BY_USER type SOTR_CONC value 'E35D9B2ACA6745F1A2D100155D012203'. "#EC NOTEXT
@@ -45,12 +46,8 @@ public section.
   constants PATH_DOES_NOT_EXIST type SOTR_CONC value '00155D0122031ED48E9BED613903FF2C'. "#EC NOTEXT
   constants FILE_DOES_NOT_MATCH_FILTER type SOTR_CONC value '00155D0122031ED48ECC6AB08914D108'. "#EC NOTEXT
   constants FILE_ALREADY_OPEN_FOR_WRITE type SOTR_CONC value '00155D0122031ED4B1E25B8F196A197E'. "#EC NOTEXT
-  constants CUSTOM_EXCEPTION type SOTR_CONC value '00155D0122031EE48FFBF6785BE5AA60'. "#EC NOTEXT
   constants CANNOT_ACCESS_LOCAL_FILE10 type SOTR_CONC value '00155D0122031ED4B1FD69C0EB4F23ED'. "#EC NOTEXT
   constants COMMUNICATION_ERROR type SOTR_CONC value '00155D0122031EE4B29315AE17CAF92B'. "#EC NOTEXT
-  data VAR1 type STRING .
-  data VAR2 type STRING .
-  data VAR3 type STRING .
 
   methods CONSTRUCTOR
     importing
@@ -58,7 +55,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 *"* protected components of class /GAL/CX_IO_EXCEPTION
 *"* do not include other source files here!!!
@@ -72,17 +75,23 @@ ENDCLASS.
 CLASS /GAL/CX_IO_EXCEPTION IMPLEMENTATION.
 
 
-method CONSTRUCTOR.
+  method CONSTRUCTOR.
 CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_IO_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
-endmethod.
+  endmethod.
 ENDCLASS.

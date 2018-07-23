@@ -4,7 +4,7 @@
 
 REPORT /gal/config_editor.
 
-TYPE-POOLS abap.
+TYPE-POOLS: abap, icon.
 
 CONTROLS g_tabstrip TYPE TABSTRIP.
 
@@ -34,3 +34,9 @@ DATA END OF g_dynp_0130.
 DATA BEGIN OF g_dynp_0150.
 DATA   value TYPE c LENGTH 255.
 DATA END OF g_dynp_0150.
+
+DATA: BEGIN OF g_dynp_0300,
+        id         type /gal/config_key-id,
+        name       TYPE /gal/config_key-name,
+        okcode     TYPE syucomm,
+      END OF g_dynp_0300.

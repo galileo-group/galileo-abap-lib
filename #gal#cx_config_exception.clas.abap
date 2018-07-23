@@ -1,11 +1,12 @@
 class /GAL/CX_CONFIG_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   create public .
 
 *"* public components of class /GAL/CX_CONFIG_EXCEPTION
 *"* do not include other source files here!!!
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_CONFIG_EXCEPTION type SOTR_CONC value '00155D0122031EE494F4E00DE5AE2594'. "#EC NOTEXT
   constants UNKNOWN_TYPE type SOTR_CONC value 'E38F0624BD1F14F1BF5100155D012203'. "#EC NOTEXT
@@ -25,14 +26,10 @@ public section.
   constants INVALID_VALUE_FOR_TYPE type SOTR_CONC value 'E3A07DE02C776CF1A48100155D012203'. "#EC NOTEXT
   constants INVALID_PARENT_NODE type SOTR_CONC value 'E3A05D0BD50200F1A48100155D012203'. "#EC NOTEXT
   constants TYPE_CONFLICT type SOTR_CONC value 'E3A07E7F39F63CF1A48100155D012203'. "#EC NOTEXT
-  constants CUSTOM_EXCEPTION type SOTR_CONC value 'E3AB90730EA81BF1A48100155D012203'. "#EC NOTEXT
   constants NODE_CANNOT_RENAMED type SOTR_CONC value '00155D0122031ED780C950AADD0FEC09'. "#EC NOTEXT
   constants CANNOT_ENQUEUE_NODE type SOTR_CONC value '00155D0122031ED780CAD86AF10B0C09'. "#EC NOTEXT
   constants PARENT_NO_COPY_TARGET type SOTR_CONC value '00155D0122041ED784F6B9093A9E167A'. "#EC NOTEXT
   constants FOREIGN_CLIENT type SOTR_CONC value '00155DF935091ED890AF88A1204AB6B4'. "#EC NOTEXT
-  data VAR1 type STRING .
-  data VAR2 type STRING .
-  data VAR3 type STRING .
 
   methods CONSTRUCTOR
     importing
@@ -40,7 +37,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 *"* protected components of class /GAL/CX_CONFIG_EXCEPTION
 *"* do not include other source files here!!!
@@ -59,12 +62,18 @@ CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_CONFIG_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
   endmethod.
 ENDCLASS.

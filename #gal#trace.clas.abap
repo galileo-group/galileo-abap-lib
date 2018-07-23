@@ -761,6 +761,22 @@ METHOD write_table.
         CONCATENATE l_line ` [STRUCT]   |` INTO l_line RESPECTING BLANKS.
       ELSEIF <l_field_info>-inttype = cl_abap_typedescr=>typekind_table.
         CONCATENATE l_line ` [TABLE]    |` INTO l_line RESPECTING BLANKS.
+      ELSEIF <l_field_info>-inttype ca '/ae'                                 OR
+*             <l_field_info>-inttype = cl_abap_typedescr=>typekind_decfloat   OR
+*             <l_field_info>-inttype = cl_abap_typedescr=>typekind_decfloat16 OR
+*             <l_field_info>-inttype = cl_abap_typedescr=>typekind_decfloat34 OR
+             <l_field_info>-inttype = cl_abap_typedescr=>typekind_float      OR
+             <l_field_info>-inttype = cl_abap_typedescr=>typekind_int        OR
+             <l_field_info>-inttype = cl_abap_typedescr=>typekind_int1       OR
+             <l_field_info>-inttype = cl_abap_typedescr=>typekind_int2       OR
+             <l_field_info>-inttype ca '8'                                   OR
+*             <l_field_info>-inttype = cl_abap_typedescr=>typekind_int8       OR
+             <l_field_info>-inttype = cl_abap_typedescr=>typekind_packed.
+
+        WRITE <l_field> TO l_value(<l_field_info>-outputlen).
+
+        CONCATENATE l_line ` ` l_value(<l_field_info>-outputlen) ` |`
+               INTO l_line RESPECTING BLANKS.
       ELSE.
         l_value = <l_field>.
 

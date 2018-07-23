@@ -7,7 +7,6 @@ class /GAL/STREAM definition
 *"* do not include other source files here!!!
 public section.
 
-  class /GAL/FILE definition load .
   constants ACCESS_RANDOM type /GAL/FILE_ACCESS value /GAL/FILE=>ACCESS_RANDOM. "#EC NOTEXT
   constants ACCESS_READ type /GAL/FILE_ACCESS value /GAL/FILE=>ACCESS_READ. "#EC NOTEXT
   constants ACCESS_WRITE type /GAL/FILE_ACCESS value /GAL/FILE=>ACCESS_WRITE. "#EC NOTEXT
@@ -25,7 +24,6 @@ public section.
   constants OPTIONS_RECREATE_ONLY type /GAL/FILE_OPTIONS value /GAL/FILE=>OPTIONS_RECREATE_ONLY. "#EC NOTEXT
   constants OPTIONS_TRUNCATE type /GAL/FILE_OPTIONS value /GAL/FILE=>OPTIONS_TRUNCATE. "#EC NOTEXT
   data ACCESS type /GAL/FILE_ACCESS read-only .
-  type-pools ABAP .
   data CAN_READ type ABAP_BOOL read-only .
   data CAN_SEEK type ABAP_BOOL read-only .
   data CAN_WRITE type ABAP_BOOL read-only .
@@ -117,7 +115,12 @@ public section.
       /GAL/CX_IO_EXCEPTION .
   methods READ_LINE
     exporting
-      !LINE type CSEQUENCE
+      !LINE type CLIKE
+    raising
+      /GAL/CX_IO_EXCEPTION .
+  methods READ_LINES
+    changing
+      !LINES type ANY TABLE
     raising
       /GAL/CX_IO_EXCEPTION .
   methods SEEK
@@ -152,12 +155,12 @@ public section.
       /GAL/CX_IO_EXCEPTION .
   methods WRITE_LINE
     importing
-      !LINE type CSEQUENCE
+      !LINE type CLIKE
     raising
       /GAL/CX_IO_EXCEPTION .
   methods WRITE_LINES
     importing
-      !LINES type /GAL/STRINGTABLE
+      !LINES type ANY TABLE
     raising
       /GAL/CX_IO_EXCEPTION .
 protected section.
@@ -494,6 +497,43 @@ METHOD read_line.
 ENDMETHOD.
 
 
+METHOD read_lines.
+  DATA l_line TYPE REF TO data.
+
+  FIELD-SYMBOLS <l_line> TYPE any.
+
+* Initialize result
+  CLEAR lines.
+
+* Check stream status and mode
+  IF is_closed = abap_true.
+    RAISE EXCEPTION TYPE /gal/cx_io_exception
+      EXPORTING
+        textid = /gal/cx_io_exception=>stream_already_closed.
+  ELSEIF can_read <> abap_true.
+    RAISE EXCEPTION TYPE /gal/cx_io_exception
+      EXPORTING
+        textid = /gal/cx_io_exception=>method_not_supported_by_stream
+        var1   = `READ_LINES`.
+  ELSEIF mode <> mode_text.
+    RAISE EXCEPTION TYPE /gal/cx_io_exception
+      EXPORTING
+        textid = /gal/cx_io_exception=>requires_text_mode_stream
+        var1   = `READ_LINES`.
+  ENDIF.
+
+* Read lines until end of file
+  WHILE NOT is_eof = abap_true.
+    CREATE DATA l_line LIKE LINE OF lines.
+    ASSIGN l_line->* TO <l_line>.
+
+    read_line( IMPORTING line = <l_line> ).
+
+    INSERT <l_line> INTO TABLE lines.
+  ENDWHILE.
+ENDMETHOD.
+
+
 METHOD seek.
   DATA l_position_string TYPE string.
 
@@ -697,21 +737,26 @@ ENDMETHOD.
 
 
 METHOD write_lines.
-  FIELD-SYMBOLS <l_line> LIKE LINE OF lines.
+  FIELD-SYMBOLS <l_line> TYPE any.
 
+* Check stream status and mode
   IF is_closed = abap_true.
     RAISE EXCEPTION TYPE /gal/cx_io_exception
-          EXPORTING textid = /gal/cx_io_exception=>stream_already_closed.
+      EXPORTING
+        textid = /gal/cx_io_exception=>stream_already_closed.
   ELSEIF can_write <> abap_true.
     RAISE EXCEPTION TYPE /gal/cx_io_exception
-      EXPORTING textid = /gal/cx_io_exception=>method_not_supported_by_stream
-                var1   = `WRITE_LINES`.
+      EXPORTING
+        textid = /gal/cx_io_exception=>method_not_supported_by_stream
+        var1   = `WRITE_LINES`.
   ELSEIF mode <> mode_text.
     RAISE EXCEPTION TYPE /gal/cx_io_exception
-          EXPORTING textid = /gal/cx_io_exception=>requires_text_mode_stream
-                    var1   = `WRITE_LINES`.
+      EXPORTING
+        textid = /gal/cx_io_exception=>requires_text_mode_stream
+        var1   = `WRITE_LINES`.
   ENDIF.
 
+* Write all lines to stream
   LOOP AT lines ASSIGNING <l_line>.
     write_line( line = <l_line> ).
   ENDLOOP.

@@ -282,6 +282,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/STREAM</CLSNAME>
+     <CMPNAME>READ_LINES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Write multiple text lines</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/STREAM</CLSNAME>
      <CMPNAME>SEEK</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Set current position within the stream</DESCRIPT>

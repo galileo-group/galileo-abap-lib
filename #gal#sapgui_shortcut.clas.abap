@@ -22,6 +22,7 @@ public section.
   data TRANSACTION_CODE type TCODE read-only .
   data TYPE type I read-only value SHORTCUT_TYPE_UNDEFINED. "#EC NOTEXT
   data USER type SYUNAME read-only .
+  data SKIP_FIRST_SCREEN type ABAP_BOOL read-only .
 
   methods CONSTRUCTOR
     importing
@@ -65,6 +66,11 @@ public section.
   methods WRITE_TO_STRING
     returning
       value(RESULT) type STRING .
+  methods SET_SKIP_FIRST_SCREEN
+    importing
+      !SKIP_FIRST_SCREEN type ABAP_BOOL default ABAP_FALSE
+    raising
+      /GAL/CX_GUI_SHORTCUT_EXCEPTION .
 protected section.
 private section.
 ENDCLASS.
@@ -186,7 +192,7 @@ ENDMETHOD.
 METHOD set_dynpro_field_value.
   DATA l_value TYPE string.
 
-* Pre-dfined field values are only supported for transactions
+* Pre-defined field values are only supported for transactions
   IF type <> shortcut_type_transaction.
     RAISE EXCEPTION TYPE /gal/cx_gui_shortcut_exception
       EXPORTING
@@ -198,6 +204,20 @@ METHOD set_dynpro_field_value.
 
   CONCATENATE parameters field_name `=` l_value `;` INTO parameters.
 ENDMETHOD.
+
+
+  METHOD set_skip_first_screen.
+
+* Indicator for skipping first screen is only possible for transactions
+    IF type <> shortcut_type_transaction.
+      RAISE EXCEPTION TYPE /gal/cx_gui_shortcut_exception
+        EXPORTING
+          textid = /gal/cx_gui_shortcut_exception=>invalid_param_combination.
+    ENDIF.
+
+    me->skip_first_screen = skip_first_screen.
+
+  ENDMETHOD.
 
 
 METHOD write_to_file.
@@ -248,7 +268,12 @@ METHOD write_to_string.
   CASE type.
 
     WHEN shortcut_type_transaction.
-      CONCATENATE transaction_code parameters INTO l_command SEPARATED BY space.
+      IF skip_first_screen = abap_false.
+        CONCATENATE transaction_code parameters INTO l_command SEPARATED BY space.
+      ELSE.
+        CONCATENATE '*' transaction_code INTO l_command.    "#EC NOTEXT
+        CONCATENATE l_command parameters INTO l_command SEPARATED BY space.
+      ENDIF.
       l_type    = `Transaction`.                            "#EC NOTEXT
 
     WHEN shortcut_type_report.

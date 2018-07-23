@@ -21,16 +21,23 @@ public section.
   methods PAI_0100_USER_COMMAND
     importing
       !USER_COMMAND type SY-UCOMM .
+  methods PAI_0300_EXIT_COMMAND .
+  methods PAI_0300_USER_COMMAND
+    importing
+      !USER_COMMAND type SY-UCOMM .
+  methods PAI_0300_F4_NAME .
   methods PBO_0100_INITIALIZE .
   methods PBO_0110_INITIALIZE .
   methods PBO_0120_INITIALIZE .
   methods PBO_0130_INITIALIZE .
   methods PBO_0140_INITIALIZE .
   methods PBO_0150_INITIALIZE .
+  methods PBO_0300_INITIALIZE .
   methods RUN .
 protected section.
 private section.
 
+  data CURRENT_SEARCH_INDEX type SY-TABIX .
   data CONFIG_STORE type ref to /GAL/CONFIG_STORE .
   data CURRENT_DOCU_LANGUAGE type LANGU .
   data CURRENT_VALUE_CLIENT type MANDT .
@@ -52,13 +59,8 @@ private section.
   data REFRESH_VALUE_EDITOR type ABAP_BOOL .
   data CURRENT_VALUE type STRING .
   data CURRENT_VALUE_EXISTS type ABAP_BOOL .
+  data SEARCH_RESULTS type /GAL/CONFIG_SEARCH_RESULTS .
 
-  methods SET_NODE_NAME
-    importing
-      !NODE type ref to /GAL/CONFIG_NODE
-      !FORCE type ABAP_BOOL default ABAP_TRUE
-    raising
-      /GAL/CX_LOCK_EXCEPTION .
   methods ADD_NODE
     importing
       !PARENT_NODE type ref to /GAL/CONFIG_NODE
@@ -68,10 +70,21 @@ private section.
       /GAL/CX_AUTH_CHECK_EXCEPTION .
   methods CALL_SCREEN
     importing
-      !SCREEN type SY-DYNNR .
+      !SCREEN type SY-DYNNR
+      !COL1 type I default 0
+      !LIN1 type I default 0 .
   methods CHECK_NODE_DEFINITION_CHANGES .
   methods CHECK_NODE_DOCU_CHANGES .
   methods CHECK_NODE_VALUE_CHANGES .
+  methods CHECK_VALUE_EDITOR_USAGE
+    importing
+      !VALUE_TYPE type /GAL/CONFIG_VALUE_TYPE optional
+    exporting
+      !VALUE_EDITOR_USED type ABAP_BOOL
+      !IS_DATA_ELEMENT type ABAP_BOOL
+      !IS_DOMAIN type ABAP_BOOL
+      !IS_ABAP_BOOL type ABAP_BOOL
+      !TYPE type /GAL/CONFIG_VALUE_TYPE .
   methods CLEANUP .
   methods COLLECT_CHILDREN
     importing
@@ -79,6 +92,12 @@ private section.
     changing
       !NODES type /GAL/CONFIG_NODES
     raising
+      /GAL/CX_CONFIG_EXCEPTION .
+  methods COPY_SUBTREE
+    importing
+      !NODE type ref to /GAL/CONFIG_NODE
+    raising
+      /GAL/CX_LOCK_EXCEPTION
       /GAL/CX_CONFIG_EXCEPTION .
   methods CREATE_XML_TEMPLATE .
   methods DELETE_NODE_DOCUMENTATION .
@@ -163,13 +182,25 @@ private section.
       !NODES type /GAL/CONFIG_NODES
     raising
       /GAL/CX_CONFIG_EXCEPTION .
+  methods SET_ACTIVE_MODE
+    importing
+      !MODE type INT4 default MODE_DISPLAY .
   methods SET_ACTIVE_TAB
     importing
       !USER_COMMAND type SY-UCOMM .
+  methods SET_ACTIVE_VALUE_SCREEN
+    importing
+      !DYNPRO type DYNNR .
   methods SET_NODE_DEFINITION
     importing
       !SKIP_REFRESH type ABAP_BOOL default ABAP_FALSE .
   methods SET_NODE_DOCUMENTATION .
+  methods SET_NODE_NAME
+    importing
+      !NODE type ref to /GAL/CONFIG_NODE
+      !FORCE type ABAP_BOOL default ABAP_TRUE
+    raising
+      /GAL/CX_LOCK_EXCEPTION .
   methods SET_NODE_VALUE .
   methods SET_ROOT_NODE
     importing
@@ -185,33 +216,19 @@ private section.
       !MESSAGE type STRING
     raising
       /GAL/CX_LOCK_EXCEPTION .
-  methods SET_ACTIVE_MODE
+  methods FIND_NODES
     importing
-      !MODE type INT4 default MODE_DISPLAY .
-  methods CHECK_VALUE_EDITOR_USAGE
-    importing
-      !VALUE_TYPE type /GAL/CONFIG_VALUE_TYPE optional
-    exporting
-      !VALUE_EDITOR_USED type ABAP_BOOL
-      !IS_DATA_ELEMENT type ABAP_BOOL
-      !IS_DOMAIN type ABAP_BOOL
-      !IS_ABAP_BOOL type ABAP_BOOL
-      !TYPE type /GAL/CONFIG_VALUE_TYPE .
-  methods SET_ACTIVE_VALUE_SCREEN
-    importing
-      !DYNPRO type DYNNR .
+      !FIND_NEXT type ABAP_BOOL default ABAP_FALSE .
+  methods GET_SEARCH_RESULTS .
+  methods SELECT_NODE
+    returning
+      value(EXCEPTION) type ref to CX_ROOT .
   methods VALUE_CONVERSION_INPUT_OUTPUT
     importing
       !VALUE_INPUT type STRING
       !CONVERT_TO_INTERNAL type ABAP_BOOL default ABAP_TRUE
     returning
       value(VALUE_OUTPUT) type STRING .
-  methods COPY_SUBTREE
-    importing
-      !NODE type ref to /GAL/CONFIG_NODE
-    raising
-      /GAL/CX_LOCK_EXCEPTION
-      /GAL/CX_CONFIG_EXCEPTION .
 ENDCLASS.
 
 
@@ -306,7 +323,7 @@ ENDMETHOD.
 
 
 METHOD call_screen.
-  PERFORM call_screen IN PROGRAM (ui_program) USING screen.
+  PERFORM call_screen IN PROGRAM (ui_program) USING screen col1 lin1.
 ENDMETHOD.
 
 
@@ -1071,6 +1088,73 @@ METHOD delete_subtree.
 ENDMETHOD.
 
 
+  METHOD find_nodes.
+
+    IF find_next EQ abap_true.
+      DATA: l_lines     TYPE i,
+            l_search_s  LIKE LINE OF me->search_results,
+            l_track_s   TYPE /gal/config_find_track,
+            l_nodekey   TYPE tm_nodekey,
+            l_message   TYPE string,
+            l_string    TYPE string.
+
+*     Find next search result
+      IF search_results[] IS NOT INITIAL.
+        current_search_index = current_search_index + 1.
+        l_lines = lines( search_results ).
+*       Show first result again
+        IF l_lines LT current_search_index.
+          current_search_index = 1.
+        ENDIF.
+        READ TABLE search_results INTO l_search_s INDEX current_search_index.
+*       Open all necesary Folders from "Track" until you find the search result
+        LOOP AT l_search_s-track INTO l_track_s.
+          l_nodekey = l_track_s-id.
+
+          handle_expand_no_children( l_nodekey ).
+        ENDLOOP.
+        l_nodekey = l_search_s-id.
+        handle_double_click( l_nodekey ).
+*       Show result
+        handle_user_command( user_command = 'SELECT' ).
+        IF l_lines EQ current_search_index.
+          MESSAGE TEXT-i06 TYPE 'S'. "No more results available
+        ELSE.
+          l_message = TEXT-i04.
+          l_string = current_search_index.
+          REPLACE FIRST OCCURRENCE OF '{1}' IN l_message WITH l_string.
+          l_string = l_lines.
+          REPLACE FIRST OCCURRENCE OF '{2}' IN l_message WITH l_string.
+          CONDENSE l_message.
+          MESSAGE l_message TYPE 'S'.
+        ENDIF.
+      ELSE.
+*     Set selection fields intial
+        set_ui_field_value( field_name  = 'G_DYNP_0300-ID'
+                            field_value = '' ).
+
+        set_ui_field_value( field_name  = 'G_DYNP_0300-NAME'
+                            field_value = '' ).
+
+*     Call PopUp search
+        call_screen( screen = '0300' col1 = 4 lin1 = 4 ).
+      ENDIF.
+    ELSE.
+*     Set selection fields intial
+      set_ui_field_value( field_name  = 'G_DYNP_0300-ID'
+                          field_value = '' ).
+
+      set_ui_field_value( field_name  = 'G_DYNP_0300-NAME'
+                          field_value = '' ).
+
+*     Call PopUp search
+      call_screen( screen = '0300' col1 = 4 lin1 = 4 ).
+    ENDIF.
+
+
+  ENDMETHOD.
+
+
 METHOD get_node.
   DATA l_node_properties TYPE treemsnodt.
 
@@ -1190,6 +1274,152 @@ METHOD get_node_value.
 
   refresh_dropdown_0150 = abap_true.
 ENDMETHOD.
+
+
+  METHOD get_search_results.
+
+    DATA: l_id        TYPE /gal/config_key_id,
+          l_parent_id TYPE /gal/config_parent_key_id,
+          l_name      TYPE /gal/config_key_name,
+          l_data      TYPE TABLE OF /gal/config_key,
+          l_data_all  TYPE TABLE OF /gal/config_key,
+          l_id_t      TYPE RANGE OF /gal/config_key_id,
+          l_id_s      LIKE LINE OF l_id_t,
+          l_name_t    TYPE RANGE OF /gal/config_key_name,
+          l_name_s    LIKE LINE OF l_name_t,
+          l_check_end TYPE abap_bool,
+          l_search_s  LIKE LINE OF me->search_results,
+          l_track_s   TYPE /gal/config_find_track,
+          l_nodekey   TYPE tm_nodekey,
+          l_message   TYPE string,
+          l_lines     TYPE i,
+          l_string    TYPE string.
+
+    FIELD-SYMBOLS: <l_data_s>     TYPE /gal/config_key,
+                   <l_data_all_s> TYPE /gal/config_key.
+
+    CLEAR me->search_results.
+
+    current_search_index = 1.
+
+*   Get values from PopUp window
+    get_ui_field_value(
+      EXPORTING
+        field_name  = 'G_DYNP_0300-ID'    " Field name
+      IMPORTING
+        field_value = l_id ).   " Field value
+
+    get_ui_field_value(
+      EXPORTING
+        field_name  = 'G_DYNP_0300-NAME'    " Field name
+      IMPORTING
+        field_value =  l_name ).  " Field value
+
+*   Allow Search Patterns
+    l_id_s-sign   = 'I'.
+    IF l_id IS INITIAL.
+      l_id_s-option = 'CP'.
+      l_id_s-low = '*'.
+    ELSEIF l_id CA '*' OR l_id CA '+'.
+      l_id_s-option = 'CP'.
+      l_id_s-low = l_id.
+    ELSE.
+      l_id_s-option = 'EQ'.
+      l_id_s-low = l_id.
+    ENDIF.
+    INSERT l_id_s INTO TABLE l_id_t.
+
+    l_name_s-sign   = 'I'.
+    IF l_name IS INITIAL.
+      l_name_s-option = 'CP'.
+      l_name_s-low = '*'.
+    ELSEIF l_name CA '*' OR l_name CA '+'.
+      l_name_s-option = 'CP'.
+      l_name_s-low = l_name.
+    ELSE.
+      l_name_s-option = 'EQ'.
+      l_name_s-low = l_name.
+    ENDIF.
+    INSERT l_name_s INTO TABLE l_name_t.
+
+*   Select all data to fill the track table
+    SELECT * FROM /gal/config_key INTO CORRESPONDING FIELDS OF TABLE l_data_all. "#EC CI_SUBRC
+    IF sy-subrc EQ 0.
+
+      l_data[] = l_data_all[].
+
+*     Use only selected data
+      DELETE l_data WHERE id    NOT IN l_id_t.
+      DELETE l_data WHERE name  NOT IN l_name_t.
+      IF l_data IS NOT INITIAL.
+
+        LOOP AT l_data ASSIGNING <l_data_s>.
+          CLEAR: l_search_s, l_track_s.
+
+          l_search_s-id = <l_data_s>-id.
+          l_parent_id = <l_data_s>-parent_id.
+          l_check_end = abap_false.
+*         fill the track table. Use the Track table to finde the way from the Root node to the selected node
+          WHILE l_check_end EQ abap_false.
+            READ TABLE l_data_all ASSIGNING <l_data_all_s> WITH KEY id = l_parent_id.
+            IF sy-subrc EQ 0.
+              IF <l_data_all_s>-parent_id EQ root_node->id.
+                l_check_end = abap_true.
+                l_track_s-id        = <l_data_all_s>-id.
+                l_track_s-parent_id = <l_data_all_s>-parent_id.
+                INSERT l_track_s  INTO l_search_s-track INDEX 1.
+                INSERT l_search_s INTO TABLE search_results.
+              ELSE.
+                l_check_end = abap_false.
+                l_parent_id = <l_data_all_s>-parent_id.
+                l_track_s-id        = <l_data_all_s>-id.
+                l_track_s-parent_id = <l_data_all_s>-parent_id.
+                INSERT l_track_s  INTO l_search_s-track INDEX 1.
+              ENDIF.
+            ELSE.
+              CLEAR l_search_s.
+              l_check_end = abap_true.
+            ENDIF.
+          ENDWHILE.
+        ENDLOOP.
+
+*       Find and show the first result.
+        IF search_results[] IS NOT INITIAL.
+          READ TABLE search_results INTO l_search_s INDEX current_search_index.
+          LOOP AT l_search_s-track INTO l_track_s.
+            l_nodekey = l_track_s-id.
+
+            handle_expand_no_children( l_nodekey ).
+          ENDLOOP.
+          l_nodekey = l_search_s-id.
+          handle_double_click( l_nodekey ).
+          handle_user_command( user_command = 'SELECT' ).
+          l_lines = lines( search_results ).
+          l_message = TEXT-i04.
+          l_string = current_search_index.
+          REPLACE FIRST OCCURRENCE OF '{1}' IN l_message WITH l_string.
+          l_string = l_lines.
+          REPLACE FIRST OCCURRENCE OF '{2}' IN l_message WITH l_string.
+          CONDENSE l_message.
+          MESSAGE l_message TYPE 'S'.
+        ELSE.
+
+          MESSAGE TEXT-i05 TYPE 'S'. "No results found
+
+        ENDIF.
+
+        LEAVE TO SCREEN 0.
+      ELSE.
+
+        MESSAGE TEXT-i05 TYPE 'S'. "No results found
+
+      ENDIF.
+    ENDIF.
+
+    LEAVE TO SCREEN 0.
+
+
+  ENDMETHOD.
 
 
 METHOD get_ui_field_value.
@@ -1433,10 +1663,8 @@ ENDMETHOD.
 
 
 METHOD handle_user_command.
-  DATA l_node_key  TYPE tm_nodekey.
-
-  DATA l_exception TYPE REF TO cx_root.
-  DATA l_message   TYPE string.
+  DATA: l_exception TYPE REF TO cx_root,
+        l_message   TYPE string.
 
 * Handle user command
   TRY.
@@ -1488,49 +1716,8 @@ METHOD handle_user_command.
           delete_subtree( node = selected_node ).
 
         WHEN 'SELECT'. " Select configuration node
-          check_node_definition_changes( ).
-          check_node_docu_changes( ).
-          check_node_value_changes( ).
 
-          IF current_node IS NOT INITIAL.
-            l_node_key = current_node->id.
-
-            tree->node_set_style( EXPORTING  node_key = l_node_key
-                                             style    = cl_tree_model=>style_default
-                                  EXCEPTIONS OTHERS   = 0 ).
-          ENDIF.
-
-          TRY.
-* Unlock previous node if neccessary
-              IF ( current_node IS NOT INITIAL ) AND ( current_node <> selected_node ).
-                current_node->dequeue_node( ).
-              ENDIF.
-
-              IF current_mode = mode_change.
-* Switch to Display mode if current_node <> selected_node
-                IF ( current_node IS NOT INITIAL ) AND ( current_node->id <> selected_node->id ).
-                  set_active_mode( mode = mode_display ).
-                ELSEIF ( current_node IS NOT INITIAL ) AND ( current_node->id = selected_node->id ).
-* It is possible that current_node <> selected_node but the id's are the same
-* In this case the display mode is not switched but the selected_node will be enqueued
-                  selected_node->enqueue_node( ).
-                ENDIF.
-              ENDIF.
-            CATCH /gal/cx_lock_exception INTO l_exception.
-              /gal/trace=>write_exception( EXPORTING exception = l_exception ).
-          ENDTRY.
-
-          current_node = selected_node.
-
-          l_node_key = current_node->id.
-
-          tree->node_set_style( node_key = l_node_key
-                                style    = cl_tree_model=>style_emphasized_positive ).
-
-          get_node_definition( ).
-          get_node_documentation( ).
-
-          CLEAR current_value_scope. "Forces update of value during PBO
+          l_exception =  select_node( ).
 
         WHEN 'TRANS_SUBTREE'. " Transport node including children
           check_node_definition_changes( ).
@@ -1653,6 +1840,17 @@ METHOD handle_user_command.
 
           copy_subtree( node = selected_node ).
 
+        WHEN 'FIND'.
+
+          find_nodes( ).
+
+        WHEN 'FIND_NEXT'.
+
+          find_nodes( find_next = abap_true ).
+
+        WHEN 'GET_RESULT'.
+
+          get_search_results( ).
 
 * Tab switching
         WHEN OTHERS.
@@ -1740,15 +1938,53 @@ METHOD pai_0100_user_command.
 ENDMETHOD.
 
 
-METHOD pbo_0100_initialize.
-  DATA l_events    TYPE cntl_simple_events.
-  DATA l_event     LIKE LINE OF l_events.
+METHOD PAI_0300_EXIT_COMMAND.
+  LEAVE TO SCREEN 0.
+ENDMETHOD.
 
-  DATA l_wa_screen TYPE screen.
+
+  METHOD pai_0300_f4_name.
+    DATA: l_search_help TYPE REF TO /gal/search_help,
+          l_value       TYPE string,
+          l_ex          TYPE REF TO /gal/cx_search_help_exception,
+          l_string      TYPE string.
+
+    TRY .
+        l_search_help = /gal/search_help=>get_by_name_and_type( search_help_name = '/GAL/CONFIG_KEY_SH_NAME' ).
+        l_search_help->show( IMPORTING result = l_value ).
+
+        set_ui_field_value( field_name  = 'G_DYNP_0300-NAME'
+                            field_value = l_value ).
+      CATCH /gal/cx_search_help_exception INTO l_ex.
+        l_string = l_ex->get_text( ).
+        MESSAGE l_string TYPE 'S'.
+    ENDTRY.
+  ENDMETHOD.
+
+
+METHOD pai_0300_user_command.
+  handle_user_command( user_command ).
+ENDMETHOD.
+
+
+METHOD pbo_0100_initialize.
+  DATA: l_events    TYPE cntl_simple_events,
+        l_event     LIKE LINE OF l_events,
+        l_wa_screen TYPE screen,
+        l_excl      TYPE STANDARD TABLE OF syucomm,
+        l_lines     TYPE i.
 
 * Set status and titlebar
-  SET PF-STATUS 'DEFAULT' OF PROGRAM ui_program.
   SET TITLEBAR 'DEFAULT' OF PROGRAM ui_program.
+  l_lines = lines( search_results ).
+  IF l_lines LE 1.
+    IF l_excl IS INITIAL.
+      APPEND 'FIND_NEXT' TO l_excl.
+    ENDIF.
+    SET PF-STATUS 'DEFAULT' OF PROGRAM ui_program EXCLUDING l_excl.
+  ELSE.
+    SET PF-STATUS 'DEFAULT' OF PROGRAM ui_program.
+  ENDIF.
 
 * Create tree (this will only be executed once)
   IF tree_container IS INITIAL.
@@ -1796,7 +2032,7 @@ METHOD pbo_0100_initialize.
 
 * Initialize dynpro fields
   IF current_node->is_folder = abap_true.
-    LOOP AT screen INTO l_wa_screen.
+    LOOP AT SCREEN INTO l_wa_screen.
       CHECK l_wa_screen-group1 = 'VAL'.
 
       l_wa_screen-input     = '0'.
@@ -2720,6 +2956,13 @@ ENDMETHOD.
   ENDMETHOD.
 
 
+METHOD pbo_0300_initialize.
+
+  SET PF-STATUS 'STATUS_0300' OF PROGRAM ui_program.
+
+ENDMETHOD.
+
+
 METHOD populate_tree.
   DATA l_node_key TYPE tm_nodekey.
 
@@ -2973,6 +3216,64 @@ METHOD run.
   call_screen( '0100' ).
   cleanup( ).
 ENDMETHOD.
+
+
+  METHOD SELECT_NODE.
+    DATA: l_node_key  TYPE tm_nodekey,
+          l_exception TYPE REF TO cx_root.
+
+
+    check_node_definition_changes( ).
+    check_node_docu_changes( ).
+    check_node_value_changes( ).
+
+    IF current_node IS NOT INITIAL.
+      l_node_key = current_node->id.
+
+      tree->node_set_style( EXPORTING  node_key = l_node_key
+                                       style    = cl_tree_model=>style_default
+                            EXCEPTIONS OTHERS   = 0 ).
+    ENDIF.
+
+    TRY.
+* Unlock previous node if neccessary
+        IF ( current_node IS NOT INITIAL ) AND ( current_node <> selected_node ).
+          current_node->dequeue_node( ).
+        ENDIF.
+
+        IF current_mode = mode_change.
+* Switch to Display mode if current_node <> selected_node
+          IF ( current_node IS NOT INITIAL ) AND ( current_node->id <> selected_node->id ).
+            set_active_mode( mode = mode_display ).
+          ELSEIF ( current_node IS NOT INITIAL ) AND ( current_node->id = selected_node->id ).
+* It is possible that current_node <> selected_node but the id's are the same
+* In this case the display mode is not switched but the selected_node will be enqueued
+            selected_node->enqueue_node( ).
+          ENDIF.
+        ENDIF.
+      CATCH /gal/cx_lock_exception INTO l_exception.
+        /gal/trace=>write_exception( EXPORTING exception = l_exception ).
+      CATCH /gal/cx_config_exception INTO l_exception.
+        /gal/trace=>write_exception( EXPORTING exception = l_exception ).
+    ENDTRY.
+
+    current_node = selected_node.
+
+    l_node_key = current_node->id.
+
+    tree->node_set_style( node_key = l_node_key
+                          style    = cl_tree_model=>style_emphasized_positive ).
+
+    get_node_definition( ).
+    get_node_documentation( ).
+
+    CLEAR current_value_scope. "Forces update of value during PBO
+
+    exception = l_exception.
+
+
+
+  ENDMETHOD.
 
 
   METHOD set_active_mode.

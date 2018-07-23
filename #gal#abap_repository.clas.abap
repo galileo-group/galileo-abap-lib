@@ -130,14 +130,19 @@ ENDMETHOD.
 
 
 METHOD get_program.
-  DATA l_namespace      TYPE namespace.
-  DATA l_function_group TYPE rs38l_area.
+  DATA: l_namespace      TYPE namespace,
+        l_function_group TYPE rs38l_area,
 
-  DATA l_class          TYPE seocpdkey-clsname.
-  DATA l_method         TYPE seocpdkey-cpdname.
+        l_class          TYPE seocpdkey-clsname,
+        l_method         TYPE seocpdkey-cpdname,
 
-  DATA l_incl_naming    TYPE REF TO if_oo_class_incl_naming.
-  DATA l_cifref         TYPE REF TO if_oo_clif_incl_naming.
+        l_function_pool  TYPE pname,
+        l_include_no     TYPE includenr,
+
+        l_offset         TYPE i,
+
+        l_incl_naming    TYPE REF TO if_oo_class_incl_naming,
+        l_cifref         TYPE REF TO if_oo_clif_incl_naming.
 
   CASE pgmid.
 
@@ -145,16 +150,12 @@ METHOD get_program.
       CASE object.
 
         WHEN 'CLAS'.
-          l_class        = obj_name(30).
-          cl_oo_include_naming=>get_instance_by_name(
-            EXPORTING
-              name   = l_class
-            RECEIVING
-              cifref = l_cifref
-            EXCEPTIONS
-              OTHERS = 0
-          ). "Handle Exception OTHERS for Objects deleted but not yet released.
-          IF NOT l_cifref IS INITIAL.
+          l_class = obj_name(30).
+
+          cl_oo_include_naming=>get_instance_by_name( EXPORTING  name   = l_class
+                                                      RECEIVING  cifref = l_cifref
+                                                      EXCEPTIONS OTHERS = 1 ).
+          IF sy-subrc = 0 AND l_cifref IS NOT INITIAL.
             l_incl_naming ?= l_cifref.
             program        = l_incl_naming->class_pool.
           ENDIF.
@@ -186,31 +187,41 @@ METHOD get_program.
       CASE object.
 
         WHEN 'CPRI' OR 'CPRO' OR 'CPUB'.
-          l_class        = obj_name(30).
-          cl_oo_include_naming=>get_instance_by_name(
-            EXPORTING
-              name   = l_class
-            RECEIVING
-              cifref = l_cifref
-            EXCEPTIONS
-              OTHERS = 0
-          ). "Handle Exception OTHERS for Objects deleted but not yet released.
-          IF NOT l_cifref IS INITIAL.
+          l_class = obj_name(30).
+
+          cl_oo_include_naming=>get_instance_by_name( EXPORTING  name   = l_class
+                                                      RECEIVING  cifref = l_cifref
+                                                      EXCEPTIONS OTHERS = 1 ).
+          IF sy-subrc = 0 AND l_cifref IS NOT INITIAL.
             l_incl_naming ?= l_cifref.
             program        = l_incl_naming->get_include_by_section( object ).
           ENDIF.
 
+        WHEN 'FUNC'.
+          SELECT SINGLE pname include
+                   FROM tfdir
+                   INTO (l_function_pool,
+                         l_include_no)
+                  WHERE funcname = obj_name.
+          IF sy-subrc = 0.
+            WHILE l_function_pool+l_offset CA '/'.
+              l_offset = l_offset + sy-fdpos + 1.
+            ENDWHILE.
+
+            IF l_function_pool+l_offset CP 'SAPL*'.
+              SHIFT l_function_pool+l_offset LEFT BY 3 PLACES.
+
+              CONCATENATE l_function_pool 'U' l_include_no INTO program.
+            ENDIF.
+          ENDIF.
+
         WHEN 'METH'.
-          l_class        = obj_name(30).
-          cl_oo_include_naming=>get_instance_by_name(
-            EXPORTING
-              name   = l_class
-            RECEIVING
-              cifref = l_cifref
-            EXCEPTIONS
-              OTHERS = 0
-          ). "Handle Exception OTHERS for Objects deleted but not yet released.
-          IF NOT l_cifref IS INITIAL.
+          l_class = obj_name(30).
+
+          cl_oo_include_naming=>get_instance_by_name( EXPORTING  name   = l_class
+                                                      RECEIVING  cifref = l_cifref
+                                                      EXCEPTIONS OTHERS = 1 ).
+          IF sy-subrc = 0 AND l_cifref IS NOT INITIAL.
             l_incl_naming ?= l_cifref.
             l_method       = obj_name+30.
             program        = l_incl_naming->get_include_by_mtdname( l_method ).

@@ -6,7 +6,7 @@
     <CLSNAME>/GAL/SEARCH_HELP_UTILITIES</CLSNAME>
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
-    <DESCRIPT>Utilities für Search Helps/Search Help Exits</DESCRIPT>
+    <DESCRIPT>Utilities for Search Helps/Search Help Exits</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSFINAL>X</CLSFINAL>
@@ -20,7 +20,7 @@
      <CLSNAME>/GAL/SEARCH_HELP_UTILITIES</CLSNAME>
      <CMPNAME>GET_CONTEXT_INFO</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Get information about the current context</DESCRIPT>
+     <DESCRIPT>Get context information (for Search Help Exits only!)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP_UTILITIES</CLSNAME>
@@ -38,7 +38,7 @@
      <CLSNAME>/GAL/SEARCH_HELP_UTILITIES</CLSNAME>
      <CMPNAME>SET_DYNPRO_FIELD_VALUE</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Get value of a dynpro field</DESCRIPT>
+     <DESCRIPT>Set value of a dynpro field</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>

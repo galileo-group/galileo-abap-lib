@@ -4,6 +4,7 @@ class /GAL/CX_CFW_AUTH_EXCEPTION definition
   create public .
 
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_CFW_AUTH_EXCEPTION type SOTR_CONC value '00155DF935091ED7A682AA411456F6AD'. "#EC NOTEXT
   constants RFC_BACK_CALL_ERROR1 type SOTR_CONC value '00155DF935091ED7A6981703D8C916AD'. "#EC NOTEXT
@@ -23,7 +24,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 private section.
 ENDCLASS.
@@ -41,6 +48,12 @@ PREVIOUS = PREVIOUS
 VAR1 = VAR1
 VAR2 = VAR2
 VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_CFW_AUTH_EXCEPTION .

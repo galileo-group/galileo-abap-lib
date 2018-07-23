@@ -4,7 +4,7 @@
 *----------------------------------------------------------------------*
 *
 *----------------------------------------------------------------------*
-CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Short
+CLASS abap_unit_testclass DEFINITION FOR TESTING FINAL "#AU Duration Short
                                                  "#AU Risk_Level Harmless
 .
 *?﻿<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
@@ -32,6 +32,8 @@ CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Short
     METHODS: date_to_string FOR TESTING.
     METHODS: limit_length FOR TESTING.
     METHODS: replace_variables FOR TESTING.
+    METHODS: stringtable_to_texttable FOR TESTING.
+    METHODS: texttable_to_stringtable FOR TESTING.
     METHODS: timestamp_to_string FOR TESTING.
     METHODS: time_to_string FOR TESTING.
 ENDCLASS.       "abap_Unit_Testclass
@@ -48,6 +50,17 @@ CLASS abap_unit_testclass IMPLEMENTATION.
   METHOD date_to_string.
 * ======================
     DATA l_output TYPE string.
+
+    l_output = /gal/string=>date_to_string(
+       input    = '00000000'
+       language = 'D'
+    ).
+
+    cl_aunit_assert=>assert_equals(
+      act   = l_output
+      exp   = ``
+      msg   = `Date conversion failed: DATE=Initial, LANGUAGE=D`
+    ).
 
     l_output = /gal/string=>date_to_string(
        input    = '19000101'
@@ -151,12 +164,12 @@ CLASS abap_unit_testclass IMPLEMENTATION.
 
   METHOD replace_variables.
 * =========================
-    DATA l_output   TYPE string.
+    DATA: l_output   TYPE string,
 
-    DATA l_date     TYPE d VALUE '20000101'.
-    DATA l_time     TYPE t VALUE '135959'.
+          l_date     TYPE d VALUE '20000101',
+          l_time     TYPE t VALUE '135959',
 
-    DATA l_numc(10) TYPE n VALUE '0000000123'.
+          l_numc(10) TYPE n VALUE '0000000123'.
 
     l_output = /gal/string=>replace_variables(
        input    = `Date: {1} / Time: {2} / Year: {1:[YYYY]} / Hour: {2:[hh24]}`
@@ -235,10 +248,59 @@ CLASS abap_unit_testclass IMPLEMENTATION.
   ENDMETHOD.       "replace_Variables
 
 
+  METHOD stringtable_to_texttable.
+* ===========================
+    DATA: l_input    TYPE /gal/stringtable,
+          l_output   TYPE STANDARD TABLE OF text10,
+          l_expected TYPE STANDARD TABLE OF text10.
+
+    INSERT `Line 1` INTO TABLE l_input.
+    INSERT `Line 2 ` INTO TABLE l_input.
+    INSERT `Line 3  ` INTO TABLE l_input.
+
+    INSERT 'Line 1    ' INTO TABLE l_expected.
+    INSERT 'Line 2    ' INTO TABLE l_expected.
+    INSERT 'Line 3    ' INTO TABLE l_expected.
+
+    /gal/string=>stringtable_to_texttable( EXPORTING input  = l_input
+                                           IMPORTING output = l_output ).
+
+    cl_aunit_assert=>assert_equals(
+      act   = l_output
+      exp   = l_expected
+      msg   = `Conversion of Stringtable to Test table failed.`
+    ).
+  ENDMETHOD.
+
+
+  METHOD texttable_to_stringtable.
+* ===========================
+    DATA: l_input    TYPE STANDARD TABLE OF text10,
+          l_output   TYPE /gal/stringtable,
+          l_expected TYPE /gal/stringtable.
+
+    INSERT 'Line 1    ' INTO TABLE l_input.
+    INSERT 'Line 2    ' INTO TABLE l_input.
+    INSERT 'Line 3    ' INTO TABLE l_input.
+
+    INSERT `Line 1` INTO TABLE l_expected.
+    INSERT `Line 2` INTO TABLE l_expected.
+    INSERT `Line 3` INTO TABLE l_expected.
+
+    l_output = /gal/string=>texttable_to_stringtable( l_input ).
+
+    cl_aunit_assert=>assert_equals(
+      act   = l_output
+      exp   = l_expected
+      msg   = `Conversion of Text table to Stringtable failed.`
+    ).
+  ENDMETHOD.
+
+
   METHOD timestamp_to_string.
 * ===========================
-    DATA l_output  TYPE string.
-    DATA l_expected TYPE string.
+    DATA: l_output   TYPE string,
+          l_expected TYPE string.
 
     l_output = /gal/string=>timestamp_to_string(
         timestamp = 20001231000000

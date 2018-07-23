@@ -55,3 +55,12 @@ ENDMODULE.
 MODULE pbo_0150_initialize OUTPUT.
   g_application->pbo_0150_initialize( ).
 ENDMODULE.
+
+*&---------------------------------------------------------------------*
+*&      Module  PBO_0300_INITIALIZE  OUTPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE pbo_0300_initialize OUTPUT.
+  g_application->pbo_0300_initialize( ).
+ENDMODULE.

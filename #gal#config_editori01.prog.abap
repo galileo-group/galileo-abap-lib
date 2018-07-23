@@ -19,3 +19,30 @@ ENDMODULE.                 " PAI_0100_EXIT_COMMAND  INPUT
 MODULE pai_0100_user_command INPUT.
   g_application->pai_0100_user_command( sy-ucomm ).
 ENDMODULE.                 " PAI_0100_USER_COMMAND  INPUT
+
+*&---------------------------------------------------------------------*
+*&      Module  PAI_0300_EXIT_COMMAND  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE pai_0300_exit_command INPUT.
+  g_application->pai_0300_exit_command( ).
+ENDMODULE.
+
+*&---------------------------------------------------------------------*
+*&      Module  PAI_0300_USER_COMMAND  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE pai_0300_user_command INPUT.
+  g_application->pai_0300_user_command( g_dynp_0300-okcode ).
+ENDMODULE.
+
+*&---------------------------------------------------------------------*
+*&      Module  PAI_0300_F4_NAME  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE pai_0300_f4_name INPUT.
+  g_application->pai_0300_f4_name( ).
+ENDMODULE.

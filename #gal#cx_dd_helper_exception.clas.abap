@@ -1,12 +1,13 @@
 class /GAL/CX_DD_HELPER_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   final
   create public .
 
 *"* public components of class /GAL/CX_DD_HELPER_EXCEPTION
 *"* do not include other source files here!!!
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_DD_HELPER_EXCEPTION type SOTR_CONC value 'E38FFDB35C5885F1BF5100155D012203'. "#EC NOTEXT
   constants CANNOT_DETERMINE_KEY_FIELD type SOTR_CONC value 'E38FFDB35C5886F1BF5100155D012203'. "#EC NOTEXT
@@ -19,9 +20,6 @@ public section.
   constants ERROR_ANALYZING_CHECKTABLE type SOTR_CONC value 'E38FFDB35C588DF1BF5100155D012203'. "#EC NOTEXT
   constants FIELD_EXCEEDS_MAXIMUM_LENGTH type SOTR_CONC value 'E38FFDB35C588EF1BF5100155D012203'. "#EC NOTEXT
   constants CANNOT_ACCESS_FIELD type SOTR_CONC value 'E38FFDB35C588FF1BF5100155D012203'. "#EC NOTEXT
-  data VAR1 type STRING .
-  data VAR2 type STRING .
-  data VAR3 type STRING .
 
   methods CONSTRUCTOR
     importing
@@ -29,7 +27,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 *"* protected components of class /GAL/CX_DD_HELPER_EXCEPTION
 *"* do not include other source files here!!!
@@ -43,17 +47,23 @@ ENDCLASS.
 CLASS /GAL/CX_DD_HELPER_EXCEPTION IMPLEMENTATION.
 
 
-method CONSTRUCTOR.
+  method CONSTRUCTOR.
 CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_DD_HELPER_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
-endmethod.
+  endmethod.
 ENDCLASS.

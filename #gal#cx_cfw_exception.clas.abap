@@ -1,11 +1,12 @@
 class /GAL/CX_CFW_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   create public .
 
 *"* public components of class /GAL/CX_CFW_EXCEPTION
 *"* do not include other source files here!!!
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_CFW_EXCEPTION type SOTR_CONC value 'E25B2A23BE0FA9F19CF100155D012203'. "#EC NOTEXT
   constants FUNCTION_DOES_NOT_EXIST type SOTR_CONC value 'E26637BE392FE8F19CF100155D012203'. "#EC NOTEXT
@@ -18,7 +19,6 @@ public section.
   constants NO_RFC_ROUTE_FOUND type SOTR_CONC value 'E2913C25BE1526F1B10100155D012203'. "#EC NOTEXT
   constants CREATE_DATA_EXCEPTION type SOTR_CONC value '00155D0122031EE3BDDDF4A7C6121043'. "#EC NOTEXT
   constants RFC_ERROR type SOTR_CONC value '00155D0122031ED583D3BE1CBE7AA150'. "#EC NOTEXT
-  constants CUSTOM_EXCEPTION type SOTR_CONC value '00155D0122031ED583D3BE1CBE7AC150'. "#EC NOTEXT
   constants ASYNC_RFC_WAIT_TIMEOUT type SOTR_CONC value '00155D0122031EE693CA95F1853C7D6F'. "#EC NOTEXT
   constants ASYNC_RFC_WAIT_ERROR type SOTR_CONC value '00155D0122031EE693CA9F46EEDABD6F'. "#EC NOTEXT
   constants TASK_NOT_MODIFIABLE type SOTR_CONC value '00155D0122031EE693CD72C8B1B0FD6F'. "#EC NOTEXT
@@ -26,9 +26,6 @@ public section.
   constants UNKNOWN_CLASSIC_EXCEPTION type SOTR_CONC value '00155D0122031ED6B992A37FF0791531'. "#EC NOTEXT
   constants COMPRESS_ERROR type SOTR_CONC value '00155D0122041ED783FAA334BB9E1674'. "#EC NOTEXT
   constants DECOMPRESS_ERROR type SOTR_CONC value '00155D0122041ED783FAA334BB9E3674'. "#EC NOTEXT
-  data VAR1 type STRING read-only .
-  data VAR2 type STRING read-only .
-  data VAR3 type STRING read-only .
 
   methods CONSTRUCTOR
     importing
@@ -36,7 +33,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 *"* protected components of class /GAL/CX_CFW_EXCEPTION
 *"* do not include other source files here!!!
@@ -55,12 +58,18 @@ CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_CFW_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
   endmethod.
 ENDCLASS.

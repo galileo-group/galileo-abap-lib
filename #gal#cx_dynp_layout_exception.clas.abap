@@ -1,10 +1,11 @@
 class /GAL/CX_DYNP_LAYOUT_EXCEPTION definition
   public
-  inheriting from CX_STATIC_CHECK
+  inheriting from /GAL/CX_EXCEPTION
   final
   create public .
 
 public section.
+  type-pools ABAP .
 
   constants /GAL/CX_DYNP_LAYOUT_EXCEPTION type SOTR_CONC value '00155D0122031EE497E82A32DE0ED4B2'. "#EC NOTEXT
   constants UNKNOWN_CONTAINER_NAME type SOTR_CONC value '00155D0122031EE497E83119934194B2'. "#EC NOTEXT
@@ -21,9 +22,6 @@ public section.
   constants LAST_COLUMN_SIZE_FIXED type SOTR_CONC value '00155D0122031ED4989F355EDFE445A4'. "#EC NOTEXT
   constants LAST_ROW_SIZE_FIXED type SOTR_CONC value '00155D0122031ED4989F355EDFE465A4'. "#EC NOTEXT
   constants METRIC_NOT_SUPPORTED type SOTR_CONC value '00155D0122031ED4989F48C1EDBAA5A4'. "#EC NOTEXT
-  data VAR1 type STRING .
-  data VAR2 type STRING .
-  data VAR3 type STRING .
 
   methods CONSTRUCTOR
     importing
@@ -31,7 +29,13 @@ public section.
       !PREVIOUS like PREVIOUS optional
       !VAR1 type STRING optional
       !VAR2 type STRING optional
-      !VAR3 type STRING optional .
+      !VAR3 type STRING optional
+      !VAR4 type STRING optional
+      !VAR5 type STRING optional
+      !VAR6 type STRING optional
+      !VAR7 type STRING optional
+      !VAR8 type STRING optional
+      !VAR9 type STRING optional .
 protected section.
 private section.
 ENDCLASS.
@@ -41,17 +45,23 @@ ENDCLASS.
 CLASS /GAL/CX_DYNP_LAYOUT_EXCEPTION IMPLEMENTATION.
 
 
-method CONSTRUCTOR.
+  method CONSTRUCTOR.
 CALL METHOD SUPER->CONSTRUCTOR
 EXPORTING
 TEXTID = TEXTID
 PREVIOUS = PREVIOUS
+VAR1 = VAR1
+VAR2 = VAR2
+VAR3 = VAR3
+VAR4 = VAR4
+VAR5 = VAR5
+VAR6 = VAR6
+VAR7 = VAR7
+VAR8 = VAR8
+VAR9 = VAR9
 .
  IF textid IS INITIAL.
    me->textid = /GAL/CX_DYNP_LAYOUT_EXCEPTION .
  ENDIF.
-me->VAR1 = VAR1 .
-me->VAR2 = VAR2 .
-me->VAR3 = VAR3 .
-endmethod.
+  endmethod.
 ENDCLASS.
