@@ -1166,7 +1166,7 @@ METHOD string_to_stringtable.
     l_word_wrap_pos = word_wrap_position.
   ENDIF.
 
-* Add lines to string table
+* Add lines to string table (this coding assumes the avery 0x0D if followed by 0x0A!)
   DO.
     IF input+l_position CA line_break_windows.
       l_offset = l_position + sy-fdpos.

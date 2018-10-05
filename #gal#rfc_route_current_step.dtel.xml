@@ -29,7 +29,7 @@
      <REPTEXT>Index des aktuellen RFC-Routenschrittes</REPTEXT>
      <SCRTEXT_S>Schritt</SCRTEXT_S>
      <SCRTEXT_M>Akt. Schritt</SCRTEXT_M>
-     <SCRTEXT_L>Aktuellen RFC-Routenschritt</SCRTEXT_L>
+     <SCRTEXT_L>Aktueller RFC-Routenschritt</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

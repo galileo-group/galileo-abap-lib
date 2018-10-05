@@ -25,11 +25,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Lock ID</DDTEXT>
-     <REPTEXT>Lock ID</REPTEXT>
-     <SCRTEXT_S>Lock ID</SCRTEXT_S>
-     <SCRTEXT_M>Lock ID</SCRTEXT_M>
-     <SCRTEXT_L>Lock ID</SCRTEXT_L>
+     <DDTEXT>Sperr-ID</DDTEXT>
+     <REPTEXT>Sperr-ID</REPTEXT>
+     <SCRTEXT_S>Sperr-ID</SCRTEXT_S>
+     <SCRTEXT_M>Sperr-ID</SCRTEXT_M>
+     <SCRTEXT_L>Sperr-ID</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

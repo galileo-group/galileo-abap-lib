@@ -171,55 +171,55 @@
        <ID>S</ID>
        <KEY>P_DEVC</KEY>
        <ENTRY>Paket</ENTRY>
-       <LENGTH>15</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_LANGU</KEY>
        <ENTRY>Sprache</ENTRY>
-       <LENGTH>16</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_MESS</KEY>
        <ENTRY>Nachrichten</ENTRY>
-       <LENGTH>19</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_OTR</KEY>
        <ENTRY>OTR Texte</ENTRY>
-       <LENGTH>17</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_PATT</KEY>
        <ENTRY>Suchmuster</ENTRY>
-       <LENGTH>18</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_REGEX</KEY>
        <ENTRY>Regulärer Ausdruck</ENTRY>
-       <LENGTH>26</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_SOURCE</KEY>
        <ENTRY>ABAP Quellcode</ENTRY>
-       <LENGTH>22</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_TPOOL</KEY>
        <ENTRY>Textelemente</ENTRY>
-       <LENGTH>20</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_WILDC</KEY>
        <ENTRY>Wildcard pattern</ENTRY>
-       <LENGTH>24</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
      </TEXTPOOL>
     </item>

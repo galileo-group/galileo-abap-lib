@@ -85,7 +85,7 @@ DEFINE cfw_follow_rfc_route.
   __l_local_check_req = abap_true.
   ENDIF.
 
-  IF &1-current_step = 0 AND  &1-step_infos IS NOT INITIAL OR __l_local_check_req = abap_true.
+  IF ( &1-current_step = 0 OR &1-options-resume = abap_true ) AND  &1-step_infos IS NOT INITIAL OR __l_local_check_req = abap_true.
 * Initialization is needed if:
 * - we are at the initial step and RFC step follows
 * or
@@ -211,11 +211,10 @@ DEFINE cfw_follow_rfc_route.
   ELSE.
   __l_rfc_route_info-call_stack = __lt_call_stack.
   ENDIF.
-
   ENDIF.
 
 * Skip logic if execution on local system is requested
-  IF &1-current_step = 0 AND &1-step_infos IS NOT INITIAL.
+  IF ( &1-current_step = 0 OR &1-options-resume = abap_true ) AND &1-step_infos IS NOT INITIAL.
 
 * Create task
   CREATE OBJECT __l_task

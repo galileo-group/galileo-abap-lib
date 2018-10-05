@@ -23,11 +23,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Name des Ausnahmefehlers</DDTEXT>
-     <REPTEXT>Ausnahmefehlername</REPTEXT>
+     <DDTEXT>Name der Ausnahme</DDTEXT>
+     <REPTEXT>Name der Ausnahme</REPTEXT>
      <SCRTEXT_S>Ausnahme</SCRTEXT_S>
-     <SCRTEXT_M>Ausnahmefehler</SCRTEXT_M>
-     <SCRTEXT_L>Ausnahmefehlername</SCRTEXT_L>
+     <SCRTEXT_M>Ausnahme</SCRTEXT_M>
+     <SCRTEXT_L>Name der Ausnahme</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

@@ -32,7 +32,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Eine Ausnahme im Konfigurationsstore trat auf, da für einen Knoten kein Wert definiert wurde</TEXT>
+       <TEXT>Eine Ausnahme ist im Konfigurationsspeicher aufgetreten, da für einen Knoten kein Wert definiert wurde</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED798CA1305899516A9</CONCEPT>
@@ -60,7 +60,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Kein Wert definiert für Konfigurationsknoten &apos;&amp;VAR1&amp;&apos;.</TEXT>
+       <TEXT>Für den Konfigurationsknoten &apos;&amp;VAR1&amp;&apos; ist kein Wert definiert</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED798CA102E25FDF6A9</CONCEPT>

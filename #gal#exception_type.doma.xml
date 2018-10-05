@@ -40,7 +40,7 @@
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Art der Ausnahme</DDTEXT>
+     <DDTEXT>Typ der Ausnahme</DDTEXT>
     </item>
     <item>
      <DDLANGUAGE>P</DDLANGUAGE>
@@ -74,7 +74,7 @@
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>C</DOMVALUE_L>
-     <DDTEXT>Ausnahmeklasse</DDTEXT>
+     <DDTEXT>Exception Klasse</DDTEXT>
     </item>
     <item>
      <VALPOS>0003</VALPOS>

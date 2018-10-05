@@ -39,8 +39,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>060</LENGTH>
        <HEIGHT>023</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>STRIP_CTRL</TYPE>
@@ -50,8 +48,6 @@
        <COLUMN>069</COLUMN>
        <LENGTH>064</LENGTH>
        <HEIGHT>019</HEIGHT>
-       <C_LINE_MIN>004</C_LINE_MIN>
-       <C_COLN_MIN>007</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -61,8 +57,6 @@
        <COLUMN>070</COLUMN>
        <LENGTH>062</LENGTH>
        <HEIGHT>016</HEIGHT>
-       <C_LINE_MIN>003</C_LINE_MIN>
-       <C_COLN_MIN>003</C_COLN_MIN>
        <C_SCROLL_V>X</C_SCROLL_V>
        <C_SCROLL_H>X</C_SCROLL_H>
       </RPY_DYCATT>
@@ -543,8 +537,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>062</LENGTH>
        <HEIGHT>014</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -711,7 +703,6 @@
        <HEIGHT>012</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_LINE_MIN>004</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1021,7 +1012,6 @@
        <HEIGHT>012</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_LINE_MIN>003</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1164,8 +1154,6 @@
        <COLUMN>002</COLUMN>
        <LENGTH>053</LENGTH>
        <HEIGHT>021</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1803,222 +1791,6 @@
     <item>
      <LANGUAGE>D</LANGUAGE>
      <TEXTPOOL>
-      <item>
-       <ID>I</ID>
-       <KEY>I01</KEY>
-       <ENTRY>Werte dieses Typs können ohne Verwendung von XML spezifiziert werden</ENTRY>
-       <LENGTH>100</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>I02</KEY>
-       <ENTRY>Sie sind nicht dazu berechtigt Konfigurationseinstellungen zu verändern</ENTRY>
-       <LENGTH>100</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M01</KEY>
-       <ENTRY>Ordner hinzufügen</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M02</KEY>
-       <ENTRY>Wert hinzufügen (mandantenabhängig)</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M03</KEY>
-       <ENTRY>Wert hinzufügen (mandantenunabhängig)</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M04</KEY>
-       <ENTRY>Teilbaum transportieren</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M05</KEY>
-       <ENTRY>Teilbaum löschen</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M06</KEY>
-       <ENTRY>Wert transportieren</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>M07</KEY>
-       <ENTRY>Wert löschen</ENTRY>
-       <LENGTH>40</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>O01</KEY>
-       <ENTRY>Struktur (-&gt; Workbench)</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>O02</KEY>
-       <ENTRY>Dokumentation (-&gt; Workbench)</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>O03</KEY>
-       <ENTRY>Mandantenunabhängige Werte (-&gt; Workbench)</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>O04</KEY>
-       <ENTRY>Mandantenabhängige Werte (-&gt; Customizing)</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>P01</KEY>
-       <ENTRY>Ordner Name</ENTRY>
-       <LENGTH>20</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>P02</KEY>
-       <ENTRY>Wert Name</ENTRY>
-       <LENGTH>20</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>P03</KEY>
-       <ENTRY>Wählen Sie die zu transportierenden Datentypen aus.</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q01</KEY>
-       <ENTRY>Möchten Sie den ausgewählten Knoten sowie alle untergeordneten Elemente wirklich löschen? Dies kann nicht rückgängig gemacht werden.</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q02</KEY>
-       <ENTRY>Möchten Sie den ausgewählten Wert wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q03</KEY>
-       <ENTRY>Möchten Sie die Dokumentation für die Sprache &apos;{1}&apos; wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q04</KEY>
-       <ENTRY>Möchten Sie den Wert für Mandant &apos;{1}&apos; wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q05</KEY>
-       <ENTRY>Möchten Sie die Dokumentation für die Sprache &apos;{1}&apos; sichern?</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q06</KEY>
-       <ENTRY>Möchten Sie den Wert für Mandant &apos;{1}&apos; sichern?</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>Q07</KEY>
-       <ENTRY>Die Erzeugung eines XML Templates wird den aktuellen Wert überschreiben. Möchten Sie dennoch fortfahren?</ENTRY>
-       <LENGTH>132</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>S01</KEY>
-       <ENTRY>Mandantenspezifischer Wert</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>S02</KEY>
-       <ENTRY>Standardwert für System (mandantenübergreifend)</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>S03</KEY>
-       <ENTRY>Mandantenunabhängiger Wert</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T01</KEY>
-       <ENTRY>Ordner hinzufügen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T02</KEY>
-       <ENTRY>Wert hinzufügen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T03</KEY>
-       <ENTRY>Teilbaum löschen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T04</KEY>
-       <ENTRY>Wert löschen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T05</KEY>
-       <ENTRY>Dokumentation löschen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T06</KEY>
-       <ENTRY>Wert löschen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T07</KEY>
-       <ENTRY>Dokumentationsänderungen sichern</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T08</KEY>
-       <ENTRY>Wertänderungen sichern</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T09</KEY>
-       <ENTRY>Werte transportieren</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
-       <KEY>T10</KEY>
-       <ENTRY>XML Template erzeugen</ENTRY>
-       <LENGTH>80</LENGTH>
-      </item>
       <item>
        <ID>R</ID>
        <ENTRY>Konfigurationseditor</ENTRY>

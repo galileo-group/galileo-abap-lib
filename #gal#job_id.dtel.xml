@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>ID eines Jobs</DDTEXT>
-     <REPTEXT>ID eines Jobs</REPTEXT>
+     <DDTEXT>Job ID</DDTEXT>
+     <REPTEXT>Job ID</REPTEXT>
      <SCRTEXT_S>Job ID</SCRTEXT_S>
-     <SCRTEXT_M>ID eines Jobs</SCRTEXT_M>
-     <SCRTEXT_L>ID eines Jobs</SCRTEXT_L>
+     <SCRTEXT_M>Job ID</SCRTEXT_M>
+     <SCRTEXT_L>Job ID</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

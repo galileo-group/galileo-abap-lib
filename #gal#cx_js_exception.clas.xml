@@ -143,7 +143,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Für Job &apos;&amp;VAR1&amp;&apos; kann kein Benutzerereignis erzeugt werden: &amp;VAR2&amp;</TEXT>
+       <TEXT>Für den Job &apos;&amp;VAR1&amp;&apos; kann kein Benutzerereignis erzeugt werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2B6F16B7905FCF19CDF00155D012203</CONCEPT>
@@ -171,7 +171,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte keine Sperre für die kritische Sektion erhalten</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte keine Sperre für den kritische Code-Bereich erhalten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D58F1BF5100155D012203</CONCEPT>
@@ -255,7 +255,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Konnte die Ressourcenverfügbarkeit für Job &apos;&amp;VAR1&amp;&apos; nicht prüfen: &amp;VAR2&amp;</TEXT>
+       <TEXT>Ressourcenverfügbarkeit für Job &apos;&amp;VAR1&amp;&apos; kann nicht geprüft werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A803B069A44F1BF5100155D012203</CONCEPT>
@@ -339,7 +339,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Benutzerereignis &apos;&amp;VAR1&amp;&apos; konnte nicht in Datenbank angelegt werden: &amp;VAR2&amp;</TEXT>
+       <TEXT>Benutzerereignis &apos;&amp;VAR1&amp;&apos; konnte nicht in der Datenbank angelegt werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2B6F49108F9FFF19CDF00155D012203</CONCEPT>
@@ -451,7 +451,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Kann die möglichen Events für Job &apos;&amp;VAR1&amp;&apos; nicht ermitteln: &amp;VAR2&amp;</TEXT>
+       <TEXT>Die möglichen Events für Job &apos;&amp;VAR1&amp;&apos; können nicht ermittelt werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D56F1BF5100155D012203</CONCEPT>
@@ -507,7 +507,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Kann die Vorgängerjobs für Job &apos;&amp;VAR1&amp;&apos; nicht ermitteln: &amp;VAR2&amp;</TEXT>
+       <TEXT>Die Vorgängerjobs für Job &apos;&amp;VAR1&amp;&apos; können nicht ermittelt werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D57F1BF5100155D012203</CONCEPT>
@@ -563,7 +563,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Ressourcen für Job &apos;&amp;VAR1&amp;&apos; können nicht gesperrt werden: &amp;VAR2&amp;</TEXT>
+       <TEXT>Die Ressourcen für den Job &apos;&amp;VAR1&amp;&apos; können nicht gesperrt werden: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2B9549DE84C38F19CDF00155D012203</CONCEPT>
@@ -675,7 +675,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht in der Datenbanktabelle &apos;&amp;VAR2&amp;&apos; gelesen werden: &amp;VAR3&amp;</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht aus der Datenbanktabelle &apos;&amp;VAR2&amp;&apos; gelesen werden: &amp;VAR3&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2B9549DE84C36F19CDF00155D012203</CONCEPT>
@@ -703,7 +703,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ein job mit leerer ID kann nicht existieren und deshalb nicht gelesen werden</TEXT>
+       <TEXT>Ein job mit leerer ID kann nicht existieren und daher nicht gelesen werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7989210E78112B6A9</CONCEPT>
@@ -731,7 +731,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Scheduler: &amp;VAR1&amp; kann nicht ausgeführt werden</TEXT>
+       <TEXT>Scheduler kann nicht ausgeführt werden: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2B6F31658F980F19CDF00155D012203</CONCEPT>
@@ -759,7 +759,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Konnte die asynchronen Teile des Jobs &amp;VAR1&amp; nicht einplanen: &amp;VAR2&amp;</TEXT>
+       <TEXT>Fehler beim EInplanen der asynchronen Teile des Jobs &amp;VAR1&amp;: &amp;VAR2&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4A9AC7C94A735392E</CONCEPT>
@@ -927,7 +927,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Fehler. Versuchte ein Objekt zu schreiben, welches nicht gesperrt ist. Job &apos;&amp;VAR1&amp;&apos; kann nicht geschrieben werden</TEXT>
+       <TEXT>Schreibzugriff auf nicht gesperrtes Objekt: Job &apos;&amp;VAR1&amp;&apos; kann nicht geschrieben werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D54F1BF5100155D012203</CONCEPT>
@@ -1039,7 +1039,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; kann nicht neu gestartet werden, da er nicht im Status &apos;E&apos; (Fehler) ist</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; kann nicht neu gestartet werden, da er sich nicht im Status &apos;E&apos; (Fehler) befindet</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D55F1BF5100155D012203</CONCEPT>
@@ -1123,7 +1123,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht fortgesetzt werden, da er nicht in Status &apos;S&apos; (gestoppt) ist</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht fortgesetzt werden, da er sich nicht in Status &apos;S&apos; (gestoppt) befindet</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D4FF1BF5100155D012203</CONCEPT>
@@ -1151,7 +1151,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht ausgeführt werden, da er nicht in Status &apos;W&apos; (wartend) ist</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; konnte nicht ausgeführt werden, da er sich nicht in Status &apos;W&apos; (wartend) befindet</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D50F1BF5100155D012203</CONCEPT>
@@ -1179,7 +1179,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Job &apos;&amp;VAR1&amp;&apos; ist im nur-lesen Modus und kann nicht geändert werden.</TEXT>
+       <TEXT>Job &apos;&amp;VAR1&amp;&apos; ist im nur-lesen Modus und kann nicht geändert werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE6AB92F656BC48DD89</CONCEPT>
@@ -1207,7 +1207,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Versuchte einen Job ohne existierende Datenbank ID zu sperren/entsperren</TEXT>
+       <TEXT>Job ohne existierende Datenbank ID kann nicht gesperrt/entsperrt werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38A73DB7E1D53F1BF5100155D012203</CONCEPT>
@@ -1235,7 +1235,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Vorbedingungen für Job &apos;&amp;VAR1&amp;&apos; sind nicht erfüllt</TEXT>
+       <TEXT>Die Vorbedingungen für den Job &apos;&amp;VAR1&amp;&apos; sind nicht erfüllt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2AC099637252EF19CDF00155D012203</CONCEPT>
@@ -1291,7 +1291,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ein SAP Job mit Destination kann nicht ohne Ausführungssystem erzeugt werden.</TEXT>
+       <TEXT>Ein SAP Job mit RFC Destination kann nicht ohne Ausführungssystem erzeugt werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A8D55EEB528156AE</CONCEPT>

@@ -128,50 +128,50 @@
       <item>
        <ID>S</ID>
        <KEY>P_EVENT</KEY>
-       <ENTRY>Event</ENTRY>
-       <LENGTH>13</LENGTH>
+       <ENTRY>Ereignis</ENTRY>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_SRCCLI</KEY>
        <ENTRY>Mandant</ENTRY>
-       <LENGTH>15</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_SRCSYS</KEY>
        <ENTRY>System ID</ENTRY>
-       <LENGTH>17</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_SRCUSR</KEY>
        <ENTRY>Benutzerkennung</ENTRY>
-       <LENGTH>23</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_TARCLI</KEY>
        <ENTRY>Mandant</ENTRY>
-       <LENGTH>15</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_TARSYS</KEY>
        <ENTRY>System ID</ENTRY>
-       <LENGTH>17</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_TARUSR</KEY>
        <ENTRY>Benutzerkennung</ENTRY>
-       <LENGTH>23</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
       <item>
        <ID>S</ID>
        <KEY>P_TIMOUT</KEY>
        <ENTRY>Timeout (in Sekunden)</ENTRY>
-       <LENGTH>29</LENGTH>
+       <LENGTH>38</LENGTH>
       </item>
      </TEXTPOOL>
     </item>

@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Index einer Änderung</DDTEXT>
-     <REPTEXT>Index einer Änderung</REPTEXT>
+     <DDTEXT>Änderungsindex</DDTEXT>
+     <REPTEXT>Änderungsindex</REPTEXT>
      <SCRTEXT_S>Index</SCRTEXT_S>
-     <SCRTEXT_M>Index einer Änderung</SCRTEXT_M>
-     <SCRTEXT_L>Index einer Änderung</SCRTEXT_L>
+     <SCRTEXT_M>Änderungsindex</SCRTEXT_M>
+     <SCRTEXT_L>Änderungsindex</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

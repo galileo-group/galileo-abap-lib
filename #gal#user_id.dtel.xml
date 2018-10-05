@@ -25,7 +25,7 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Benutzerkennung sy-sysid.sy-mandt.sy-uname</DDTEXT>
+     <DDTEXT>Benutzerkennung im Format sy-sysid.sy-mandt.sy-uname</DDTEXT>
      <REPTEXT>Benutzerkennung sy-sysid.sy-mandt.sy-uname</REPTEXT>
      <SCRTEXT_S>Benutzer</SCRTEXT_S>
      <SCRTEXT_M>Benutzerkennung</SCRTEXT_M>

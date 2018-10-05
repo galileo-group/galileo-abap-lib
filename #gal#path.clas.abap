@@ -31,6 +31,12 @@ public section.
   class-methods GET_CLIENT_PATH_SEPARATOR
     returning
       value(SEPARATOR) type STRING .
+  class-methods GET_FILE_EXTENSION
+    importing
+      !PATH type CSEQUENCE
+      !SEPARATOR type CSEQUENCE
+    returning
+      value(EXTENSION) type STRING .
   class-methods GET_FILE_NAME
     importing
       !PATH type CSEQUENCE
@@ -155,6 +161,19 @@ ENDMETHOD.
 
 METHOD get_client_path_separator.
   get_client_path_info( IMPORTING separator = separator ).
+ENDMETHOD.
+
+
+METHOD get_file_extension.
+  DATA: l_file_name TYPE string,
+        l_dummy     TYPE string.                            "#EC NEEDED
+
+* Get file name
+  l_file_name = get_file_name( path      = path
+                               separator = separator ).
+
+* Get extension from file name
+  SPLIT l_file_name AT '.' INTO l_dummy extension.
 ENDMETHOD.
 
 

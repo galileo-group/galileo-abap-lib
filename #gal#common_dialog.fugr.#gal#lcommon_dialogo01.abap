@@ -94,13 +94,13 @@ ENDMODULE.                 " INITIALIZE_0304  OUTPUT
 *       Set default result
 *----------------------------------------------------------------------*
 MODULE initialize_0305 OUTPUT.
-  PERFORM initialize_button USING g_dynp_0305-option1_icon
-                                  g_dynp_0305-option1_text
-                         CHANGING g_dynp_0305-button_1.
+  PERFORM initialize_button USING g_dynp_0305-button1_icon
+                                  g_dynp_0305-button1_text
+                         CHANGING g_dynp_0305-button1.
 
-  PERFORM initialize_button USING g_dynp_0305-option2_icon
-                                  g_dynp_0305-option2_text
-                         CHANGING g_dynp_0305-button_2.
+  PERFORM initialize_button USING g_dynp_0305-button2_icon
+                                  g_dynp_0305-button2_text
+                         CHANGING g_dynp_0305-button2.
 
   IF NOT ( g_dynp_0304-input_style = /gal/common_dialog=>dlg_input_style_none ).
     RETURN.

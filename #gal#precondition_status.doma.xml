@@ -46,7 +46,7 @@
      <VALPOS>0001</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>F</DOMVALUE_L>
-     <DDTEXT>ausgefüllt</DDTEXT>
+     <DDTEXT>Erfüllt</DDTEXT>
     </item>
     <item>
      <VALPOS>0001</VALPOS>
@@ -58,7 +58,7 @@
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>N</DOMVALUE_L>
-     <DDTEXT>nicht ausgefüllt</DDTEXT>
+     <DDTEXT>Nicht erfüllt</DDTEXT>
     </item>
     <item>
      <VALPOS>0002</VALPOS>

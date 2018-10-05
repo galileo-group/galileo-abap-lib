@@ -25,11 +25,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Zeilenumbruchart</DDTEXT>
-     <REPTEXT>Zeilenumbruchart</REPTEXT>
+     <DDTEXT>Zeilenumbruchstil</DDTEXT>
+     <REPTEXT>Zeilenumbruchstil</REPTEXT>
      <SCRTEXT_S>Zeilenumb.</SCRTEXT_S>
      <SCRTEXT_M>Zeilenumbruch</SCRTEXT_M>
-     <SCRTEXT_L>Zeilenumbruchart</SCRTEXT_L>
+     <SCRTEXT_L>Zeilenumbruchstil</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

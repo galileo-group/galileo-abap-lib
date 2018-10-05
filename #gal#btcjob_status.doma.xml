@@ -160,7 +160,7 @@
      <VALPOS>0007</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>Z</DOMVALUE_L>
-     <DDTEXT>Ausgesetzt</DDTEXT>
+     <DDTEXT>Angehalten</DDTEXT>
     </item>
     <item>
      <VALPOS>0007</VALPOS>
@@ -172,7 +172,7 @@
      <VALPOS>0008</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>O</DOMVALUE_L>
-     <DDTEXT>Andere</DDTEXT>
+     <DDTEXT>Sontiges</DDTEXT>
     </item>
     <item>
      <VALPOS>0008</VALPOS>

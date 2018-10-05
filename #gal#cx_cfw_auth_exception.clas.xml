@@ -115,7 +115,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Ausführung von Programm &amp;VAR1&amp; via Conigma Job ist für User &amp;VAR2&amp; auf System &amp;VAR3&amp; verboten</TEXT>
+       <TEXT>Die Ausführung von Programm &amp;VAR1&amp; via Conigma Job ist für Benutzer &amp;VAR2&amp; auf System &amp;VAR3&amp; nicht erlaubt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A8D6052D511B36AE</CONCEPT>
@@ -143,7 +143,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Verbotener RFC Aufrufer &amp;VAR1&amp;</TEXT>
+       <TEXT>Unzulässiger RFC Aufrufer &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A6FA8ACD1D9DB6AD</CONCEPT>

@@ -25,10 +25,10 @@
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DDTEXT>Task Context ID (für asynchrone RFCs)</DDTEXT>
-     <REPTEXT>Task Context ID</REPTEXT>
-     <SCRTEXT_S>Context ID</SCRTEXT_S>
-     <SCRTEXT_M>Context ID</SCRTEXT_M>
-     <SCRTEXT_L>Task Context ID</SCRTEXT_L>
+     <REPTEXT>Task Kontext ID</REPTEXT>
+     <SCRTEXT_S>Kontext ID</SCRTEXT_S>
+     <SCRTEXT_M>Kontext ID</SCRTEXT_M>
+     <SCRTEXT_L>Task Kontext ID</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

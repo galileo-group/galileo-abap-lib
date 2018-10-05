@@ -31,7 +31,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Es ist eine Kommunikationsframeworkausnahme aufgetreten</TEXT>
+       <TEXT>Im Kontext des Kommunikationsframeworks ist eine Ausnahme aufgetreten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E25B2A23BE0FA9F19CF100155D012203</CONCEPT>
@@ -115,7 +115,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Methode/GAL/COMM_FW_HELPER=&gt;CHECK_RFC_AUTHORIZATION benötigt einen Funktionsnamen oder eine Funktionsgruppe</TEXT>
+       <TEXT>Die Methode /GAL/COMM_FW_HELPER=&gt;CHECK_RFC_AUTHORIZATION benötigt einen Funktionsnamen oder eine Funktionsgruppe</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E2663AF7A0EB2AF19CF100155D012203</CONCEPT>
@@ -283,7 +283,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Methode /GAL/COMM_FW_HELPER=&gt;GET_FUNCTION_NAME(_EXT) kann nur innerhalb des Funktionsbausteins aufgerufen werden</TEXT>
+       <TEXT>Methode /GAL/COMM_FW_HELPER=&gt;GET_FUNCTION_NAME(_EXT) kann nur innerhalb eines Funktionsbausteins aufgerufen werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E28B038D1B31D1F182B200155D012203</CONCEPT>

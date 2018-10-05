@@ -32,7 +32,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Initialisierung eines Dropdown Felds ist fehlgeschlagen</TEXT>
+       <TEXT>Die Initialisierung eines Dropdown Felds ist fehlgeschlagen</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38FFDB35C5885F1BF5100155D012203</CONCEPT>
@@ -47,85 +47,85 @@
     </item>
     <item>
      <HEADER>
-      <CONCEPT>E38FFDB35C588FF1BF5100155D012203</CONCEPT>
+      <CONCEPT>00155DF935091ED8A9F020CAC71B36BE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588FF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71B36BE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown Initialisierung: Zugriff auf Feld &amp; nicht möglich</TEXT>
+       <TEXT>Dropdown Initialisierung: Zugriff auf Feld &amp;VAR1&amp; nicht möglich</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588FF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71B36BE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown initialization: Cannot access field &amp;</TEXT>
+       <TEXT>Dropdown initialization: Cannot access field &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
     <item>
      <HEADER>
-      <CONCEPT>E38FFDB35C588CF1BF5100155D012203</CONCEPT>
+      <CONCEPT>00155DF935091ED8A9F020CAC71AF6BE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588CF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AF6BE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown Initialisierung: Fehler bei Datenelementermittlung für Feld &amp;</TEXT>
+       <TEXT>Dropdown Initialisierung: Datenelement für das Feld &amp;VAR1&amp; kann nicht ermittelt werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588CF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AF6BE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown initialization: Cannot determine data element for field &amp;</TEXT>
+       <TEXT>Dropdown initialization: Cannot determine data element for field &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
     <item>
      <HEADER>
-      <CONCEPT>E38FFDB35C588AF1BF5100155D012203</CONCEPT>
+      <CONCEPT>00155DF935091ED8A9F020CAC71AB6BE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588AF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AB6BE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown Initialisierung: Fehler bei Domänenermittlung für Datenelement &amp;</TEXT>
+       <TEXT>Dropdown Initialisierung: Domäne für Datenelement &amp;VAR1&amp; kann nicht ermittelt werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588AF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AB6BE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown initialization: Cannot determine domain for data element &amp;</TEXT>
+       <TEXT>Dropdown initialization: Cannot determine domain for data element &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
@@ -215,29 +215,29 @@
     </item>
     <item>
      <HEADER>
-      <CONCEPT>E38FFDB35C588DF1BF5100155D012203</CONCEPT>
+      <CONCEPT>00155DF935091ED8A9F020CAC71B16BE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588DF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71B16BE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown Initialisierung: Fehler bei der Analyse der Prüftabelle &amp;</TEXT>
+       <TEXT>Dropdown Initialisierung: Fehler bei Analyse der Prüftabelle &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588DF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71B16BE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown initialization: Error analyzing checktable &amp;</TEXT>
+       <TEXT>Dropdown initialization: Error analyzing checktable &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
@@ -299,29 +299,29 @@
     </item>
     <item>
      <HEADER>
-      <CONCEPT>E38FFDB35C588BF1BF5100155D012203</CONCEPT>
+      <CONCEPT>00155DF935091ED8A9F020CAC71AD6BE</CONCEPT>
       <CREA_LAN>E</CREA_LAN>
       <TRALA_TYPE>1</TRALA_TYPE>
       <OBJID_VEC>CA==</OBJID_VEC>
      </HEADER>
      <ENTRIES>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588BF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AD6BE</CONCEPT>
        <LANGU>D</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown Initialisierung: Domäne &amp; hat keine Festwerte</TEXT>
+       <TEXT>Dropdown Initialisierung: Keine Festwerte für Domäne &amp;VAR1&amp; definiert</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
-       <CONCEPT>E38FFDB35C588BF1BF5100155D012203</CONCEPT>
+       <CONCEPT>00155DF935091ED8A9F020CAC71AD6BE</CONCEPT>
        <LANGU>E</LANGU>
        <LFD_NUM>0001</LFD_NUM>
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Dropdown initialization: No fixed values defined for domain &amp;</TEXT>
+       <TEXT>Dropdown initialization: No fixed values defined for domain &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>

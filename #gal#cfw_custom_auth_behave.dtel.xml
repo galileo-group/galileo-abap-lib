@@ -24,8 +24,8 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Angepasstes Auth.prüfungsverhalten =&gt; Konst. /GAL/CFW_AUTH</DDTEXT>
-     <REPTEXT>Angepasstes Authentifizierungsprüfungsverhalten</REPTEXT>
+     <DDTEXT>Angepasstes Auth.-Prüfungsverhalten =&gt; Konst. /GAL/CFW_AUTH</DDTEXT>
+     <REPTEXT>Benutzerdefiniertes Authentisierungsverhalten</REPTEXT>
      <SCRTEXT_S>Verhalten</SCRTEXT_S>
      <SCRTEXT_M>Angepasstes Verhalt.</SCRTEXT_M>
      <SCRTEXT_L>Angepasste Auth.-Prüfung</SCRTEXT_L>

@@ -115,7 +115,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; wurde von der GUI verweigert</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; wurde von der GUI verweigert</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624CAD289850F1A2D100155D012203</CONCEPT>
@@ -143,7 +143,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Berechtigung zum Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; fehlt</TEXT>
+       <TEXT>Berechtigung zum Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; fehlt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624CAD289851F1A2D100155D012203</CONCEPT>
@@ -171,7 +171,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; wurde verweigert</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; wurde verweigert</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624CFB12E33CF1A2D100155D012203</CONCEPT>
@@ -199,7 +199,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: nicht genügend Arbeitsspeicher</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Nicht genügend Arbeitsspeicher</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624D3C148B94F1A2D100155D012203</CONCEPT>
@@ -227,7 +227,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Platte ist voll</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Platte ist voll</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624D3C148B95F1A2D100155D012203</CONCEPT>
@@ -255,7 +255,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Zeitüberschreitung</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Zeitüberschreitung</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624D3C148B96F1A2D100155D012203</CONCEPT>
@@ -283,7 +283,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Wird von der GUI unterstützt</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Wird von der GUI nicht unterstützt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624D77F6FF16F1A2D100155D012203</CONCEPT>
@@ -311,7 +311,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Der Zugriff zur lokalen Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Keine GUI verfügbar</TEXT>
+       <TEXT>Der Zugriff auf die lokale Datei &apos;&amp;VAR1&amp;&apos; ist fehlgeschlagen: Keine GUI verfügbar</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3624D77F6FF17F1A2D100155D012203</CONCEPT>
@@ -339,7 +339,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Zugriff auf lokale Datei &apos;&amp;VAR1&amp; fehlgeschlagen: Control error</TEXT>
+       <TEXT>Zugriff auf lokale Datei &apos;&amp;VAR1&amp;&apos; fehlgeschlagen: Control error</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4B1FD69C0EB4F23ED</CONCEPT>
@@ -405,6 +405,25 @@
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
        <TEXT>Cannot delete file &apos;&amp;VAR1&amp;&apos;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED8AFAF101C631FD6C1</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED8AFAF101C631FD6C1</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Cannot get attributes for file &apos;&amp;VAR1&amp;&apos;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
@@ -489,6 +508,25 @@
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
        <TEXT>Cannot read file &apos;&amp;VAR1&amp;&apos;</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED8AFAF101C631FF6C1</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED8AFAF101C631FF6C1</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Cannot set attributes for file &apos;&amp;VAR1&amp;&apos;</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>
@@ -591,7 +629,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Zugriff zur Datei &apos;&amp;VAR1&amp;&apos; wurde verweigert</TEXT>
+       <TEXT>Der Zugriff auf die Datei &apos;&amp;VAR1&amp;&apos; wurde verweigert</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E5D65393BD4F1A2D100155D012203</CONCEPT>
@@ -619,7 +657,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Datei &apos;&amp;VAR1&amp;&apos; ist schon zum Schreiben geöffnet</TEXT>
+       <TEXT>Datei &apos;&amp;VAR1&amp;&apos; ist bereits zum Schreiben geöffnet</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4B1E25B8F196A197E</CONCEPT>
@@ -703,7 +741,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Datei &apos;&amp;VAR1&amp;&apos; liegt nicht im Pfad &apos;&amp;VAR2&amp;&apos;</TEXT>
+       <TEXT>Die Datei &apos;&amp;VAR1&amp;&apos; befindet sich nicht im Pfad &apos;&amp;VAR2&amp;&apos;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED48E99D8A9B7B07F2C</CONCEPT>
@@ -815,7 +853,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Streamlänge darf nicht kleiner 0 sein</TEXT>
+       <TEXT>Streamlänge darf nicht kleiner als 0 sein</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E76F59B7BF1F1A2D100155D012203</CONCEPT>
@@ -871,7 +909,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Methode &apos;&amp;VAR1&amp;&apos; wird vom aktuellen Stream nicht unterstützt</TEXT>
+       <TEXT>Die Methode &apos;&amp;VAR1&amp;&apos; wird vom aktuellen Stream nicht unterstützt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E761BDC8E43F1A2D100155D012203</CONCEPT>
@@ -955,7 +993,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Methode &apos;&amp;VAR1&amp;&apos; wird nur bei Streams im binären Modus unterstützt</TEXT>
+       <TEXT>Die Methode &apos;&amp;VAR1&amp;&apos; wird nur für Streams im binären Modus unterstützt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E65868921F3F1A2D100155D012203</CONCEPT>
@@ -983,7 +1021,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Methode &apos;&amp;VAR1&amp;&apos; wird nur bei Streams im character Modus unterstützt</TEXT>
+       <TEXT>Die Methode &apos;&amp;VAR1&amp;&apos; wird nur für Streams im character Modus unterstützt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E65868921F4F1A2D100155D012203</CONCEPT>
@@ -1095,7 +1133,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Argument BYTE für Methode WRITE_BYTE ist nicht single byte</TEXT>
+       <TEXT>Argument BYTE für Methode WRITE_BYTE muss ein einzelnes byte sein</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E839E1E7C36F1A2D100155D012203</CONCEPT>
@@ -1123,7 +1161,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Argument CHAR für Methode WRITE_CHAR ist nicht single char</TEXT>
+       <TEXT>Argument CHAR für Methode WRITE_CHAR muss ein einzelne Zeichen sein</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E35E839E1E7C37F1A2D100155D012203</CONCEPT>

@@ -32,7 +32,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ein Fehler trat bei der Berchtigungsprüfung auf</TEXT>
+       <TEXT>Ausnahme bei der Berchtigungsprüfung</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE4AADA89FF32B67341</CONCEPT>
@@ -60,7 +60,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Keine Berechtigung.</TEXT>
+       <TEXT>Keine Berechtigung</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE4AADE4C0D729C3341</CONCEPT>
@@ -88,7 +88,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Sie haben keine Berechtigung diese Operation in Mandant &amp;VAR1&amp; durchzuführen.</TEXT>
+       <TEXT>Keine Berechtigung zur Ausführung dieser Operation in Mandant &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE4ABA65969AC8672EF</CONCEPT>

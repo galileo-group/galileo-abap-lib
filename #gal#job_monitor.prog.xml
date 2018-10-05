@@ -37,8 +37,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>143</LENGTH>
        <HEIGHT>037</HEIGHT>
-       <C_LINE_MIN>037</C_LINE_MIN>
-       <C_COLN_MIN>143</C_COLN_MIN>
       </RPY_DYCATT>
       <RPY_DYCATT>
        <TYPE>SUBSCREEN</TYPE>
@@ -48,8 +46,6 @@
        <COLUMN>004</COLUMN>
        <LENGTH>141</LENGTH>
        <HEIGHT>034</HEIGHT>
-       <C_LINE_MIN>003</C_LINE_MIN>
-       <C_COLN_MIN>003</C_COLN_MIN>
        <C_SCROLL_V>X</C_SCROLL_V>
        <C_SCROLL_H>X</C_SCROLL_H>
       </RPY_DYCATT>
@@ -1089,12 +1085,6 @@
     </item>
     <item>
      <ID>I</ID>
-     <KEY>020</KEY>
-     <ENTRY>Continue anyway?</ENTRY>
-     <LENGTH>70</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
      <KEY>021</KEY>
      <ENTRY>Jump to job</ENTRY>
      <LENGTH>20</LENGTH>
@@ -1102,7 +1092,7 @@
     <item>
      <ID>I</ID>
      <KEY>022</KEY>
-     <ENTRY>Delete Job!</ENTRY>
+     <ENTRY>Delete Job</ENTRY>
      <LENGTH>20</LENGTH>
     </item>
     <item>
@@ -1110,6 +1100,12 @@
      <KEY>023</KEY>
      <ENTRY>Are you sure to delete this job?</ENTRY>
      <LENGTH>40</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>E00</KEY>
+     <ENTRY>Missing authorization -&gt; SU53</ENTRY>
+     <LENGTH>80</LENGTH>
     </item>
     <item>
      <ID>R</ID>
@@ -1142,31 +1138,31 @@
       <item>
        <ID>I</ID>
        <KEY>003</KEY>
-       <ENTRY>Ressource-Eintrag Löschen</ENTRY>
+       <ENTRY>Ressourcen-Eintrag löschen</ENTRY>
        <LENGTH>70</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>004</KEY>
-       <ENTRY>Möchten Sie den Ressource-Eintrag Löschen?</ENTRY>
+       <ENTRY>Möchten Sie diesen Ressourcen-Eintrag wirklich löschen?</ENTRY>
        <LENGTH>70</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>005</KEY>
-       <ENTRY>Ressource-ID</ENTRY>
+       <ENTRY>Ressourcen ID</ENTRY>
        <LENGTH>20</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>006</KEY>
-       <ENTRY> Ressource Status</ENTRY>
+       <ENTRY>Ressourcen Status</ENTRY>
        <LENGTH>24</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>007</KEY>
-       <ENTRY>Job-ID</ENTRY>
+       <ENTRY>Job ID</ENTRY>
        <LENGTH>10</LENGTH>
       </item>
       <item>
@@ -1178,7 +1174,7 @@
       <item>
        <ID>I</ID>
        <KEY>009</KEY>
-       <ENTRY>Uhrzeit</ENTRY>
+       <ENTRY>Zeit</ENTRY>
        <LENGTH>7</LENGTH>
       </item>
       <item>
@@ -1190,7 +1186,7 @@
       <item>
        <ID>I</ID>
        <KEY>011</KEY>
-       <ENTRY>Job-ID</ENTRY>
+       <ENTRY>Job ID</ENTRY>
        <LENGTH>10</LENGTH>
       </item>
       <item>
@@ -1208,7 +1204,7 @@
       <item>
        <ID>I</ID>
        <KEY>014</KEY>
-       <ENTRY>Ziel-Sytem</ENTRY>
+       <ENTRY>Zielsystem</ENTRY>
        <LENGTH>15</LENGTH>
       </item>
       <item>
@@ -1243,20 +1239,14 @@
       </item>
       <item>
        <ID>I</ID>
-       <KEY>020</KEY>
-       <ENTRY>Trotzdem fortfahren?</ENTRY>
-       <LENGTH>70</LENGTH>
-      </item>
-      <item>
-       <ID>I</ID>
        <KEY>021</KEY>
-       <ENTRY>Spring zum Job</ENTRY>
+       <ENTRY>Springe zu Job</ENTRY>
        <LENGTH>20</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>022</KEY>
-       <ENTRY>Lösche Job!</ENTRY>
+       <ENTRY>Job löschen</ENTRY>
        <LENGTH>20</LENGTH>
       </item>
       <item>
@@ -1264,6 +1254,12 @@
        <KEY>023</KEY>
        <ENTRY>Diesen Job wirklich löschen?</ENTRY>
        <LENGTH>40</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>E00</KEY>
+       <ENTRY>Fehlende Berechtigung -&gt; SU53</ENTRY>
+       <LENGTH>80</LENGTH>
       </item>
       <item>
        <ID>R</ID>

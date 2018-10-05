@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Status eines Benutzereignisses</DDTEXT>
-     <REPTEXT>Status Benutzereignis</REPTEXT>
+     <DDTEXT>Status eines Benutzerereignisses</DDTEXT>
+     <REPTEXT>Status Benutzerereignis</REPTEXT>
      <SCRTEXT_S>Status</SCRTEXT_S>
-     <SCRTEXT_M>Stat. Benutzereignis</SCRTEXT_M>
-     <SCRTEXT_L>Status Benutzereignis</SCRTEXT_L>
+     <SCRTEXT_M>Stat. Ben.-Ereignis</SCRTEXT_M>
+     <SCRTEXT_L>Status Benutzerereignis</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

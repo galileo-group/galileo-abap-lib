@@ -905,8 +905,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>001</LENGTH>
        <HEIGHT>001</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1569,7 +1567,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>PUSH_TMPL</TYPE>
-       <NAME>G_DYNP_0305-BUTTON_1</NAME>
+       <NAME>G_DYNP_0305-BUTTON1</NAME>
        <TEXT>____________</TEXT>
        <WITH_ICON>X</WITH_ICON>
        <LINE>001</LINE>
@@ -1586,7 +1584,7 @@
        <CONT_TYPE>SCREEN</CONT_TYPE>
        <CONT_NAME>SCREEN</CONT_NAME>
        <TYPE>PUSH_TMPL</TYPE>
-       <NAME>G_DYNP_0305-BUTTON_2</NAME>
+       <NAME>G_DYNP_0305-BUTTON2</NAME>
        <TEXT>____________</TEXT>
        <WITH_ICON>X</WITH_ICON>
        <LINE>001</LINE>
@@ -1758,8 +1756,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>001</LENGTH>
        <HEIGHT>001</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1864,8 +1860,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>001</LENGTH>
        <HEIGHT>001</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -1951,8 +1945,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>001</LENGTH>
        <HEIGHT>001</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -2346,8 +2338,6 @@
        <COLUMN>001</COLUMN>
        <LENGTH>001</LENGTH>
        <HEIGHT>001</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -2779,8 +2769,6 @@
        <COLUMN>003</COLUMN>
        <LENGTH>095</LENGTH>
        <HEIGHT>022</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -2935,8 +2923,6 @@
        <COLUMN>002</COLUMN>
        <LENGTH>053</LENGTH>
        <HEIGHT>022</HEIGHT>
-       <C_LINE_MIN>001</C_LINE_MIN>
-       <C_COLN_MIN>001</C_COLN_MIN>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>

@@ -31,7 +31,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ausnahme für CFW Framework Fehler</TEXT>
+       <TEXT>Ausnahme aufgrund eines Fehlers im Kommunikations-Framework</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A6A4EDDAA9F756AD</CONCEPT>
@@ -143,7 +143,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Exception beim Lesen CFW Auth Config: &amp;VAR1&amp;</TEXT>
+       <TEXT>Exception beim Lesen der CFW Auth Config: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A6FF584ACF0E76AD</CONCEPT>
@@ -199,7 +199,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Interner Fehler: Versuch den CFW Authorisierungskontext bei exisiterender Ausnahme zu resetten (&amp;VAR1&amp;)</TEXT>
+       <TEXT>Interner Fehler: Versuch den CFW Authorisierungskontext bei exisiterender Ausnahme zurückzusetzen (&amp;VAR1&amp;)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A7A2FFF09DED16AD</CONCEPT>
@@ -339,7 +339,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>CFW FW Exception aus RFC call: &amp;VAR1&amp;</TEXT>
+       <TEXT>CFW FW Exception aus RFC Aufruf: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A789B14CF81F96AD</CONCEPT>
@@ -423,7 +423,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Fehlende Konfiguration der Lokal-Only Funktionen: &amp;VAR1&amp;</TEXT>
+       <TEXT>Fehlende Konfiguration für nur-lokale Funktionen: &amp;VAR1&amp;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A6DD7CF22636F6AD</CONCEPT>
@@ -479,7 +479,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Lokale Konfiguration in endloser Rekursion gelesen</TEXT>
+       <TEXT>Enlose Rekursion beim Lesen der lokalen Konfiguration</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A7A2FB778347B6AD</CONCEPT>
@@ -507,7 +507,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Remote Konfiguration in endloser Rekursion</TEXT>
+       <TEXT>Endlose Rekursion beim Lesen der Remote Konfiguration</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155DF935091ED7A7A2FB77834776AD</CONCEPT>

@@ -88,13 +88,13 @@ DATA   input_style     TYPE string.
 DATA   default_result  TYPE string.
 DATA   allowed_results TYPE STANDARD TABLE OF string.
 
-DATA   option1_icon    TYPE icon_d.
-DATA   option1_text    TYPE string.
-DATA   option2_icon    TYPE icon_d.
-DATA   option2_text    TYPE string.
+DATA   button1_icon    TYPE icon_d.
+DATA   button1_text    TYPE string.
+DATA   button2_icon    TYPE icon_d.
+DATA   button2_text    TYPE string.
 
-DATA   button_1(40)    TYPE c.
-DATA   button_2(40)    TYPE c.
+DATA   button1(40)    TYPE c.
+DATA   button2(40)    TYPE c.
 DATA END OF g_dynp_0305.
 
 DATA BEGIN OF g_dynp_0306.

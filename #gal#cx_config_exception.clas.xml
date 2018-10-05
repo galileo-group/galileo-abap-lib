@@ -31,7 +31,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Eine Ausnahme ist beim Zugriff auf den Configuration Store aufgetreten.</TEXT>
+       <TEXT>Beim Zugriff auf den Konfigurationsspeicher ist eine Ausnahme aufgetreten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AE2594</CONCEPT>
@@ -87,7 +87,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Wert vom Typ &apos;&amp;VAR1&amp;&apos; kann nicht serialisiert werden.</TEXT>
+       <TEXT>Wert vom Typ &apos;&amp;VAR1&amp;&apos; kann nicht serialisiert werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A0593C080100F1A48100155D012203</CONCEPT>
@@ -115,7 +115,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten &apos;&amp;VAR1&amp; kann nicht gelöscht werden: Der Knoten besitzt untergeordnete Knoten</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; kann nicht gelöscht werden: Der Knoten besitzt untergeordnete Knoten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E38F3BF5D6D0B7F1BF5100155D012203</CONCEPT>
@@ -227,7 +227,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ungültiger übergeordneter Knoten (ID des übergeordneten Knotens: &amp;VAR1&amp;, erwartete ID: &amp;VAR2&amp;).</TEXT>
+       <TEXT>Ungültiger übergeordneter Knoten (ID des übergeordneten Knotens: &amp;VAR1&amp;, erwartete ID: &amp;VAR2&amp;)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A05D0BD50200F1A48100155D012203</CONCEPT>
@@ -255,7 +255,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ungültige Daten für einen Wert vom Typ &apos;&amp;VAR1&amp;&apos; (&amp;VAR2&amp;).</TEXT>
+       <TEXT>Ungültige Daten für einen Wert vom Typ &apos;&amp;VAR1&amp;&apos; (&amp;VAR2&amp;)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A07DE02C776CF1A48100155D012203</CONCEPT>
@@ -283,7 +283,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Üngultige XML Daten für einen Wert vom Typ &apos;&amp;VAR1&amp;&apos; (&amp;VAR2&amp;).</TEXT>
+       <TEXT>Üngultige XML Daten für einen Wert vom Typ &apos;&amp;VAR1&amp;&apos; (&amp;VAR2&amp;)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A07DE02C776BF1A48100155D012203</CONCEPT>
@@ -311,7 +311,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; existiert bereits.</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; existiert bereits</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AE8594</CONCEPT>
@@ -339,7 +339,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; kann nicht umbenannt werden: Abhängige Knoten existieren.</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; kann nicht umbenannt werden: Untergeordnete Knoten existieren</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED780C950AADD0FEC09</CONCEPT>
@@ -367,7 +367,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Es existiert kein Konfigurationsknoten mit der ID &apos;&amp;VAR1&amp;&apos;.</TEXT>
+       <TEXT>Es existiert kein Konfigurationsknoten mit der ID &apos;&amp;VAR1&amp;&apos;</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AEA594</CONCEPT>
@@ -395,7 +395,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten ID &apos;&amp;VAR1&amp;&apos; und Knotenpfad &apos;&amp;VAR2&amp;&apos; passen nicht zusammen.</TEXT>
+       <TEXT>Knoten ID &apos;&amp;VAR1&amp;&apos; und Knotenpfad &apos;&amp;VAR2&amp;&apos; passen nicht zusammen</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E39AF7C7778FF0F1A48100155D012203</CONCEPT>
@@ -451,7 +451,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Diese Operation wird für Remote Configuration Stores momentan nicht unterstützt.</TEXT>
+       <TEXT>Diese Operation wird für Remote Konfigurationsspeicher momentan nicht unterstützt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AEC594</CONCEPT>
@@ -479,7 +479,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; ist kein Ordner und darf daher keine untergeordneten Knoten besitzen.</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; ist kein Ordner und darf daher keine untergeordneten Knoten besitzen</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AE6594</CONCEPT>
@@ -507,7 +507,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; ist ein Ordner und kann keinen Wert enthalten.</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; ist ein Ordner und kann keinen Wert enthalten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE494F4E00DE5AE4594</CONCEPT>
@@ -535,7 +535,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Für die Erzeugung der Instanz wird die übergeordnete Instanz benötigt.</TEXT>
+       <TEXT>Für die Erzeugung der Instanz wird die übergeordnete Instanz benötigt</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A05C7EF58754F1A48100155D012203</CONCEPT>
@@ -563,7 +563,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>&apos;&amp;VAR1&amp;&apos; kann nicht auf sich selbst kopiert werden</TEXT>
+       <TEXT>Knoten &apos;&amp;VAR1&amp;&apos; kann nicht auf sich selbst kopiert werden</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122041ED784F6B9093A9E167A</CONCEPT>
@@ -591,7 +591,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Angeforderter Datentyp ist nicht mit dem Typ &apos;&amp;VAR1&amp;&apos; kompatibel (&amp;VAR2&amp;).</TEXT>
+       <TEXT>Der angeforderte Datentyp ist nicht mit dem Typ &apos;&amp;VAR1&amp;&apos; kompatibel (&amp;VAR2&amp;)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>E3A07E7F39F63CF1A48100155D012203</CONCEPT>

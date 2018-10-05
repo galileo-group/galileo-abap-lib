@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Art der Ausnahme</DDTEXT>
-     <REPTEXT>Art der Ausnahme</REPTEXT>
+     <DDTEXT>Typ der Ausnahme</DDTEXT>
+     <REPTEXT>Typ der Ausnahme</REPTEXT>
      <SCRTEXT_S>Typ</SCRTEXT_S>
-     <SCRTEXT_M>Ausnahmeart</SCRTEXT_M>
-     <SCRTEXT_L>Art der Ausnahme</SCRTEXT_L>
+     <SCRTEXT_M>Ausnahmetyp</SCRTEXT_M>
+     <SCRTEXT_L>Typ der Ausnahme</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

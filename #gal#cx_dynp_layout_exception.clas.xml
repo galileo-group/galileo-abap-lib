@@ -32,7 +32,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ein ist eine Dynpro Layout Exception aufgetreten</TEXT>
+       <TEXT>Es ist eine Dynpro Layout Exception aufgetreten</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE497E82A32DE0ED4B2</CONCEPT>
@@ -60,7 +60,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ungültige Größe: &apos;&amp;VAR1&amp;&apos; (Absolute Angabe erforderlich)</TEXT>
+       <TEXT>Ungültige Größe: &apos;&amp;VAR1&amp;&apos; (absolute Größenangabe erforderlich)</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4989D6EAA9A6D05A4</CONCEPT>
@@ -144,7 +144,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Ungültige Anzahl von Namen für untergeordnete Container</TEXT>
+       <TEXT>Unzulässige Anzahl von Namen für untergeordnete Container</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031EE497EDD44A60A274B2</CONCEPT>
@@ -200,7 +200,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Breite der letzten Spalte muss variabel sein.</TEXT>
+       <TEXT>Die Breite der letzten Spalte muss variabel sein</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4989F355EDFE445A4</CONCEPT>
@@ -228,7 +228,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Die Höhe der letzten Zeile muss variabel sein.</TEXT>
+       <TEXT>Die Höhe der letzten Zeile muss variabel sein</TEXT>
       </SOTR_TEXT>
       <SOTR_TEXT>
        <CONCEPT>00155D0122031ED4989F355EDFE465A4</CONCEPT>

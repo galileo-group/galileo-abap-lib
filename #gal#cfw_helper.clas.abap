@@ -535,13 +535,16 @@ ENDMETHOD.
 
 
 METHOD initialize_rfc_route_step_info.
-  CLEAR rfc_route_step_info-system_id.
-  CLEAR rfc_route_step_info-client_id.
-  CLEAR rfc_route_step_info-user_id.
-  CLEAR rfc_route_step_info-user_time_zone.
-  CLEAR rfc_route_step_info-user_language.
-  CLEAR rfc_route_step_info-user_country.
-  CLEAR rfc_route_step_info-user_locale_modifier.
+  CLEAR:
+    rfc_route_step_info-host,
+    rfc_route_step_info-system_id,
+    rfc_route_step_info-client_id,
+    rfc_route_step_info-user_id,
+    rfc_route_step_info-user_time_zone,
+    rfc_route_step_info-user_language,
+    rfc_route_step_info-user_country,
+    rfc_route_step_info-user_locale_modifier,
+    rfc_route_step_info-batch.
 ENDMETHOD.
 
 
@@ -599,10 +602,86 @@ ENDMETHOD.
 
 
 METHOD rfc_route_info_from_string.
-  DATA l_rfc_destinations       TYPE STANDARD TABLE OF string.
-  DATA l_wa_rfc_route_step_info TYPE /gal/rfc_route_step_info.
+  DATA:
+    l_offset                 TYPE i,
+    l_length                 TYPE i,
 
-  SPLIT string AT separator INTO TABLE l_rfc_destinations.
+    l_legacy_meta_data       TYPE string,
+    l_legacy_attributes      TYPE /gal/stringtable,
+    l_legacy_parameter       TYPE string,
+    l_legacy_value           TYPE string,
+
+    l_rfc_destinations       TYPE /gal/stringtable,
+    l_wa_rfc_route_step_info TYPE /gal/rfc_route_step_info.
+
+  FIELD-SYMBOLS:
+    <l_rfc_route_step_info> LIKE LINE OF rfc_route_info-step_infos,
+    <l_legacy_attribute>    LIKE LINE OF l_legacy_attributes.
+
+* Support for legacy RFC routes (as used by Conigma CCM)
+*
+* Note: This simplified implementation does not support attributes containing ';', '"' or '='.
+*       Make sure not to use user names containing those characters.
+*
+  IF string IS NOT INITIAL AND string(1) = '(' AND string+1 CA ')' AND sy-fdpos > 0.
+    l_offset           = sy-fdpos + 2.
+    l_legacy_meta_data = string+1(sy-fdpos).
+
+    INSERT INITIAL LINE INTO rfc_route_info-step_infos INDEX 1 ASSIGNING <l_rfc_route_step_info>.
+
+    SPLIT l_legacy_meta_data AT ';' INTO TABLE l_legacy_attributes.
+
+    LOOP AT l_legacy_attributes ASSIGNING <l_legacy_attribute>.
+      SPLIT <l_legacy_attribute> AT '=' INTO l_legacy_parameter l_legacy_value.
+      CHECK sy-subrc = 0.
+
+      IF l_legacy_parameter CP `"+*"`.
+        l_length           = strlen( l_legacy_parameter ) - 2.
+        l_legacy_parameter = l_legacy_parameter+1(l_length).
+      ENDIF.
+
+      IF l_legacy_value CP `"+*"`.
+        l_length       = strlen( l_legacy_value ) - 2.
+        l_legacy_value = l_legacy_value+1(l_length).
+      ENDIF.
+
+      CHECK l_legacy_parameter IS NOT INITIAL AND l_legacy_parameter NA '"='
+        AND l_legacy_value     IS NOT INITIAL AND l_legacy_value     NA '"='.
+
+      CASE l_legacy_parameter.
+
+        WHEN `STEP`.
+          IF l_legacy_value CO '0123456789'.
+            rfc_route_info-current_step = l_legacy_value.
+          ENDIF.
+
+        WHEN `CALLER.USER_ID`.
+          IF l_legacy_value CP `+++.+++.+*`.
+            <l_rfc_route_step_info>-user_id = l_legacy_value+8.
+          ENDIF.
+
+        WHEN `CALLER.LANGUAGE`.
+          <l_rfc_route_step_info>-user_language = l_legacy_value.
+
+        WHEN `CALLER.COUNTRY`.
+          <l_rfc_route_step_info>-user_country = l_legacy_value.
+
+        WHEN `CALLER.MODIFIER`.
+          <l_rfc_route_step_info>-user_locale_modifier = l_legacy_value.
+
+        WHEN `CALLER.TIMEZONE`.
+          <l_rfc_route_step_info>-user_time_zone = l_legacy_value.
+
+      ENDCASE.
+    ENDLOOP.
+
+    IF rfc_route_info-current_step > 0.
+      rfc_route_info-options-resume = abap_true.
+    ENDIF.
+  ENDIF.
+
+* Split string at semicolon into RFC destinations
+  SPLIT string+l_offset AT separator INTO TABLE l_rfc_destinations.
 
   LOOP AT l_rfc_destinations INTO l_wa_rfc_route_step_info-rfc_destination.
     SHIFT l_wa_rfc_route_step_info-rfc_destination RIGHT DELETING TRAILING space.
@@ -652,12 +731,11 @@ METHOD update_rfc_route_step_info.
   rfc_route_step_info-client_id      = sy-mandt.
   rfc_route_step_info-user_id        = sy-uname.
   rfc_route_step_info-user_time_zone = sy-zonlo.
+  rfc_route_step_info-batch          = sy-batch.
 
   GET LOCALE LANGUAGE rfc_route_step_info-user_language
              COUNTRY  rfc_route_step_info-user_country
              MODIFIER rfc_route_step_info-user_locale_modifier.
-
-  rfc_route_step_info-batch = sy-batch.
 ENDMETHOD.
 
 

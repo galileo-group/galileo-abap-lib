@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Name der Authentifizierungsklasse</DDTEXT>
-     <REPTEXT>Name der Auth.klasse</REPTEXT>
+     <DDTEXT>Klassenname für Authetifizierung</DDTEXT>
+     <REPTEXT>Name der Auth.-Klasse</REPTEXT>
      <SCRTEXT_S>Klasse</SCRTEXT_S>
-     <SCRTEXT_M>Name der Auth.klasse</SCRTEXT_M>
-     <SCRTEXT_L>Name der Auth.klasse</SCRTEXT_L>
+     <SCRTEXT_M>Name der Auth.-Kl.</SCRTEXT_M>
+     <SCRTEXT_L>Name der Auth.-Klasse</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

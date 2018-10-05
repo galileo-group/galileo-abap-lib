@@ -23,6 +23,22 @@ public section.
   methods CONSTRUCTOR
     importing
       !NAME type CSEQUENCE .
+  methods GET_ATTRIBUTES
+    exporting
+      !READ_ONLY type ABAP_BOOL
+      !NORMAL type ABAP_BOOL
+      !HIDDEN type ABAP_BOOL
+      !ARCHIVE type ABAP_BOOL
+    raising
+      /GAL/CX_IO_EXCEPTION .
+  methods SET_ATTRIBUTES
+    importing
+      !READ_ONLY type /GAL/ABAP_BOOL_EXT default '?'
+      !NORMAL type /GAL/ABAP_BOOL_EXT default '?'
+      !HIDDEN type /GAL/ABAP_BOOL_EXT default '?'
+      !ARCHIVE type /GAL/ABAP_BOOL_EXT default '?'
+    raising
+      /GAL/CX_IO_EXCEPTION .
 
   methods DELETE
     redefinition .
@@ -122,6 +138,32 @@ METHOD exists.
     ENDCASE.
   ENDIF.
 ENDMETHOD.
+
+
+  METHOD get_attributes.
+
+* Get file attributes
+    cl_gui_frontend_services=>file_get_attributes( EXPORTING  filename = full_name
+                                                   IMPORTING  readonly = read_only
+                                                              normal   = normal
+                                                              hidden   = hidden
+                                                              archive  = archive
+                                                   EXCEPTIONS OTHERS   = 1 ).
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE /gal/cx_io_exception
+        EXPORTING
+          textid = /gal/cx_io_exception=>cannot_get_attributes_for_file
+          var1   = full_name.
+    ENDIF.
+
+    cl_gui_cfw=>flush( EXCEPTIONS OTHERS = 1 ).
+    IF sy-subrc <> 0.
+      RAISE EXCEPTION TYPE /gal/cx_io_exception
+        EXPORTING
+          textid = /gal/cx_io_exception=>cannot_get_attributes_for_file
+          var1   = full_name.
+    ENDIF.
+  ENDMETHOD.
 
 
 METHOD get_length.
@@ -472,6 +514,81 @@ METHOD select.
 ENDMETHOD.
 
 
+  METHOD set_attributes.
+    DATA:
+      l_read_only  TYPE abap_bool,
+      l_normal     TYPE abap_bool,
+      l_hidden     TYPE abap_bool,
+      l_archive    TYPE abap_bool,
+
+      l_returncode TYPE i,
+      l_error      TYPE abap_bool.
+
+* Get current attributes if not all attributes are specified
+    IF read_only = '?' OR normal = '?' OR hidden = '?' OR archive = '?'.
+
+* Get current attributes
+      get_attributes( IMPORTING read_only = l_read_only
+                                normal    = l_normal
+                                hidden    = l_hidden
+                                archive   = l_archive ).
+
+* Exit if current attribute already match requested attributes
+      IF ( read_only = '?' OR read_only = l_read_only ) AND
+         ( normal    = '?' OR normal    = l_normal    ) AND
+         ( hidden    = '?' OR hidden    = l_hidden    ) AND
+         ( archive   = '?' OR archive   = l_archive   ).
+        RETURN.
+      ENDIF.
+    ENDIF.
+
+* Merge current attributes with new values
+    IF read_only <> '?'.
+      l_read_only = read_only.
+    ENDIF.
+
+    IF normal <> '?'.
+      l_normal = normal.
+    ENDIF.
+
+    IF hidden <> '?'.
+      l_hidden = hidden.
+    ENDIF.
+
+    IF archive <> '?'.
+      l_archive = archive.
+    ENDIF.
+
+* Set file attributes
+    cl_gui_frontend_services=>file_set_attributes( EXPORTING  filename = full_name
+                                                              readonly = l_read_only
+                                                              normal   = l_normal
+                                                              hidden   = l_hidden
+                                                              archive  = l_archive
+                                                   IMPORTING  rc       = l_returncode
+                                                   EXCEPTIONS OTHERS   = 1 ).
+
+* Check result
+* IMPORTANT: l_returncode needs to be checked BEFORE calling CL_GUI_CFW=>FLUSH( )
+    IF sy-subrc <> 0 OR l_returncode <> 0 .
+      l_error = abap_true.
+    ENDIF.
+
+    cl_gui_cfw=>flush( EXCEPTIONS OTHERS = 1 ).
+    IF sy-subrc <> 0.
+      l_error = abap_true.
+    ENDIF.
+
+* Handle error
+    IF l_error = abap_true.
+      RAISE EXCEPTION TYPE /gal/cx_io_exception
+        EXPORTING
+          textid = /gal/cx_io_exception=>cannot_set_attributes_for_file
+          var1   = full_name.
+    ENDIF.
+  ENDMETHOD.
+
+
 METHOD write.
   CONSTANTS lc_line_size_bin TYPE i VALUE 4096.
 
@@ -496,12 +613,23 @@ METHOD write.
   ENDIF.
 
   IF mode = mode_text.
-    INSERT data_txt INTO TABLE lt_data_txt.
+    IF line_break = line_break_unix.
+      SPLIT data_txt AT /gal/string=>line_break_unix INTO TABLE lt_data_txt.
+    ELSEIF line_break = line_break_windows.
+      SPLIT data_txt AT /gal/string=>line_break_windows INTO TABLE lt_data_txt.
+    ELSE.
+      lt_data_txt = /gal/string=>string_to_stringtable( input     = data_txt
+                                                        auto_trim = abap_false ).
+    ENDIF.
 
+    "Note: This will always use the line break style of frontend operating system!
+    "
+    "Right now there seems to be no way to control this except perfroming all code page conversions here an writing
+    "a binary file. Setting write_lf to ABAP_FALSE behaves weird, when data table contains windows style line breaks.
     cl_gui_frontend_services=>gui_download( EXPORTING  filename                 = full_name
                                                        filetype                 = 'ASC'
                                                        append                   = l_append
-                                                       write_lf                 = abap_false
+                                                       write_lf                 = abap_true
                                                        write_lf_after_last_line = abap_false
                                             CHANGING   data_tab                 = lt_data_txt
                                             EXCEPTIONS file_write_error         = 1

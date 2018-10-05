@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>Session ID</DDTEXT>
-     <REPTEXT>Session ID</REPTEXT>
+     <DDTEXT>Sitzungs ID</DDTEXT>
+     <REPTEXT>Sitzungs ID</REPTEXT>
      <SCRTEXT_S>Session ID</SCRTEXT_S>
-     <SCRTEXT_M>Session ID</SCRTEXT_M>
-     <SCRTEXT_L>Session ID</SCRTEXT_L>
+     <SCRTEXT_M>Sitzungs ID</SCRTEXT_M>
+     <SCRTEXT_L>Sitzungs ID</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

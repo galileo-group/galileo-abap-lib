@@ -19,7 +19,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>ADD_SELECT_OPTION</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Add single Select Option</DESCRIPT>
+     <DESCRIPT>Hinzufügen eines einzelnen Selektionskriterums</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -31,7 +31,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Constructor</DESCRIPT>
+     <DESCRIPT>Konstruktor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -43,7 +43,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>GET_BY_DATA_ELEMENT</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Get Search Help for Daten Element</DESCRIPT>
+     <DESCRIPT>Suchhilfe für Datenelement holen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -55,7 +55,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>GET_BY_NAME_AND_TYPE</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Get Search Help for Name and Type</DESCRIPT>
+     <DESCRIPT>Suchhilfe für Name und Typ holen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -67,7 +67,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>GET_SELECT_OPTIONS</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Get all Select Options</DESCRIPT>
+     <DESCRIPT>Alle Selektionskriterien abrufen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -79,7 +79,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>REMOVE_SELECT_OPTIONS</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Remove Select Options</DESCRIPT>
+     <DESCRIPT>Selektionskriterien entfernen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -91,7 +91,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>SEARCH_HELP_DESCRIPTION</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Search help description</DESCRIPT>
+     <DESCRIPT>Beschreibung der Suchhilfe</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -103,7 +103,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>SET_SELECT_OPTIONS</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Set Select Options (replaces all Select Options)</DESCRIPT>
+     <DESCRIPT>Selektionskriterien setzen (ersetzt alle bestehenden)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
@@ -115,7 +115,7 @@
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>
      <CMPNAME>SHOW</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Show Search Help</DESCRIPT>
+     <DESCRIPT>Suchhilfe anzeigen</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SEARCH_HELP</CLSNAME>

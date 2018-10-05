@@ -41,7 +41,7 @@
        <FLAG_CNTXT>X</FLAG_CNTXT>
        <STATUS>R</STATUS>
        <LENGTH>255</LENGTH>
-       <TEXT>Exception in connection with the HTTP REST client</TEXT>
+       <TEXT>Exception in connection with the HTTP REST Client</TEXT>
       </SOTR_TEXT>
      </ENTRIES>
     </item>

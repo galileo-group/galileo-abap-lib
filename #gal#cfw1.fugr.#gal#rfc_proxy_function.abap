@@ -1,6 +1,6 @@
 FUNCTION /gal/rfc_proxy_function.
 *"----------------------------------------------------------------------
-*"*"Local Interface:
+*"*"Lokale Schnittstelle:
 *"  IMPORTING
 *"     VALUE(FUNCTION_NAME) TYPE  STRING
 *"     VALUE(PARAMETERS_IN) TYPE  STRING
@@ -17,65 +17,66 @@ FUNCTION /gal/rfc_proxy_function.
 *"      AUTHORITY_INTEGRITY_FAILED
 *"----------------------------------------------------------------------
 
-  STATICS ls_config_flag         TYPE abap_bool VALUE abap_false.
-  STATICS ls_trace_flag          TYPE abap_bool VALUE abap_false.
+  STATICS:
+    ls_config_flag         TYPE abap_bool VALUE abap_false,
+    ls_trace_flag          type abap_bool value abap_false.
 
-  DATA l_config_store            TYPE REF TO /gal/config_store_local.
-  DATA l_config_folder           TYPE REF TO /gal/config_node.
-  DATA l_config_node             TYPE REF TO /gal/config_node.
+  DATA:
+    l_config_store            TYPE REF TO /gal/config_store_local,
+    l_config_folder           TYPE REF TO /gal/config_node,
+    l_config_node             TYPE REF TO /gal/config_node,
 
-  DATA l_exception               TYPE REF TO cx_root.
+    l_exception               TYPE REF TO cx_root,
 
-  DATA l_interface_info          TYPE /gal/func_interface_info.
+    l_interface_info          TYPE /gal/func_interface_info,
 
-  DATA lt_param_bindings         TYPE abap_func_parmbind_tab.
-  DATA l_param_binding           LIKE LINE OF lt_param_bindings.
+    lt_param_bindings         TYPE abap_func_parmbind_tab,
+    l_param_binding           LIKE LINE OF lt_param_bindings,
 
-  DATA lt_exception_bindings     TYPE abap_func_excpbind_tab.
-  DATA l_exception_binding       TYPE abap_func_excpbind.
+    lt_exception_bindings     TYPE abap_func_excpbind_tab,
+    l_exception_binding       TYPE abap_func_excpbind,
 
-  DATA l_error_mess_char(200)    TYPE c.
-  DATA l_error_mess_char_sh(100) TYPE c.
-  DATA l_error_message           TYPE string.
+    l_error_mess_char(200)    TYPE c,
+    l_error_mess_char_sh(100) TYPE c,
+    l_error_message           TYPE string,
 
-  DATA l_next_step               TYPE i.
+    l_next_step               TYPE i,
 
-  DATA l_local_execution         TYPE abap_bool.
+    l_local_execution         TYPE abap_bool,
 
-  DATA l_init_caller_sysysid     TYPE sysysid.
-  DATA l_init_caller_symandt     TYPE symandt.
-  DATA l_init_caller_syuname     TYPE syuname.
-  DATA l_last_caller_sysysid     TYPE sysysid.
-  DATA l_last_caller_symandt     TYPE symandt.
-  DATA l_last_caller_syuname     TYPE syuname.
-  DATA l_rfc_error(100)          TYPE c.
-  DATA l_final_step              TYPE abap_bool.
-  DATA l_first_step              TYPE abap_bool.
-  DATA l_auth_exception          TYPE REF TO /gal/cx_cfw_auth_exception.
-  DATA l_auth_exception_fw       TYPE REF TO /gal/cx_cfw_auth_excep_fw.
-  DATA l_auth_exception_text     TYPE string.
-  DATA l_auth_ex_text_c150(150)  TYPE c.
-  DATA l_auth_active             TYPE abap_bool.
-  DATA l_no_of_steps             TYPE i.
-  DATA l_last_auth_active        TYPE abap_bool.
-  DATA lt_back_callstack         TYPE abap_callstack.
-  DATA l_read_callstack          TYPE abap_bool.
-  DATA l_sysubrc                 TYPE sysubrc.
-  DATA l_param_bindings_des      TYPE abap_bool.
-  DATA l_context_data_set        TYPE abap_bool.
-  DATA l_syscli_id(7)            TYPE c.
+    l_init_caller_sysysid     TYPE sysysid,
+    l_init_caller_symandt     TYPE symandt,
+    l_init_caller_syuname     TYPE syuname,
+    l_last_caller_sysysid     TYPE sysysid,
+    l_last_caller_symandt     TYPE symandt,
+    l_last_caller_syuname     TYPE syuname,
+    l_rfc_error(100)          TYPE c,
+    l_final_step              TYPE abap_bool,
+    l_first_step              TYPE abap_bool,
+    l_auth_exception          TYPE REF TO /gal/cx_cfw_auth_exception,
+    l_auth_exception_fw       TYPE REF TO /gal/cx_cfw_auth_excep_fw,
+    l_auth_exception_text     TYPE string,
+    l_auth_ex_text_c150(150)  TYPE c,
+    l_auth_active             TYPE abap_bool,
+    l_no_of_steps             TYPE i,
+    l_last_auth_active        TYPE abap_bool,
+    lt_back_callstack         TYPE abap_callstack,
+    l_read_callstack          TYPE abap_bool,
+    l_sysubrc                 TYPE sysubrc,
+    l_param_bindings_des      TYPE abap_bool,
+    l_context_data_set        TYPE abap_bool,
+    l_syscli_id(7)            TYPE c.
 
-  FIELD-SYMBOLS <l_rfc_route_step_info> TYPE /gal/rfc_route_step_info.
+  FIELD-SYMBOLS:
+    <l_rfc_route_step_info> TYPE /gal/rfc_route_step_info,
 
-  FIELD-SYMBOLS <l_param_info>          LIKE LINE OF l_interface_info-param_info.
-  FIELD-SYMBOLS <l_param_binding>       LIKE LINE OF lt_param_bindings.
+    <l_param_info>          LIKE LINE OF l_interface_info-param_info,
+    <l_param_binding>       LIKE LINE OF lt_param_bindings,
 
-  FIELD-SYMBOLS <l_exception_binding>   LIKE LINE OF lt_exception_bindings.
-
+    <l_exception_binding>   LIKE LINE OF lt_exception_bindings.
 
 * Enable support for background breakpoints
   cfw_break_point_support.
-
 
 * Read configuration
   IF ls_config_flag = abap_false.
@@ -94,6 +95,8 @@ FUNCTION /gal/rfc_proxy_function.
     ls_config_flag = abap_true.
   ENDIF.
 
+* Avoid recursion when resuming
+  rfc_route_info-options-resume = abap_false.
 
 * Follow RFC route
   TRY.
