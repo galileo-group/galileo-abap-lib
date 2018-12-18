@@ -7,9 +7,7 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Authentification frameowrk for CFW - Implementaions</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
-    <CLSFINAL>X</CLSFINAL>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
@@ -29,6 +27,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>AUTH_EXCEPTION</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>The auth exception that has been found during checking</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_AUTH</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Authentifizierung prüfen</DESCRIPT>
@@ -37,6 +41,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_AUTH</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Check authentification</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CHECK_AUTH</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Check authentification</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -53,6 +63,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CHECK_LOCAL_FUNC_LIMITS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Check if forbidden remote execution</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_RFC_CONTEXT</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Prüfen Sie, ob der RFC-Kontext gültig ist</DESCRIPT>
@@ -61,6 +77,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CHECK_RFC_CONTEXT</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Check if the RFC context is valid</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CHECK_RFC_CONTEXT</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Check if the RFC context is valid</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -77,6 +99,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CHECK_RFC_CONTEXT_EXTERNAL</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Check RFC context (called from external)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONFIG</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Die aktuelle Konfiguration des Authentifizierungs-Frameworks</DESCRIPT>
@@ -85,6 +113,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONFIG</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>The current configuration auth cfw auth framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CONFIG</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>The current configuration auth cfw auth framework</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -101,6 +135,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CONST_CAB_FINAL_RFC_STEP</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Auth checks only at final step in RFC context</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONST_CAB_FINAL_STEP</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Auth.-Prüfungen beim letzten Schritt (lokal + RFC-Kontext)</DESCRIPT>
@@ -109,6 +149,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CONST_CAB_FINAL_STEP</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Auth checks at final step (local and RFC context)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CONST_CAB_FINAL_STEP</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Auth checks at final step (local and RFC context)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -125,6 +171,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CONST_CAB_NO_CHECK</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>No auth checks at all</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_DIRECT_CALL</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Aufruf war direkt (kein RFC)</DESCRIPT>
@@ -133,6 +185,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_DIRECT_CALL</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: Call has been direct (no RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_DIRECT_CALL</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: Call has been direct (no RFC)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -149,6 +207,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FINAL_STEP</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: Currently at final step (local or RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_FIRST_STEP</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Derzeit im ersten Schritt</DESCRIPT>
@@ -157,6 +221,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_FIRST_STEP</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: Currently at first step</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FIRST_STEP</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: Currently at first step</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -173,6 +243,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_FUNCTION_NAME</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: Function that has been called and is being checked</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYMANDT</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Mandant des Erstaufrufs (Trigger)</DESCRIPT>
@@ -181,6 +257,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYMANDT</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: Client of initial call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_INITIAL_CALLER_SYMANDT</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: Client of initial call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -197,6 +279,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_INITIAL_CALLER_SYSYSID</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: System of initial call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYUNAME</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Benutzer des Erstaufrufs (Trigger)</DESCRIPT>
@@ -205,6 +293,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_INITIAL_CALLER_SYUNAME</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: User of initial call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_INITIAL_CALLER_SYUNAME</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: User of initial call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -221,6 +315,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_LAST_CALLER_SYMANDT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: Client of last RFC call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LAST_CALLER_SYSYSID</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: System des letzten RFC-Aufrufs (Trigger)</DESCRIPT>
@@ -229,6 +329,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LAST_CALLER_SYSYSID</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: System of last RFC call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_LAST_CALLER_SYSYSID</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: System of last RFC call (trigger)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -245,6 +351,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_LAST_CALLER_SYUNAME</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: User of last RFC call (trigger)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LOCAL_EXECUTION</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Ausführung auf Aufrufsystem (direkt oder über RFC)</DESCRIPT>
@@ -253,6 +365,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_LOCAL_EXECUTION</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: Execution is on caller system (direct or via RFC)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_LOCAL_EXECUTION</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: Execution is on caller system (direct or via RFC)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -269,6 +387,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_PARAM_BINDINGS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: Parameter Binding of function call</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_RFC_ROUTE_INFO</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Kontext: Vollständige Informationen zur RFC-Route</DESCRIPT>
@@ -277,6 +401,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>CTX_RFC_ROUTE_INFO</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Context: Complete RFC Route information</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>CTX_RFC_ROUTE_INFO</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Context: Complete RFC Route information</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -293,6 +423,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>FILL_CFW_AUTH_ERR_EX_INFO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Fill the exception info structure for passing via RFC</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>INIT</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Prüf-Framework initialisieren</DESCRIPT>
@@ -301,6 +437,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>INIT</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Initialize the check framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>INIT</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Initialize the check framework</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -317,6 +459,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>INT_RFC_CONTEXT_CHECKED</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Context: RFC context has been checked in this RFC step</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>RAISE_AUTH_EXCEPTION_IF_EXISTS</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Auslösen der Authentifizierungs-Ausnahme, falls vorhanden</DESCRIPT>
@@ -325,6 +473,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>RAISE_AUTH_EXCEPTION_IF_EXISTS</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Raise the existing auth exception if existing</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>RAISE_AUTH_EXCEPTION_IF_EXISTS</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Raise the existing auth exception if existing</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -341,6 +495,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>REGULAR_AUTH_EXCEPTION_FOUND</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Handle a regular auth exception (no framework error)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>RESET_CONTEXT_DATA</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Erweiterte Kontextdaten für die Prüfung zurücksetzen</DESCRIPT>
@@ -353,6 +513,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>RESET_CONTEXT_DATA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Reset extended context data for checking</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>SET_CONTEXT_DATA</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Erweiterte Kontextdaten für die Prüfung setzen</DESCRIPT>
@@ -361,6 +527,12 @@
      <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
      <CMPNAME>SET_CONTEXT_DATA</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Set extended context data for checking</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH</CLSNAME>
+     <CMPNAME>SET_CONTEXT_DATA</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Set extended context data for checking</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

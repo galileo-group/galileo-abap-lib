@@ -7,7 +7,6 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Configuration provider for job scheduler</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -28,6 +27,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
+     <CMPNAME>GET_EXTENDED_DATA</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Determin RFC destination to database on central system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
      <CMPNAME>GET_STORE_DESTINATION</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>RFC-Destination zur DB auf dem Zentralsystem ermitteln</DESCRIPT>
@@ -36,6 +41,12 @@
      <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
      <CMPNAME>GET_STORE_DESTINATION</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Determin RFC destination to database on central system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/JS_CONFIG_PROVIDER</CLSNAME>
+     <CMPNAME>GET_STORE_DESTINATION</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Determin RFC destination to database on central system</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

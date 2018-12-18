@@ -7,9 +7,7 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Config for CFW Auth Framework</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
-    <CLSFINAL>X</CLSFINAL>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
@@ -29,6 +27,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CFW_SEC_CONFIG_FOLDER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Configuration Node of the config folder</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Dummy-Instanz anlegen (initialisiert statische Parameter)</DESCRIPT>
@@ -37,6 +41,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Create a dummy instance. This fills all static parameters.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Create a dummy instance. This fills all static parameters.</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -53,6 +63,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>CUSTOM_ALLOWED_CALLERS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Custom allowed callers for CFW Framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>IGNORED_FUNCTIONS</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Nicht zu prüfende Funktionen</DESCRIPT>
@@ -61,6 +77,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>IGNORED_FUNCTIONS</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Functions not to be checked</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>IGNORED_FUNCTIONS</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Functions not to be checked</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -77,6 +99,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_CONFIG_FOLDER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Init the folder object containing all the config</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INIT_CONFIG_PARAMS</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Alle konfiguraierten Parameter initialisieren</DESCRIPT>
@@ -85,6 +113,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INIT_CONFIG_PARAMS</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Init all parameters configured for auth check framework</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_CONFIG_PARAMS</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Init all parameters configured for auth check framework</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -101,6 +135,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INIT_STATUS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Init status of CFW Auth Handler</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INT_IS_ENABLED_CACHE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Performance-Cache für aktivierten/deaktivierten Status</DESCRIPT>
@@ -109,6 +149,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>INT_IS_ENABLED_CACHE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Performance cache for enabled/disabled status</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INT_IS_ENABLED_CACHE</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Performance cache for enabled/disabled status</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -125,6 +171,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>INT_PARAM_INIT_DONE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>All parameters have been initialized</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>IS_ACTIVE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Prüfen, ob das Authentifizierungs-Framework als aktiv ist</DESCRIPT>
@@ -133,6 +185,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>IS_ACTIVE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Check if auth framework is configured as active</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>IS_ACTIVE</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Check if auth framework is configured as active</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -149,6 +207,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>LOCAL_ONLY_FUNCTIONS</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Functions that may not be executed remote</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>TRACE_VIOLATION_DETAILS</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Aktivierungskennzeichen für detaillierten Verletzungs-Trace</DESCRIPT>
@@ -157,6 +221,12 @@
      <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
      <CMPNAME>TRACE_VIOLATION_DETAILS</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Activation flag for detailed violation trace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CFW_AUTH_CONFIG</CLSNAME>
+     <CMPNAME>TRACE_VIOLATION_DETAILS</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Activation flag for detailed violation trace</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

@@ -13,11 +13,16 @@
    </DD01V>
    <I18N_LANGS>
     <LANGU>D</LANGU>
+    <LANGU>P</LANGU>
    </I18N_LANGS>
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DDTEXT>Task Context ID (für asynchrone RFCs)</DDTEXT>
+    </item>
+    <item>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DDTEXT>Task Context ID (for asynchronous RFC)</DDTEXT>
     </item>
    </DD01_TEXTS>
   </asx:values>

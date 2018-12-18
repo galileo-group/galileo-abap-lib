@@ -18,6 +18,19 @@
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>RFC-Route fortsetzen (aktueller Schritt als Ausgangspunkt)</DDTEXT>
+     <REPTEXT>RFC-Route fortsetzen</REPTEXT>
+     <SCRTEXT_S>Fortsetzen</SCRTEXT_S>
+     <SCRTEXT_M>Fortsetzen</SCRTEXT_M>
+     <SCRTEXT_L>RFC-Route fortsetzen</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

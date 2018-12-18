@@ -583,6 +583,20 @@ ENDMETHOD.
 
 
 METHOD restore_user_environment.
+  DATA l_inst_languages(30) TYPE c.
+
+  CALL FUNCTION 'RSAQ_READ_INSTALLED_LANGUAGES'
+*   EXPORTING
+*     I_LANGU              =
+    IMPORTING
+      inst_languages = l_inst_languages.
+
+
+  IF language NA l_inst_languages
+    OR language IS INITIAL.
+    RETURN.
+  ENDIF.
+
   CATCH SYSTEM-EXCEPTIONS OTHERS = 1.
     SET LOCALE LANGUAGE language
                COUNTRY  country

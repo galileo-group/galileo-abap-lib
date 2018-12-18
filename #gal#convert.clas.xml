@@ -7,9 +7,7 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Value Conversion Helper</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
-    <CLSFINAL>X</CLSFINAL>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
@@ -31,6 +29,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CONVERT</CLSNAME>
+     <CMPNAME>HEX_STRING_TO_INTEGER</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Convert hexadecimal string to integer value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONVERT</CLSNAME>
      <CMPNAME>INTEGER_TO_HEX_STRING</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Integerwert in hexadezimale Zeichenkette umwandeln</DESCRIPT>
@@ -39,6 +43,12 @@
      <CLSNAME>/GAL/CONVERT</CLSNAME>
      <CMPNAME>INTEGER_TO_HEX_STRING</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Convert integer value to hexadecimal string</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONVERT</CLSNAME>
+     <CMPNAME>INTEGER_TO_HEX_STRING</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Convert integer value to hexadecimal string</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -55,6 +65,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CONVERT</CLSNAME>
+     <CMPNAME>LANGUAGE_KEY_SAP_TO_ISO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Convert SAP language key to ISO language key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONVERT</CLSNAME>
      <CMPNAME>MOVE_CORRESPONDING</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>In entsprechende Felder übertragen (nach Feldnamen)</DESCRIPT>
@@ -63,6 +79,12 @@
      <CLSNAME>/GAL/CONVERT</CLSNAME>
      <CMPNAME>MOVE_CORRESPONDING</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Move to corresponding fields (by field names)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/CONVERT</CLSNAME>
+     <CMPNAME>MOVE_CORRESPONDING</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Move to corresponding fields (by field names)</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

@@ -60,7 +60,7 @@ ENDCLASS.
 
 
 
-CLASS /gal/convert IMPLEMENTATION.
+CLASS /GAL/CONVERT IMPLEMENTATION.
 
 
   METHOD hex_string_to_integer.

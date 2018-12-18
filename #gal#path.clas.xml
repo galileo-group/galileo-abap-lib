@@ -7,7 +7,6 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Helper class for working with file paths</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -29,6 +28,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>APPEND_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Append trailing path separator to path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Klassenkonstruktor</DESCRIPT>
@@ -37,6 +42,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Class Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>CLASS_CONSTRUCTOR</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Class Constructor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -53,6 +64,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>CLIENT_PATH_IS_CASE_SENSITIVE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Path case sesitivity of current client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>CLIENT_PATH_SEPARATOR</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Pfadtrennzeichen des aktuellen Clients</DESCRIPT>
@@ -61,6 +78,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>CLIENT_PATH_SEPARATOR</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Path separator of current client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>CLIENT_PATH_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Path separator of current client</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -77,6 +100,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>COMBINE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Combine paths</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_CLIENT_PATH_INFO</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Pfadtrennzeichen für Client holen</DESCRIPT>
@@ -89,6 +118,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_CLIENT_PATH_INFO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Get path separator for client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_CLIENT_PATH_SEPARATOR</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Pfadtrennzeichen für Client holen</DESCRIPT>
@@ -97,12 +132,30 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_CLIENT_PATH_SEPARATOR</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Get path separator for client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_CLIENT_PATH_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Get path separator for client</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_FILE_EXTENSION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Dateierweiterung aus einem Pfad ermitteln</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_FILE_EXTENSION</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Get file extension from a path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_FILE_EXTENSION</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Get file extension from a path</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -119,6 +172,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_FILE_NAME</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Get file name from a path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_ROOT_PATH</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Wurzelpfad eines Pfades ermitteln</DESCRIPT>
@@ -127,6 +186,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_ROOT_PATH</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Get root path of a path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_ROOT_PATH</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Get root path of a path</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -143,6 +208,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_SERVER_PATH_INFO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Get path separator for client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_SERVER_PATH_SEPARATOR</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Pfadtrennzeichen für Client holen</DESCRIPT>
@@ -151,6 +222,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>GET_SERVER_PATH_SEPARATOR</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Get path separator for client</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>GET_SERVER_PATH_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Get path separator for client</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -167,6 +244,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>REMOVE_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Remove trailing path separator from path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>SERVER_PATH_IS_CASE_SENSITIVE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Pfad Groß-/Kleinschreibung des aktuellen Servers</DESCRIPT>
@@ -175,6 +258,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>SERVER_PATH_IS_CASE_SENSITIVE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Path case sesitivity of current server</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>SERVER_PATH_IS_CASE_SENSITIVE</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Path case sesitivity of current server</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -191,6 +280,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>SERVER_PATH_SEPARATOR</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Path separator of current server</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>STARTS_WITH</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Prüfen, ob ein Pfad mit einem anderen Pfad beginnt</DESCRIPT>
@@ -199,6 +294,12 @@
      <CLSNAME>/GAL/PATH</CLSNAME>
      <CMPNAME>STARTS_WITH</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Check if a path starts with another path</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/PATH</CLSNAME>
+     <CMPNAME>STARTS_WITH</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Check if a path starts with another path</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

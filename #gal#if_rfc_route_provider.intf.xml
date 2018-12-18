@@ -18,6 +18,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>Get RFC Route info for connection to a specific system</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/IF_RFC_ROUTE_PROVIDER</CLSNAME>
+     <CMPNAME>GET_RFC_ROUTE_INFO</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Get RFC Route info for connection to a specific system</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

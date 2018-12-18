@@ -7,7 +7,6 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Helper class for initializing dropdown fields (Listboxes)</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -29,6 +28,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_DATA_ELEMENT</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Initialize dropdown by data element</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
      <CMPNAME>INIT_BY_DOMAIN</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Dropdown über Domäne initialisieren</DESCRIPT>
@@ -37,6 +42,12 @@
      <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
      <CMPNAME>INIT_BY_DOMAIN</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by domain</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_DOMAIN</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Initialize dropdown by domain</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -53,6 +64,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_FIELD</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Initialize dropdown by reference field</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
      <CMPNAME>INIT_BY_VALUE_TABLE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Dropdown über Wertetabelle initialisieren</DESCRIPT>
@@ -61,6 +78,12 @@
      <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
      <CMPNAME>INIT_BY_VALUE_TABLE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Initialize dropdown by value table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
+     <CMPNAME>INIT_BY_VALUE_TABLE</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Initialize dropdown by value table</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>

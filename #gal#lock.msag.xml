@@ -15,6 +15,23 @@
      <TEXT>Object is locked by user &amp;4 (System: &amp;2, Client: &amp;3, ID: &amp;1)</TEXT>
     </T100>
    </T100>
+   <I18N_LANGS>
+    <LANGU>P</LANGU>
+   </I18N_LANGS>
+   <T100T>
+    <T100T>
+     <SPRSL>P</SPRSL>
+     <ARBGB>/GAL/LOCK</ARBGB>
+     <STEXT>Lock Management</STEXT>
+    </T100T>
+   </T100T>
+   <T100_TEXTS>
+    <item>
+     <SPRSL>P</SPRSL>
+     <MSGNR>001</MSGNR>
+     <TEXT>Object is locked by user &amp;4 (System: &amp;2, Client: &amp;3, ID: &amp;1)</TEXT>
+    </item>
+   </T100_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

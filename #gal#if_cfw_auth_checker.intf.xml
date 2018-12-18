@@ -18,6 +18,12 @@
      <LANGU>E</LANGU>
      <DESCRIPT>Check Authentification</DESCRIPT>
     </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/IF_CFW_AUTH_CHECKER</CLSNAME>
+     <CMPNAME>CHECK_AUTH</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Check Authentification</DESCRIPT>
+    </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
  </asx:abap>

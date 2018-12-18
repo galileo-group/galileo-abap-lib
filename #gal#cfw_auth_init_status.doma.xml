@@ -35,11 +35,16 @@
    </DD07V_TAB>
    <I18N_LANGS>
     <LANGU>D</LANGU>
+    <LANGU>P</LANGU>
    </I18N_LANGS>
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DDTEXT>Init Status des CFW Auth Handlers</DDTEXT>
+    </item>
+    <item>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DDTEXT>Init status of CFW Auth Handler</DDTEXT>
     </item>
    </DD01_TEXTS>
    <DD07_TEXTS>
@@ -50,15 +55,32 @@
      <DDTEXT>Aktiviert</DDTEXT>
     </item>
     <item>
+     <VALPOS>0001</VALPOS>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DOMVALUE_L>E</DOMVALUE_L>
+     <DDTEXT>Enabled</DDTEXT>
+    </item>
+    <item>
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>D</DOMVALUE_L>
      <DDTEXT>Deaktiviert</DDTEXT>
     </item>
     <item>
+     <VALPOS>0002</VALPOS>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DOMVALUE_L>D</DOMVALUE_L>
+     <DDTEXT>Disabled</DDTEXT>
+    </item>
+    <item>
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DDTEXT>[Initial] noch nicht festgelegt</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0003</VALPOS>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DDTEXT>[Initial] not yet determined</DDTEXT>
     </item>
    </DD07_TEXTS>
   </asx:values>

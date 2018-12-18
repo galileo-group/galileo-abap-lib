@@ -7,7 +7,6 @@
     <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>RegEx Utilities</DESCRIPT>
-    <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
@@ -29,6 +28,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/REGEX</CLSNAME>
+     <CMPNAME>ABAP_WILDCARD_TO_REGEX</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Convert ABAP wildcard pattern to RegEx</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/REGEX</CLSNAME>
      <CMPNAME>ESCAPE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Escape-Zeichenkette zur Verwendung in einer RegEx</DESCRIPT>
@@ -41,6 +46,12 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/REGEX</CLSNAME>
+     <CMPNAME>ESCAPE</CMPNAME>
+     <LANGU>P</LANGU>
+     <DESCRIPT>Escape string for use in a RegEx</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/REGEX</CLSNAME>
      <CMPNAME>SQL_WILDCARD_TO_REGEX</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>SQL Wildcard-Muster in RegEx konvertieren</DESCRIPT>
@@ -49,6 +60,12 @@
      <CLSNAME>/GAL/REGEX</CLSNAME>
      <CMPNAME>SQL_WILDCARD_TO_REGEX</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Convert SQL wildcard pattern to RegEx</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/REGEX</CLSNAME>
+     <CMPNAME>SQL_WILDCARD_TO_REGEX</CMPNAME>
+     <LANGU>P</LANGU>
      <DESCRIPT>Convert SQL wildcard pattern to RegEx</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
