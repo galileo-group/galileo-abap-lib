@@ -1,26 +1,26 @@
-class /GAL/TRANSLATOR_DEEPL definition
-  public
-  inheriting from /GAL/TRANSLATOR
-  final
-  create public .
+CLASS /gal/translator_deepl DEFINITION
+  PUBLIC
+  INHERITING FROM /gal/translator
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-  type-pools ABAP .
+  PUBLIC SECTION.
+    TYPE-POOLS abap .
 
-  methods CONSTRUCTOR .
+    METHODS constructor .
 
-  methods /GAL/IF_TRANSLATION_PROVIDER~TRANSLATE
-    redefinition .
-protected section.
-private section.
+    METHODS /gal/if_translation_provider~translate
+        REDEFINITION .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 
-  data AUTH_KEY type STRING .
-  data CLIENT type ref to /GAL/REST_CLIENT .
+    DATA auth_key TYPE string .
+    DATA client TYPE REF TO /gal/rest_client .
 ENDCLASS.
 
 
 
-CLASS /GAL/TRANSLATOR_DEEPL IMPLEMENTATION.
+CLASS /gal/translator_deepl IMPLEMENTATION.
 
 
   METHOD /gal/if_translation_provider~translate.
@@ -199,7 +199,7 @@ CLASS /GAL/TRANSLATOR_DEEPL IMPLEMENTATION.
           l_config_folder TYPE REF TO /gal/config_node,
           l_config_node   TYPE REF TO /gal/config_node.
 
-* Call contructor of super class
+* Call constructor of super class
     super->constructor( ).
 
 * Get settings from configuration store
@@ -218,11 +218,6 @@ CLASS /GAL/TRANSLATOR_DEEPL IMPLEMENTATION.
     ENDTRY.
 
 * Create REST client
-    CREATE OBJECT client
-      EXPORTING
-        base_uri = `v1/translate`                        "#EC NOTEXT
-        host     = `api.deepl.com`                  "#EC NOTEXT
-        scheme   = cl_http_client=>schemetype_https
-        ssl_id   = 'ANONYM'.                        "#EC NOTEXT
+    client = /gal/rest_client=>create_from_uri( uri = `https://api.deepl.com/v1/translate` ). "#EC NOTEXT
   ENDMETHOD.
 ENDCLASS.

@@ -4,7 +4,6 @@
   <asx:values>
    <AREAT>Necessary RFC functions for auth checks</AREAT>
    <INCLUDES>
-    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
     <SOBJ_NAME>/GAL/LCFW_AUTH_RFCTOP</SOBJ_NAME>
     <SOBJ_NAME>/GAL/SAPLCFW_AUTH_RFC</SOBJ_NAME>
    </INCLUDES>
@@ -47,29 +46,24 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>AUTH_CONFIG</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Object/ID combinations for authority check</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>USER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>User Name</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FORBIDDEN</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -121,48 +115,40 @@
        <PARAMETER>READ_CALLSTACK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Read and return the callstack</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Read and return auth active state</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYSYSID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name of SAP System</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYMANDT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client ID</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYUNAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>User Name</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CALLSTACK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>ABAP Call Stack</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>AUTH_ACTIVE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Auth is active</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FRAMEWORK_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 008</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -221,59 +207,49 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>READ_CALLSTACK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Read and return the callstack</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>GET_AUTH_ACTIVE_STATE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Read and return auth active state</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYSYSID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name of SAP System</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYMANDT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client ID</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYUNAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>User Name</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CALLSTACK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>ABAP Call Stack</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>AUTH_ACTIVE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Auth is active</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FRAMEWORK_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

@@ -1,5 +1,5 @@
-CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Short
-                                                 "#AU Risk_Level Harmless
+CLASS abap_unit_testclass DEFINITION FOR TESTING FINAL "#AU Duration Short
+                                                       "#AU Risk_Level Harmless
 .
 *?﻿<asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
 *?<asx:values>
@@ -20,7 +20,7 @@ CLASS abap_unit_testclass DEFINITION FOR TESTING "#AU Duration Short
 *?</asx:abap>
   PRIVATE SECTION.
     DATA:
-      f_cut TYPE REF TO /gal/translator_deepl.  "#EC NEEDED
+      f_cut TYPE REF TO /gal/translator_deepl.              "#EC NEEDED
 
     METHODS: translate FOR TESTING.
 ENDCLASS.       "abap_Unit_Testclass

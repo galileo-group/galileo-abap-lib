@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOINTERF>
     <CLSNAME>/GAL/IF_RFC_ROUTE_PROVIDER</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Object that can provide RFC route information</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>

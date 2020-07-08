@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOINTERF>
     <CLSNAME>/GAL/IF_TRANSLATION_PROVIDER</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Provider for automatic translations</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>

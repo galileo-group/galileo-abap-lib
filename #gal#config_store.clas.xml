@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Configuration Store</DESCRIPT>
     <STATE>1</STATE>
@@ -13,6 +12,24 @@
     <UNICODE>X</UNICODE>
     <RSTAT>K</RSTAT>
    </VSEOCLASS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>X00</KEY>
+       <ENTRY>Der Konfigurationsspeicher enthält ungültige Daten</ENTRY>
+       <LENGTH>132</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <I18N_LINES>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+    </item>
+   </I18N_LINES>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CONFIG_STORE</CLSNAME>

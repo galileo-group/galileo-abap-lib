@@ -1,3 +1,4 @@
+"! <p class="shorttext synchronized" lang="en">SAPgui Shortcut</p>
 class /GAL/SAPGUI_SHORTCUT definition
   public
   final
@@ -6,24 +7,62 @@ class /GAL/SAPGUI_SHORTCUT definition
 public section.
   type-pools ABAP .
 
+  "! <p class="shorttext synchronized" lang="en">SAPgui shortcut type: Report</p>
   constants SHORTCUT_TYPE_REPORT type I value 2. "#EC NOTEXT
+  "! <p class="shorttext synchronized" lang="en">SAPgui shortcut type: System Command</p>
   constants SHORTCUT_TYPE_SYSTEM_COMMAND type I value 3. "#EC NOTEXT
+  "! <p class="shorttext synchronized" lang="en">SAPgui shortcut type: Transaction</p>
   constants SHORTCUT_TYPE_TRANSACTION type I value 1. "#EC NOTEXT
+  "! <p class="shorttext synchronized" lang="en">SAPgui shortcut type: Undefined</p>
   constants SHORTCUT_TYPE_UNDEFINED type I value 0. "#EC NOTEXT
+  "! <p class="shorttext synchronized" lang="en">Client</p>
   data CLIENT type MANDT read-only .
+  "! <p class="shorttext synchronized" lang="en">Do not re-use existing session</p>
   data FORCE_LOGIN type ABAP_BOOL read-only .
+  "! <p class="shorttext synchronized" lang="en">Language Key</p>
   data LANGUAGE type LANGU read-only .
+  "! <p class="shorttext synchronized" lang="en">Parameters</p>
   data PARAMETERS type STRING read-only .
+  "! <p class="shorttext synchronized" lang="en">Program Name (type Report only)</p>
   data PROGRAM_NAME type PROGNAME read-only .
+  "! <p class="shorttext synchronized" lang="en">System description used in SAPlogon</p>
   data SAPLOGON_SYSTEM_DESCRIPTION type STRING read-only .
+  "! <p class="shorttext synchronized" lang="en">System Command (type System Command)</p>
   data SYSTEM_COMMAND type STRING read-only .
+  "! <p class="shorttext synchronized" lang="en">System ID</p>
   data SYSTEM_ID type SYSYSID read-only .
+  "! <p class="shorttext synchronized" lang="en">Title</p>
   data TITLE type STRING read-only .
+  "! <p class="shorttext synchronized" lang="en">Transaction Code (type Transaction only)</p>
   data TRANSACTION_CODE type TCODE read-only .
+  "! <p class="shorttext synchronized" lang="en">SAPgui shortcut type</p>
   data TYPE type I read-only value SHORTCUT_TYPE_UNDEFINED. "#EC NOTEXT
+  "! <p class="shorttext synchronized" lang="en">User Name</p>
   data USER type SYUNAME read-only .
+  "! <p class="shorttext synchronized" lang="en">Skip first screen for transaction</p>
   data SKIP_FIRST_SCREEN type ABAP_BOOL read-only .
+"! <p class="shorttext synchronized" lang="en">Include SNC information</p>
+  data WITH_SNC_INFO type ABAP_BOOL read-only.
+"! <p class="shorttext synchronized" lang="en">SNC name of target system</p>
+  data SYS_SNC_NAME type STRING read-only.
+  "! <p class="shorttext synchronized" lang="en">SNC quality of protection</p>
+  data SYS_SNC_QOP type CHAR1 read-only.
 
+  "! <p class="shorttext synchronized" lang="en">Constructor</p>
+  "!
+  "! @parameter transaction_code               | <p class="shorttext synchronized" lang="en">Transaction code</p>
+  "! @parameter program_name                   | <p class="shorttext synchronized" lang="en">Program name</p>
+  "! @parameter system_command                 | <p class="shorttext synchronized" lang="en">System Command</p>
+  "! @parameter system_id                      | <p class="shorttext synchronized" lang="en">System ID</p>
+  "! @parameter saplogon_system_description    | <p class="shorttext synchronized" lang="en">System description used in SAPlogon</p>
+  "! @parameter client                         | <p class="shorttext synchronized" lang="en">Client</p>
+  "! @parameter user                           | <p class="shorttext synchronized" lang="en">User</p>
+  "! @parameter language                       | <p class="shorttext synchronized" lang="en">Language</p>
+  "! @parameter title                          | <p class="shorttext synchronized" lang="en">Title</p>
+  "! @parameter force_login                    | <p class="shorttext synchronized" lang="en">Do not re-use existing session</p>
+  "! @parameter sys_snc_name                   | <p class="shorttext synchronized" lang="en">SNC name of target system</p>
+  "! @parameter sys_snc_qop                    | <p class="shorttext synchronized" lang="en">SNC quality of protection</p>
+  "! @raising   /gal/cx_gui_shortcut_exception | <p class="shorttext synchronized" lang="en">SAPgui Shortcut related exception</p>
   methods CONSTRUCTOR
     importing
       !TRANSACTION_CODE type CSEQUENCE optional
@@ -36,36 +75,66 @@ public section.
       !LANGUAGE type LANGU default SY-LANGU
       !TITLE type CSEQUENCE optional
       !FORCE_LOGIN type ABAP_BOOL default ABAP_FALSE
+      !SYS_SNC_NAME type CSEQUENCE optional
+      !SYS_SNC_QOP TYPE CSEQUENCE optional
     raising
       /GAL/CX_GUI_SHORTCUT_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Write to temporary frontend file and execute</p>
+  "!
+  "! @raising   /gal/cx_gui_shortcut_exception | <p class="shorttext synchronized" lang="en">SAPgui Shortcut related exception</p>
+  "! @raising   /gal/cx_io_exception           | <p class="shorttext synchronized" lang="en">IO Exception</p>
   methods EXECUTE
     raising
       /GAL/CX_GUI_SHORTCUT_EXCEPTION
       /GAL/CX_IO_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Set dynpro field value (type Transaction only)</p>
+  "!
+  "! @parameter field_name                     | <p class="shorttext synchronized" lang="en">Field name</p>
+  "! @parameter field_value                    | <p class="shorttext synchronized" lang="en">Field value</p>
+  "! @raising   /gal/cx_gui_shortcut_exception | <p class="shorttext synchronized" lang="en">SAPgui Shortcut related exception</p>
   methods SET_DYNPRO_FIELD_VALUE
     importing
       !FIELD_NAME type CSEQUENCE
       !FIELD_VALUE type ANY
     raising
       /GAL/CX_GUI_SHORTCUT_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Write to file</p>
+  "!
+  "! @parameter file                 | <p class="shorttext synchronized" lang="en">File</p>
+  "! @raising   /gal/cx_io_exception | <p class="shorttext synchronized" lang="en">IO Exception</p>
   methods WRITE_TO_FILE
     importing
       !FILE type ref to /GAL/FILE
     raising
       /GAL/CX_IO_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Write to frontend file</p>
+  "!
+  "! @parameter name                 | <p class="shorttext synchronized" lang="en">File name (full path)</p>
+  "! @raising   /gal/cx_io_exception | <p class="shorttext synchronized" lang="en">IO Exception</p>
   methods WRITE_TO_FRONTEND_FILE
     importing
       !NAME type CSEQUENCE
     raising
       /GAL/CX_IO_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Write to stream</p>
+  "!
+  "! @parameter stream               | <p class="shorttext synchronized" lang="en">Stream</p>
+  "! @raising   /gal/cx_io_exception | <p class="shorttext synchronized" lang="en">IO Exception</p>
   methods WRITE_TO_STREAM
     importing
       !STREAM type ref to /GAL/STREAM
     raising
       /GAL/CX_IO_EXCEPTION .
+  "! <p class="shorttext synchronized" lang="en">Write to string</p>
+  "!
+  "! @parameter result | <p class="shorttext synchronized" lang="en">Result</p>
   methods WRITE_TO_STRING
     returning
       value(RESULT) type STRING .
+  "! <p class="shorttext synchronized" lang="en">Set indicator to skip first screen (type Transaction only)</p>
+  "!
+  "! @parameter skip_first_screen              | <p class="shorttext synchronized" lang="en">Skip first screen for transaction</p>
+  "! @raising   /gal/cx_gui_shortcut_exception | <p class="shorttext synchronized" lang="en">SAPgui Shortcut related exception</p>
   methods SET_SKIP_FIRST_SCREEN
     importing
       !SKIP_FIRST_SCREEN type ABAP_BOOL default ABAP_FALSE
@@ -109,6 +178,15 @@ METHOD constructor.
   me->user                        = user.
   me->language                    = language.
   me->force_login                 = force_login.
+
+  me->sys_snc_name               = sys_snc_name.
+  me->sys_snc_qop                = sys_snc_qop.
+
+  IF me->sys_snc_name IS NOT INITIAL AND me->sys_snc_qop IS NOT INITIAL.
+    me->with_snc_info = abap_true.
+  ELSE.
+    me->with_snc_info = abap_false.
+  ENDIF.
 
   IF title IS NOT INITIAL.
     me->title = title.
@@ -300,21 +378,42 @@ METHOD write_to_string.
   l_window_size = `Normal window`.                          "#EC NOTEXT
 
 * Create shortcut
-  CONCATENATE `[System]`                                 /gal/string=>line_break_windows "#EC NOTEXT
-              `Name=`        system_id                   /gal/string=>line_break_windows "#EC NOTEXT
-              `Description=` saplogon_system_description /gal/string=>line_break_windows "#EC NOTEXT
-              `Client=`      client                      /gal/string=>line_break_windows "#EC NOTEXT
-              `[User]`                                   /gal/string=>line_break_windows "#EC NOTEXT
-              `Name=`        user                        /gal/string=>line_break_windows "#EC NOTEXT
-              `Language=`    l_language_iso              /gal/string=>line_break_windows "#EC NOTEXT
-              `[Function]`                               /gal/string=>line_break_windows "#EC NOTEXT
-              `Title=`       title                       /gal/string=>line_break_windows "#EC NOTEXT
-              `Command=`     l_command                   /gal/string=>line_break_windows "#EC NOTEXT
-              `Type=`        l_type                      /gal/string=>line_break_windows "#EC NOTEXT
-              `[Configuration]`                          /gal/string=>line_break_windows "#EC NOTEXT
-              `GuiSize=`     l_window_size               /gal/string=>line_break_windows "#EC NOTEXT
-              `[Options]`                                /gal/string=>line_break_windows "#EC NOTEXT
-              `Reuse=`       l_reuse                     /gal/string=>line_break_windows "#EC NOTEXT
-         INTO result.
+  IF with_snc_info = abap_false.
+    CONCATENATE `[System]`                                 /gal/string=>line_break_windows "#EC NOTEXT
+                `Name=`        system_id                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Description=` saplogon_system_description /gal/string=>line_break_windows "#EC NOTEXT
+                `Client=`      client                      /gal/string=>line_break_windows "#EC NOTEXT
+                `[User]`                                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Name=`        user                        /gal/string=>line_break_windows "#EC NOTEXT
+                `Language=`    l_language_iso              /gal/string=>line_break_windows "#EC NOTEXT
+                `[Function]`                               /gal/string=>line_break_windows "#EC NOTEXT
+                `Title=`       title                       /gal/string=>line_break_windows "#EC NOTEXT
+                `Command=`     l_command                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Type=`        l_type                      /gal/string=>line_break_windows "#EC NOTEXT
+                `[Configuration]`                          /gal/string=>line_break_windows "#EC NOTEXT
+                `GuiSize=`     l_window_size               /gal/string=>line_break_windows "#EC NOTEXT
+                `[Options]`                                /gal/string=>line_break_windows "#EC NOTEXT
+                `Reuse=`       l_reuse                     /gal/string=>line_break_windows "#EC NOTEXT
+           INTO result.
+  ELSE.
+    CONCATENATE `[System]`                                 /gal/string=>line_break_windows "#EC NOTEXT
+                `Name=`        system_id                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Description=` saplogon_system_description /gal/string=>line_break_windows "#EC NOTEXT
+                `Client=`      client                      /gal/string=>line_break_windows "#EC NOTEXT
+                `snc_name=`    sys_snc_name                /gal/string=>line_break_windows "#EC NOTEXT
+                `snc_qop=`     sys_snc_qop                 /gal/string=>line_break_windows "#EC NOTEXT
+                `[User]`                                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Name=`        user                        /gal/string=>line_break_windows "#EC NOTEXT
+                `Language=`    l_language_iso              /gal/string=>line_break_windows "#EC NOTEXT
+                `[Function]`                               /gal/string=>line_break_windows "#EC NOTEXT
+                `Title=`       title                       /gal/string=>line_break_windows "#EC NOTEXT
+                `Command=`     l_command                   /gal/string=>line_break_windows "#EC NOTEXT
+                `Type=`        l_type                      /gal/string=>line_break_windows "#EC NOTEXT
+                `[Configuration]`                          /gal/string=>line_break_windows "#EC NOTEXT
+                `GuiSize=`     l_window_size               /gal/string=>line_break_windows "#EC NOTEXT
+                `[Options]`                                /gal/string=>line_break_windows "#EC NOTEXT
+                `Reuse=`       l_reuse                     /gal/string=>line_break_windows "#EC NOTEXT
+           INTO result.
+  ENDIF.
 ENDMETHOD.
 ENDCLASS.

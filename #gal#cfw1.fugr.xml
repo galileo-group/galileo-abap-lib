@@ -4,7 +4,6 @@
   <asx:values>
    <AREAT>RFC Communication Framework</AREAT>
    <INCLUDES>
-    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
     <SOBJ_NAME>/GAL/LCFW1TOP</SOBJ_NAME>
     <SOBJ_NAME>/GAL/SAPLCFW1</SOBJ_NAME>
    </INCLUDES>
@@ -68,61 +67,51 @@
        <PARAMETER>FUNCTION_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Name of Function Module to be called</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>PARAMETERS_IN</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Importing/Changing/Tables parameters (serialized)</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>INITIAL_CALLER_SYSYSID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Initial Caller - Name of SAP System</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>INITIAL_CALLER_SYMANDT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Initial Caller - Client ID</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>INITIAL_CALLER_SYUNAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Initial Caller - User Name</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>PARAMETERS_OUT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Exporting/Changing/Tables parameters (serialized)</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCEPTION_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Exception (in case of errors only)</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>NO_AUTHORIZATION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Authority check failed</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>AUTHORITY_INTEGRITY_FAILED</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Authority check integrity check failed</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -153,19 +142,16 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_ROUTE_STEP_INFOS</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Information about RFC Route Steps</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>EXCEPTION_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Exception information</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

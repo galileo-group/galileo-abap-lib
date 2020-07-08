@@ -4,8 +4,6 @@
   <asx:values>
    <PROGDIR>
     <NAME>/GAL/JS_EXECUTE_BG</NAME>
-    <STATE>A</STATE>
-    <VARCL>X</VARCL>
     <SUBC>1</SUBC>
     <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>
@@ -15,7 +13,13 @@
     <item>
      <ID>R</ID>
      <ENTRY>Wrapper to execute job in background</ENTRY>
-     <LENGTH>41</LENGTH>
+     <LENGTH>36</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_ID</KEY>
+     <ENTRY>Job ID</ENTRY>
+     <LENGTH>14</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
@@ -26,6 +30,12 @@
        <ID>R</ID>
        <ENTRY>Wrapper um Job im Hintergrund auszuführen</ENTRY>
        <LENGTH>70</LENGTH>
+      </item>
+      <item>
+       <ID>S</ID>
+       <KEY>P_ID</KEY>
+       <ENTRY>Job ID</ENTRY>
+       <LENGTH>38</LENGTH>
       </item>
      </TEXTPOOL>
     </item>

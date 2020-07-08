@@ -1,4 +1,4 @@
-FUNCTION /gal/js_run_jobs_async_part.
+FUNCTION /GAL/JS_RUN_JOBS_ASYNC_PART.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
@@ -7,6 +7,8 @@ FUNCTION /gal/js_run_jobs_async_part.
 *"       OPTIONAL
 *"     REFERENCE(JS_JOB_ID) TYPE  /GAL/JOB_ID
 *"     REFERENCE(JOB_NAME) TYPE  BTCJOB DEFAULT 'BACKGROUND_JOB'
+*"     REFERENCE(RELEASE_SAP_JOB_ONLY) TYPE  ABAP_BOOL DEFAULT
+*"       ABAP_FALSE
 *"  EXPORTING
 *"     REFERENCE(JOB_COUNT) TYPE  BTCJOBCNT
 *"  EXCEPTIONS
@@ -30,6 +32,8 @@ FUNCTION /gal/js_run_jobs_async_part.
   DATA l_print_parameters   TYPE pri_params.
   DATA l_print_params_valid TYPE abap_bool.
 
+  DATA l_start_immediately          TYPE boolean.
+
 * Initialize result
   CLEAR job_count.
 
@@ -43,14 +47,15 @@ FUNCTION /gal/js_run_jobs_async_part.
   IF rfc_route_info_step2 IS NOT INITIAL.
     CALL FUNCTION '/GAL/JS_RUN_JOBS_ASYNC_PART'
       EXPORTING
-        rfc_route_info = rfc_route_info_step2
-        js_job_id      = js_job_id
-        job_name       = job_name
+        rfc_route_info       = rfc_route_info_step2
+        js_job_id            = js_job_id
+        job_name             = job_name
+        release_sap_job_only = release_sap_job_only
       IMPORTING
-        job_count      = job_count
+        job_count            = job_count
       EXCEPTIONS
-        rfc_exception  = 1
-        OTHERS         = 2.
+        rfc_exception        = 1
+        OTHERS               = 2.
     IF sy-subrc = 1.
       MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
               WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
@@ -75,7 +80,7 @@ FUNCTION /gal/js_run_jobs_async_part.
       /gal/trace=>write_text( text = l_rfc_ex_info-message_text ).
     ENDIF.
 
-    /gal/string=>string_to_message_vars( EXPORTING input = text-001
+    /gal/string=>string_to_message_vars( EXPORTING input = TEXT-001
                                          IMPORTING msgv1 = sy-msgv1
                                                    msgv2 = sy-msgv2
                                                    msgv3 = sy-msgv3
@@ -180,13 +185,20 @@ FUNCTION /gal/js_run_jobs_async_part.
   ENDIF.
 
 * Close job
+  IF release_sap_job_only = abap_false.
+    l_start_immediately = abap_true.
+  ELSE.
+    l_start_immediately = abap_false.
+  ENDIF.
+
   CALL FUNCTION 'JOB_CLOSE'
     EXPORTING
       jobcount  = job_count
       jobname   = job_name
-      strtimmed = abap_true
+      strtimmed = l_start_immediately
     EXCEPTIONS
       OTHERS    = 1.
+
   IF sy-subrc <> 0.
 * TODO: Delete Job
 
@@ -194,4 +206,5 @@ FUNCTION /gal/js_run_jobs_async_part.
             WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
             RAISING cannot_submit_job.
   ENDIF.
+
 ENDFUNCTION.

@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/TIMESTAMP_BASE</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Base functionality for Timestamps</DESCRIPT>
     <STATE>1</STATE>

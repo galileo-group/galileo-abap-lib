@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>SAPgui Shortcut</DESCRIPT>
     <STATE>1</STATE>
@@ -27,6 +26,50 @@
      <LENGTH>100</LENGTH>
     </item>
    </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>E01</KEY>
+       <ENTRY>Der Pfad für temporäre Dateien konnte nicht ermittelt werden.</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>E02</KEY>
+       <ENTRY>Fehler beim Starten der SAPgui Instanz.</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+    <item>
+     <LANGUAGE>P</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>E01</KEY>
+       <ENTRY>Cannot get folder for temporary files.</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>E02</KEY>
+       <ENTRY>Error starting SAPgui instance.</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <I18N_LINES>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+    </item>
+    <item>
+     <LANGUAGE>P</LANGUAGE>
+    </item>
+   </I18N_LINES>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
@@ -336,6 +379,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
+     <CMPNAME>SYS_SNC_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SNC name of target system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
+     <CMPNAME>SYS_SNC_QOP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>SNC quality of protection</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
      <CMPNAME>TITLE</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Titel</DESCRIPT>
@@ -405,6 +460,12 @@
      <CMPNAME>USER</CMPNAME>
      <LANGU>P</LANGU>
      <DESCRIPT>User Name</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>
+     <CMPNAME>WITH_SNC_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Include SNC information</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/SAPGUI_SHORTCUT</CLSNAME>

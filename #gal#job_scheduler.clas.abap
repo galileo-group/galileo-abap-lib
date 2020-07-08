@@ -179,6 +179,7 @@ METHOD run.
     SELECT * FROM /gal/jobdata01 AS j01
            INTO TABLE lt_jobdata01
            WHERE status = 'W'
+             AND uc4_mode <> 'W'
                  AND NOT EXISTS (
                    SELECT * FROM /gal/jobdata02
                            WHERE job_id = j01~id

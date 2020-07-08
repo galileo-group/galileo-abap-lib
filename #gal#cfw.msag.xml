@@ -140,6 +140,12 @@
      <MSGNR>021</MSGNR>
      <TEXT>INTERNAL CFW AUTH EXCEPTION - DO NOT CHANGE - &amp;1&amp;2&amp;3&amp;4</TEXT>
     </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>/GAL/CFW</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Function &amp; may only be triggered from central system</TEXT>
+    </T100>
    </T100>
    <I18N_LANGS>
     <LANGU>P</LANGU>

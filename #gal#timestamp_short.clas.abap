@@ -1,92 +1,100 @@
 "! <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-class /GAL/TIMESTAMP_SHORT definition
-  public
-  inheriting from /GAL/TIMESTAMP_BASE
-  create public .
+CLASS /gal/timestamp_short DEFINITION
+  PUBLIC
+  INHERITING FROM /gal/timestamp_base
+  CREATE PUBLIC .
 
-public section.
-  type-pools ABAP .
+  PUBLIC SECTION.
+    TYPE-POOLS abap .
 
     "! <p class="shorttext synchronized" lang="en">Timestamp with maximum value</p>
-  class-data MAX_VALUE type ref to /GAL/TIMESTAMP_SHORT read-only .
+    CLASS-DATA max_value TYPE REF TO /gal/timestamp_short READ-ONLY .
     "! <p class="shorttext synchronized" lang="en">Timestamp with minimum value</p>
-  class-data MIN_VALUE type ref to /GAL/TIMESTAMP_SHORT read-only .
+    CLASS-DATA min_value TYPE REF TO /gal/timestamp_short READ-ONLY .
     "! <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
-  data VALUE type TIMESTAMP read-only .
+    DATA value TYPE timestamp READ-ONLY .
 
     "! <p class="shorttext synchronized" lang="en">Class Constructor</p>
-  class-methods CLASS_CONSTRUCTOR .
+    CLASS-METHODS class_constructor .
     "! <p class="shorttext synchronized" lang="en">Create instance from date, time and time zone</p>
     "!
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter instance  | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-  class-methods FROM_DATE_TIME
-    importing
-      !DATE type D
-      !TIME type T
-      !TIME_ZONE type TTZZ-TZONE
-    returning
-      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
+    CLASS-METHODS from_date_time
+      IMPORTING
+        !date           TYPE d
+        !time           TYPE t
+        !time_zone      TYPE ttzz-tzone
+      RETURNING
+        VALUE(instance) TYPE REF TO /gal/timestamp_short .
     "! <p class="shorttext synchronized" lang="en">Get timestamp for current time</p>
     "!
     "! @parameter instance | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-  class-methods NOW
-    returning
-      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
+    CLASS-METHODS now
+      RETURNING
+        VALUE(instance) TYPE REF TO /gal/timestamp_short .
     "! <p class="shorttext synchronized" lang="en">Add interval to timestamp</p>
     "!
     "! @parameter seconds | <p class="shorttext synchronized" lang="en">Seconds</p>
     "! @parameter minutes | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours   | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days    | <p class="shorttext synchronized" lang="en">Days</p>
-  methods ADD_INTERVAL
-    importing
-      !SECONDS type I default 0
-      !MINUTES type I default 0
-      !HOURS type I default 0
-      !DAYS type I default 0 .
-  methods CLONE
-    returning
-      value(INSTANCE) type ref to /GAL/TIMESTAMP_SHORT .
+    "! @parameter months  | <p class="shorttext synchronized" lang="en">Months</p>
+    "! @parameter years   | <p class="shorttext synchronized" lang="en">Years</p>
+    METHODS add_interval
+      IMPORTING
+        !seconds TYPE i DEFAULT 0
+        !minutes TYPE i DEFAULT 0
+        !hours   TYPE i DEFAULT 0
+        !days    TYPE i DEFAULT 0
+        !months  TYPE i DEFAULT 0
+        !years   TYPE i DEFAULT 0 .
+    METHODS clone
+      RETURNING
+        VALUE(instance) TYPE REF TO /gal/timestamp_short .
     "! <p class="shorttext synchronized" lang="en">Constructor</p>
     "!
     "! @parameter value | <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
-  methods CONSTRUCTOR
-    importing
-      !VALUE type TIMESTAMP optional .
+    METHODS constructor
+      IMPORTING
+        !value TYPE timestamp OPTIONAL .
     "! <p class="shorttext synchronized" lang="en">Subtract interval from timestamp</p>
     "!
     "! @parameter seconds | <p class="shorttext synchronized" lang="en">Seconds</p>
     "! @parameter minutes | <p class="shorttext synchronized" lang="en">Minutes</p>
     "! @parameter hours   | <p class="shorttext synchronized" lang="en">Hours</p>
     "! @parameter days    | <p class="shorttext synchronized" lang="en">Days</p>
-  methods SUBTRACT_INTERVAL
-    importing
-      !SECONDS type I default 0
-      !MINUTES type I default 0
-      !HOURS type I default 0
-      !DAYS type I default 0 .
+    "! @parameter months  | <p class="shorttext synchronized" lang="en">Months</p>
+    "! @parameter years   | <p class="shorttext synchronized" lang="en">Years</p>
+    METHODS subtract_interval
+      IMPORTING
+        !seconds TYPE i DEFAULT 0
+        !minutes TYPE i DEFAULT 0
+        !hours   TYPE i DEFAULT 0
+        !days    TYPE i DEFAULT 0
+        !months  TYPE i DEFAULT 0
+        !years   TYPE i DEFAULT 0 .
     "! <p class="shorttext synchronized" lang="en">Convert to date and time</p>
     "!
     "! @parameter time_zone | <p class="shorttext synchronized" lang="en">Time zone</p>
     "! @parameter date      | <p class="shorttext synchronized" lang="en">Date</p>
     "! @parameter time      | <p class="shorttext synchronized" lang="en">Time</p>
     "! @parameter dst       | <p class="shorttext synchronized" lang="en">Flag: Daylight savings time</p>
-  methods TO_DATE_TIME
-    importing
-      !TIME_ZONE type TTZZ-TZONE
-    exporting
-      !DATE type D
-      !TIME type T
-      !DST type ABAP_BOOL .
+    METHODS to_date_time
+      IMPORTING
+        !time_zone TYPE ttzz-tzone
+      EXPORTING
+        !date      TYPE d
+        !time      TYPE t
+        !dst       TYPE abap_bool .
     "! <p class="shorttext synchronized" lang="en">Convert to long timestamp</p>
     "!
     "! @parameter instance | <p class="shorttext synchronized" lang="en">Short Timestamp</p>
-  methods TO_LONG_TIMESTAMP
-    returning
-      value(INSTANCE) type ref to /GAL/TIMESTAMP_LONG .
+    METHODS to_long_timestamp
+      RETURNING
+        VALUE(instance) TYPE REF TO /gal/timestamp_long .
   PROTECTED SECTION.
 
   PRIVATE SECTION.
@@ -95,59 +103,94 @@ ENDCLASS.
 
 
 
-CLASS /GAL/TIMESTAMP_SHORT IMPLEMENTATION.
+CLASS /gal/timestamp_short IMPLEMENTATION.
 
 
   METHOD add_interval.
-    DATA l_total_seconds TYPE i.
-    DATA l_total_days    TYPE i.
-
-    DATA l_date_old      TYPE d.
-    DATA l_date_new      TYPE d.
-    DATA l_time_old      TYPE t.
-    DATA l_time_new      TYPE t.
+    DATA:
+      l_total_seconds TYPE i,
+      l_total_days    TYPE i,
+      l_date_old      TYPE d,
+      l_date_new      TYPE d,
+      l_time_old      TYPE t,
+      l_time_new      TYPE t,
+      l_new_value_str TYPE string,
+      l_year_n(4)     TYPE n,
+      l_month_n(2)    TYPE n,
+      l_year          TYPE i,
+      l_month         TYPE i.
 
     l_total_days    = days.
     l_total_seconds = seconds + 60 * minutes + 3600 * hours. "#EC NUMBER_OK
 
-    IF l_total_days = 0 AND l_total_seconds = 0.
-      RETURN.
-    ENDIF.
+    IF l_total_days <> 0 OR l_total_seconds <> 0.
 
-    l_total_days    = l_total_days + sign( l_total_seconds ) * ( abs( l_total_seconds ) DIV 86400 ). "#EC NUMBER_OK
-    l_total_seconds = sign( l_total_seconds ) * ( abs( l_total_seconds ) MOD 86400 ). "#EC NUMBER_OK
+      l_total_days    = l_total_days + sign( l_total_seconds ) * ( abs( l_total_seconds ) DIV 86400 ). "#EC NUMBER_OK
+      l_total_seconds = sign( l_total_seconds ) * ( abs( l_total_seconds ) MOD 86400 ). "#EC NUMBER_OK
 
-    IF l_total_days = 0 AND l_total_seconds = 0.
-      RETURN.
-    ENDIF.
+      IF l_total_days <> 0 OR l_total_seconds <> 0.
 
-    CONVERT TIME STAMP value TIME ZONE time_zone_utc
-       INTO DATE l_date_old TIME l_time_old.
+        CONVERT TIME STAMP value TIME ZONE time_zone_utc
+           INTO DATE l_date_old TIME l_time_old.
 
-    IF l_total_seconds <> 0.
-      l_time_new = l_time_old + l_total_seconds.
+        IF l_total_seconds <> 0.
+          l_time_new = l_time_old + l_total_seconds.
 
-      IF l_total_seconds > 0.
-        IF l_time_new < l_time_old.
-          l_total_days = l_total_days + 1.
+          IF l_total_seconds > 0.
+            IF l_time_new < l_time_old.
+              l_total_days = l_total_days + 1.
+            ENDIF.
+          ELSE.
+            IF l_time_new > l_time_old.
+              l_total_days = l_total_days - 1.
+            ENDIF.
+          ENDIF.
+        ELSE.
+          l_time_new = l_time_old.
         ENDIF.
-      ELSE.
-        IF l_time_new > l_time_old.
-          l_total_days = l_total_days - 1.
+
+        IF l_total_days <> 0.
+          l_date_new = l_date_old + l_total_days.
+        ELSE.
+          l_date_new = l_date_old.
         ENDIF.
+
+        CONVERT DATE l_date_new TIME l_time_new
+           INTO TIME STAMP value TIME ZONE time_zone_utc.
+
       ENDIF.
-    ELSE.
-      l_time_new = l_time_old.
     ENDIF.
 
-    IF l_total_days <> 0.
-      l_date_new = l_date_old + l_total_days.
-    ELSE.
-      l_date_new = l_date_old.
+    IF months IS NOT INITIAL OR years IS NOT INITIAL.
+
+      l_new_value_str = value.
+
+      l_month_n = l_new_value_str+4(2).
+      l_year_n  = l_new_value_str(4).
+      l_month = l_month_n.
+      l_year  = l_year_n.
+
+      l_year  = l_year  + years.
+      l_month = l_month + months.
+      WHILE l_month > 12.                                "#EC NUMBER_OK
+        l_month = l_month - 12.                          "#EC NUMBER_OK
+        l_year  = l_year + 1.
+      ENDWHILE.
+      WHILE l_month < 1.
+        l_month = 12 + l_month.                          "#EC NUMBER_OK
+        l_year  = l_year - 1.
+      ENDWHILE.
+
+      l_month_n = l_month.
+      l_year_n  = l_year.
+
+      REPLACE SECTION OFFSET 0 LENGTH 4 OF l_new_value_str WITH l_year_n.
+      REPLACE SECTION OFFSET 4 LENGTH 2 OF l_new_value_str WITH l_month_n.
+
+      value = l_new_value_str.
+
     ENDIF.
 
-    CONVERT DATE l_date_new TIME l_time_new
-       INTO TIME STAMP value TIME ZONE time_zone_utc.
   ENDMETHOD.
 
 
@@ -203,20 +246,27 @@ CLASS /GAL/TIMESTAMP_SHORT IMPLEMENTATION.
 
 
   METHOD subtract_interval.
-    DATA l_seconds TYPE i.
-    DATA l_minutes TYPE i.
-    DATA l_hours   TYPE i.
-    DATA l_days    TYPE i.
+    DATA:
+      l_seconds TYPE i,
+      l_minutes TYPE i,
+      l_hours   TYPE i,
+      l_days    TYPE i,
+      l_months  TYPE i,
+      l_years   TYPE i.
 
     l_seconds = - seconds.
     l_minutes = - minutes.
     l_hours   = - hours.
     l_days    = - days.
+    l_months  = - months.
+    l_years   = - years.
 
     add_interval( seconds = l_seconds
                   minutes = l_minutes
                   hours   = l_hours
-                  days    = l_days ).
+                  days    = l_days
+                  months  = l_months
+                  years   = l_years ).
   ENDMETHOD.
 
 

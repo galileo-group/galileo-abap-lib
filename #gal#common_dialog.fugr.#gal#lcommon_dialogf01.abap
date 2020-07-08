@@ -72,7 +72,7 @@ FORM format_text USING p_text         TYPE string
 
         l_wa_screen-invisible = '1'.
 
-        MODIFY screen FROM l_wa_screen.
+        MODIFY SCREEN FROM l_wa_screen.
       ENDLOOP.
     ELSE.
       EXIT.
@@ -186,7 +186,7 @@ FORM initialize_options USING p_options          TYPE /gal/cdlg_options
 
           l_wa_screen-input = '0'.
 
-          MODIFY screen FROM l_wa_screen.
+          MODIFY SCREEN FROM l_wa_screen.
         ENDLOOP.
       ENDIF.
 
@@ -218,7 +218,7 @@ FORM initialize_options USING p_options          TYPE /gal/cdlg_options
 
         l_wa_screen-invisible = '1'.
 
-        MODIFY screen FROM l_wa_screen.
+        MODIFY SCREEN FROM l_wa_screen.
       ENDLOOP.
     ELSE.
       EXIT.
@@ -353,7 +353,7 @@ CLASS lcl_folder_tree_dialog IMPLEMENTATION.
         tree->delete_nodes( l_node_keys ).
 
         l_child_nodes = l_node->get_child_nodes( ).
-        LOOP AT l_child_nodes INTO l_node.
+        LOOP AT l_child_nodes INTO l_node.         "#EC CI_LOOP_INTO_WA
           CHECK l_node->is_folder = abap_true.
 
           TRY.

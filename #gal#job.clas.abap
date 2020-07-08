@@ -3,230 +3,395 @@
 *----------------------------------------------------------------------*
 *
 *----------------------------------------------------------------------*
-class /GAL/JOB definition
-  public
-  abstract
-  create public .
+"! <p class="shorttext synchronized" lang="en">Common job (to be redefined)</p>
+CLASS /gal/job DEFINITION
+  PUBLIC
+  ABSTRACT
+  CREATE PUBLIC .
 
 *"* public components of class /GAL/JOB
 *"* do not include other source files here!!!
 *"* protected components of class /GAL/JOB
 *"* do not include other source files here!!!
-public section.
-  type-pools ABAP .
+  PUBLIC SECTION.
+    TYPE-POOLS abap .
 
-  class-data DB_LAYER_VERSION type /GAL/JS_DB_LAYER_VERSION .
-  class-data STORE_RFC_ROUTE_INFO type /GAL/RFC_ROUTE_INFO read-only .
-  data AUTO_CONTINUE type FLAG read-only .
-  data AUTO_EVENT type FLAG .
-  data CLASSNAME type CLASSNAME read-only .
-  data DESTINATION type STRING read-only .
-  data ERROR_LOG type /GAL/TT_MESSAGE_STRUCT_TS read-only .
-  data EXEC_USER_ID type /GAL/USER_ID read-only .
-  data ID type /GAL/JOB_ID read-only .
-  data JOB_COUNT type BTCJOBCNT read-only .
-  data JOB_NAME type BTCJOB read-only .
-  data MOD_TIMESTAMP type TIMESTAMP read-only .
-  data STATUS type /GAL/JOB_STATUS read-only .
-  data TRANSITION_LOG type /GAL/TRANSITION_LOG read-only .
-  data WAIT_FOR_RES type FLAG read-only .
+    "! <p class="shorttext synchronized" lang="en">Version of storage type</p>
+    CLASS-DATA db_layer_version     TYPE /gal/js_db_layer_version .
+    "! <p class="shorttext synchronized" lang="en">RFC Route information</p>
+    CLASS-DATA store_rfc_route_info TYPE /gal/rfc_route_info READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Automatically continue job after stop</p>
+    DATA auto_continue  TYPE flag READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Automatically raise user events</p>
+    DATA auto_event     TYPE flag .
+    "! <p class="shorttext synchronized" lang="en">Job Class Name</p>
+    DATA classname      TYPE classname READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">RFC Route from central system to execution target</p>
+    DATA destination    TYPE string READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Table with messages and timestamp</p>
+    DATA error_log      TYPE /gal/tt_message_struct_ts READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">User ID in Format sy-sysid.sy-mandt.sy-uname</p>
+    DATA exec_user_id   TYPE /gal/user_id READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Job ID</p>
+    DATA id             TYPE /gal/job_id READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Job ID</p>
+    DATA job_count      TYPE btcjobcnt READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Background job name</p>
+    DATA job_name       TYPE btcjob READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
+    DATA mod_timestamp  TYPE timestamp READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">DO NOT CHANGE DIRECTLY! -&gt; Method CHANGE_STATUS (Job status)</p>
+    DATA status         TYPE /gal/job_status READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Job transition log</p>
+    DATA transition_log TYPE /gal/transition_log READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Job is waiting to be resumed</p>
+    DATA wait_for_res   TYPE flag READ-ONLY .
+    "! <p class="shorttext synchronized" lang="en">Enabled UC4 mode status</p>
+    DATA uc4_mode       TYPE /gal/uc4_mode READ-ONLY.
 
-  class-methods CLASS_CONSTRUCTOR .
-  class-methods CLASS_GET_INIT_EXCEPTION
-    returning
-      value(INIT_EXCEPTION) type ref to CX_ROOT .
-  class-methods DETERMINE_STORE_DESTINATION
-    returning
-      value(STORE_DESTINATION) type /GAL/RFC_DESTINATION
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  class-methods GET_JOBTYPE_DESCRIPTION
-    importing
-      !CLASSNAME type CLASSNAME
-    exporting
-      !DESCRIPTION type STRING .
-  class-methods RAISE_USER_EVENT
-    importing
-      !EVENT_ID type /GAL/PRECONDITION_ID
-      !DO_NOT_RUN_SCHEDULER type FLAG optional
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  class-methods READ_JOB_FROM_DB
-    importing
-      !ID type /GAL/JOB_ID
-      !ENQUEUE type FLAG optional
-      !UNDELETE_BEFORE_INIT type ABAP_BOOL default ABAP_FALSE
-    returning
-      value(JOB) type ref to /GAL/JOB
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  class-methods RUN_JOB_SCHEDULER
-    importing
-      !RETRY_TIMES type INT4 default 3
-      !RETRY_WAIT_INTERVAL type INT4 default 5
-      !IN_BACKGROUND type FLAG optional
-    exporting
-      !MESSAGES type /GAL/TT_MESSAGE_STRUCT
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  class-methods UPDATE_PRECONDITIONS
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods ADD_NEEDED_RESOURCE
-    importing
-      !RESOURCE_STRING type /GAL/RESOURCE_STRING
-    exporting
-      !STATUS type /GAL/PRECONDITION_STATUS
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods ADD_PREDECESSOR_JOB
-    importing
-      !JOB type ref to /GAL/JOB
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods ADD_START_TIMESTAMP
-    importing
-      !TIMESTAMP type TIMESTAMP
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods ADD_USER_EVENT
-    returning
-      value(EVENT_ID) type /GAL/PRECONDITION_ID
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods CANCEL
-    importing
-      !MUTEX_NAME type STRING optional
-    raising
-      /GAL/CX_JS_EXCEPTION
-      /GAL/CX_LOCK_EXCEPTION .
-  methods DELETE_FROM_DB
-    importing
-      !FORCE type ABAP_BOOL default ABAP_FALSE
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods DEQUEUE
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods ENQUEUE
-    importing
-      !REFRESH type FLAG default 'X'
-    raising
-      /GAL/CX_JS_CANNOT_ENQUEUE
-      /GAL/CX_JS_EXCEPTION .
-  methods EXECUTE
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods EXECUTE_ASYNC
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods GET_PREDECESSOR_JOBS
-    returning
-      value(PREDECESSOR_JOBS) type /GAL/JOBS
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods GET_PROGRAM_NAME
-    returning
-      value(PROGRAM_NAME) type SYREPID .
-  methods IS_AUTO_CONTINUED
-    returning
-      value(AUTO_CONTINUED) type FLAG .
-  methods IS_RESTARTABLE
-    returning
-      value(RESTARTABLE) type ABAP_BOOL .
-  methods IS_RESUMEABLE
-    returning
-      value(RESUMABLE) type ABAP_BOOL .
-  methods IS_WAITING_FOR_EVENT
-    importing
-      !IGNORE_WHEN_MISSING_PREDECS type FLAG optional
-    returning
-      value(EVENT_IDS) type /GAL/PRECONDITION_IDS
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods POST_PROCESS
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods RELEASE
-    importing
-      !NO_COMMIT type FLAG optional
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods RESTART
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods RESUME
-    importing
-      !SKIP_JOB_SCHEDULER type FLAG optional
-      !AUTO_CONTINUED type FLAG optional
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods SET_JOBDATA
-    importing
-      !JOB_NAME type BTCJOB
-      !JOB_COUNT type BTCJOBCNT
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods SET_STATUS_TO_ERROR
-    importing
-      value(SYMSGID) type SYMSGID default SY-MSGID
-      value(SYMSGTY) type SYMSGTY default SY-MSGTY
-      value(SYMSGNO) type SYMSGNO default SY-MSGNO
-      value(SYMSGV1) type SYMSGV default SY-MSGV1
-      value(SYMSGV2) type SYMSGV default SY-MSGV2
-      value(SYMSGV3) type SYMSGV default SY-MSGV3
-      value(SYMSGV4) type SYMSGV default SY-MSGV4
-    preferred parameter SYMSGID .
-  methods SET_STATUS_TO_OBSOLETE
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods STORE_TO_DB
-    raising
-      /GAL/CX_JS_EXCEPTION .
-protected section.
+    "! <p class="shorttext synchronized" lang="en">Klassenkonstruktor</p>
+    CLASS-METHODS class_constructor .
+    "! <p class="shorttext synchronized" lang="en">CLASS_INIT_EXCEPTION holen</p>
+    "!
+    "! @parameter init_exception | <p class="shorttext synchronized" lang="en">Abstract Superclass for All Global Exceptions</p>
+    CLASS-METHODS class_get_init_exception
+      RETURNING
+        VALUE(init_exception) TYPE REF TO cx_root .
+    "! <p class="shorttext synchronized" lang="en">Determine RFC Destination to storage location</p>
+    "!
+    "! @parameter store_destination    | <p class="shorttext synchronized" lang="en">RFC Destination</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    CLASS-METHODS determine_store_destination
+      RETURNING
+        VALUE(store_destination) TYPE /gal/rfc_destination
+      RAISING
+        /gal/cx_js_exception .
+    CLASS-METHODS get_jobtype_description
+      IMPORTING
+        !classname   TYPE classname
+      EXPORTING
+        !description TYPE string .
+    "! <p class="shorttext synchronized" lang="en">Raise an user event</p>
+    "!
+    "! @parameter event_id             | <p class="shorttext synchronized" lang="en">Job precondition: ID</p>
+    "! @parameter do_not_run_scheduler | <p class="shorttext synchronized" lang="en">Flag: do not run job scheduler</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    CLASS-METHODS raise_user_event
+      IMPORTING
+        !event_id             TYPE /gal/precondition_id
+        !do_not_run_scheduler TYPE flag OPTIONAL
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Read a job (any kind) from DB</p>
+    "!
+    "! @parameter id                   | <p class="shorttext synchronized" lang="en">Job ID</p>
+    "! @parameter enqueue              | <p class="shorttext synchronized" lang="en">Enqueue the job</p>
+    "! @parameter undelete_before_init | <p class="shorttext synchronized" lang="en">Perform an Undelete before the init</p>
+    "! @parameter job                  | <p class="shorttext synchronized" lang="en">Common job (to be redefined)</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    CLASS-METHODS read_job_from_db
+      IMPORTING
+        !id                   TYPE /gal/job_id
+        !enqueue              TYPE flag OPTIONAL
+        !undelete_before_init TYPE abap_bool DEFAULT abap_false
+      RETURNING
+        VALUE(job)            TYPE REF TO /gal/job
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Run the job scheduler on central system</p>
+    "!
+    "! @parameter retry_times          | <p class="shorttext synchronized" lang="en">Times to retry</p>
+    "! @parameter retry_wait_interval  | <p class="shorttext synchronized" lang="en">Wait between retries in second</p>
+    "! @parameter in_background        | <p class="shorttext synchronized" lang="en">Run job scheduler in background</p>
+    "! @parameter messages             | <p class="shorttext synchronized" lang="en">Table with messages</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    CLASS-METHODS run_job_scheduler
+      IMPORTING
+        !retry_times         TYPE int4 DEFAULT 3
+        !retry_wait_interval TYPE int4 DEFAULT 5
+        !in_background       TYPE flag OPTIONAL
+      EXPORTING
+        !messages            TYPE /gal/tt_message_struct
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Update the precondition status</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    CLASS-METHODS update_preconditions
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Add a resource string specifying a needed resource</p>
+    "!
+    "! @parameter resource_string      | <p class="shorttext synchronized" lang="en">String specifying a resource</p>
+    "! @parameter status               | <p class="shorttext synchronized" lang="en">Status: Fulfilled or Not fulfilled (Resource free =&gt; F)</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS add_needed_resource
+      IMPORTING
+        !resource_string TYPE /gal/resource_string
+      EXPORTING
+        !status          TYPE /gal/precondition_status
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Add a predecessor job as precondition</p>
+    "!
+    "! @parameter job                  | <p class="shorttext synchronized" lang="en">Common job (to be redefined)</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS add_predecessor_job
+      IMPORTING
+        !job TYPE REF TO /gal/job
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Add a timestamp to be reached as precondition</p>
+    "!
+    "! @parameter timestamp            | <p class="shorttext synchronized" lang="en">UTC Time Stamp in Short Form (YYYYMMDDhhmmss)</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS add_start_timestamp
+      IMPORTING
+        !timestamp TYPE timestamp
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Add a user event as precondition</p>
+    "!
+    "! @parameter event_id             | <p class="shorttext synchronized" lang="en">Job precondition: ID</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS add_user_event
+      RETURNING
+        VALUE(event_id) TYPE /gal/precondition_id
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Cancel the job's background processing</p>
+    "!
+    "! @parameter mutex_name             | <p class="shorttext synchronized" lang="en">Name of mutex to be aquired</p>
+    "! @raising   /gal/cx_js_exception   | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    "! @raising   /gal/cx_lock_exception | <p class="shorttext synchronized" lang="en">Lock Management Exception</p>
+    METHODS cancel
+      IMPORTING
+        !mutex_name TYPE string OPTIONAL
+      RAISING
+        /gal/cx_js_exception
+        /gal/cx_lock_exception .
+    "! <p class="shorttext synchronized" lang="en">Delete Job from database</p>
+    "!
+    "! @parameter force                | <p class="shorttext synchronized" lang="en">Force deletion despite wrong state</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS delete_from_db
+      IMPORTING
+        !force TYPE abap_bool DEFAULT abap_false
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Dequeue the job object (DB lock)</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS dequeue
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Enqueue the job object (DB lock)</p>
+    "!
+    "! @parameter refresh                   | <p class="shorttext synchronized" lang="en">Refresh the object from DB</p>
+    "! @raising   /gal/cx_js_cannot_enqueue | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    "! @raising   /gal/cx_js_exception      | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS enqueue
+      IMPORTING
+        !refresh TYPE flag DEFAULT 'X'
+      RAISING
+        /gal/cx_js_cannot_enqueue
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Execute the job</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS execute
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">INTERNAL USE ONLY: Execute the asynchronous part</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS execute_async
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Get the predecessor jobs</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS get_predecessor_jobs
+      RETURNING
+        VALUE(predecessor_jobs) TYPE /gal/jobs
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Get name of program to be executed as a job</p>
+    "!
+    "! @parameter program_name | <p class="shorttext synchronized" lang="en">Program name</p>
+    METHODS get_program_name
+      RETURNING
+        VALUE(program_name) TYPE syrepid .
+    "! <p class="shorttext synchronized" lang="en">Check whether the job was auto continued</p>
+    "!
+    "! @parameter auto_continued | <p class="shorttext synchronized" lang="en">Flag whether the job was auto continued</p>
+    METHODS is_auto_continued
+      RETURNING
+        VALUE(auto_continued) TYPE flag .
+    "! <p class="shorttext synchronized" lang="en">Determine if job can be resumed</p>
+    "!
+    "! @parameter restartable | <p class="shorttext synchronized" lang="en">Job can be restarted</p>
+    METHODS is_restartable
+      RETURNING
+        VALUE(restartable) TYPE abap_bool .
+    "! <p class="shorttext synchronized" lang="en">Determine if job can be resumed</p>
+    "!
+    "! @parameter resumable | <p class="shorttext synchronized" lang="en">Job can be resumed</p>
+    METHODS is_resumeable
+      RETURNING
+        VALUE(resumable) TYPE abap_bool .
+    "! <p class="shorttext synchronized" lang="en">Check whether job is waiting for event[s]</p>
+    "!
+    "! @parameter ignore_when_missing_predecs | <p class="shorttext synchronized" lang="en">Ignore events, if there are missing predecessor jobs</p>
+    "! @parameter event_ids                   | <p class="shorttext synchronized" lang="en">Job precondition: Table with IDs</p>
+    "! @raising   /gal/cx_js_exception        | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS is_waiting_for_event
+      IMPORTING
+        !ignore_when_missing_predecs TYPE flag OPTIONAL
+      RETURNING
+        VALUE(event_ids)             TYPE /gal/precondition_ids
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Post processing after job has been run</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS post_process
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Release the job to status 'Waiting'</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS release
+      IMPORTING
+        !no_commit TYPE flag OPTIONAL
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Resume stopped Job</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS restart
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Resume stopped Job</p>
+    "!
+    "! @parameter skip_job_scheduler   | <p class="shorttext synchronized" lang="en">Job Scheduler nicht ausführen</p>
+    "! @parameter auto_continued       | <p class="shorttext synchronized" lang="en">Es handelt sich um eine automatische Fortsetzung</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS resume
+      IMPORTING
+        !skip_job_scheduler TYPE flag OPTIONAL
+        !auto_continued     TYPE flag OPTIONAL
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">INTERNAL USE ONLY: Set JOBNAME and JOBCOUNT</p>
+    "!
+    "! @parameter job_name             | <p class="shorttext synchronized" lang="en">Background job name</p>
+    "! @parameter job_count            | <p class="shorttext synchronized" lang="en">Job ID</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS set_jobdata
+      IMPORTING
+        !job_name  TYPE btcjob
+        !job_count TYPE btcjobcnt
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Post processing after job has been run</p>
+    "!
+    "! @parameter symsgid | <p class="shorttext synchronized" lang="en">Message Class</p>
+    "! @parameter symsgty | <p class="shorttext synchronized" lang="en">Message Type</p>
+    "! @parameter symsgno | <p class="shorttext synchronized" lang="en">Message Number</p>
+    "! @parameter symsgv1 | <p class="shorttext synchronized" lang="en">Message Variable</p>
+    "! @parameter symsgv2 | <p class="shorttext synchronized" lang="en">Message Variable</p>
+    "! @parameter symsgv3 | <p class="shorttext synchronized" lang="en">Message Variable</p>
+    "! @parameter symsgv4 | <p class="shorttext synchronized" lang="en">Message Variable</p>
+    METHODS set_status_to_error
+      IMPORTING
+        VALUE(symsgid) TYPE symsgid DEFAULT sy-msgid
+        VALUE(symsgty) TYPE symsgty DEFAULT sy-msgty
+        VALUE(symsgno) TYPE symsgno DEFAULT sy-msgno
+        VALUE(symsgv1) TYPE symsgv DEFAULT sy-msgv1
+        VALUE(symsgv2) TYPE symsgv DEFAULT sy-msgv2
+        VALUE(symsgv3) TYPE symsgv DEFAULT sy-msgv3
+        VALUE(symsgv4) TYPE symsgv DEFAULT sy-msgv4
+          PREFERRED PARAMETER symsgid .
+    "! <p class="shorttext synchronized" lang="en">Cancel the job</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS set_status_to_obsolete
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Store Job to database</p>
+    "!
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS store_to_db
+      RAISING
+        /gal/cx_js_exception .
+  PROTECTED SECTION.
 
-  class-data CONFIG type ref to /GAL/JS_CONFIG_PROVIDER .
-  class-data TRACE type ABAP_BOOL .
-  data ENQUEUE_COUNTER type I .
-  data READ_FROM_HIST type ABAP_BOOL .
+    "! <p class="shorttext synchronized" lang="en">Configuration provider for job scheduler</p>
+    CLASS-DATA config TYPE REF TO /gal/js_config_provider .
+    "! <p class="shorttext synchronized" lang="en">Perform tracing</p>
+    CLASS-DATA trace TYPE abap_bool .
+    "! <p class="shorttext synchronized" lang="en">The enqueue counter</p>
+    DATA enqueue_counter TYPE i .
+    "! <p class="shorttext synchronized" lang="en">Read only mode (read from history)</p>
+    DATA read_from_hist TYPE abap_bool .
 
-  methods CHANGE_STATUS
-    importing
-      !NEW_STATUS type /GAL/JOB_STATUS
-      !STOP_OPTIONS type /GAL/JOB_STOP_OPTIONS optional
-      !AUTO_TRANSITION type FLAG optional .
-  methods INIT_ATTRS_CREATE
-    importing
-      !JOB_NAME type BTCJOB default 'BACKGROUND_JOB'
-      !DESTINATION type STRING optional
-      !AUTO_CONTINUE type ABAP_BOOL default ABAP_FALSE
-      !AUTO_EVENT type ABAP_BOOL default ABAP_FALSE
-    raising
-      /GAL/CX_JS_EXCEPTION .
-  methods INIT_ATTRS_FROM_DB
-    importing
-      !ID type /GAL/JOB_ID
-      !UNDELETE_BEFORE_INIT type ABAP_BOOL default ABAP_FALSE
-    raising
-      /GAL/CX_JS_EXCEPTION .
+    "! <p class="shorttext synchronized" lang="en">Change the job status</p>
+    "!
+    "! @parameter new_status      | <p class="shorttext synchronized" lang="en">Job status</p>
+    "! @parameter stop_options    | <p class="shorttext synchronized" lang="en">Options for allowed behavior after stopping a job</p>
+    "! @parameter auto_transition | <p class="shorttext synchronized" lang="en">Es handelt sich um eine automatische Transition</p>
+    METHODS change_status
+      IMPORTING
+        !new_status      TYPE /gal/job_status
+        !stop_options    TYPE /gal/job_stop_options OPTIONAL
+        !auto_transition TYPE flag OPTIONAL .
+    "! <p class="shorttext synchronized" lang="en">Init Attributes from parameters</p>
+    "!
+    "! @parameter job_name             | <p class="shorttext synchronized" lang="en">Job name</p>
+    "! @parameter destination          | <p class="shorttext synchronized" lang="en">RFC Route from central system to execution target</p>
+    "! @parameter auto_continue        | <p class="shorttext synchronized" lang="en">Automatically continue after Stop</p>
+    "! @parameter auto_event           | <p class="shorttext synchronized" lang="en">Automatically raise user events</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS init_attrs_create
+      IMPORTING
+        !job_name      TYPE btcjob DEFAULT 'BACKGROUND_JOB'
+        !destination   TYPE string OPTIONAL
+        !auto_continue TYPE abap_bool DEFAULT abap_false
+        !auto_event    TYPE abap_bool DEFAULT abap_false
+        !uc4_mode      TYPE /gal/uc4_mode DEFAULT space
+      RAISING
+        /gal/cx_js_exception .
+    "! <p class="shorttext synchronized" lang="en">Init Attributes from database</p>
+    "!
+    "! @parameter id                   | <p class="shorttext synchronized" lang="en">Job ID</p>
+    "! @parameter undelete_before_init | <p class="shorttext synchronized" lang="en">Perform an Undelete before the init</p>
+    "! @raising   /gal/cx_js_exception | <p class="shorttext synchronized" lang="en">Exception from Job Scheduler</p>
+    METHODS init_attrs_from_db
+      IMPORTING
+        !id                   TYPE /gal/job_id
+        !undelete_before_init TYPE abap_bool DEFAULT abap_false
+      RAISING
+        /gal/cx_js_exception .
 *"* private components of class /GAL/JOB
 *"* do not include other source files here!!!
-private section.
+  PRIVATE SECTION.
 
-  class-data CLASS_INIT_EXCEPTION type ref to CX_ROOT .
+    "! <p class="shorttext synchronized" lang="en">Exception bei Initialisierung im Klassenkonstruktor</p>
+    CLASS-DATA class_init_exception TYPE REF TO cx_root .
 ENDCLASS.
 
 
 
-CLASS /GAL/JOB IMPLEMENTATION.
+CLASS /gal/job IMPLEMENTATION.
 
 
   METHOD add_needed_resource.
 
     DATA:
-      l_var1            TYPE string,
-      l_var2            TYPE string,
-      l_message         TYPE string.
+      l_var1    TYPE string,
+      l_var2    TYPE string,
+      l_message TYPE string.
 
     CALL FUNCTION '/GAL/JS_ADD_RESOURCE'
       EXPORTING
@@ -259,9 +424,9 @@ CLASS /GAL/JOB IMPLEMENTATION.
   METHOD add_predecessor_job.
 
     DATA:
-      l_var1           TYPE string,
-      l_var2           TYPE string,
-      l_message        TYPE string.
+      l_var1    TYPE string,
+      l_var2    TYPE string,
+      l_message TYPE string.
 
 
     CALL FUNCTION '/GAL/JS_ADD_PREDECESSOR_JOB'
@@ -294,9 +459,9 @@ CLASS /GAL/JOB IMPLEMENTATION.
   METHOD add_start_timestamp.
 
     DATA:
-      l_var1           TYPE string,
-      l_var2           TYPE string,
-      l_message        TYPE string.
+      l_var1    TYPE string,
+      l_var2    TYPE string,
+      l_message TYPE string.
 
 
 * Add precondition to database
@@ -349,8 +514,8 @@ CLASS /GAL/JOB IMPLEMENTATION.
   METHOD add_user_event.
 
     DATA:
-      l_var1           TYPE string,
-      l_message        TYPE string.
+      l_var1    TYPE string,
+      l_message TYPE string.
 
 
     CALL FUNCTION '/GAL/JS_ADD_USER_EVENT'
@@ -384,70 +549,50 @@ CLASS /GAL/JOB IMPLEMENTATION.
   ENDMETHOD.                    "add_user_event
 
 
-METHOD cancel.
+  METHOD cancel.
 
-  DATA:
-    l_lock                 TYPE REF TO /gal/mutex,
-    l_ex_lock              TYPE REF TO /gal/cx_lock_exception,
-    l_error                TYPE string,
-    l_id                   TYPE string,
-    l_rfc_route_info_step2 TYPE /gal/rfc_route_info,
-    l_syuname              TYPE symsgv,
-    l_config_store         TYPE REF TO /gal/config_store_local,
-    l_config_folder        TYPE REF TO /gal/config_node,
-    l_lock_timeout         TYPE i,
-    l_message_struct       TYPE /gal/st_message_struct_ts,
-    l_ex                   TYPE REF TO /gal/cx_js_exception.
-
-
-  IF NOT mutex_name IS INITIAL.
-    TRY.
-        CREATE OBJECT l_config_store.
-        l_config_folder = l_config_store->get_node(
-          path = '/Galileo Group AG/Open Source Components/Job Scheduler/Exclusive scheduling mutex timeout'
-        ).                                                  "#EC NOTEXT
-        l_config_folder->get_value( IMPORTING value = l_lock_timeout ).
-
-      CATCH /gal/cx_config_exception.
-        l_lock_timeout = 30.                             "#EC NUMBER_OK
-    ENDTRY.
-    TRY.
-        CREATE OBJECT l_lock
-          EXPORTING
-            rfc_route_info = store_rfc_route_info
-            name           = mutex_name.
-        l_lock->acquire(
-          EXPORTING
-            lock_timeout = l_lock_timeout
-            wait_timeout = l_lock_timeout
-        ).
-      CATCH /gal/cx_lock_exception INTO l_ex_lock.
-        RAISE EXCEPTION l_ex_lock.
-    ENDTRY.
-  ENDIF.
+    DATA:
+      l_lock                 TYPE REF TO /gal/mutex,
+      l_ex_lock              TYPE REF TO /gal/cx_lock_exception,
+      l_error                TYPE string,
+      l_id                   TYPE string,
+      l_rfc_route_info_step2 TYPE /gal/rfc_route_info,
+      l_syuname              TYPE symsgv,
+      l_config_store         TYPE REF TO /gal/config_store_local,
+      l_config_folder        TYPE REF TO /gal/config_node,
+      l_lock_timeout         TYPE i,
+      l_message_struct       TYPE /gal/st_message_struct_ts,
+      l_ex                   TYPE REF TO /gal/cx_js_exception.
 
 
-  IF NOT status CA 'IWRS'.
-    TRY.
-        l_lock->release( ).
-      CATCH /gal/cx_lock_exception INTO l_ex_lock.
-        /gal/trace=>write_exception(
-          EXPORTING
-            exception               = l_ex_lock
-        ).
-    ENDTRY.
-    l_error = TEXT-001.
-    l_id = id.
-    RAISE EXCEPTION TYPE /gal/cx_js_exception
-      EXPORTING
-        textid = /gal/cx_js_exception=>cannot_cancel_job
-        var1   = l_id
-        var2   = l_error.
-  ENDIF.
+    IF NOT mutex_name IS INITIAL.
+      TRY.
+          CREATE OBJECT l_config_store.
+          l_config_folder = l_config_store->get_node(
+            path = '/Galileo Group AG/Open Source Components/Job Scheduler/Exclusive scheduling mutex timeout'
+          ).                                                "#EC NOTEXT
+          l_config_folder->get_value( IMPORTING value = l_lock_timeout ).
+
+        CATCH /gal/cx_config_exception.
+          l_lock_timeout = 30.                           "#EC NUMBER_OK
+      ENDTRY.
+      TRY.
+          CREATE OBJECT l_lock
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              name           = mutex_name.
+          l_lock->acquire(
+            EXPORTING
+              lock_timeout = l_lock_timeout
+              wait_timeout = l_lock_timeout
+          ).
+        CATCH /gal/cx_lock_exception INTO l_ex_lock.
+          RAISE EXCEPTION l_ex_lock.
+      ENDTRY.
+    ENDIF.
 
 
-  IF status = 'R'.
-    IF job_name IS INITIAL OR job_count IS INITIAL.
+    IF NOT status CA 'IWRS'.
       TRY.
           l_lock->release( ).
         CATCH /gal/cx_lock_exception INTO l_ex_lock.
@@ -456,7 +601,7 @@ METHOD cancel.
               exception               = l_ex_lock
           ).
       ENDTRY.
-      l_error = TEXT-000.
+      l_error = TEXT-001.
       l_id = id.
       RAISE EXCEPTION TYPE /gal/cx_js_exception
         EXPORTING
@@ -465,24 +610,9 @@ METHOD cancel.
           var2   = l_error.
     ENDIF.
 
-    l_rfc_route_info_step2 = /gal/cfw_helper=>rfc_route_info_from_string( destination ).
-    CALL FUNCTION '/GAL/JS_CANCEL_JOB'
-      EXPORTING
-        rfc_route_info       = store_rfc_route_info
-        rfc_route_info_step2 = l_rfc_route_info_step2
-        job_name             = job_name
-        job_count            = job_count
-        wait                 = abap_true
-      EXCEPTIONS
-        cannot_be_cancelled  = 1
-        rfc_exception        = 2
-        execution_failed     = 3
-        OTHERS               = 4.
-    IF sy-subrc <> 0.
-      MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                 WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-                 INTO l_error.
-      IF NOT mutex_name IS INITIAL.
+
+    IF status = 'R'.
+      IF job_name IS INITIAL OR job_count IS INITIAL.
         TRY.
             l_lock->release( ).
           CATCH /gal/cx_lock_exception INTO l_ex_lock.
@@ -491,97 +621,132 @@ METHOD cancel.
                 exception               = l_ex_lock
             ).
         ENDTRY.
-      ENDIF.
-      l_id = id.
-      RAISE EXCEPTION TYPE /gal/cx_js_exception
-        EXPORTING
-          textid = /gal/cx_js_exception=>cannot_cancel_job
-          var1   = l_id
-          var2   = l_error.
-    ENDIF.
-  ENDIF.
-
-  IF NOT mutex_name IS INITIAL.
-    TRY.
-        l_lock->release( ).
-      CATCH /gal/cx_lock_exception INTO l_ex_lock.
-        /gal/trace=>write_exception(
+        l_error = TEXT-000.
+        l_id = id.
+        RAISE EXCEPTION TYPE /gal/cx_js_exception
           EXPORTING
-            exception               = l_ex_lock
-        ).
-    ENDTRY.
-  ENDIF.
+            textid = /gal/cx_js_exception=>cannot_cancel_job
+            var1   = l_id
+            var2   = l_error.
+      ENDIF.
 
-  /gal/job=>run_job_scheduler( ).
-
-  enqueue( ).
-
-  DO 0 TIMES. MESSAGE e026 WITH ''. ENDDO.
-  IF NOT status = 'E'.
-    l_syuname = sy-uname.
-    set_status_to_error(
-      EXPORTING
-        symsgid = '/GAL/JS'
-        symsgty = 'E'
-        symsgno = '026'
-        symsgv1 = l_syuname
-    ).
-  ELSE.
-    CLEAR l_message_struct.
-    GET TIME STAMP FIELD l_message_struct-timestamp.
-    l_message_struct-message_id = '/GAL/JS'.
-    l_message_struct-message_type = 'E'.
-    l_message_struct-message_number = '026'.
-    l_message_struct-message_var1 = sy-uname.
-    APPEND l_message_struct TO error_log.
-    TRY.
-        store_to_db( ).
-      CATCH /gal/cx_js_exception INTO l_ex.
-        dequeue( ).
-        RAISE EXCEPTION l_ex.
-    ENDTRY.
-  ENDIF.
-
-  dequeue( ).
-
-ENDMETHOD.
-
-
-METHOD change_status.
-
-  DATA:
-    l_trans_log_entry TYPE /gal/transition_log_entry,
-    l_stop_options    TYPE /gal/job_stop_options,
-    l_option          TYPE /gal/attrib_value.
-
-
-  IF new_status = 'S'.
-    IF stop_options IS NOT SUPPLIED.
-      l_stop_options-allow_continue = abap_true.
-      l_stop_options-allow_restart  = abap_false.
-    ELSE.
-      l_stop_options = stop_options.
+      l_rfc_route_info_step2 = /gal/cfw_helper=>rfc_route_info_from_string( destination ).
+      CALL FUNCTION '/GAL/JS_CANCEL_JOB'
+        EXPORTING
+          rfc_route_info       = store_rfc_route_info
+          rfc_route_info_step2 = l_rfc_route_info_step2
+          job_name             = job_name
+          job_count            = job_count
+          wait                 = abap_true
+        EXCEPTIONS
+          cannot_be_cancelled  = 1
+          rfc_exception        = 2
+          execution_failed     = 3
+          OTHERS               = 4.
+      IF sy-subrc <> 0.
+        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                   WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                   INTO l_error.
+        IF NOT mutex_name IS INITIAL.
+          TRY.
+              l_lock->release( ).
+            CATCH /gal/cx_lock_exception INTO l_ex_lock.
+              /gal/trace=>write_exception(
+                EXPORTING
+                  exception               = l_ex_lock
+              ).
+          ENDTRY.
+        ENDIF.
+        l_id = id.
+        RAISE EXCEPTION TYPE /gal/cx_js_exception
+          EXPORTING
+            textid = /gal/cx_js_exception=>cannot_cancel_job
+            var1   = l_id
+            var2   = l_error.
+      ENDIF.
     ENDIF.
-    l_option-attribute = 'ALLOW_CONTINUE'.
-    l_option-value     = l_stop_options-allow_continue.
-    INSERT l_option INTO TABLE l_trans_log_entry-options.
-    l_option-attribute = 'ALLOW_RESTART'.
-    l_option-value     = l_stop_options-allow_restart.
-    INSERT l_option INTO TABLE l_trans_log_entry-options.
-  ENDIF.
 
-  l_trans_log_entry-source_state = status.
-  GET TIME STAMP FIELD l_trans_log_entry-timestamp.
-  l_trans_log_entry-syuname = sy-uname.
+    IF NOT mutex_name IS INITIAL.
+      TRY.
+          l_lock->release( ).
+        CATCH /gal/cx_lock_exception INTO l_ex_lock.
+          /gal/trace=>write_exception(
+            EXPORTING
+              exception               = l_ex_lock
+          ).
+      ENDTRY.
+    ENDIF.
 
-  status = new_status.
-  l_trans_log_entry-target_state = status.
+    /gal/job=>run_job_scheduler( ).
 
-  l_trans_log_entry-auto_trans = auto_transition.
+    enqueue( ).
 
-  INSERT l_trans_log_entry INTO TABLE transition_log.
+    DO 0 TIMES. MESSAGE e026 WITH ''. ENDDO.
+    IF NOT status = 'E'.
+      l_syuname = sy-uname.
+      set_status_to_error(
+        EXPORTING
+          symsgid = '/GAL/JS'
+          symsgty = 'E'
+          symsgno = '026'
+          symsgv1 = l_syuname
+      ).
+    ELSE.
+      CLEAR l_message_struct.
+      GET TIME STAMP FIELD l_message_struct-timestamp.
+      l_message_struct-message_id = '/GAL/JS'.
+      l_message_struct-message_type = 'E'.
+      l_message_struct-message_number = '026'.
+      l_message_struct-message_var1 = sy-uname.
+      APPEND l_message_struct TO error_log.
+      TRY.
+          store_to_db( ).
+        CATCH /gal/cx_js_exception INTO l_ex.
+          dequeue( ).
+          RAISE EXCEPTION l_ex.
+      ENDTRY.
+    ENDIF.
 
-ENDMETHOD.
+    dequeue( ).
+
+  ENDMETHOD.
+
+
+  METHOD change_status.
+
+    DATA:
+      l_trans_log_entry TYPE /gal/transition_log_entry,
+      l_stop_options    TYPE /gal/job_stop_options,
+      l_option          TYPE /gal/attrib_value.
+
+
+    IF new_status = 'S'.
+      IF stop_options IS NOT SUPPLIED.
+        l_stop_options-allow_continue = abap_true.
+        l_stop_options-allow_restart  = abap_false.
+      ELSE.
+        l_stop_options = stop_options.
+      ENDIF.
+      l_option-attribute = 'ALLOW_CONTINUE'.
+      l_option-value     = l_stop_options-allow_continue.
+      INSERT l_option INTO TABLE l_trans_log_entry-options.
+      l_option-attribute = 'ALLOW_RESTART'.
+      l_option-value     = l_stop_options-allow_restart.
+      INSERT l_option INTO TABLE l_trans_log_entry-options.
+    ENDIF.
+
+    l_trans_log_entry-source_state = status.
+    GET TIME STAMP FIELD l_trans_log_entry-timestamp.
+    l_trans_log_entry-syuname = sy-uname.
+
+    status = new_status.
+    l_trans_log_entry-target_state = status.
+
+    l_trans_log_entry-auto_trans = auto_transition.
+
+    INSERT l_trans_log_entry INTO TABLE transition_log.
+
+  ENDMETHOD.
 
 
   METHOD class_constructor.
@@ -604,7 +769,7 @@ ENDMETHOD.
         /gal/trace=>write_text(
           EXPORTING
             text = 'INFO: No CCM specific config provider found. Falling back to OS config provider'
-        ). "#EC NOTEXT
+        ).                                                  "#EC NOTEXT
         CREATE OBJECT config.
     ENDTRY.
 
@@ -660,15 +825,15 @@ ENDMETHOD.
   METHOD delete_from_db.
 
     DATA:
-      l_message         TYPE string,
-      l_var1            TYPE string,
-      l_var2            TYPE string,
-      l_key_value       TYPE string.
+      l_message   TYPE string,
+      l_var1      TYPE string,
+      l_var2      TYPE string,
+      l_key_value TYPE string.
 
 
     IF force = abap_false AND NOT status CA 'OF'.
       l_var1 = id.
-      l_var2 = text-002.
+      l_var2 = TEXT-002.
       RAISE EXCEPTION TYPE /gal/cx_js_exception
         EXPORTING
           textid = /gal/cx_js_exception=>cannot_delete_job
@@ -724,10 +889,10 @@ ENDMETHOD.
   METHOD dequeue.
 
     DATA:
-      l_var1         TYPE string,
-      l_var2         TYPE string,
-      l_callstack    TYPE abap_callstack,
-      l_level        TYPE i.
+      l_var1      TYPE string,
+      l_var2      TYPE string,
+      l_callstack TYPE abap_callstack,
+      l_level     TYPE i.
 
     FIELD-SYMBOLS:
       <l_callstack>  LIKE LINE OF l_callstack.
@@ -817,9 +982,9 @@ ENDMETHOD.
   METHOD enqueue.
 
     DATA:
-      l_var1         TYPE string,
-      l_var2         TYPE string,
-      l_callstack    TYPE abap_callstack.
+      l_var1      TYPE string,
+      l_var2      TYPE string,
+      l_callstack TYPE abap_callstack.
 
     FIELD-SYMBOLS:
       <l_callstack>  LIKE LINE OF l_callstack.
@@ -916,211 +1081,74 @@ ENDMETHOD.
   ENDMETHOD.                    "enqueue
 
 
-METHOD execute.
+  METHOD execute.
 
-  DATA:
-    l_var1                 TYPE string,
-    l_message              TYPE string,
-    l_fulfilled            TYPE flag,
-    l_locked_resource_id   TYPE /gal/resource_string,
-    l_rfc_route_info_step2 TYPE /gal/rfc_route_info,
-    l_ex                   TYPE REF TO /gal/cx_js_exception,
-    l_ex_res               TYPE REF TO /gal/cx_js_missing_resource,
-    l_msgv1                TYPE sy-msgv1,
-    l_msgv2                TYPE sy-msgv2,
-    l_msgv3                TYPE sy-msgv3,
-    l_msgv4                TYPE sy-msgv4.
+    DATA:
+      l_var1                 TYPE string,
+      l_message              TYPE string,
+      l_fulfilled            TYPE flag,
+      l_locked_resource_id   TYPE /gal/resource_string,
+      l_rfc_route_info_step2 TYPE /gal/rfc_route_info,
+      l_ex                   TYPE REF TO /gal/cx_js_exception,
+      l_ex_res               TYPE REF TO /gal/cx_js_missing_resource,
+      l_msgv1                TYPE sy-msgv1,
+      l_msgv2                TYPE sy-msgv2,
+      l_msgv3                TYPE sy-msgv3,
+      l_msgv4                TYPE sy-msgv4.
 
 * Background break point support
-  cfw_break_point_support.
-  cfw_break_point `/GAL/JOB=>EXECUTE`.
+    cfw_break_point_support.
+    cfw_break_point `/GAL/JOB=>EXECUTE`.
 
 * Enqueue job
-  enqueue( ).
+    enqueue( ).
 
-  TRY.
+    TRY.
 
 * Make sure that job ist in waiting status
-      IF status <> 'W'.
+        IF status <> 'W' OR uc4_mode = 'W'.
 *   Job is not in status 'waiting' => error
-        l_var1 = id.
+          l_var1 = id.
 
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>job_not_waiting
-            var1   = l_var1.
-      ENDIF.
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>job_not_waiting
+              var1   = l_var1.
+        ENDIF.
 
 * Begin of critical section
 * (this coding may not be executed by multiple processes at the sime time!)
-      CALL FUNCTION '/GAL/JS_ENQUEUE_JS_LOCK'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          lock_key       = 'RES_CHECKS'
-          wait           = abap_true
-        EXCEPTIONS
-          OTHERS         = 1.
-      IF sy-subrc <> 0.
-        l_var1 = id.
-
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_allocate_semphore
-            var1   = l_var1.
-      ENDIF.
-
-      CALL FUNCTION '/GAL/JS_CHECK_RESOURCE'
-        EXPORTING
-          rfc_route_info     = store_rfc_route_info
-          job_id             = id
-        IMPORTING
-          locked_resource_id = l_locked_resource_id
-        EXCEPTIONS
-          rfc_exception      = 1
-          OTHERS             = 2.
-      IF sy-subrc <> 0.
-        l_var1 = id.
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-                INTO l_message.
-
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+        CALL FUNCTION '/GAL/JS_ENQUEUE_JS_LOCK'
           EXPORTING
             rfc_route_info = store_rfc_route_info
             lock_key       = 'RES_CHECKS'
+            wait           = abap_true
           EXCEPTIONS
-            OTHERS         = 0.
+            OTHERS         = 1.
+        IF sy-subrc <> 0.
+          l_var1 = id.
 
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_check_resources
-            var1   = l_var1
-            var2   = l_message.
-      ENDIF.
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_allocate_semphore
+              var1   = l_var1.
+        ENDIF.
 
-      IF l_locked_resource_id IS NOT INITIAL.
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+        CALL FUNCTION '/GAL/JS_CHECK_RESOURCE'
           EXPORTING
-            rfc_route_info = store_rfc_route_info
-            lock_key       = 'RES_CHECKS'
+            rfc_route_info     = store_rfc_route_info
+            job_id             = id
+          IMPORTING
+            locked_resource_id = l_locked_resource_id
           EXCEPTIONS
-            OTHERS         = 0.
+            rfc_exception      = 1
+            OTHERS             = 2.
+        IF sy-subrc <> 0.
+          l_var1 = id.
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                  INTO l_message.
 
-        l_var1 = l_locked_resource_id.
-
-        RAISE EXCEPTION TYPE /gal/cx_js_missing_resource
-          EXPORTING
-            textid = /gal/cx_js_missing_resource=>missing_resource
-            var1   = l_var1.
-      ENDIF.
-
-      CALL FUNCTION '/GAL/JS_UPDATE_PRECONDITIONS'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          job_id         = id
-        EXCEPTIONS
-          OTHERS         = 1.
-      IF sy-subrc <> 0.
-        l_var1 = id.
-
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-                INTO l_message.
-
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
-          EXPORTING
-            rfc_route_info = store_rfc_route_info
-            lock_key       = 'RES_CHECKS'
-          EXCEPTIONS
-            OTHERS         = 0.
-
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_update_precondition
-            var1   = l_var1
-            var2   = l_message.
-      ENDIF.
-
-      CALL FUNCTION '/GAL/JS_CHECK_PRECONDITIONS'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          job_id         = id
-        IMPORTING
-          fulfilled      = l_fulfilled
-        EXCEPTIONS
-          rfc_exception  = 1
-          OTHERS         = 2.
-      IF sy-subrc <> 0.
-        l_var1 = id.
-
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-                INTO l_message.
-
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
-          EXPORTING
-            rfc_route_info = store_rfc_route_info
-            lock_key       = 'RES_CHECKS'
-          EXCEPTIONS
-            OTHERS         = 0.
-
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_check_precondition
-            var1   = l_var1
-            var2   = l_message.
-      ENDIF.
-
-
-      IF l_fulfilled IS INITIAL.
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
-          EXPORTING
-            rfc_route_info = store_rfc_route_info
-            lock_key       = 'RES_CHECKS'
-          EXCEPTIONS
-            OTHERS         = 0.
-        l_var1 = id.
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>preconditions_not_met
-            var1   = l_var1.
-      ENDIF.
-
-
-      CALL FUNCTION '/GAL/JS_LOCK_RESOURCES'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          job_id         = id
-        EXCEPTIONS
-          rfc_exception  = 1.
-      IF sy-subrc <> 0.
-        l_var1 = id.
-
-        MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-                WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
-                INTO l_message.
-
-        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
-          EXPORTING
-            rfc_route_info = store_rfc_route_info
-            lock_key       = 'RES_CHECKS'
-          EXCEPTIONS
-            OTHERS         = 0.
-
-        RAISE EXCEPTION TYPE /gal/cx_js_exception
-          EXPORTING
-            textid = /gal/cx_js_exception=>cannot_lock_resources
-            var1   = l_var1
-            var2   = l_message.
-      ENDIF.
-
-* Set status tu 'running'and update job
-      change_status( new_status =  'R' ).
-
-      TRY.
-          store_to_db( ).
-
-        CATCH /gal/cx_js_exception INTO l_ex.
           CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
             EXPORTING
               rfc_route_info = store_rfc_route_info
@@ -1128,91 +1156,243 @@ METHOD execute.
             EXCEPTIONS
               OTHERS         = 0.
 
-          dequeue( ).
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_check_resources
+              var1   = l_var1
+              var2   = l_message.
+        ENDIF.
 
-          RAISE EXCEPTION l_ex.
+        IF l_locked_resource_id IS NOT INITIAL.
+          CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              lock_key       = 'RES_CHECKS'
+            EXCEPTIONS
+              OTHERS         = 0.
 
-      ENDTRY.
+          l_var1 = l_locked_resource_id.
+
+          RAISE EXCEPTION TYPE /gal/cx_js_missing_resource
+            EXPORTING
+              textid = /gal/cx_js_missing_resource=>missing_resource
+              var1   = l_var1.
+        ENDIF.
+
+        CALL FUNCTION '/GAL/JS_UPDATE_PRECONDITIONS'
+          EXPORTING
+            rfc_route_info = store_rfc_route_info
+            job_id         = id
+          EXCEPTIONS
+            OTHERS         = 1.
+        IF sy-subrc <> 0.
+          l_var1 = id.
+
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                  INTO l_message.
+
+          CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              lock_key       = 'RES_CHECKS'
+            EXCEPTIONS
+              OTHERS         = 0.
+
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_update_precondition
+              var1   = l_var1
+              var2   = l_message.
+        ENDIF.
+
+        CALL FUNCTION '/GAL/JS_CHECK_PRECONDITIONS'
+          EXPORTING
+            rfc_route_info = store_rfc_route_info
+            job_id         = id
+          IMPORTING
+            fulfilled      = l_fulfilled
+          EXCEPTIONS
+            rfc_exception  = 1
+            OTHERS         = 2.
+        IF sy-subrc <> 0.
+          l_var1 = id.
+
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                  INTO l_message.
+
+          CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              lock_key       = 'RES_CHECKS'
+            EXCEPTIONS
+              OTHERS         = 0.
+
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_check_precondition
+              var1   = l_var1
+              var2   = l_message.
+        ENDIF.
+
+
+        IF l_fulfilled IS INITIAL.
+          CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              lock_key       = 'RES_CHECKS'
+            EXCEPTIONS
+              OTHERS         = 0.
+          l_var1 = id.
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>preconditions_not_met
+              var1   = l_var1.
+        ENDIF.
+
+
+        CALL FUNCTION '/GAL/JS_LOCK_RESOURCES'
+          EXPORTING
+            rfc_route_info = store_rfc_route_info
+            job_id         = id
+          EXCEPTIONS
+            rfc_exception  = 1.
+        IF sy-subrc <> 0.
+          l_var1 = id.
+
+          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+                  WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4
+                  INTO l_message.
+
+          CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+            EXPORTING
+              rfc_route_info = store_rfc_route_info
+              lock_key       = 'RES_CHECKS'
+            EXCEPTIONS
+              OTHERS         = 0.
+
+          RAISE EXCEPTION TYPE /gal/cx_js_exception
+            EXPORTING
+              textid = /gal/cx_js_exception=>cannot_lock_resources
+              var1   = l_var1
+              var2   = l_message.
+        ENDIF.
+
+* Set status tu 'running'and update job
+
+        IF uc4_mode = space.
+          change_status( new_status = 'R' ).
+        ELSE.
+          uc4_mode = 'W'.
+        ENDIF.
+
+          TRY.
+              store_to_db( ).
+
+            CATCH /gal/cx_js_exception INTO l_ex.
+              CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+                EXPORTING
+                  rfc_route_info = store_rfc_route_info
+                  lock_key       = 'RES_CHECKS'
+                EXCEPTIONS
+                  OTHERS         = 0.
+
+              dequeue( ).
+
+              RAISE EXCEPTION l_ex.
+
+          ENDTRY.
 
 * End of critical section
 * (this coding may not be executed by multiple processes at the sime time!)
-      CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
-        EXPORTING
-          rfc_route_info = store_rfc_route_info
-          lock_key       = 'RES_CHECKS'
-        EXCEPTIONS
-          OTHERS         = 0.
+        CALL FUNCTION '/GAL/JS_DEQUEUE_JS_LOCK'
+          EXPORTING
+            rfc_route_info = store_rfc_route_info
+            lock_key       = 'RES_CHECKS'
+          EXCEPTIONS
+            OTHERS         = 0.
 
 
-    CATCH /gal/cx_js_missing_resource INTO l_ex_res.
-      TRY.
-          store_to_db( ).
+      CATCH /gal/cx_js_missing_resource INTO l_ex_res.
+        TRY.
+            store_to_db( ).
 
-        CATCH /gal/cx_js_exception INTO l_ex.
-          /gal/trace=>write_exception( exception = l_ex ).
+          CATCH /gal/cx_js_exception INTO l_ex.
+            /gal/trace=>write_exception( exception = l_ex ).
 
-      ENDTRY.
+        ENDTRY.
 
-      dequeue( ).
+        dequeue( ).
 
-      RAISE EXCEPTION l_ex_res.
+        RAISE EXCEPTION l_ex_res.
 
-    CATCH /gal/cx_js_exception INTO l_ex.
-      l_message = l_ex->get_text( ).
+      CATCH /gal/cx_js_exception INTO l_ex.
+        l_message = l_ex->get_text( ).
 
-      /gal/string=>string_to_message_vars( EXPORTING input = l_message
-                                           IMPORTING msgv1 = l_msgv1
-                                                     msgv2 = l_msgv2
-                                                     msgv3 = l_msgv3
-                                                     msgv4 = l_msgv4 ).
+        /gal/string=>string_to_message_vars( EXPORTING input = l_message
+                                             IMPORTING msgv1 = l_msgv1
+                                                       msgv2 = l_msgv2
+                                                       msgv3 = l_msgv3
+                                                       msgv4 = l_msgv4 ).
 
-      DO 0 TIMES. MESSAGE e012(/gal/js) WITH l_msgv1 l_msgv2 l_msgv3 l_msgv4. ENDDO.
+        DO 0 TIMES. MESSAGE e012(/gal/js) WITH l_msgv1 l_msgv2 l_msgv3 l_msgv4. ENDDO.
 
-      set_status_to_error( symsgid = '/GAL/JS'
-                           symsgty = 'E'
-                           symsgno = '012'
-                           symsgv1 = l_msgv1
-                           symsgv2 = l_msgv2
-                           symsgv3 = l_msgv3
-                           symsgv4 = l_msgv4 ).
-      dequeue( ).
+        set_status_to_error( symsgid = '/GAL/JS'
+                             symsgty = 'E'
+                             symsgno = '012'
+                             symsgv1 = l_msgv1
+                             symsgv2 = l_msgv2
+                             symsgv3 = l_msgv3
+                             symsgv4 = l_msgv4 ).
+        dequeue( ).
 
-      RETURN.
+        RETURN.
 
-  ENDTRY.
+    ENDTRY.
 
-  dequeue( ).
+    dequeue( ).
 
 * Schedule job
-  l_rfc_route_info_step2 = /gal/cfw_helper=>rfc_route_info_from_string( destination ).
+    l_rfc_route_info_step2 = /gal/cfw_helper=>rfc_route_info_from_string( destination ).
 
-  CALL FUNCTION '/GAL/JS_RUN_JOBS_ASYNC_PART'
-    EXPORTING
-      rfc_route_info       = store_rfc_route_info
-      rfc_route_info_step2 = l_rfc_route_info_step2
-      js_job_id            = id
-      job_name             = job_name
-    IMPORTING
-      job_count            = job_count
-    EXCEPTIONS
-      OTHERS               = 1.
-  IF sy-subrc <> 0.
-    set_status_to_error( symsgid = sy-msgid
-                         symsgty = sy-msgty
-                         symsgno = sy-msgno
-                         symsgv1 = sy-msgv1
-                         symsgv2 = sy-msgv2
-                         symsgv3 = sy-msgv3
-                         symsgv4 = sy-msgv4 ).
-    RETURN.
-  ENDIF.
-ENDMETHOD.                    "execute
+    CALL FUNCTION '/GAL/JS_RUN_JOBS_ASYNC_PART'
+      EXPORTING
+        rfc_route_info       = store_rfc_route_info
+        rfc_route_info_step2 = l_rfc_route_info_step2
+        js_job_id            = id
+        job_name             = job_name
+        release_sap_job_only = uc4_mode
+      IMPORTING
+        job_count            = job_count
+      EXCEPTIONS
+        OTHERS               = 1.
+    IF sy-subrc <> 0.
+      set_status_to_error( symsgid = sy-msgid
+                           symsgty = sy-msgty
+                           symsgno = sy-msgno
+                           symsgv1 = sy-msgv1
+                           symsgv2 = sy-msgv2
+                           symsgv3 = sy-msgv3
+                           symsgv4 = sy-msgv4 ).
+      RETURN.
+    ENDIF.
+  ENDMETHOD.                    "execute
 
 
-METHOD execute_async.
-  cfw_break_point_support.
-  cfw_break_point `/GAL/JOB=>EXECUTE_ASYNC`.
-ENDMETHOD.
+  METHOD execute_async.
+    cfw_break_point_support.
+    cfw_break_point `/GAL/JOB=>EXECUTE_ASYNC`.
+
+* Set status to 'running'and update job
+
+    IF uc4_mode = 'X' OR uc4_mode = 'W'.
+      change_status( new_status =  'R' ).
+      me->uc4_mode = 'X'.
+      store_to_db( ).
+    ENDIF.
+
+  ENDMETHOD.
 
 
   METHOD get_jobtype_description.
@@ -1235,10 +1415,10 @@ ENDMETHOD.
   METHOD get_predecessor_jobs.
 
     DATA:
-      l_var1             TYPE string,
-      l_message          TYPE string,
-      lt_predec_job_ids  TYPE /gal/tt_job_ids,
-      l_job              TYPE REF TO /gal/job.
+      l_var1            TYPE string,
+      l_message         TYPE string,
+      lt_predec_job_ids TYPE /gal/tt_job_ids,
+      l_job             TYPE REF TO /gal/job.
 
     FIELD-SYMBOLS:
       <l_predec_job_id>  TYPE /gal/job_id.
@@ -1278,38 +1458,41 @@ ENDMETHOD.
   ENDMETHOD.                    "get_predecessor_jobs
 
 
-METHOD get_program_name.
-  program_name = '/GAL/JS_RUN_JOB_ASYNC_PART'.
-ENDMETHOD.
+  METHOD get_program_name.
+    program_name = '/GAL/JS_RUN_JOB_ASYNC_PART'.
+  ENDMETHOD.
 
 
-METHOD init_attrs_create.
-  id = /gal/uuid=>create_char( ).
+  METHOD init_attrs_create.
+    id = /gal/uuid=>create_char( ).
 
-  me->job_name      = job_name.
-  me->destination   = destination.
-  me->auto_continue = auto_continue.
-  me->auto_event    = auto_event.
+    me->job_name      = job_name.
+    me->destination   = destination.
+    me->auto_continue = auto_continue.
+    me->auto_event    = auto_event.
+    me->uc4_mode      = uc4_mode.
 
 * Jobs werden immer im Status 'W' angelegt
-  status = 'I'.
+    status = 'I'.
 
 * Aktueller Zeitstempel als Modifikationszeitpunkt
-  GET TIME STAMP FIELD mod_timestamp.
-ENDMETHOD.                    "init_attrs_create
+    GET TIME STAMP FIELD mod_timestamp.
+  ENDMETHOD.                    "init_attrs_create
 
 
   METHOD init_attrs_from_db.
 
     DATA:
-      l_var1              TYPE string,
-      l_table_line        TYPE /gal/db_datas,
-      l_table_line_elem   TYPE /gal/db_data,
-      l_message           TYPE string,
-      l_xml_ex            TYPE REF TO cx_transformation_error,
-      l_key_value         TYPE string,
-      l_must_be_obsolete  TYPE abap_bool.
+      l_var1             TYPE string,
+      l_table_line       TYPE /gal/db_datas,
+      l_table_line_elem  TYPE /gal/db_data,
+      l_message          TYPE string,
+      l_xml_ex           TYPE REF TO cx_transformation_error,
+      l_key_value        TYPE string,
+      l_must_be_obsolete TYPE abap_bool.
 
+    cfw_break_point_support.
+    cfw_break_point `/GAL/JOB=>INIT_ATTRS_FROM_DB`.
 
     me->id = id.
 
@@ -1440,6 +1623,12 @@ ENDMETHOD.                    "init_attrs_create
     READ TABLE l_table_line WITH KEY attribute = 'AUTO_EVENT' INTO l_table_line_elem.
     IF sy-subrc = 0.
       auto_event = l_table_line_elem-value.
+    ENDIF.
+
+    CLEAR l_table_line_elem.
+    READ TABLE l_table_line WITH KEY attribute = 'UC4_MODE' INTO l_table_line_elem.
+    IF sy-subrc = 0.
+      uc4_mode = l_table_line_elem-value.
     ENDIF.
 
     TRY.
@@ -1931,9 +2120,9 @@ ENDMETHOD.                    "init_attrs_create
   METHOD restart.
 
     DATA:
-      l_var1            TYPE string,
-      l_ex              TYPE REF TO /gal/cx_js_exception,
-      l_message_struct  TYPE /gal/st_message_struct_ts.
+      l_var1           TYPE string,
+      l_ex             TYPE REF TO /gal/cx_js_exception,
+      l_message_struct TYPE /gal/st_message_struct_ts.
 
 
     IF NOT status = 'E'.
@@ -1987,9 +2176,9 @@ ENDMETHOD.                    "init_attrs_create
   METHOD resume.
 
     DATA:
-      l_var1            TYPE string,
-      l_ex              TYPE REF TO /gal/cx_js_exception,
-      l_message_struct  TYPE /gal/st_message_struct_ts.
+      l_var1           TYPE string,
+      l_ex             TYPE REF TO /gal/cx_js_exception,
+      l_message_struct TYPE /gal/st_message_struct_ts.
 
 
     IF NOT status = 'S'.
@@ -2086,35 +2275,35 @@ ENDMETHOD.                    "init_attrs_create
   ENDMETHOD.                    "run_job_scheduler
 
 
-METHOD set_jobdata.
+  METHOD set_jobdata.
 
-  DATA:
-    l_ex       TYPE REF TO /gal/cx_js_exception.
+    DATA:
+      l_ex       TYPE REF TO /gal/cx_js_exception.
 
 
-  enqueue( ).
+    enqueue( ).
 
-  me->job_name = job_name.
-  me->job_count = job_count.
+    me->job_name = job_name.
+    me->job_count = job_count.
 
-  TRY.
-      store_to_db( ).
+    TRY.
+        store_to_db( ).
 
-    CATCH /gal/cx_js_exception INTO l_ex.    " Exception from Job Scheduler
-      dequeue( ).
-      RAISE EXCEPTION l_ex.
-  ENDTRY.
+      CATCH /gal/cx_js_exception INTO l_ex.    " Exception from Job Scheduler
+        dequeue( ).
+        RAISE EXCEPTION l_ex.
+    ENDTRY.
 
-  dequeue( ).
+    dequeue( ).
 
-ENDMETHOD.
+  ENDMETHOD.
 
 
   METHOD set_status_to_error.
 
     DATA:
-      l_message_struct  TYPE /gal/st_message_struct_ts,
-      l_ex              TYPE REF TO /gal/cx_js_exception.
+      l_message_struct TYPE /gal/st_message_struct_ts,
+      l_ex             TYPE REF TO /gal/cx_js_exception.
 
     TRY.
         enqueue( ).
@@ -2172,29 +2361,29 @@ ENDMETHOD.
   ENDMETHOD.                    "set_status_to_error
 
 
-METHOD set_status_to_obsolete.
+  METHOD set_status_to_obsolete.
 
-  DATA:
-    l_ex TYPE REF TO /gal/cx_js_exception.
+    DATA:
+      l_ex TYPE REF TO /gal/cx_js_exception.
 
 
-  enqueue( ).
+    enqueue( ).
 
-  change_status(
-    EXPORTING
-      new_status = 'O'
-  ).
+    change_status(
+      EXPORTING
+        new_status = 'O'
+    ).
 
-  TRY.
-      store_to_db( ).
-    CATCH /gal/cx_js_exception INTO l_ex.
-      dequeue( ).
-      RAISE EXCEPTION l_ex.
-  ENDTRY.
+    TRY.
+        store_to_db( ).
+      CATCH /gal/cx_js_exception INTO l_ex.
+        dequeue( ).
+        RAISE EXCEPTION l_ex.
+    ENDTRY.
 
-  dequeue( ).
+    dequeue( ).
 
-ENDMETHOD.
+  ENDMETHOD.
 
 
   METHOD store_to_db.
@@ -2269,6 +2458,10 @@ ENDMETHOD.
 
     l_table_line_elem-attribute = 'AUTO_EVENT'.
     l_table_line_elem-value = auto_event.
+    INSERT l_table_line_elem INTO TABLE lt_table_line.
+
+    l_table_line_elem-attribute = 'UC4_MODE'.
+    l_table_line_elem-value = uc4_mode.
     INSERT l_table_line_elem INTO TABLE lt_table_line.
 
     TRY.

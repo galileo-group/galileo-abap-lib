@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/REST_REQUEST</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Request for a Rest HTTP Webservices</DESCRIPT>
     <STATE>1</STATE>

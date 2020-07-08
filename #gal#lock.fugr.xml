@@ -4,7 +4,6 @@
   <asx:values>
    <AREAT>Lock Management</AREAT>
    <INCLUDES>
-    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
     <SOBJ_NAME>/GAL/LLOCKTOP</SOBJ_NAME>
     <SOBJ_NAME>/GAL/SAPLLOCK</SOBJ_NAME>
    </INCLUDES>
@@ -71,55 +70,46 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LOCK_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Lock ID</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CLIENT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SESSION_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Session ID</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LOCK_TIMEOUT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Lock timeout (in seconds)</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>WAIT_TIMEOUT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Wait timeout (in seconds)</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Additional Information</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_ACQUIRE_LOCK</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot acquire lock</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC exception</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -162,31 +152,26 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LOCK_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Lock ID</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CLIENT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Synchronization timestamp</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC exception</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -236,37 +221,31 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LOCK_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Lock ID</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CLIENT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SESSION_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Session ID</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FORCE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Force release (even if foreign lock!)</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC exception</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -308,31 +287,26 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LOCK_ID</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Lock ID</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CLIENT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Client</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SYNC_TIMESTAMP</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Synchronization timestamp</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC exception</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

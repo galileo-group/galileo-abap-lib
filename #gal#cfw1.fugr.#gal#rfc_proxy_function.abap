@@ -1,6 +1,6 @@
-FUNCTION /gal/rfc_proxy_function.
+FUNCTION /GAL/RFC_PROXY_FUNCTION.
 *"----------------------------------------------------------------------
-*"*"Lokale Schnittstelle:
+*"*"Local Interface:
 *"  IMPORTING
 *"     VALUE(FUNCTION_NAME) TYPE  STRING
 *"     VALUE(PARAMETERS_IN) TYPE  STRING
@@ -18,13 +18,14 @@ FUNCTION /gal/rfc_proxy_function.
 *"----------------------------------------------------------------------
 
   STATICS:
-    ls_config_flag         TYPE abap_bool VALUE abap_false,
-    ls_trace_flag          type abap_bool value abap_false.
+    ls_config_flag    TYPE abap_bool VALUE abap_false,
+    ls_trace_flag     TYPE abap_bool VALUE abap_false,
+    lt_cs_only_functs TYPE /gal/central_sys_only_functs.
 
   DATA:
     l_config_store            TYPE REF TO /gal/config_store_local,
-    l_config_folder           TYPE REF TO /gal/config_node,
     l_config_node             TYPE REF TO /gal/config_node,
+    l_ex_config               TYPE REF TO /gal/cx_config_exception,
 
     l_exception               TYPE REF TO cx_root,
 
@@ -65,7 +66,8 @@ FUNCTION /gal/rfc_proxy_function.
     l_sysubrc                 TYPE sysubrc,
     l_param_bindings_des      TYPE abap_bool,
     l_context_data_set        TYPE abap_bool,
-    l_syscli_id(7)            TYPE c.
+    l_syscli_id(7)            TYPE c,
+    l_function_name           TYPE funcname.
 
   FIELD-SYMBOLS:
     <l_rfc_route_step_info> TYPE /gal/rfc_route_step_info,
@@ -83,13 +85,15 @@ FUNCTION /gal/rfc_proxy_function.
     TRY.
         CREATE OBJECT l_config_store.
 
-        l_config_folder = l_config_store->get_node( path = `/Galileo Group AG/Open Source Components/Communication Framework` ). "#EC NOTEXT
-        l_config_node = l_config_folder->get_child_node( `Detailed Tracing` ). "#EC NOTEXT
+        l_config_node = l_config_store->get_node( path = `/Galileo Group AG/Open Source Components/Communication Framework/Detailed Tracing` ). "#EC NOTEXT
         l_config_node->get_value( EXPORTING default_value = abap_false
                                   IMPORTING value         = ls_trace_flag ).
 
-      CATCH /gal/cx_config_exception.                   "#EC NO_HANDLER
-        "Nothing needs to be done here. Default values are used.
+        l_config_node = l_config_store->get_node( path = `/Galileo Group AG/Open Source Components/Communication Framework/Security/Central System Only Functions` ). "#EC NOTEXT
+        l_config_node->get_value( IMPORTING value = lt_cs_only_functs ).
+
+      CATCH /gal/cx_config_exception INTO l_ex_config.  "#EC NO_HANDLER
+        /gal/trace=>write_exception( exception = l_ex_config ).
     ENDTRY.
 
     ls_config_flag = abap_true.
@@ -165,6 +169,16 @@ FUNCTION /gal/rfc_proxy_function.
                 ENDIF.
                 IF l_last_auth_active = abap_false.
                   MESSAGE e014 WITH l_init_caller_sysysid RAISING authority_integrity_failed.
+                ENDIF.
+
+
+
+                IF l_init_caller_sysysid NE sy-sysid.
+                  l_function_name = function_name.
+                  READ TABLE lt_cs_only_functs WITH KEY table_line = l_function_name TRANSPORTING NO FIELDS.
+                  IF sy-subrc = 0.
+                    MESSAGE e022 WITH function_name RAISING no_authorization.
+                  ENDIF.
                 ENDIF.
 
                 /gal/cfw_auth=>check_rfc_context_external(

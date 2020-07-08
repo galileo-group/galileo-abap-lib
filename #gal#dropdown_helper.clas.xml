@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/DROPDOWN_HELPER</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Helper class for initializing dropdown fields (Listboxes)</DESCRIPT>
     <STATE>1</STATE>

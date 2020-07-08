@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>/GAL/UC4_MODE</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>/GAL/UC4_MODE</DOMNAME>
+    <HEADLEN>10</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>10</SCRLEN2>
+    <SCRLEN3>10</SCRLEN3>
+    <DDTEXT>UC4 mode Status for Job</DDTEXT>
+    <REPTEXT>UC4 mode</REPTEXT>
+    <SCRTEXT_S>UC4 mode</SCRTEXT_S>
+    <SCRTEXT_M>UC4 mode</SCRTEXT_M>
+    <SCRTEXT_L>UC4 mode</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>UC4-Modus Status für Job</DDTEXT>
+     <REPTEXT>UC4-Modus</REPTEXT>
+     <SCRTEXT_S>UC4-Modus</SCRTEXT_S>
+     <SCRTEXT_M>UC4-Modus</SCRTEXT_M>
+     <SCRTEXT_L>UC4-Modus</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

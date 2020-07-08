@@ -109,6 +109,7 @@
      <AS4LOCAL>A</AS4LOCAL>
      <DDLANGUAGE>E</DDLANGUAGE>
      <UNIQUEFLAG>X</UNIQUEFLAG>
+     <DBINDEX>/GAL/CONFIG_KEY~PA</DBINDEX>
      <DDTEXT>Index: Configuration keys by parent IDs and name</DDTEXT>
     </DD12V>
    </DD12V>

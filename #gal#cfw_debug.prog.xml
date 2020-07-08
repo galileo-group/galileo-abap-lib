@@ -4,8 +4,6 @@
   <asx:values>
    <PROGDIR>
     <NAME>/GAL/CFW_DEBUG</NAME>
-    <STATE>A</STATE>
-    <VARCL>X</VARCL>
     <SUBC>1</SUBC>
     <APPL>S</APPL>
     <RSTAT>K</RSTAT>

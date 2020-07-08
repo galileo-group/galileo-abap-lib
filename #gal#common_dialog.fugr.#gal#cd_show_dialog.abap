@@ -1,4 +1,4 @@
-FUNCTION /gal/cd_show_dialog.
+FUNCTION /GAL/CD_SHOW_DIALOG.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
@@ -122,6 +122,10 @@ FUNCTION /gal/cd_show_dialog.
   ELSE.
     g_dynp_01xx-options_style = /gal/common_dialog=>dlg_options_style_none.
   ENDIF.
+
+  l_wa_subscreens-program   = sy-repid.
+  l_wa_subscreens-dynpro_no = '0600'.
+  INSERT l_wa_subscreens INTO TABLE l_subscreens.
 
 * Process dialog style (buttons)
   CASE style.

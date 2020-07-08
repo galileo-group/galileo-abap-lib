@@ -4,7 +4,6 @@
   <asx:values>
    <AREAT>Functions for Job Manager</AREAT>
    <INCLUDES>
-    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
     <SOBJ_NAME>/GAL/LJOBMAN1TOP</SOBJ_NAME>
     <SOBJ_NAME>/GAL/SAPLJOBMAN1</SOBJ_NAME>
    </INCLUDES>
@@ -36,18 +35,15 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LATEST_MOD_TIMESTAMP</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Only delete before this timestamp</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 003</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -91,30 +87,25 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LATEST_MOD_TIMESTAMP</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Only delete before this timestamp</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ONLY_OF</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Only find Obsolete and Finished Jobs</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>JOB_IDS</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Table with job IDs</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>

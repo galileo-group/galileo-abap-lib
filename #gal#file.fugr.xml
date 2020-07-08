@@ -4,7 +4,6 @@
   <asx:values>
    <AREAT>Access to file system</AREAT>
    <INCLUDES>
-    <SOBJ_NAME>/GAL/CFW_MACROS</SOBJ_NAME>
     <SOBJ_NAME>/GAL/LFILETOP</SOBJ_NAME>
     <SOBJ_NAME>/GAL/SAPLFILE</SOBJ_NAME>
    </INCLUDES>
@@ -38,25 +37,21 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FULL_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_DELETE_FILE</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot delete file</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -114,49 +109,41 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>PATH</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Directory path</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>GENERIC_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>File Name</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FILTER</PARAMETER>
        <KIND>P</KIND>
        <STEXT>filter for returning file-list</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MAX_ENTRIES</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Maximum number of entries to be returned</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CONTENT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Directory content</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC communication failed</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IO_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>IO error</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -193,24 +180,20 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Route information</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>SEPARATOR</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Directory separator</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CASE_SENSISTIVE_PATH</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Flag: Path is case sensitive</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
-       <INDEX> 004</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -250,31 +233,26 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FULL_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LENGTH</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Maximum amount of data to read (Binary mode: Bytes, Text mode: Lines)</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_GET_LENGTH</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot get file length</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -314,31 +292,26 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FULL_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LINE_BREAK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Line break style (text mode only)</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_GET_LINE_BREAK_STYLE</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot get line break style</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -408,61 +381,51 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FULL_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MODE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Mode</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LINE_BREAK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Line break style (text mode only)</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>POSITION</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Starting position (Binary mode: Bytes, Text mode: Lines)</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LENGTH</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Maximum amount of data to read (Binary mode: Bytes, Text mode: Lines)</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DATA_BIN</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Binary data (in case of binary mode)</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DATA_TXT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Text data (in case of text mode)</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_READ_FILE</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot read file</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
-       <INDEX> 010</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -523,59 +486,74 @@
        <PARAMETER>RFC_ROUTE_INFO</PARAMETER>
        <KIND>P</KIND>
        <STEXT>RFC Routeninformationen</STEXT>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FULL_NAME</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Full file name</STEXT>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>MODE</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Mode</STEXT>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>OPTIONS</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Options</STEXT>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>LINE_BREAK</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Line break style (text mode only)</STEXT>
-       <INDEX> 005</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DATA_BIN</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Binary data (in case of binary mode)</STEXT>
-       <INDEX> 006</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>DATA_TXT</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Text data (in case of text mode)</STEXT>
-       <INDEX> 007</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CANNOT_WRITE_FILE</PARAMETER>
        <KIND>X</KIND>
        <STEXT>Cannot write file</STEXT>
-       <INDEX> 008</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>RFC_EXCEPTION</PARAMETER>
        <KIND>X</KIND>
        <STEXT>RFC Fehler</STEXT>
-       <INDEX> 009</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
    </FUNCTIONS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>000</KEY>
+       <ENTRY>Keine Datei ausgewählt.</ENTRY>
+       <LENGTH>30</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+    <item>
+     <LANGUAGE>P</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>000</KEY>
+       <ENTRY>No file selected.</ENTRY>
+       <LENGTH>30</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
    <CUA>
     <ADM>
      <PFKCODE>000001</PFKCODE>

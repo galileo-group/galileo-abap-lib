@@ -4,8 +4,6 @@
   <asx:values>
    <PROGDIR>
     <NAME>/GAL/JOB_MONITOR_S_PBO</NAME>
-    <STATE>A</STATE>
-    <VARCL>X</VARCL>
     <SUBC>I</SUBC>
     <RSTAT>K</RSTAT>
     <RLOAD>E</RLOAD>

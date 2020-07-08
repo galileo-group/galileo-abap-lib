@@ -65,6 +65,17 @@ FORM main USING p_package_range  TYPE /gal/abap_repository=>t_package_range
 
   DATA l_regex          TYPE string.
 
+* Check display authority
+  AUTHORITY-CHECK OBJECT 'S_DEVELOP'
+    ID 'ACTVT'      FIELD '03'
+    ID 'OBJTYPE'    DUMMY
+    ID 'OBJNAME'    DUMMY
+    ID 'DEVCLASS'   DUMMY
+    ID 'P_GROUP'    DUMMY.
+  IF sy-subrc <> 0.
+    MESSAGE e676(00).
+  ENDIF.
+
 * Convert pattern to regular expression
   IF p_is_wildcard = abap_true.
     l_regex = /gal/regex=>abap_wildcard_to_regex( input        = p_pattern

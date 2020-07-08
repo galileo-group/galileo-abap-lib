@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/CONFIG_NODE_AUTHENTICATOR</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Configuration Node: Base class for authenticator impl.</DESCRIPT>
     <STATE>1</STATE>

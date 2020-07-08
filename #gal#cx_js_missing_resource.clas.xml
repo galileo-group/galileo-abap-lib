@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/CX_JS_MISSING_RESOURCE</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Job Scheduler: A required resource could not be allocated</DESCRIPT>
     <CATEGORY>40</CATEGORY>
@@ -15,34 +14,6 @@
     <RSTAT>K</RSTAT>
    </VSEOCLASS>
    <SOTR>
-    <item>
-     <HEADER>
-      <CONCEPT>E38A7036B453A4F1BF5100155D012203</CONCEPT>
-      <CREA_LAN>E</CREA_LAN>
-      <TRALA_TYPE>1</TRALA_TYPE>
-      <OBJID_VEC>CA==</OBJID_VEC>
-     </HEADER>
-     <ENTRIES>
-      <SOTR_TEXT>
-       <CONCEPT>E38A7036B453A4F1BF5100155D012203</CONCEPT>
-       <LANGU>D</LANGU>
-       <LFD_NUM>0001</LFD_NUM>
-       <FLAG_CNTXT>X</FLAG_CNTXT>
-       <STATUS>R</STATUS>
-       <LENGTH>255</LENGTH>
-       <TEXT>Eine benötigte Ressource konnte nicht gesperrt werden</TEXT>
-      </SOTR_TEXT>
-      <SOTR_TEXT>
-       <CONCEPT>E38A7036B453A4F1BF5100155D012203</CONCEPT>
-       <LANGU>E</LANGU>
-       <LFD_NUM>0001</LFD_NUM>
-       <FLAG_CNTXT>X</FLAG_CNTXT>
-       <STATUS>R</STATUS>
-       <LENGTH>255</LENGTH>
-       <TEXT>A required resource could not be allocated</TEXT>
-      </SOTR_TEXT>
-     </ENTRIES>
-    </item>
     <item>
      <HEADER>
       <CONCEPT>E38A7036B453A5F1BF5100155D012203</CONCEPT>

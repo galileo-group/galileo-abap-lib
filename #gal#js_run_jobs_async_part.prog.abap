@@ -13,6 +13,13 @@ TYPE-POOLS abap.
 PARAMETERS p_job_id TYPE /gal/job_id NO-DISPLAY.
 
 START-OF-SELECTION.
+
+  AUTHORITY-CHECK OBJECT 'S_BTCH_JOB'
+    ID 'JOBACTION' FIELD 'RELE'
+    ID 'JOBGROUP'  FIELD '*'.
+  IF sy-subrc <> 0.
+    MESSAGE e676(00).
+  ENDIF.
   PERFORM main.
 
 *&---------------------------------------------------------------------*

@@ -8,15 +8,15 @@ public section.
 
   constants /GAL/CX_EXCEPTION type SOTR_CONC value '00155DF935091ED8A1B67279507DD6BB'. "#EC NOTEXT
   constants CUSTOM_EXCEPTION type SOTR_CONC value '00155DF935091ED8A1B67C695C91D6BB'. "#EC NOTEXT
-  data VAR1 type STRING .
-  data VAR2 type STRING .
-  data VAR3 type STRING .
-  data VAR4 type STRING .
-  data VAR5 type STRING .
-  data VAR6 type STRING .
-  data VAR7 type STRING .
-  data VAR8 type STRING .
-  data VAR9 type STRING .
+  data VAR1 type STRING read-only .
+  data VAR2 type STRING read-only .
+  data VAR3 type STRING read-only .
+  data VAR4 type STRING read-only .
+  data VAR5 type STRING read-only .
+  data VAR6 type STRING read-only .
+  data VAR7 type STRING read-only .
+  data VAR8 type STRING read-only .
+  data VAR9 type STRING read-only .
 
   class-methods CREATE_FROM_CLASSIC_EXCEPTION
     importing

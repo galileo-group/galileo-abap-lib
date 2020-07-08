@@ -4,7 +4,6 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>/GAL/COMMON_DIALOG</CLSNAME>
-    <VERSION>1</VERSION>
     <LANGU>E</LANGU>
     <DESCRIPT>Provides a collection of method to display dialog boxes</DESCRIPT>
     <STATE>1</STATE>
