@@ -1,6 +1,6 @@
 FUNCTION /gal/js_get_jobs.
 *"----------------------------------------------------------------------
-*"*"Lokale Schnittstelle:
+*"*"Local Interface:
 *"  IMPORTING
 *"     REFERENCE(RFC_ROUTE_INFO) TYPE  /GAL/RFC_ROUTE_INFO
 *"     REFERENCE(NAME) TYPE  BTCJOB
@@ -13,6 +13,7 @@ FUNCTION /gal/js_get_jobs.
 *"     REFERENCE(STATUS_E) TYPE  ABAP_BOOL
 *"     REFERENCE(TYPE_I) TYPE  ABAP_BOOL
 *"     REFERENCE(TYPE_S) TYPE  ABAP_BOOL
+*"     REFERENCE(TYPE_P) TYPE  ABAP_BOOL
 *"     REFERENCE(FROM) TYPE  TIMESTAMP
 *"     REFERENCE(TILL) TYPE  TIMESTAMP
 *"     REFERENCE(JOB_ID) TYPE  /GAL/JOB_ID
@@ -44,7 +45,7 @@ FUNCTION /gal/js_get_jobs.
     RETURN.
   ENDIF.
 
-  IF type_i EQ abap_false AND type_s EQ abap_false.
+  IF type_i EQ abap_false AND type_s EQ abap_false AND type_p EQ abap_false.
     RETURN.
   ENDIF.
 
@@ -72,7 +73,7 @@ FUNCTION /gal/js_get_jobs.
     SHIFT l_status BY 4 PLACES LEFT.
   ENDIF.
 
-  IF type_i EQ abap_true AND type_s EQ abap_true.
+  IF type_i EQ abap_true AND type_s EQ abap_true AND type_p EQ abap_true.
     l_type = ``.
   ELSE.
     IF type_i EQ abap_true.
@@ -80,6 +81,9 @@ FUNCTION /gal/js_get_jobs.
     ENDIF.
     IF type_s EQ abap_true.
       CONCATENATE l_type ` OR classname = '/GAL/JOB_SAP'` INTO l_type.      "#EC NOTEXT
+    ENDIF.
+    IF type_p EQ abap_true.
+      CONCATENATE l_type ` OR classname = '/GAL/CCM_JOB_STPI'` INTO l_type.      "#EC NOTEXT
     ENDIF.
     SHIFT l_type BY 4 PLACES LEFT.
   ENDIF.

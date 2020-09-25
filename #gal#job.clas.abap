@@ -1472,7 +1472,7 @@ CLASS /gal/job IMPLEMENTATION.
     me->auto_event    = auto_event.
     me->uc4_mode      = uc4_mode.
 
-* Jobs werden immer im Status 'W' angelegt
+* Jobs werden immer im Status 'I' angelegt
     status = 'I'.
 
 * Aktueller Zeitstempel als Modifikationszeitpunkt

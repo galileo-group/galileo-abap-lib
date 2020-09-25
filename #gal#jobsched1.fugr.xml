@@ -1523,6 +1523,11 @@
        <TYP>ABAP_BOOL</TYP>
       </RSIMP>
       <RSIMP>
+       <PARAMETER>TYPE_P</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ABAP_BOOL</TYP>
+      </RSIMP>
+      <RSIMP>
        <PARAMETER>FROM</PARAMETER>
        <REFERENCE>X</REFERENCE>
        <TYP>TIMESTAMP</TYP>
@@ -1605,6 +1610,11 @@
        <PARAMETER>TYPE_S</PARAMETER>
        <KIND>P</KIND>
        <STEXT>Job type flag S</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TYPE_P</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Job type flag P</STEXT>
       </RSFDO>
       <RSFDO>
        <PARAMETER>FROM</PARAMETER>

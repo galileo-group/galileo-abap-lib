@@ -77,6 +77,15 @@
      <FIELDNAME>JOB_ID</FIELDNAME>
     </DD17V>
    </DD17V>
+   <I18N_LANGS>
+    <LANGU>P</LANGU>
+   </I18N_LANGS>
+   <DD02_TEXTS>
+    <item>
+     <DDLANGUAGE>P</DDLANGUAGE>
+     <DDTEXT>Job data: Preconditions for Jobs</DDTEXT>
+    </item>
+   </DD02_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

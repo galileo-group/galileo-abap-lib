@@ -286,6 +286,7 @@ FORM pbo_0102_init.
 
     g_dynp_0102-cb_type_i = abap_true.
     g_dynp_0102-cb_type_s = abap_true.
+    g_dynp_0102-cb_type_p = abap_true.
 
     g_dynp_0102-cb_status_i = abap_true.
     g_dynp_0102-cb_status_w = abap_true.
@@ -465,6 +466,7 @@ FORM  pbo_0102_load_data_into_grid .
       status_e       = g_dynp_0102-cb_status_e
       type_i         = g_dynp_0102-cb_type_i
       type_s         = g_dynp_0102-cb_type_s
+      type_p         = g_dynp_0102-cb_type_p
       from           = l_from
       till           = l_till
       job_id         = g_dynp_0102-tv_job_id

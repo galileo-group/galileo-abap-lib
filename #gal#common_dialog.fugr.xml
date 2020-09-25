@@ -680,47 +680,47 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_01xx.</LINE>
+       <LINE>  MODULE initialize_01xx.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen01</LINE>
+       <LINE>  CALL SUBSCREEN subscreen01</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen01-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen01-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen01-dynpro_no.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW/>
-      <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen02</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen02-program</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen02-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen01-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen03</LINE>
+       <LINE>  CALL SUBSCREEN subscreen02</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen03-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen02-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen03-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen02-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen04</LINE>
+       <LINE>  CALL SUBSCREEN subscreen03</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen04-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen03-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen04-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen03-dynpro_no.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN subscreen04</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen04-program</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>                 g_dynp_01xx-subscreen04-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW/>
@@ -728,58 +728,26 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE exit_01xx AT EXIT-COMMAND.</LINE>
+       <LINE>  MODULE exit_01xx AT EXIT-COMMAND.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen01.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen01.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen02.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen02.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen03.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen03.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen04.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen04.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>MODULE process_user_command_01xx.</LINE>
+       <LINE>  MODULE process_user_command_01xx.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-      <item>2</item>
-      <item>2</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -870,47 +838,47 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_01xx.</LINE>
+       <LINE>  MODULE initialize_01xx.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen01</LINE>
+       <LINE>  CALL SUBSCREEN subscreen01</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen01-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen01-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen01-dynpro_no.</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW/>
-      <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen02</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen02-program</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen02-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen01-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen03</LINE>
+       <LINE>  CALL SUBSCREEN subscreen02</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen03-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen02-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen03-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen02-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen04</LINE>
+       <LINE>  CALL SUBSCREEN subscreen03</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>INCLUDING g_dynp_01xx-subscreen04-program</LINE>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen03-program</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>g_dynp_01xx-subscreen04-dynpro_no.</LINE>
+       <LINE>                 g_dynp_01xx-subscreen03-dynpro_no.</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW/>
+      <RPY_DYFLOW>
+       <LINE>  CALL SUBSCREEN subscreen04</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>       INCLUDING g_dynp_01xx-subscreen04-program</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>                 g_dynp_01xx-subscreen04-dynpro_no.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW/>
@@ -918,58 +886,26 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE exit_01xx AT EXIT-COMMAND.</LINE>
+       <LINE>  MODULE exit_01xx AT EXIT-COMMAND.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen01.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen01.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen02.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen02.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen03.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen03.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>CALL SUBSCREEN subscreen04.</LINE>
+       <LINE>  CALL SUBSCREEN subscreen04.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>MODULE process_user_command_01xx.</LINE>
+       <LINE>  MODULE process_user_command_01xx.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>2</item>
-      <item>7</item>
-      <item>17</item>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-      <item>2</item>
-      <item>2</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1196,20 +1132,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0200.</LINE>
+       <LINE>  MODULE initialize_0200.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1264,20 +1193,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0300.</LINE>
+       <LINE>  MODULE initialize_0300.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1334,20 +1256,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0301.</LINE>
+       <LINE>  MODULE initialize_0301.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1422,20 +1337,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0302.</LINE>
+       <LINE>  MODULE initialize_0302.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1511,20 +1419,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0303.</LINE>
+       <LINE>  MODULE initialize_0303.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1620,20 +1521,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0304.</LINE>
+       <LINE>  MODULE initialize_0304.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1705,20 +1599,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0305.</LINE>
+       <LINE>  MODULE initialize_0305.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1807,20 +1694,13 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0306.</LINE>
+       <LINE>  MODULE initialize_0306.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1903,28 +1783,19 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0400.</LINE>
+       <LINE>  MODULE initialize_0400.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD g_dynp_0400-input</LINE>
+       <LINE>  FIELD g_dynp_0400-input</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE get_value_0400.</LINE>
+       <LINE>    MODULE get_value_0400.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>4</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -1988,28 +1859,19 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0401.</LINE>
+       <LINE>  MODULE initialize_0401.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD g_dynp_0401-input</LINE>
+       <LINE>  FIELD g_dynp_0401-input</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE get_value_0401.</LINE>
+       <LINE>    MODULE get_value_0401.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>4</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -2376,24 +2238,16 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0500.</LINE>
+       <LINE>  MODULE initialize_0500.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE get_options_0500.</LINE>
+       <LINE>  MODULE get_options_0500.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -2769,24 +2623,16 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_0501.</LINE>
+       <LINE>  MODULE initialize_0501.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE get_options_0501.</LINE>
+       <LINE>  MODULE get_options_0501.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -2850,13 +2696,6 @@
        <LINE>* MODULE USER_COMMAND_0600.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -2898,12 +2737,6 @@
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-      <item>0</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -3016,48 +2849,33 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_2000.</LINE>
+       <LINE>  MODULE initialize_2000.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE exit_2000 AT EXIT-COMMAND.</LINE>
+       <LINE>  MODULE exit_2000 AT EXIT-COMMAND.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>CHAIN.</LINE>
+       <LINE>  CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD g_dynp_2000-selected_file.</LINE>
+       <LINE>    FIELD g_dynp_2000-selected_file.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD g_dynp_2000-file_type.</LINE>
+       <LINE>    FIELD g_dynp_2000-file_type.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
-       <LINE>MODULE process_user_command_2000.</LINE>
+       <LINE>    MODULE process_user_command_2000.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>ENDCHAIN.</LINE>
+       <LINE>  ENDCHAIN.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>2</item>
-      <item>4</item>
-      <item>4</item>
-      <item>0</item>
-      <item>4</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -3261,23 +3079,16 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE initialize_3000.</LINE>
+       <LINE>  MODULE initialize_3000.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>MODULE process_user_command_3000.</LINE>
+       <LINE>  MODULE process_user_command_3000.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
    </DYNPROS>
    <CUA>

@@ -97,6 +97,7 @@ DATA BEGIN OF g_dynp_0102.
 DATA:
   cb_type_i         TYPE abap_bool,
   cb_type_s         TYPE abap_bool,
+  cb_type_p         TYPE abap_bool,
 
   cb_status_i       TYPE abap_bool,
   cb_status_w       TYPE abap_bool,
@@ -278,6 +279,7 @@ CLASS lcl_jm_event_receiver IMPLEMENTATION.
         g_dynp_0102-cb_status_e = abap_true.
         g_dynp_0102-cb_type_i = abap_true.
         g_dynp_0102-cb_type_s = abap_true.
+        g_dynp_0102-cb_type_p = abap_true.
         g_dynp_0102-tv_job_id = g_dynp_0101-job_resource_data-job_id.
 
         g_dynp_0100-subscr_dynpro = '0102'.

@@ -42,7 +42,51 @@
       </SOTR_TEXT>
      </ENTRIES>
     </item>
+    <item>
+     <HEADER>
+      <CONCEPT>00155DF935091ED798CA1305899516A9</CONCEPT>
+      <CREA_LAN>E</CREA_LAN>
+      <TRALA_TYPE>1</TRALA_TYPE>
+      <OBJID_VEC>CA==</OBJID_VEC>
+     </HEADER>
+     <ENTRIES>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED798CA1305899516A9</CONCEPT>
+       <LANGU>D</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>Eine Ausnahme ist im Konfigurationsspeicher aufgetreten, da für einen Knoten kein Wert definiert wurde</TEXT>
+      </SOTR_TEXT>
+      <SOTR_TEXT>
+       <CONCEPT>00155DF935091ED798CA1305899516A9</CONCEPT>
+       <LANGU>E</LANGU>
+       <LFD_NUM>0001</LFD_NUM>
+       <FLAG_CNTXT>X</FLAG_CNTXT>
+       <STATUS>R</STATUS>
+       <LENGTH>255</LENGTH>
+       <TEXT>An exception occured in configuration store because no value has been defined for a node</TEXT>
+      </SOTR_TEXT>
+     </ENTRIES>
+    </item>
    </SOTR>
+   <SOTR_USE>
+    <SOTR_USE>
+     <PGMID>LIMU</PGMID>
+     <OBJECT>CPUB</OBJECT>
+     <OBJ_NAME>/GAL/CX_CONFIG_EX_NO_VALUE</OBJ_NAME>
+     <CONCEPT>00155DF935091ED798CA102E25FDF6A9</CONCEPT>
+     <LFD_NUM>0001</LFD_NUM>
+    </SOTR_USE>
+    <SOTR_USE>
+     <PGMID>LIMU</PGMID>
+     <OBJECT>CPUB</OBJECT>
+     <OBJ_NAME>/GAL/CX_CONFIG_EX_NO_VALUE</OBJ_NAME>
+     <CONCEPT>00155DF935091ED798CA1305899516A9</CONCEPT>
+     <LFD_NUM>0001</LFD_NUM>
+    </SOTR_USE>
+   </SOTR_USE>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CLSNAME>/GAL/CX_CONFIG_EX_NO_VALUE</CLSNAME>
